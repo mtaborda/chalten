@@ -77,7 +77,7 @@ The model also provides behavior to obtain the distance between time entities li
 
 ##What are the units that the model provides?
 This model uses Aconcagua (http://github.com/mtaborda/aconcagua) to manage measures and time units.
-The provided units are: month, year, decade, century, millennium, millisecond, second, minute, hour, day, week
+The provided units are: month, year, decade, century, millennium, millisecond, second, minute, hour, day, week.
 New units can be created as needed.
 
 ##How do I move from one point to another?
