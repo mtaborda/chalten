@@ -1,4 +1,4 @@
-chalten
+Chaltén
 =======
 ##Why a new model of Dates?
 This model was created due to the Smalltalk-80's model problems. That model does not provide good solutions to all possible time related problems mainly because:
@@ -63,4 +63,49 @@ Not only points on the time line can be compared. Instances of Day, DayOfMonth a
     Monday < Tuesday.                     “Comparing days”
     January < December.                   “Comparing months”
     January first < December twentyFifth. “Comparing days of month”
+
+##How do I get the distance beetween two time entities?
+Messages #distanceTo: aPointInTime and #distanceFrom: aPointInTime are used to obtain the distance between two points.
+The same messages are used polymorphically for years, months of a year, dates, etc.
+The model also provides behavior to obtain the distance between time entities like days, months and days of months.
+
+    (GregorianCalendar newYearNumber: 2014) distanceTo: (GregorianCalendar newYearNumber: 2016). “Returns 2 years”
+    (GregorianCalendar newYearNumber: 2014) distanceTo: (GregorianCalendar newYearNumber: 2010). “Returns -4 years”
+    
+    January first, 2014 distanceTo: January tenth, 2014.   “Returns 10 days”
+    January first, 2014 distanceFrom: January tenth, 2014. ”Returns -10 days”
+
+##What are the units that the model provides?
+This model uses Aconcagua (http://github.com/mtaborda/aconcagua) to manage measures and time units.
+The provided units are: month, year, decade, century, millennium, millisecond, second, minute, hour, day, week
+New units can be created as needed.
+
+##How do I move from one point to another?
+The model provides the #next, #next: aTimeMeasure, #previous and #previous: aTimeMeasure messages to move certain distance to and from a given point. #next and #previous messages assume that the distance to move is equal to the quantum of the timeline the point receiving the message belongs to. If the point is a year, the quantum is 1 year, if the point is a month of a year the quantum is 1 month, if the point is a date the quantum is 1 day and if the point is a datetime the quantum is 1 millisecond.
+Moving certain distance to or from a point expects a measure of time as parameter because the distance between two points is expressed as a measure of time.
+
+    (GregorianCalendar newYearNumber: 2014) next.              “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 1 year.      “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 12 months.   “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 10 years.    “Returns the gregorian year number 2024”
+    (GregorianCalendar newYearNumber: 2014) previous: 5 years. “Returns the gregorian year number 2009”
+
+##Is there a way to represent timeline segments?
+The class TimeSpan represents timeline segments. A segment begins on a specific point of the timeline and has certain duration and direction expressed as a measure. The starting point of a time span can be a point at any of the timeline resolutions. The duration and direction is given by a time measure that should be convertible to the unit of the scale the starting point belongs to. If the measure is positive, the direction is towards the end of time, if the measure is negative, the direction is towards the beginning of time.
+Timespans are useful to represent relative time entities where the beginning of such an entity is known, but the end is not exactly known or can change. Examples of such entities are “I’ll see you in 10 working days from today” or “it happened 7 months before January”. Timespans are important to represent relative time entities such as relative dates which are explain further on.
+Timespans can also be used with time objects that are not part of the timeline but have an order such as days, months and day of months.
+
+    “Creates a timespan from January 1st, 2014 with 72 hours of duration”
+    timespan := TimeSpan from: (January first, 2014) duration: 72 hours.
+    timespan to. “Returns January 4th, 2005”
+
+    “Creates a timespan from year 2014 with a duration of 4 years”
+    timespan := TimeSpan from: (GregorianCalendar newYearNumber: 2014) duration: 4 years.
+    timespan to. “Returns year 2018”
+
+    “Creates a timespan from now with a length of 3 weeks toward the beginning of time”
+    timespan := TimeSpan from: GregorianCalendar now duration: -3 weeks.
+    timespan to. “If now is January 1st, 2014 at 10 AM, returns December 11th, year 2013 at 10 AM”
+    (TimeSpan from: GregorianCalendar today duration: 3 days) to. “Returns Thursday if today is Monday”
+    (TimeSpan from: GregorianCalendar currentMonth duration: 6 months) to. “Returns July if current is January”
 
