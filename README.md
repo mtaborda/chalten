@@ -107,5 +107,5 @@ Timespans can also be used with time objects that are not part of the timeline b
     timespan := TimeSpan from: GregorianCalendar now duration: -3 weeks.
     timespan to. “If now is January 1st, 2014 at 10 AM, returns December 11th, year 2013 at 10 AM”
     
-    (TimeSpan from: GregorianCalendar today duration: 3 days) to. “Returns Thursday if today is Monday”
+    (TimeSpan from: GregorianCalendar today duration: 3 days) to.          “Returns Thursday if today is Monday”
     (TimeSpan from: GregorianCalendar currentMonth duration: 6 months) to. “Returns July if current is January”
