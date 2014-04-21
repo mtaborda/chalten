@@ -1,5 +1,7 @@
 Chaltén
 =======
+This is a time model that allows to use dates, months, years, etc. in an easy way.
+
 ##Why a new model of Dates?
 This model was created due to the Smalltalk-80's model problems. That model does not provide good solutions to all possible time related problems mainly because:
 It lacks proper abstractions of some important time domain entities (i.e., month, day)
