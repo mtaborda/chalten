@@ -213,7 +213,7 @@ Time zones are used to split the globe to have regions that has a uniform standa
     buenosAiresDateTime := TimeZonedDateTime
         dateTime: (DateTime
             date: April twentieth, 2014
-		          timeOfDay: (TimeOfDay hours: 19 minutes: 35))
+            timeOfDay: (TimeOfDay hours: 19 minutes: 35))
         zone: TimeZones buenosAires.
 
     greenwichDateTime := TimeZonedDateTime
