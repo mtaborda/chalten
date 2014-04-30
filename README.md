@@ -253,7 +253,7 @@ At the time we wrote this model, there were no implementation that we liked. The
 Just download a fresh image of Pharo (http://www.pharo-project.org) and in a workspace do-it this:
 
     Gofer it
-        smalltalkhubUser: 'maxi' project: 'Chalten';
+        smalltalkhubUser: 'Pharo' project: 'MetaRepoForPharo30';
         package: 'ConfigurationOfChalten';
     load.
     (Smalltalk at: #ConfigurationOfChalten) load.
