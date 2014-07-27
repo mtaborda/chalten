@@ -250,13 +250,22 @@ Yes there are other models, like Chronology, but neither so powerful like this o
 At the time we wrote this model, there were no implementation that we liked. The Smalltalk implementation was not enough and Chronology did not satisfy our needs.
 
 ##What I need to use Chaltén?
-Just download a fresh image of Pharo (http://www.pharo-project.org) and in a workspace do-it this:
+Just download a fresh image of Pharo (http://www.pharo.org) and in a workspace do-it this:
 
+    "In a 3.x image"
     Gofer it
         smalltalkhubUser: 'Pharo' project: 'MetaRepoForPharo30';
         package: 'ConfigurationOfChalten';
     load.
     (Smalltalk at: #ConfigurationOfChalten) load.
+
+    "or in a 4.x image"
+    Gofer it
+        smalltalkhubUser: 'Pharo' project: 'MetaRepoForPharo40';
+        package: 'ConfigurationOfChalten';
+    load.
+    (Smalltalk at: #ConfigurationOfChalten) load.
+
 
 ##Why is it called Chaltén?
 El Chaltén (http://www.elchalten.com/) is a village settled inside National Park Los Glaciares, in the heart of the patagonic southern mountains, at the foot of mythical Mt. Fitz Roy.
