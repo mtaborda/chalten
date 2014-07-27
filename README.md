@@ -202,9 +202,9 @@ The entities of one of the calendars could be converted to an entity of other ca
     (Nisan first, 5774) = (JumadaI tirtieth, 1435).       "Retruns true"
     
     "Using a timeline filter with mixed dates"
-    nonWorkingDays addDayOfMonthRule: Tishri first.       "Adds the Hebrew New Year Day as a non working day"
-    nonWorkingDays includes: (Tishri first, 5775).        "Returns true, it is the hebrew new year (5775)"
-    nonWorkingDays includes: (September thirtieth, 2014). "Returns true, it is the hebrew new year (5775) in gregorian"
+    nonWorkingDays addDayOfMonthRule: Tishri first.         "Adds the Hebrew New Year Day as a non working day"
+    nonWorkingDays includes: (Tishri first, 5775).          "Returns true, it is the hebrew new year (5775)"
+    nonWorkingDays includes: (September twentyfifth, 2014). "Returns true, it is the hebrew new year (5775) in gregorian"
 
 ##What about time zones?
 Time zones are used to split the globe to have regions that has a uniform standard time for legal, commercial, and social purposes. Chaltén has the entity TimeZonedDateTime for represents a certain moment according to a certain zone.
