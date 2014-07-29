@@ -207,19 +207,17 @@ The entities of one of the calendars could be converted to an entity of other ca
     nonWorkingDays includes: (September twentyfifth, 2014). "Returns true, it is the hebrew new year (5775) in gregorian"
 
 ##What about time zones?
-Time zones are used to split the globe to have regions that has a uniform standard time for legal, commercial, and social purposes. Chaltén has the entity TimeZonedDateTime for represents a certain moment according to a certain zone.
+Time zones are used to split the globe to have regions that has a uniform standard time for legal, commercial, and social purposes. Chaltén has the entity DateTime anchored to a certain zone for represents a certain moment according to this zone.
 
     "Working with time zones"
-    buenosAiresDateTime := TimeZonedDateTime
-        dateTime: (DateTime
-            date: April twentieth, 2014
-            timeOfDay: (TimeOfDay hours: 19 minutes: 35))
+    buenosAiresDateTime := DateTime
+        date: April twentieth, 2014
+        timeOfDay: (TimeOfDay hours: 19 minutes: 35)
         zone: TimeZones buenosAires.
 
-    greenwichDateTime := TimeZonedDateTime
-        dateTime: (DateTime
-            date: April twentieth, 2014
-            timeOfDay: (TimeOfDay hours: 22 minutes: 35))
+    greenwichDateTime := DateTime
+        date: April twentieth, 2014
+        timeOfDay: (TimeOfDay hours: 22 minutes: 35)
         zone: TimeZones greenwich.
 
     buenosAiresDateTime = greenwichDateTime. "Returns true, it is the same instant but measured in different zone"
