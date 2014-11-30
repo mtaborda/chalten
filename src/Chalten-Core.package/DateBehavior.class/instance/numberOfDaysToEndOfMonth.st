@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysToEndOfMonth
+
+	self subclassResponsibility

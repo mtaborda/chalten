@@ -1,0 +1,4 @@
+querying
+timeFromMidnight
+	
+	^timeFromMidnight

@@ -1,0 +1,4 @@
+exception - raise
+raiseUndefinedEnvironmentExceptionFor: aMessage
+
+	UndefinedEnvironmentException signalMessage: aMessage

@@ -1,0 +1,15 @@
+{
+	"category" : "Chalten-Core-FilterModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/25/2014 15:24",
+	"instvars" : [
+		"interval",
+		"decoratedRule" ],
+	"name" : "IntervalConstrainedInclusionRule",
+	"pools" : [
+		 ],
+	"super" : "InclusionRule",
+	"type" : "normal" }

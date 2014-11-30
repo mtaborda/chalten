@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-GregorianModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"calendar" ],
+	"name" : "GregorianDateTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

@@ -1,0 +1,16 @@
+{
+	"category" : "Chalten-Tests-IslamicModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"calendar",
+		"oneDay",
+		"twoDays" ],
+	"name" : "IslamicDayOfMonthTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

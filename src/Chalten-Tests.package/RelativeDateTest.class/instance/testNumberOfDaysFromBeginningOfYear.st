@@ -1,0 +1,5 @@
+test accessing
+testNumberOfDaysFromBeginningOfYear
+
+	self assert:
+		relativeDate numberOfDaysFromBeginningOfYear = absoluteDate numberOfDaysFromBeginningOfYear

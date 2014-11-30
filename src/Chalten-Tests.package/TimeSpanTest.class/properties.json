@@ -1,0 +1,18 @@
+{
+	"category" : "Chalten-Tests-TimeModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"midnight",
+		"noon",
+		"oneHour",
+		"twelveHours",
+		"twoSeconds" ],
+	"name" : "TimeSpanTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

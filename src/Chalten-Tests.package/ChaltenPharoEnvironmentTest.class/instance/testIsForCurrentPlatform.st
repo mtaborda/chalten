@@ -1,0 +1,4 @@
+test testing
+testIsForCurrentPlatform
+
+	self assert: ChaltenPharoEnvironment isForCurrentPlatform

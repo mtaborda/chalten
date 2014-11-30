@@ -1,0 +1,4 @@
+months accessing
+amountOfMonthsInNonleapYears
+
+	self subclassResponsibility

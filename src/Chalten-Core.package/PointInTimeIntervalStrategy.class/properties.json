@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Core-TimeModel",
+	"classinstvars" : [
+		"uniqueInstance" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/28/2014 13:29",
+	"instvars" : [
+		 ],
+	"name" : "PointInTimeIntervalStrategy",
+	"pools" : [
+		 ],
+	"super" : "PointInTimeIntervalStrategyBehavior",
+	"type" : "normal" }

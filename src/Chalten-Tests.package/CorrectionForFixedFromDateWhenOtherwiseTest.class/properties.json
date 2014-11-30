@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-RomanModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		 ],
+	"name" : "CorrectionForFixedFromDateWhenOtherwiseTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

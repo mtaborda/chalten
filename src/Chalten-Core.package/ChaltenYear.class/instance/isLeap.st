@@ -1,0 +1,4 @@
+testing
+isLeap
+
+	^type isLeap

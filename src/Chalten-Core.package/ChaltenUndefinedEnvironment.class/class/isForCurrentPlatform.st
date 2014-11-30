@@ -1,0 +1,4 @@
+testing
+isForCurrentPlatform
+
+	^false

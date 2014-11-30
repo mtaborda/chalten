@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-JulianModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "CorrectionForJulianDateFromFixedWhenNumberIsLowerThanMarchFirstTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

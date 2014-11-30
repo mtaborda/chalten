@@ -1,0 +1,12 @@
+{
+	"class" : {
+		"canHandle:" : "" },
+	"instance" : {
+		"initializeDaysInCycles" : "",
+		"initializeDaysInCyclesOf100Years" : "",
+		"initializeDaysInCyclesOf400Years" : "",
+		"initializeDaysInCyclesOf4Years" : "",
+		"initializeDaysInOneRegularYear" : "",
+		"initializeFor:using:" : "",
+		"initializeLeapYearCorrection" : "",
+		"value" : "" } }

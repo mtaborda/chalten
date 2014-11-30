@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysFromBeginningOfYear
+
+	^month numberOfDaysFromBeginningOfYearIn: year

@@ -1,0 +1,3 @@
+initialization
+setUp
+	calendar := JulianCalendar

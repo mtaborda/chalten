@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysFromBeginningOfMonth
+
+	^self absoluteDate numberOfDaysFromBeginningOfMonth

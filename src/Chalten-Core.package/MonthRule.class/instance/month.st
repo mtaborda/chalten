@@ -1,0 +1,4 @@
+accessing
+month
+
+	^decoratedRule object

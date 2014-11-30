@@ -1,0 +1,4 @@
+accessing datetime
+firstTimeOfDay
+
+	self subclassResponsibility

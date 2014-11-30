@@ -1,0 +1,5 @@
+test accessing
+testNumberOfDaysFromBeginningOfMonth
+
+	self assert:
+		relativeDate numberOfDaysFromBeginningOfMonth = absoluteDate numberOfDaysFromBeginningOfMonth

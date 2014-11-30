@@ -1,0 +1,4 @@
+querying
+timeToEndOfDay
+
+	^timeOfDay timeToEndOfDay

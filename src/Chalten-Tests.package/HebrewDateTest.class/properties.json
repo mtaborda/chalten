@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-HebrewModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"calendar" ],
+	"name" : "HebrewDateTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

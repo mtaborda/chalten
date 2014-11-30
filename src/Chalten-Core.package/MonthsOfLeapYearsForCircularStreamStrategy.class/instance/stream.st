@@ -1,0 +1,4 @@
+accessing - private
+stream
+
+	^stream

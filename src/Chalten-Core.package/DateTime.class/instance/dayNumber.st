@@ -1,0 +1,4 @@
+accessing
+dayNumber
+
+	^date dayNumber

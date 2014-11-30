@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysFor: aMonthDefinition
+
+	^aMonthDefinition numberOfDaysInNonleapYear

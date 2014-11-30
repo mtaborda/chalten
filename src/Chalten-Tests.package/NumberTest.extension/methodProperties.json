@@ -1,0 +1,26 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"testCenturiesMeasure" : "MaximilianoTaborda 5/25/2014 20:36",
+		"testCenturyMeasure" : "MaximilianoTaborda 5/25/2014 20:37",
+		"testDayMeasure" : "MaximilianoTaborda 5/17/2014 15:16",
+		"testDaysMeasure" : "MaximilianoTaborda 5/17/2014 15:16",
+		"testDecadeMeasure" : "MaximilianoTaborda 5/25/2014 20:44",
+		"testDecadesMeasure" : "MaximilianoTaborda 5/25/2014 20:38",
+		"testHourMeasure" : "MaximilianoTaborda 5/17/2014 15:17",
+		"testHoursMeasure" : "MaximilianoTaborda 5/17/2014 15:23",
+		"testMillenniumMeasure" : "MaximilianoTaborda 5/25/2014 20:41",
+		"testMillenniumsMeasure" : "MaximilianoTaborda 5/25/2014 20:42",
+		"testMillisecondMeasure" : "MaximilianoTaborda 5/17/2014 15:17",
+		"testMillisecondsMeasure" : "MaximilianoTaborda 5/17/2014 15:20",
+		"testMinuteMeasure" : "MaximilianoTaborda 5/17/2014 15:17",
+		"testMinutesMeasure" : "MaximilianoTaborda 5/17/2014 15:20",
+		"testMonthMeasure" : "MaximilianoTaborda 5/17/2014 15:18",
+		"testMonthsMeasure" : "MaximilianoTaborda 5/17/2014 15:20",
+		"testSecondMeasure" : "MaximilianoTaborda 5/17/2014 15:18",
+		"testSecondsMeasure" : "MaximilianoTaborda 5/17/2014 15:21",
+		"testWeekMeasure" : "MaximilianoTaborda 5/17/2014 15:18",
+		"testWeeksMeasure" : "MaximilianoTaborda 5/17/2014 15:21",
+		"testYearMeasure" : "MaximilianoTaborda 5/17/2014 15:21",
+		"testYearsMeasure" : "MaximilianoTaborda 5/17/2014 15:22" } }
