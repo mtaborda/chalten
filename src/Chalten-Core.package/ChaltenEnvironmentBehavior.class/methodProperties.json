@@ -1,6 +1,7 @@
 {
 	"class" : {
-		"initializeAfterLoad" : "MaximilianoTaborda 4/30/2014 10:35",
+		"initialize" : "MaximilianoTaborda 12/4/2014 21:40",
+		"initializeAfterLoad" : "MaximilianoTaborda 12/4/2014 21:40",
 		"initializeEnvironment" : "MaximilianoTaborda 4/28/2014 17:11",
 		"isForCurrentPlatform" : "MaximilianoTaborda 4/28/2014 15:59" },
 	"instance" : {
