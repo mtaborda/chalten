@@ -56,7 +56,7 @@ As we said before, a year can be seen as a point in the time line at a year reso
 All the time point abstractions respond to the magnitude protocol with messages such as #<, #<=, #>, #>=, #min:, #max:, #between: and: among others. Because they are points in the time line of a certain resolution, they can be compared to see which one is closer or farther from the beginning of the time line. A total order can be defined for them.
 
     (GregorianCalendar newYearNumber: 2014) < (GregorianCalendar newYearNumber: 2015).  “Comparing years”
-    (Decempber of: 2014) < (July of: 2015).                                             “Comparing months of year”
+    (December of: 2014) < (July, 2015).                                                 “Comparing months of year”
     GregorianCalendar today < GregorianCalendar tomorrow.                               “Comparing dates”
     GregorianCalendar now < GregorianCalendar now next.                                 “Comparing datetimes”
 
@@ -86,11 +86,11 @@ New units can be created as needed.
 The model provides the #next, #next: aTimeMeasure, #previous and #previous: aTimeMeasure messages to move certain distance to and from a given point. #next and #previous messages assume that the distance to move is equal to the quantum of the timeline the point receiving the message belongs to. If the point is a year, the quantum is 1 year, if the point is a month of a year the quantum is 1 month, if the point is a date the quantum is 1 day and if the point is a datetime the quantum is 1 millisecond.
 Moving certain distance to or from a point expects a measure of time as parameter because the distance between two points is expressed as a measure of time.
 
-    (GregorianCalendar newYearNumber: 2014) next.              “Returns the gregorian year number 2015”
-    (GregorianCalendar newYearNumber: 2014) next: 1 year.      “Returns the gregorian year number 2015”
-    (GregorianCalendar newYearNumber: 2014) next: 12 months.   “Returns the gregorian year number 2015”
-    (GregorianCalendar newYearNumber: 2014) next: 10 years.    “Returns the gregorian year number 2024”
-    (GregorianCalendar newYearNumber: 2014) previous: 5 years. “Returns the gregorian year number 2009”
+    (GregorianCalendar newYearNumber: 2014) next.                     “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 1 yearMeasure.      “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 12 monthsMeasure.   “Returns the gregorian year number 2015”
+    (GregorianCalendar newYearNumber: 2014) next: 10 yearsMeasure.    “Returns the gregorian year number 2024”
+    (GregorianCalendar newYearNumber: 2014) previous: 5 yearsMeasure. “Returns the gregorian year number 2009”
 
 ##Is there a way to represent timeline segments?
 The class TimeSpan represents timeline segments. A segment begins on a specific point of the timeline and has certain duration and direction expressed as a measure. The starting point of a time span can be a point at any of the timeline resolutions. The duration and direction is given by a time measure that should be convertible to the unit of the scale the starting point belongs to. If the measure is positive, the direction is towards the end of time, if the measure is negative, the direction is towards the beginning of time.
@@ -98,19 +98,19 @@ Timespans are useful to represent relative time entities where the beginning of 
 Timespans can also be used with time objects that are not part of the timeline but have an order such as days, months and day of months.
 
     “Creates a timespan from January 1st, 2014 with 72 hours of duration”
-    timespan := TimeSpan from: (January first, 2014) duration: 72 chaltenHours.
+    timespan := TimeSpan from: (January first, 2014) duration: 72 hoursMeasure.
     timespan to. “Returns January 4th, 2005”
 
     “Creates a timespan from year 2014 with a duration of 4 years”
-    timespan := TimeSpan from: (GregorianCalendar newYearNumber: 2014) duration: 4 chaltenYears.
+    timespan := TimeSpan from: (GregorianCalendar newYearNumber: 2014) duration: 4 yearsMeasure.
     timespan to. “Returns year 2018”
 
     “Creates a timespan from now with a length of 3 weeks toward the beginning of time”
-    timespan := TimeSpan from: GregorianCalendar now duration: -3 chaltenWeeks.
+    timespan := TimeSpan from: GregorianCalendar now duration: -3 weeksMeasure.
     timespan to. “If now is January 1st, 2014 at 10 AM, returns December 11th, year 2013 at 10 AM”
     
-    (TimeSpan from: GregorianCalendar today duration: 3 chaltenDays) to.          “Returns Thursday if today is Monday”
-    (TimeSpan from: GregorianCalendar currentMonth duration: 6 chaltenMonths) to. “Returns July if current is January”
+    (TimeSpan from: GregorianCalendar today duration: 3 daysMeasure) to.          “Returns Thursday if today is Monday”
+    (TimeSpan from: GregorianCalendar currentMonth duration: 6 monthsMeasure) to. “Returns July if current is January”
 
 ##How do I create time entities intervals?
 The model reifies the concept of intervals for time entities with an order. Those intervals behave like collections between the specified starting and ending point. Measures are used to specify the step of those intervals.
@@ -120,7 +120,7 @@ The same protocol used to create intervals of numbers is used to create interval
     (GregorianCalendar newYearNumber: 2005) to: (GregorianCalnedar newYearNumber: 2015).
 
     “Returns an Interval with six elements, the years 2005, 2007, 2009, 2011, 2013 and 2015 inclusive”.
-    (GregorianCalendar newYearnumber: 2005) to: (GregorianCalendar newYearNumber: 2015) by: 2 years.
+    (GregorianCalendar newYearnumber: 2005) to: (GregorianCalendar newYearNumber: 2015) by: 2 yearsMeasure.
 
     “Returns an Interval with six elements, the years 2015, 2014, 2013, 2012, 2011 and 2010 inclusive”.
     (GregorianCalendar newYearNumber: 2015) to: (GregorianCalendar newYearNumber: 2010) by: -1 year.
@@ -130,7 +130,7 @@ The same protocol used to create intervals of numbers is used to create interval
         select: [ :aYear | aYear isLeap ].
 
     “Returns all Sundays between January 1st, 2014 and the last date of February 2014”
-    ((January first, 2014) to: (February of: 2014) lastDate) select: [ :aDate | aDate isSunday ].
+    ((January first, 2014) to: (February of: 2014) lastDate) select: [ :aDate | aDate is: Sunday ].
 
 The model also provides protocol to create collections of objects that are commonly used.
 
@@ -171,7 +171,7 @@ In the financial domain, settlement dates are usually expressed as a distance fr
 In our example, if Monday is declared as non-working day, the new settlement date for the trade will be Tuesday. To model this new type of entity we created an abstraction called RelativeDate that is a date relative to a timeline filter given a certain timespan. Note that the settle date is declared using the negated non-working days filter because settlements can occur only on working days.
 
     “April 3rd, 2014 is a Thursday”
-    timespan := TimeSpan from: (April third, 2014) duration: 48 chaltenHours.
+    timespan := TimeSpan from: (April third, 2014) duration: 48 hoursMeasure.
     settleDate := RelativeDate timespan: timespan calendar: nonWorkingDays negated.
     
     nonWorkingDays includes: (April seventh, 2014). “Returns false because Monday April 7th, 2014 is a working day”
@@ -263,7 +263,6 @@ Just download a fresh image of Pharo (http://www.pharo.org) and in a workspace d
         package: 'ConfigurationOfChalten';
     load.
     (Smalltalk at: #ConfigurationOfChalten) load.
-
 
 ##Why is it called Chaltén?
 El Chaltén (http://www.elchalten.com/) is a village settled inside National Park Los Glaciares, in the heart of the patagonic southern mountains, at the foot of mythical Mt. Fitz Roy.
