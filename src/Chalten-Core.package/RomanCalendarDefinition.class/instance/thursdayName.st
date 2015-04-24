@@ -1,0 +1,4 @@
+day names
+thursdayName
+
+	^'Thursday'

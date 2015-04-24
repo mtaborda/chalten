@@ -1,0 +1,4 @@
+accessing
+object
+
+	^decoratedRule object

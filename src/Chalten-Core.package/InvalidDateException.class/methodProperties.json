@@ -1,0 +1,7 @@
+{
+	"class" : {
+		"monthOfYear:dayNumber:" : "",
+		"signalMonthOfYear:dayNumber:" : "" },
+	"instance" : {
+		"description" : "",
+		"initializeMonthOfYear:dayNumber:" : "" } }

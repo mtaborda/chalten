@@ -1,0 +1,4 @@
+month names
+novemberName
+	
+	^'November'

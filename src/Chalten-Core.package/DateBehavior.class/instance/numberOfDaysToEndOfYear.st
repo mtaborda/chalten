@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysToEndOfYear
+
+	self subclassResponsibility

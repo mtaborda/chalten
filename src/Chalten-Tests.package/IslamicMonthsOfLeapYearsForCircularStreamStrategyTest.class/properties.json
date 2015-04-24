@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-IslamicModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "IslamicMonthsOfLeapYearsForCircularStreamStrategyTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

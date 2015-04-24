@@ -1,0 +1,4 @@
+days accessing
+amountOfDaysPerWeek
+
+	self subclassResponsibility

@@ -1,0 +1,16 @@
+{
+	"category" : "Chalten-Core-TimeModel",
+	"classinstvars" : [
+		"firstTimeOfDay",
+		"lastTimeOfDay",
+		"noon" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/28/2014 13:18",
+	"instvars" : [
+		"timeFromMidnight" ],
+	"name" : "TimeOfDay",
+	"pools" : [
+		 ],
+	"super" : "PointInTime",
+	"type" : "normal" }

@@ -1,0 +1,16 @@
+{
+	"category" : "Chalten-Tests-JulianModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"calendar",
+		"twoDays",
+		"oneDay" ],
+	"name" : "JulianDayOfMonthTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

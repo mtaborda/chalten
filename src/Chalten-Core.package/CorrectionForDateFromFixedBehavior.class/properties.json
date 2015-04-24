@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Core-RomanModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/25/2014 12:19",
+	"instvars" : [
+		 ],
+	"name" : "CorrectionForDateFromFixedBehavior",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

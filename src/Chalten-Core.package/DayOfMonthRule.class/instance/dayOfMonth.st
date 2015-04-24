@@ -1,0 +1,4 @@
+accessing
+dayOfMonth
+
+	^decoratedRule object

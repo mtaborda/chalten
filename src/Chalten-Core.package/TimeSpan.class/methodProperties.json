@@ -1,0 +1,14 @@
+{
+	"class" : {
+		"from:duration:" : "",
+		"fromInterval:" : "" },
+	"instance" : {
+		"=" : "",
+		"asInterval" : "",
+		"duration" : "",
+		"from" : "",
+		"hash" : "",
+		"initializeFrom:duration:" : "",
+		"printOn:" : "",
+		"to" : "",
+		"value" : "" } }

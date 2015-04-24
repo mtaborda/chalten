@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Core-TimeModel",
+	"classinstvars" : [
+		"uniqueInstance" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/28/2014 14:29",
+	"instvars" : [
+		 ],
+	"name" : "LeapYearType",
+	"pools" : [
+		 ],
+	"super" : "YearType",
+	"type" : "normal" }

@@ -1,0 +1,4 @@
+dates accessing
+currentDateTime
+
+	^self convertToIslamicDateTime: GregorianCalendar currentDateTime

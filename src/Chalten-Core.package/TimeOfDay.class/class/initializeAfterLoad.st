@@ -1,0 +1,4 @@
+initialization
+initializeAfterLoad
+
+	self initializeTimesOfDay

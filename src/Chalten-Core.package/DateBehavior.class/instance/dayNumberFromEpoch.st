@@ -1,0 +1,4 @@
+accessing days
+dayNumberFromEpoch
+
+	self subclassResponsibility

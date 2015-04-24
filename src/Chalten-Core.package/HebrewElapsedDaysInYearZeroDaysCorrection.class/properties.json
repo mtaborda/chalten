@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Core-HebrewModel",
+	"classinstvars" : [
+		"uniqueInstance" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "MaximilianoTaborda 4/25/2014 12:51",
+	"instvars" : [
+		 ],
+	"name" : "HebrewElapsedDaysInYearZeroDaysCorrection",
+	"pools" : [
+		 ],
+	"super" : "HebrewElapsedDaysInYearCorrectionBehavior",
+	"type" : "normal" }

@@ -1,0 +1,4 @@
+accessing - private
+monthsOfLeapYearsForCircularStreamStrategy
+
+	^MonthsOfLeapYearsForCircularStreamStrategy of: calendar

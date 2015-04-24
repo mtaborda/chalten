@@ -1,0 +1,4 @@
+accessing
+numberOfDaysInNonleapYear
+	
+	^numberOfDaysInNonleapYear

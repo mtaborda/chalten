@@ -1,0 +1,4 @@
+months accessing
+monthsForLeapYears
+
+	self subclassResponsibility

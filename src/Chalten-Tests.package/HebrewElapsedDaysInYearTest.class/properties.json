@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-HebrewModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "HebrewElapsedDaysInYearTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

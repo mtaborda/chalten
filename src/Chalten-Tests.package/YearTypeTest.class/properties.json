@@ -1,0 +1,15 @@
+{
+	"category" : "Chalten-Tests-TimeModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"leapYearType",
+		"nonleapYearType" ],
+	"name" : "YearTypeTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

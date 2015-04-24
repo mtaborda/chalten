@@ -1,0 +1,4 @@
+test dates accessing
+testTheBeginningOfTime
+
+	GregorianCalendar theBeginningOfTime = TheBeginningOfTime

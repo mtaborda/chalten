@@ -1,0 +1,31 @@
+{
+	"category" : "Chalten-Tests-IslamicModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"calendar",
+		"muharram",
+		"safar",
+		"rabiI",
+		"rabiII",
+		"jumadaI",
+		"jumadaII",
+		"rajab",
+		"shaban",
+		"ramadan",
+		"shawwal",
+		"dhuAlQada",
+		"dhuAlHijja",
+		"zeroMonths",
+		"oneMonth",
+		"twoMonths",
+		"elevenMonths",
+		"twelveMonths" ],
+	"name" : "IslamicMonthTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

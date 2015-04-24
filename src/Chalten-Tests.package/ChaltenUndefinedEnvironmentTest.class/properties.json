@@ -1,0 +1,14 @@
+{
+	"category" : "Chalten-Tests-TimeModel",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		"environment" ],
+	"name" : "ChaltenUndefinedEnvironmentTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

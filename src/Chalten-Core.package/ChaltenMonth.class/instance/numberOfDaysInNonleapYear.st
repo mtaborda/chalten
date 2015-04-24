@@ -1,0 +1,4 @@
+accessing days
+numberOfDaysInNonleapYear
+
+	^definition numberOfDaysInNonleapYear

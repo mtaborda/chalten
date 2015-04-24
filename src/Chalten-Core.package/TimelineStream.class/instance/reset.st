@@ -1,0 +1,4 @@
+enumerating
+reset
+	current := from.
+	

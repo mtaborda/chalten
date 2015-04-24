@@ -1,0 +1,7 @@
+{
+	"class" : {
+		"dayNumber:" : "",
+		"signalDayNumber:" : "" },
+	"instance" : {
+		"description" : "",
+		"initializeDayNumber:" : "" } }
