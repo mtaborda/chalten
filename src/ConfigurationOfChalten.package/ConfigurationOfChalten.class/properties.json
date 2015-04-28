@@ -1,0 +1,14 @@
+{
+	"category" : "ConfigurationOfChalten",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"LastVersionLoad" ],
+	"commentStamp" : "MaximilianoTaborda 4/28/2014 14:47",
+	"instvars" : [
+		"project" ],
+	"name" : "ConfigurationOfChalten",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
