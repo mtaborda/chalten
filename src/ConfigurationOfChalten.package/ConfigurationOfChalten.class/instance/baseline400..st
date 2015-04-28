@@ -8,15 +8,7 @@ baseline400: spec
 			spec description: '- Chalten final for 4.x images'.
 			spec repository: 'github://mtaborda/chalten:master/src'.
 			spec
-				project: 'Aconcagua'
-				with: [ 
-					spec
-						className: 'ConfigurationOfAconcagua';
-						versionString: #stable;
-						loads: #('Core');
-						repository: 'github://mtaborda/aconcagua:master/src' ].
-			spec
-				package: 'Chalten-Core' with: [ spec requires: 'Aconcagua' ];
+				package: 'Chalten-Core' with: [ spec requires: 'Aconcagua-Core' ];
 				package: 'Chalten-Tests' with: [ spec requires: 'Chalten-Core' ].
 			spec
 				group: 'default' with: #('Core' 'Tests');

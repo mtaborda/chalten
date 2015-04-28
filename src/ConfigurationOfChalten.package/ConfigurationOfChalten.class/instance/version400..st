@@ -10,4 +10,5 @@ version400: spec
 			spec
 				package: 'Chalten-Core';
 				package: 'Chalten-Tests';
+				preLoadDoIt: #preLoadInitialization;
 				postLoadDoIt: #postLoadInitialization ]
