@@ -252,7 +252,7 @@ Download a fresh image of Pharo (http://www.pharo.org) and in a workspace do-it 
 
     Metacello new
         configuration: 'Chalten';
-        githubUser: 'mtaborda' project: 'chalten' commitish: 'master' path: 'src';
+        githubUser: 'mtaborda' project: 'chalten' commitish: 'master' path: 'repository';
         load
 
 Or just install stable version from the configuration browser.
