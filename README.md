@@ -248,7 +248,7 @@ Yes there are other models, like Chronology, but neither so powerful like this o
 At the time we wrote this model, there were no implementation that we liked. The Smalltalk implementation was not enough and Chronology did not satisfy our needs.
 
 ##What I need to use Chaltén?
-Download a fresh image of Pharo (http://www.pharo.org) and in a workspace do-it this:
+Download a fresh Pharo image (http://www.pharo.org) and in a workspace do-it this:
 
     Metacello new
         configuration: 'Chalten';
