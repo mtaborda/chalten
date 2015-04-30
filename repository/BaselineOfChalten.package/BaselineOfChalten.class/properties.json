@@ -1,0 +1,14 @@
+{
+	"category" : "BaselineOfChalten",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "BaselineOfChalten",
+	"pools" : [
+		 ],
+	"super" : "BaselineOf",
+	"type" : "normal" }
