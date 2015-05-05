@@ -9,5 +9,5 @@ version400: spec
 			spec author: 'MaximilianoTaborda'.
 			spec
 				baseline: 'Chalten'
-				with: [ spec repository: 'github://mtaborda/chalten:master/repository' ].
+				with: [ spec repository: 'github://mtaborda/chalten:master/src' ].
 			spec postLoadDoIt: #postLoadInitialization ]
