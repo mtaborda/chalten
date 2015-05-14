@@ -3,7 +3,6 @@ baseline: spec
 	<baseline>
 	
 	spec for: #common do: [ 
-		spec blessing: #baseline.
 		spec baseline: 'Aconcagua' with: [
 			spec
 				loads: #('Core');
