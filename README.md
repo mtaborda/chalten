@@ -250,12 +250,17 @@ At the time we wrote this model, there were no implementation that we liked. The
 ##What I need to use Chaltén?
 Download a fresh Pharo image (http://www.pharo.org) and in a workspace do-it this:
 
+    #In a 4.x image
     Metacello new
-        configuration: 'Chalten';
-        githubUser: 'mtaborda' project: 'chalten' commitish: 'master' path: 'repository';
+        baseline: 'Chalten';
+        githubUser: 'mtaborda' project: 'chalten' commitish: 'v.4.1.0' path: 'repository';
         load
 
-Or just install stable version from the configuration browser.
+    #In a 5.x image
+    Metacello new
+        baseline: 'Chalten';
+        githubUser: 'mtaborda' project: 'chalten' commitish: 'development' path: 'repository';
+        load
 
 ##Why is it called Chaltén?
 El Chaltén (http://www.elchalten.com/) is a village settled inside National Park Los Glaciares, in the heart of the patagonic southern mountains, at the foot of mythical Mt. Fitz Roy.
