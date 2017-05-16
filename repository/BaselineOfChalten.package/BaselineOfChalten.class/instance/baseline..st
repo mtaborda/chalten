@@ -19,4 +19,8 @@ baseline: spec
 	
 	spec for: #'pharo5.x' do: [
 		spec repository: ((repositories at: #pharo50) at: #chalten).
-		self aconcagua: spec for: #pharo50 ]
+		self aconcagua: spec for: #pharo50 ].
+	
+	spec for: #'pharo6.x' do: [
+		spec repository: ((repositories at: #pharo60) at: #chalten).
+		self aconcagua: spec for: #pharo60 ]
