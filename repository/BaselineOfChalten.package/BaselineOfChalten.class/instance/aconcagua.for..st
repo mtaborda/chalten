@@ -4,5 +4,5 @@ aconcagua: spec for: distribution
 	spec
 		baseline: #Aconcagua
 		with: [ spec
-			loads: #(#Core);
+			loads: #(#Development);
 			repository: ((repositories at: distribution) at: #aconcagua) ]
