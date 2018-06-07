@@ -13,4 +13,7 @@ initializeRepositories
 	repositories at: #pharo60 put: Dictionary new.
 	(repositories at: #pharo60)
 		at: #aconcagua put: #'github://ba-st/aconcagua:v6.0.0/repository';
-		at: #chalten put: #'github://ba-st/chalten:v6.0.0/repository'
+		at: #chalten put: #'github://ba-st/chalten:v6.0.0/repository'.
+	(repositories at: #pharo61)
+		at: #aconcagua put: #'github://ba-st/aconcagua:v6.1.0/repository';
+		at: #chalten put: #'github://ba-st/chalten:v6.1.0/repository'
