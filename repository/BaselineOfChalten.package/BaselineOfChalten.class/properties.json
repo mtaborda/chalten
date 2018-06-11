@@ -1,14 +1,11 @@
 {
-	"category" : "BaselineOfChalten",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "MaximilianoTaborda 11/6/2015 13:09",
-	"instvars" : [
-		"repositories" ],
-	"name" : "BaselineOfChalten",
-	"pools" : [
-		 ],
 	"super" : "BaselineOf",
-	"type" : "normal" }
+	"category" : "BaselineOfChalten",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BaselineOfChalten",
+	"type" : "normal"
+}
