@@ -9,9 +9,6 @@ SmalltalkCISpec {
   #testing : {
     #coverage : {
        #packages : [ 'Chalten*' ]
-    },
-    #include : {  
-       #packages : [ 'Chalten-Tests*' ]
     }
   }
 }
