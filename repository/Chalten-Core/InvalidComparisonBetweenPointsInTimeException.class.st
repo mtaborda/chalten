@@ -19,7 +19,7 @@ Class {
 		'onePointInTime',
 		'otherPointInTime'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #signaling }

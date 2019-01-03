@@ -5,7 +5,7 @@ A MonthDefinition is an abstract class wich defines common protocol for defining
 Class {
 	#name : #MonthDefinition,
 	#superclass : #Object,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #testing }

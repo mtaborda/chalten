@@ -24,7 +24,7 @@ Class {
 		'timeOfDay',
 		'zone'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }

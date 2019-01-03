@@ -19,7 +19,7 @@ Class {
 		'interval',
 		'decoratedRule'
 	],
-	#category : 'Chalten-Core-FilterModel'
+	#category : #'Chalten-Core-Filter'
 }
 
 { #category : #'instance creation' }

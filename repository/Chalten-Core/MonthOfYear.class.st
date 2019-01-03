@@ -19,234 +19,232 @@ Class {
 		'year',
 		'month'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> adarIIOf: aYear [
 
 	^self year: aYear month: HebrewCalendar adarII
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> adarIOf: aYear [
 
 	^self year: aYear month: HebrewCalendar adarI
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> adarOf: aYear [
 
 	^self year: aYear month: HebrewCalendar adar
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> aprilOf: aYear [
 
 	^self year: aYear month: aYear calendar april
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> augustOf: aYear [
 
 	^self year: aYear month: aYear calendar august
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> avOf: aYear [
 
 	^self year: aYear month: HebrewCalendar av
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> decemberOf: aYear [
 
 	^self year: aYear month: aYear calendar december
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> dhuAlHijjaOf: aYear [
 
 	^self year: aYear month: IslamicCalendar dhuAlHijja
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> dhuAlQadaOf: aYear [
 
 	^self year: aYear month: IslamicCalendar dhuAlQada
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> elulOf: aYear [
 
 	^self year: aYear month: HebrewCalendar elul
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> februaryOf: aYear [
 
 	^self year: aYear month: aYear calendar february
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> iyyarOf: aYear [
 
 	^self year: aYear month: HebrewCalendar iyyar
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> januaryOf: aYear [
 
 	^self year: aYear month: aYear calendar january
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> julyOf: aYear [
 
 	^self year: aYear month: aYear calendar july
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> jumadaIIOf: aYear [
 
 	^self year: aYear month: IslamicCalendar jumadaII
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> jumadaIOf: aYear [
 
 	^self year: aYear month: IslamicCalendar jumadaI
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> juneOf: aYear [
 
 	^self year: aYear month: aYear calendar june
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> kislevOf: aYear [
 
 	^self year: aYear month: HebrewCalendar kislev
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> marchOf: aYear [
 
 	^self year: aYear month: aYear calendar march
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> marheshvanOf: aYear [
 
 	^self year: aYear month: HebrewCalendar marheshvan
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> mayOf: aYear [
 
 	^self year: aYear month: aYear calendar may
-
-
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> muharramOf: aYear [
 
 	^self year: aYear month: IslamicCalendar muharram
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> nisanOf: aYear [
 
 	^self year: aYear month: HebrewCalendar nisan
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> novemberOf: aYear [
 
 	^self year: aYear month: aYear calendar november
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> octoberOf: aYear [
 
 	^self year: aYear month: aYear calendar october
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> rabiIIOf: aYear [
 
 	^self year: aYear month: IslamicCalendar rabiII
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> rabiIOf: aYear [
 
 	^self year: aYear month: IslamicCalendar rabiI
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> rajabOf: aYear [
 
 	^self year: aYear month: IslamicCalendar rajab
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> ramadanOf: aYear [
 
 	^self year: aYear month: IslamicCalendar ramadan
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> safarOf: aYear [
 
 	^self year: aYear month: IslamicCalendar safar
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> septemberOf: aYear [
 
 	^self year: aYear month: aYear calendar september
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> shabanOf: aYear [
 
 	^self year: aYear month: IslamicCalendar shaban
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> shawwalOf: aYear [
 
 	^self year: aYear month: IslamicCalendar shawwal
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> shevatOf: aYear [
 
 	^self year: aYear month: HebrewCalendar shevat
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> sivanOf: aYear [
 
 	^self year: aYear month: HebrewCalendar sivan
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> tammuzOf: aYear [
 
 	^self year: aYear month: HebrewCalendar tammuz
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> tevetOf: aYear [
 
 	^self year: aYear month: HebrewCalendar tevet
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 MonthOfYear class >> tishriOf: aYear [
 
 	^self year: aYear month: HebrewCalendar tishri

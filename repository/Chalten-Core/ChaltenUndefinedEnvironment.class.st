@@ -5,7 +5,7 @@ A ChaltenUndefinedEnvironment is a class for defining behavior related to an und
 Class {
 	#name : #ChaltenUndefinedEnvironment,
 	#superclass : #ChaltenEnvironmentBehavior,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #testing }

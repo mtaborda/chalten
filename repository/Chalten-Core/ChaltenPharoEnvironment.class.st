@@ -5,7 +5,7 @@ A ChaltenPharoEnvironment is a class for defining behavior related to the pharo 
 Class {
 	#name : #ChaltenPharoEnvironment,
 	#superclass : #ChaltenEnvironmentBehavior,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #testing }

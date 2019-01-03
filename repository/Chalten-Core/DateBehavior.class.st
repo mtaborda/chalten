@@ -5,7 +5,7 @@ A DateBehavior is an abstract class wich defines common protocol for objects rep
 Class {
 	#name : #DateBehavior,
 	#superclass : #PointInTime,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'accessing datetime' }

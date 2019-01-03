@@ -5,7 +5,7 @@ A ChaltenEnvironment is an abstract class for defining behavior related to the e
 Class {
 	#name : #ChaltenEnvironmentBehavior,
 	#superclass : #Object,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #initialization }

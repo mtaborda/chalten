@@ -5,7 +5,7 @@ An InclusionRule is used to determinate when certain date is included or not in 
 Class {
 	#name : #InclusionRule,
 	#superclass : #Object,
-	#category : 'Chalten-Core-FilterModel'
+	#category : #'Chalten-Core-Filter'
 }
 
 { #category : #querying }

@@ -24,7 +24,7 @@ Class {
 		'name',
 		'negatedTimeLineFilter'
 	],
-	#category : 'Chalten-Core-FilterModel'
+	#category : #'Chalten-Core-Filter'
 }
 
 { #category : #'rules - creating' }

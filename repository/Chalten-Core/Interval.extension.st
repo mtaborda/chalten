@@ -1,12 +1,12 @@
 Extension { #name : #Interval }
 
-{ #category : #'*Chalten-Core-TimeModel' }
+{ #category : #'*Chalten-Core-Time' }
 Interval >> from [
 
 	^self first
 ]
 
-{ #category : #'*Chalten-Core-TimeModel' }
+{ #category : #'*Chalten-Core-Time' }
 Interval >> to [
 
 	^self last

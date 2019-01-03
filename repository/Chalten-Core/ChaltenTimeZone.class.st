@@ -19,7 +19,7 @@ Class {
 		'name',
 		'offset'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }

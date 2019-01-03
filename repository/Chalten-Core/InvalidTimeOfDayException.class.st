@@ -14,7 +14,7 @@ Class {
 	#instVars : [
 		'time'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #signaling }

@@ -19,7 +19,7 @@ Class {
 		'month',
 		'year'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }

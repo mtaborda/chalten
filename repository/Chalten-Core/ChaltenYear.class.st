@@ -28,7 +28,7 @@ Class {
 		'leapType',
 		'nonleapType'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation - private' }
@@ -106,19 +106,19 @@ ChaltenYear >> = anObject [
 		and: [ self number = anObject number ]]
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> adar [
 
 	^MonthOfYear year: self month: calendar adar
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> adarI [
 
 	^MonthOfYear year: self month: calendar adarI
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> adarII [
 
 	^MonthOfYear year: self month: calendar adarII
@@ -142,7 +142,7 @@ ChaltenYear >> amountOfMonthsInNonleapYears [
 	^calendar amountOfMonthsInNonleapYears
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> april [
 
 	^MonthOfYear year: self month: calendar april
@@ -166,13 +166,13 @@ ChaltenYear >> arrayOfMonthsInNonleapYears [
 	^calendar monthsForNonleapYears
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> august [
 
 	^MonthOfYear year: self month: calendar august
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> av [
 
 	^MonthOfYear year: self month: calendar av
@@ -190,7 +190,7 @@ ChaltenYear >> dates [
 	^self firstDate to: self lastDate
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> december [
 
 	^MonthOfYear year: self month: calendar december
@@ -201,13 +201,13 @@ ChaltenYear >> defaultIntervalIncrement [
 	^ 1 yearMeasure
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> dhuAlHijja [
 
 	^MonthOfYear year: self month: calendar dhuAlHijja
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> dhuAlQada [
 
 	^MonthOfYear year: self month: calendar dhuAlQada
@@ -219,13 +219,13 @@ ChaltenYear >> distanceTo: aYear [
 	^calendar distanceInYearsFrom: self to: aYear
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> elul [
 
 	^MonthOfYear year: self month: calendar elul
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> february [
 
 	^MonthOfYear year: self month: calendar february
@@ -255,7 +255,7 @@ ChaltenYear >> hash [
 	^self number hash
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> ifLongMarheshvanDo: aBlock else: anotherBlock [
 
 	^calendar
@@ -264,7 +264,7 @@ ChaltenYear >> ifLongMarheshvanDo: aBlock else: anotherBlock [
 		else: anotherBlock
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> ifShortKislevDo: aBlock else: anotherBlock [
 
 	^calendar
@@ -299,43 +299,43 @@ ChaltenYear >> isLeap [
 	^type isLeap
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> iyyar [
 
 	^MonthOfYear year: self month: calendar iyyar
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> january [
 
 	^MonthOfYear year: self month: calendar january
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> july [
 
 	^MonthOfYear year: self month: calendar july
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> jumadaI [
 
 	^MonthOfYear year: self month: calendar jumadaI
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> jumadaII [
 
 	^MonthOfYear year: self month: calendar jumadaII
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> june [
 
 	^MonthOfYear year: self month: calendar june
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> kislev [
 
 	^MonthOfYear year: self month: calendar kislev
@@ -368,19 +368,19 @@ ChaltenYear >> lastMonth [
 	^calendar lastMonthOf: self
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> march [
 
 	^MonthOfYear year: self month: calendar march
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> marheshvan [
 
 	^MonthOfYear year: self month: calendar marheshvan
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> may [
 
 	^MonthOfYear year: self month: calendar may
@@ -406,7 +406,7 @@ ChaltenYear >> months [
 	^self firstMonth to: self lastMonth
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> muharram [
 
 	^MonthOfYear year: self month: calendar muharram
@@ -443,13 +443,13 @@ ChaltenYear >> nextNumberOfYears: numberOfYears [
 	^self class number: newNumber calendar: calendar
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> nisan [
 
 	^MonthOfYear year: self month: calendar nisan
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> november [
 
 	^MonthOfYear year: self month: calendar november
@@ -479,7 +479,7 @@ ChaltenYear >> numberOfMonths [
 	^self amountOfMonths monthsMeasure
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> october [
 
 	^MonthOfYear year: self month: calendar october
@@ -503,79 +503,79 @@ ChaltenYear >> printOn: aStream [
 	self number printOn: aStream
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> rabiI [
 
 	^MonthOfYear year: self month: calendar rabiI
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> rabiII [
 
 	^MonthOfYear year: self month: calendar rabiII
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> rajab [
 
 	^MonthOfYear year: self month: calendar rajab
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> ramadan [
 
 	^MonthOfYear year: self month: calendar ramadan
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> safar [
 
 	^MonthOfYear year: self month: calendar safar
 ]
 
-{ #category : #'*Chalten-Core-RomanModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> september [
 
 	^MonthOfYear year: self month: calendar september
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> shaban [
 
 	^MonthOfYear year: self month: calendar shaban
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> shawwal [
 
 	^MonthOfYear year: self month: calendar shawwal
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> shevat [
 
 	^MonthOfYear year: self month: calendar shevat
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> sivan [
 
 	^MonthOfYear year: self month: calendar sivan
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> tammuz [
 
 	^MonthOfYear year: self month: calendar tammuz
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> tevet [
 
 	^MonthOfYear year: self month: calendar tevet
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 ChaltenYear >> tishri [
 
 	^MonthOfYear year: self month: calendar tishri

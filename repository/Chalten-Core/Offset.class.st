@@ -14,7 +14,7 @@ Class {
 	#instVars : [
 		'measure'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }

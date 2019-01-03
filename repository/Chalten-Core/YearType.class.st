@@ -5,7 +5,7 @@ A YearType is an abstract class wich defines common protocol for a type year. A 
 Class {
 	#name : #YearType,
 	#superclass : #Object,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'accessing months' }

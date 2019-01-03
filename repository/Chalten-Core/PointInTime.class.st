@@ -5,7 +5,7 @@ A PointInTime is a representation of certain time entity. This time entities are
 Class {
 	#name : #PointInTime,
 	#superclass : #IntervalAwareMagnitude,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #querying }

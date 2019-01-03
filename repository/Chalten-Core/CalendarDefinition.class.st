@@ -5,7 +5,7 @@ All the calendars, their protocol and conversion was developed according to the 
 Class {
 	#name : #CalendarDefinition,
 	#superclass : #Object,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #initialization }
@@ -19,6 +19,12 @@ CalendarDefinition class >> initializeCalendar [
 
 	self initializeUniqueInstance.
 	self initializeGlobalNameCalendar
+]
+
+{ #category : #'day creation - private' }
+CalendarDefinition >> addDay: aDay [
+
+	^ self days at: aDay positionInWeek put: aDay
 ]
 
 { #category : #'days accessing' }
@@ -45,13 +51,13 @@ CalendarDefinition >> amountOfMonthsPerYear [
 	self subclassResponsibility
 ]
 
-{ #category : #'month preconditions' }
+{ #category : #preconditions }
 CalendarDefinition >> assert: aMonth isValidIn: aYear [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'year preconditions' }
+{ #category : #preconditions }
 CalendarDefinition >> assertYearNumber: aNumber [
 
 	(self isValidYearNumber: aNumber) 
@@ -80,13 +86,13 @@ CalendarDefinition >> convertToDateTime: aDateTime [
 	self subclassResponsibility
 ]
 
-{ #category : #'*Chalten-Core-GregorianModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToGregorianDate: aDate [
 
 	^GregorianCalendar dateFromDays: aDate dayNumberFromEpoch
 ]
 
-{ #category : #'*Chalten-Core-GregorianModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToGregorianDateTime: aDateTime [
 
 	^DateTime
@@ -94,13 +100,13 @@ CalendarDefinition >> convertToGregorianDateTime: aDateTime [
 		timeOfDay: aDateTime timeOfDay
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToHebrewDate: aDate [
 
 	^HebrewCalendar dateFromDays: aDate dayNumberFromEpoch
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToHebrewDateTime: aDateTime [
 
 	^DateTime
@@ -108,13 +114,13 @@ CalendarDefinition >> convertToHebrewDateTime: aDateTime [
 		timeOfDay: aDateTime timeOfDay
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToIslamicDate: aDate [
 
 	^IslamicCalendar dateFromDays: aDate dayNumberFromEpoch
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToIslamicDateTime: aDateTime [
 
 	^DateTime
@@ -122,13 +128,13 @@ CalendarDefinition >> convertToIslamicDateTime: aDateTime [
 		timeOfDay: aDateTime timeOfDay
 ]
 
-{ #category : #'*Chalten-Core-JulianModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToJulianDate: aDate [
 
 	^JulianCalendar dateFromDays: aDate dayNumberFromEpoch
 ]
 
-{ #category : #'*Chalten-Core-JulianModel' }
+{ #category : #'as yet unclassified' }
 CalendarDefinition >> convertToJulianDateTime: aDateTime [
 
 	^DateTime
@@ -189,6 +195,17 @@ CalendarDefinition >> dateFromNumberOfDays: aNumberOfDays [
 ]
 
 { #category : #'days accessing' }
+CalendarDefinition >> dayNamed: aString [
+
+	| lowercaseString |
+
+	lowercaseString := aString asLowercase.
+	^ self days
+		detect: [ :day | day name asLowercase = lowercaseString ]
+		ifNone: [ InvalidDayNameException signalName: aString ]
+]
+
+{ #category : #'days accessing' }
 CalendarDefinition >> dayNumberFromEpochTo: aDate [ 
 	^(self numberOfDaysFromDate: aDate) daysMeasure
 ]
@@ -201,6 +218,14 @@ CalendarDefinition >> dayOf: aDate [
 	dayPositionInWeek :=
 		aDate numberOfDaysFromEpoch amount + 1 \\ self amountOfDaysPerWeek + 1.
 	^self dayPositionedInWeek: dayPositionInWeek
+]
+
+{ #category : #'days accessing' }
+CalendarDefinition >> dayPositionedInWeek: aNumber [
+
+	(aNumber < 1 or: [ aNumber > self amountOfDaysPerWeek ])
+		ifTrue: [ InvalidDayNumberException signalDayNumber: aNumber ].
+	^ self days at: aNumber
 ]
 
 { #category : #'days accessing' }
@@ -234,6 +259,32 @@ CalendarDefinition >> firstMonth [
 CalendarDefinition >> firstMonthOf: aYear [
 
 	^self firstMonth ofYear: aYear
+]
+
+{ #category : #initialization }
+CalendarDefinition >> initialize [
+
+	self initializeDays.
+	self initializeMonths.
+	self initializeGlobalVariables
+]
+
+{ #category : #initialization }
+CalendarDefinition >> initializeDays [
+
+	self subclassResponsibility
+]
+
+{ #category : #initialization }
+CalendarDefinition >> initializeGlobalVariables [
+
+	self subclassResponsibility
+]
+
+{ #category : #initialization }
+CalendarDefinition >> initializeMonths [
+
+	self subclassResponsibility
 ]
 
 { #category : #'year testing' }
@@ -368,6 +419,12 @@ CalendarDefinition >> numberOfDaysPerWeek [
 CalendarDefinition >> numberOfMonthsPerYear [
 
 	^ self amountOfMonthsPerYear monthsMeasure
+]
+
+{ #category : #'days accessing' }
+CalendarDefinition >> sinceFirstDayOfWeek: aNumberOfDays [
+
+	^self dayPositionedInWeek: (aNumberOfDays convertTo: TimeUnits day) amount + 1
 ]
 
 { #category : #'dates accessing' }

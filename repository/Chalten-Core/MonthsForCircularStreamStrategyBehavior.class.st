@@ -5,7 +5,7 @@ A MonthsForCircularStreamStrategyBehavior is a strategy to advance months in a s
 Class {
 	#name : #MonthsForCircularStreamStrategyBehavior,
 	#superclass : #Object,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #querying }

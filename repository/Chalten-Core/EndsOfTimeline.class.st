@@ -8,7 +8,7 @@ When using these objects, the programmer has to have special care because iterat
 Class {
 	#name : #EndsOfTimeline,
 	#superclass : #PointInTime,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'accessing days - private' }

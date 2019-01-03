@@ -5,7 +5,7 @@ A PointInTimeIntervalStrategyBehavior is an abstract class which defines common 
 Class {
 	#name : #PointInTimeIntervalStrategyBehavior,
 	#superclass : #IntervalStrategy,
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #enumerating }

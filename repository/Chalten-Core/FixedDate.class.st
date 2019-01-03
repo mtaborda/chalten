@@ -24,7 +24,7 @@ Class {
 		'monthOfYear',
 		'calendar'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }
@@ -94,25 +94,25 @@ FixedDate >> = aDate [
 		and: [self numberOfDaysFromEpoch = aDate numberOfDaysFromEpoch]
 ]
 
-{ #category : #'*Chalten-Core-GregorianModel' }
+{ #category : #'as yet unclassified' }
 FixedDate >> asGregorian [
 
 	^calendar convertToGregorianDate: self
 ]
 
-{ #category : #'*Chalten-Core-HebrewModel' }
+{ #category : #'as yet unclassified' }
 FixedDate >> asHebrew [
 
 	^calendar convertToHebrewDate: self
 ]
 
-{ #category : #'*Chalten-Core-IslamicModel' }
+{ #category : #'as yet unclassified' }
 FixedDate >> asIslamic [
 
 	^calendar convertToIslamicDate: self
 ]
 
-{ #category : #'*Chalten-Core-JulianModel' }
+{ #category : #'as yet unclassified' }
 FixedDate >> asJulian [
 
 	^calendar convertToJulianDate: self

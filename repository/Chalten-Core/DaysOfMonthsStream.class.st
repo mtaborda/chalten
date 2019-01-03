@@ -24,7 +24,7 @@ Class {
 		'current',
 		'strategy'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #'instance creation' }

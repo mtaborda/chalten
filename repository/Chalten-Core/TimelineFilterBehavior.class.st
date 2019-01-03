@@ -5,7 +5,7 @@ A TimelineFilterBehavior is an abstract class wich defines common protocol for t
 Class {
 	#name : #TimelineFilterBehavior,
 	#superclass : #Object,
-	#category : 'Chalten-Core-FilterModel'
+	#category : #'Chalten-Core-Filter'
 }
 
 { #category : #enumerating }

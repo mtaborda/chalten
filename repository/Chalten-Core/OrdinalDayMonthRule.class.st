@@ -24,7 +24,7 @@ Class {
 		'month',
 		'ordinal'
 	],
-	#category : 'Chalten-Core-FilterModel'
+	#category : #'Chalten-Core-Filter'
 }
 
 { #category : #'instance creation' }

@@ -19,7 +19,7 @@ Class {
 		'lastTimeOfDay',
 		'noon'
 	],
-	#category : 'Chalten-Core-TimeModel'
+	#category : #'Chalten-Core-Time'
 }
 
 { #category : #accessing }
