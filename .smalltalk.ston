@@ -2,7 +2,8 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'Chalten',
-      #directory : 'repository',
+      #directory : 'source',
+      #load : [ 'CI' ],
       #platforms : [  #pharo ]
     }
   ],

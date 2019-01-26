@@ -25,7 +25,7 @@ Not only the metaphor helped us to understand the problem and create a model bas
 - Filter the timeline with certain rules.
 - Work with dates expresed in four calendars: Gregorian, Julian, Islamic and Hebrew.
 - Represent times of day according to differents time zones.
- 
+
 ## Why dates are inmutable and validated when they are created?
 Something we have noticed about time entities is that they are immutable; they do not change, they are immutable like the numbers. A given date such as January 1st of 2014 should not allow its year, month or day to be changed. Therefore, the abstractions we use to model the time domain entities are immutable, they behave like “value objects”.
 Immutable objects allow us to have a simpler model and not to worry about inconsistent objects, invalid modifications or invariance invalidity during a certain time.
@@ -33,22 +33,22 @@ The model also verifies, when creating an object, if the new instance will be va
 
 ## How do I move trought the different time resolutions?
 As we said before, a year can be seen as a point in the time line at a year resolution. Because the resolution is a year, that point contains other points of higher resolution such as months of a year, dates and time in a certain date. The model provides protocol to easily move between points of different resolutions (i.e., going from a year to the dates it contains or from a date to its year). Moving to points of smaller resolution looks natural (i.e., going from a date to its year) but moving to points of higher resolution is not so commonly provided on this type of models (i.e., going from a year to its dates). Messages to go from points of one scale to another are provided on each abstraction.
-  
+
 ```smalltalk
     year2014 := GregorianCalendar newYearNumber: 2014.
-    
+
     “Going from years to months of year”
     year2014 firstMonth.              “Returns January of 2014”
     year2014 lastMonth.               “Returns December of 2014”
     year2014 months.                  “Returns all the months of year 2014”
-    
+
     “Going from years to dates”
     year2014 firstDate.               “Returns January 1st, 2014”
     year2014 lastDate.                “Returns December 31st, 2014”
     year2014 dates.                   “Returns the 365 dates of the year 2014”
     year2014 firstDay.                “Returns Wednesday”
     year2014 lastDay.                 “It is also a Wednesday”
-    
+
     “Going from years to date times”
     year2014 firstDate atMidnight.    “Returns January 1st, 2005 00:00:00”
     year2014 lastDate lastTimeOfDay.  “Returns December 31st, 2005 23:59:59”
@@ -80,13 +80,13 @@ The model also provides behavior to obtain the distance between time entities li
 ```smalltalk
     (GregorianCalendar newYearNumber: 2014) distanceTo: (GregorianCalendar newYearNumber: 2016). “Returns 2 years”
     (GregorianCalendar newYearNumber: 2014) distanceTo: (GregorianCalendar newYearNumber: 2010). “Returns -4 years”
-    
+
     January first, 2014 distanceTo: January tenth, 2014.   “Returns 10 days”
     January first, 2014 distanceFrom: January tenth, 2014. ”Returns -10 days”
 ```
 
 ## What are the units that the model provides?
-This model uses Aconcagua (http://github.com/mtaborda/aconcagua) to manage measures and time units.
+This model uses Aconcagua (http://github.com/ba-st/Aconcagua) to manage measures and time units.
 The provided units are: month, year, decade, century, millennium, millisecond, second, minute, hour, day, week.
 New units can be created as needed.
 
@@ -116,7 +116,7 @@ Timespans can also be used with time objects that are not part of the timeline b
     “Creates a timespan from now with a length of 3 weeks toward the beginning of time”
     timespan := TimeSpan from: GregorianCalendar now duration: -3 weeksMeasure.
     timespan to. “If now is January 1st, 2014 at 10 AM, returns December 11th, year 2013 at 10 AM”
-    
+
     (TimeSpan from: GregorianCalendar today duration: 3 daysMeasure) to.          “Returns Thursday if today is Monday”
     (TimeSpan from: GregorianCalendar currentMonth duration: 6 monthsMeasure) to. “Returns July if current is January”
 
@@ -181,7 +181,7 @@ In our example, if Monday is declared as non-working day, the new settlement dat
     “April 3rd, 2014 is a Thursday”
     timespan := TimeSpan from: (April third, 2014) duration: 48 hoursMeasure.
     settleDate := RelativeDate timespan: timespan calendar: nonWorkingDays negated.
-    
+
     nonWorkingDays includes: (April seventh, 2014). “Returns false because Monday April 7th, 2014 is a working day”
     settleDate absoluteDate.                        “April 7th, 2014”
 
@@ -204,11 +204,11 @@ The entities of one of the calendars could be converted to an entity of other ca
     (April first, 2014) asJulian.  "Returns the Julian date March 19th, 2014"
     (April first, 2014) asHebrew.  "Returns the Hebrew date Nisan 1st, 5774"
     (April first, 2014) asIslamic. "Returns the Islamic date Jumada I (Jumada al-Ula) 30th, 1435"
-    
+
     "Comparing dates"
     (April first, 2014) = (JulianMarch nineteenth, 2014). "Returns true"
     (Nisan first, 5774) = (JumadaI tirtieth, 1435).       "Retruns true"
-    
+
     "Using a timeline filter with mixed dates"
     nonWorkingDays addDayOfMonthRule: Tishri first.         "Adds the Hebrew New Year Day as a non working day"
     nonWorkingDays includes: (Tishri first, 5775).          "Returns true, it is the hebrew new year (5775)"
@@ -232,7 +232,7 @@ Time zones are used to split the globe to have regions that has a uniform standa
     buenosAiresDateTime distanceTo: greenwichDateTime. "Returns a measure <0 days>, because it is the same instant"
 
     buenosAiresDateTime := buenosAiresDateTime next: 3 chaltenHours.
-    
+
     buenosAiresDateTime = greenwichDateTime.           "Returns false, the hour is the same but the zone is different"
     (buenosAiresDateTime distanceTo: greenwichDateTime)
         convertTo: TimeUnits hour.                     "Returns a measure <-3 hours>, just the offset between zones"
