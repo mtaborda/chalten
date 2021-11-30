@@ -12,9 +12,12 @@
   </p>
 </p>
 
-[![GitHub release](https://img.shields.io/github/release/ba-st/Chalten.svg)](https://github.com/ba-st/Chalten/releases/latest)
-[![Build Status](https://github.com/ba-st/Chalten/workflows/loading-groups/badge.svg?branch=release-candidate)](https://github.com/ba-st/Chalten/actions?query=workflow%3ABaselineGroups)
+[![Unit Tests](https://github.com/ba-st/Chalten/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/ba-st/Chalten/actions/workflows/unit-tests.yml)
 [![Coverage Status](https://codecov.io/github/ba-st/Chalten/coverage.svg?branch=release-candidate)](https://codecov.io/gh/ba-st/Chalten/branch/release-candidate)
+[![Baseline Groups](https://github.com/ba-st/Chalten/actions/workflows/loading-groups.yml/badge.svg)](https://github.com/ba-st/Chalten/actions/workflows/loading-groups.yml)
+[![Markdown Lint](https://github.com/ba-st/Chalten/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/ba-st/Chalten/actions/workflows/markdown-lint.yml)
+
+[![GitHub release](https://img.shields.io/github/release/ba-st/Chalten.svg)](https://github.com/ba-st/Chalten/releases/latest)
 [![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
 [![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)
 
