@@ -24,11 +24,6 @@ jobs:
         run: |
           echo "::set-output name=SMALLTALK_CI_VM::${HOME}/.smalltalkCI/_builds/vm"
           echo "::set-output name=SMALLTALK_CI_IMAGE::${HOME}/.smalltalkCI/_builds/TravisCI.image"
-      - name: Run Shell Tests
-        run: cd scripts && ./test.sh
-        env:
-          SMALLTALK_CI_VM: ${{ steps.set-image-and-vm-location.outputs.SMALLTALK_CI_VM }}
-          SMALLTALK_CI_IMAGE: ${{ steps.set-image-and-vm-location.outputs.SMALLTALK_CI_IMAGE }}
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
