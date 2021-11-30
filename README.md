@@ -13,8 +13,10 @@
 </p>
 
 [![GitHub release](https://img.shields.io/github/release/ba-st/Chalten.svg)](https://github.com/ba-st/Chalten/releases/latest)
-[![Build Status](https://travis-ci.org/ba-st/Chalten.svg?branch=release-candidate)](https://travis-ci.org/ba-st/Chalten)
-[![Coverage Status](https://coveralls.io/repos/github/ba-st/Chalten/badge.svg?branch=release-candidate)](https://coveralls.io/github/ba-st/Chalten?branch=release-candidate)
+[![Build Status](https://github.com/ba-st/Chalten/workflows/loading-groups/badge.svg?branch=release-candidate)](https://github.com/ba-st/Chalten/actions?query=workflow%3ABuild)
+[![Coverage Status](https://codecov.io/github/ba-st/Chalten/coverage.svg?branch=release-candidate)](https://codecov.io/gh/ba-st/Chalten/branch/release-candidate)
+[![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
+[![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)
 
 > *[Chaltén](https://www.elchalten.com) is a village settled inside [Los Glaciares National Park](https://en.wikipedia.org/wiki/Los_Glaciares_National_Park), in the heart of the pagatonic southern mountains, at the foot of the mythical [Mt. Fitz Roy](https://en.wikipedia.org/wiki/Fitz_Roy).*
 
