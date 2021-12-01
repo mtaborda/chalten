@@ -185,7 +185,7 @@ because the distance between two points is expressed as a measure of time.
 (GregorianCalendar newYearNumber: 2014) next: 10 yearsMeasure.
 
 “Returns the gregorian year number 2009”
-(GregorianCalendar newYearNumber: 2014) previous: 5 yearsMeasure. 
+(GregorianCalendar newYearNumber: 2014) previous: 5 yearsMeasure.
 ```
 
 ## Is there a way to represent timeline segments
