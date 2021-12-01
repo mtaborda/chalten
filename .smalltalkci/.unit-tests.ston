@@ -2,14 +2,15 @@ SmalltalkCISpec {
   #loading : [
     SCIMetacelloLoadSpec {
       #baseline : 'Chalten',
-      #directory : 'source',
+      #directory : '../source',
       #load : [ 'CI' ],
       #platforms : [  #pharo ]
     }
   ],
   #testing : {
     #coverage : {
-       #packages : [ 'Chalten*' ]
+      #packages : [ 'Chalten*' ],
+      #format: #lcov
     }
   }
 }

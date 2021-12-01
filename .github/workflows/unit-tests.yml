@@ -1,0 +1,31 @@
+name: Unit Tests
+
+on: [push,pull_request,workflow_dispatch]
+
+jobs:
+   unit-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        smalltalk: [ Pharo64-9.0, Pharo64-8.0 ]
+    name: ${{ matrix.smalltalk }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hpi-swa/setup-smalltalkCI@v1
+        with:
+          smalltalk-image: ${{ matrix.smalltalk }}
+      - name: Load Image and Run Tests
+        run: smalltalkci -s ${{ matrix.smalltalk }} .smalltalkci/.unit-tests.ston
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        timeout-minutes: 15
+      - name: Set image and VM location
+        id: set-image-and-vm-location
+        run: |
+          echo "::set-output name=SMALLTALK_CI_VM::${HOME}/.smalltalkCI/_builds/vm"
+          echo "::set-output name=SMALLTALK_CI_IMAGE::${HOME}/.smalltalkCI/_builds/TravisCI.image"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          name: ${{matrix.os}}-${{matrix.smalltalk}}
+          token: ${{ secrets.CODECOV_TOKEN }}
