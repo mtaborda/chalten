@@ -2,7 +2,7 @@
 
 This is a time model that allows to use dates, months, years, etc. in an easy way.
 
-## Why a new model of Dates?
+## Why a new model of Dates
 
 This model was created due to the Smalltalk-80's model problems. That model does
 not provide good solutions to all possible time related problems mainly because:
@@ -15,7 +15,7 @@ not provide good solutions to all possible time related problems mainly because:
   Smalltalk one and have the same problems.
 - The Chronology package has some issues also.
 
-## What's the metaphor behind the model?
+## What's the metaphor behind the model
 
 We used a metaphor to understand the time domain. In this metaphor, time
 entities are points in a line, a line that represents the passing time. The
@@ -37,7 +37,7 @@ dates from January 1st of 2014 to January 31st of 2014 are seen. If January 1st
 of 2014 is zoomed in, the entities January 1st of 2014 at 00: 00: 00 to January
 1st of 2014 at 23:59:59 are seen.
 
-## What's the behavior that the model provides?
+## What's the behavior that the model provides
 
 Not only the metaphor helped us to understand the problem and create a model
 based on it, but it also allowed us to easily define the expected behavior of
@@ -54,7 +54,7 @@ the model, such as:
 - Work with dates expressed in four calendars: Gregorian, Julian, Islamic and Hebrew.
 - Represent times of day according to different time zones.
 
-## Why dates are immutable and validated when they are created?
+## Why dates are immutable and validated when they are created
 
 Something we have noticed about time entities is that they are immutable; they
 do not change, they are immutable like the numbers. A given date such as January
@@ -71,7 +71,7 @@ valid. If that is true, the object is created, otherwise an exception is
 signalled. Therefore, the code that verifies if an object is valid is located in
 one place and ensures that no invalid time objects exist.
 
-## How do I move trough the different time resolutions?
+## How do I move trough the different time resolutions
 
 As we said before, a year can be seen as a point in the time line at a year
 resolution. Because the resolution is a year, that point contains other points
@@ -103,7 +103,7 @@ year2014 firstDate atMidnight.    “Returns January 1st, 2005 00:00:00”
 year2014 lastDate lastTimeOfDay.  “Returns December 31st, 2005 23:59:59”
 ```
 
-## Are time entities comparable?
+## Are time entities comparable
 
 All the time point abstractions respond to the magnitude protocol with messages
 such as #<, #<=, #>, #>=, #min:, #max:, #between: and: among others. Because
@@ -134,7 +134,7 @@ January < December.                   “Comparing months”
 January first < December twentyFifth. “Comparing days of month”
 ```
 
-## How do I get the distance beetween two time entities?
+## How do I get the distance between two time entities
 
 Messages #distanceTo: aPointInTime and #distanceFrom: aPointInTime are used to
 obtain the distance between two points.
@@ -144,18 +144,18 @@ like days, months and days of months.
 
 ```smalltalk
 “Returns 2 years”
-(GregorianCalendar newYearNumber: 2014) 
+(GregorianCalendar newYearNumber: 2014)
   distanceTo: (GregorianCalendar newYearNumber: 2016).
 
 “Returns -4 years”
-(GregorianCalendar newYearNumber: 2014) 
+(GregorianCalendar newYearNumber: 2014)
   distanceTo: (GregorianCalendar newYearNumber: 2010).
 
 January first, 2014 distanceTo: January tenth, 2014.   “Returns 10 days”
 January first, 2014 distanceFrom: January tenth, 2014. ”Returns -10 days”
 ```
 
-## What are the units that the model provides?
+## What are the units that the model provides
 
 This model uses [Aconcagua](https://github.com/ba-st/Aconcagua) to manage
 measures and time units.
@@ -163,7 +163,7 @@ The provided units are: month, year, decade, century, millennium, millisecond,
 second, minute, hour, day, week.
 New units can be created as needed.
 
-## How do I move from one point to another?
+## How do I move from one point to another
 
 The model provides the `#next`, `#next: aTimeMeasure`, `#previous` and
 `#previous: aTimeMeasure` messages to move certain distance to and from a given
@@ -188,7 +188,7 @@ because the distance between two points is expressed as a measure of time.
 (GregorianCalendar newYearNumber: 2014) previous: 5 yearsMeasure. 
 ```
 
-## Is there a way to represent timeline segments?
+## Is there a way to represent timeline segments
 
 The class `TimeSpan` represents timeline segments. A segment begins on a
 specific point of the timeline and has certain duration and direction expressed
@@ -226,7 +226,7 @@ timespan to.
 (TimeSpan from: GregorianCalendar currentMonth duration: 6 monthsMeasure) to.
 ```
 
-## How do I create time entities intervals?
+## How do I create time entities intervals
 
 The model reifies the concept of intervals for time entities with an order.
 Those intervals behave like collections between the specified starting and
@@ -276,7 +276,7 @@ and June 30th, 2014”
 (January first, 2014) to: (June thirtieth, 2014) everyDayNumbers: #(10 20).
 ```
 
-## What is a TimelineFilter?
+## What is a TimelineFilter
 
 The model reifies the concept of timeline filter. A filter restricts the
 elements that belong to a timeline using rules to specify which objects should
@@ -310,7 +310,7 @@ nonWorkingDays includes: (July eighth, 2014).  “Returns false”
 nonWorkingDays includes: (July twelfth, 2014). “Returns true, it is Saturday”
 ```
 
-## What is a `RelativeDate`?
+## What is a `RelativeDate`
 
 In the financial domain, settlement dates are usually expressed as a distance
 from the trade date in a given calendar. For example, a trader can buy bonds on
@@ -344,7 +344,7 @@ settleDate absoluteDate.                        “Now it returns April 8th, 201
                                                 because the filter has changed”
 ```
 
-## How do I create a not ending segment?
+## How do I create a not ending segment
 
 The timeline does not have a known end or beginning, but the mere fact that we,
 as human, can think on them means that they have to be reified. Two objects are
@@ -357,7 +357,7 @@ timeline and to create streams with no end. When using these objects, the
 programmer has to have special care because iterating over an interval with no
 end and/or beginning will never stop.
 
-## Which Calendars the model support?
+## Which Calendars the model support
 
 A Calendar is a way for counting the time. Along the history, different cultures
 used different ways of count the time, then we can find different calendars.
@@ -385,7 +385,7 @@ nonWorkingDays includes: (Tishri first, 5775).          "Returns true"
 nonWorkingDays includes: (September twentyFifth, 2014). "Returns true"
 ```
 
-## What about time zones?
+## What about time zones
 
 Time zones are used to split the globe to have regions that has a uniform
 standard time for legal, commercial, and social purposes.
@@ -418,29 +418,29 @@ buenosAiresDateTime = greenwichDateTime.           "Returns false, the hour is
                                                     just the offset between zones"
 ```
 
-## How reliable is the model?
+## How reliable is the model
 
 The model was developed using Test Driven Development (TDD) and it has more than
 1600 tests.
 The tests cover a 100 % of the model’s code.
 
-## What are the Smalltalks where it runs?
+## What are the Smalltalks where it runs
 
 The model has been tested and works on Pharo, VisualAge, Squeak, GemStone and
 VisualWorks. Surely also runs in Dolphin and Smalltalk-X.
 Anyone is invited to port it to any other Smalltalk dialect.
 The last version is always available first for Pharo.
 
-## Are you going to port it to other languages?
+## Are you going to port it to other languages
 
 It could be a nice challenge. I think Python, Ruby or Groovy could be one of the
 firsts tries.
 
-## Are there other models of the same problem?
+## Are there other models of the same problem
 
 Yes there are other models, like Chronology, but neither so powerful like this one.
 
-## Why did you created a new implementation instead of using an existing one?
+## Why did you created a new implementation instead of using an existing one
 
 At the time we wrote this model, there were no implementation that we liked.
 The Smalltalk implementation was not enough and Chronology did not satisfy our needs.
