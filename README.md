@@ -10,6 +10,7 @@ This is a time model that allows to use dates, months, years, etc. in an easy wa
 [![GitHub release](https://img.shields.io/github/release/ba-st/Chalten.svg)](https://github.com/ba-st/Chalten/releases/latest)
 [![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
 [![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)
+[![Pharo 10](https://img.shields.io/badge/Pharo-10-informational)](https://pharo.org)
 
 > *[Chaltén](https://www.elchalten.com) is a village settled inside
 > [Los Glaciares National Park](https://en.wikipedia.org/wiki/Los_Glaciares_National_Park),

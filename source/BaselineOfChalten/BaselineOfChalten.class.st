@@ -67,6 +67,6 @@ BaselineOfChalten >> projectClass [
 BaselineOfChalten >> setUpDependencies: spec [
 
 	spec
-		baseline: 'Aconcagua' with: [ spec repository: 'github://ba-st/Aconcagua:v8/source' ];
+		baseline: 'Aconcagua' with: [ spec repository: 'github://ba-st/Aconcagua:v8' ];
 		project: 'Aconcagua-Deployment' copyFrom: 'Aconcagua' with: [ spec loads: #('Deployment') ]
 ]
