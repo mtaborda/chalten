@@ -98,7 +98,7 @@ MonthsOfYearsStream >> nextInNumberOfYears: aNumberOfYears [
 MonthsOfYearsStream >> nextMonth: aMonth in: aNumberOfYears [
 
 	aNumberOfYears negative ifTrue: [^self previousMonth: aMonth in: aNumberOfYears negated].
-	aNumberOfYears timesRepeat: [
+	aNumberOfYears amount timesRepeat: [
 		self upTo: (currentCircularStream upToBegin current ofYear: current year next).
 		self initializeCurrentCircularStream].
 	self upTo: (current year monthNumbered: aMonth number).
@@ -140,7 +140,7 @@ MonthsOfYearsStream >> previousInNumberOfYears: aNumberOfYears [
 MonthsOfYearsStream >> previousMonth: aMonth in: aNumberOfYears [
 
 	aNumberOfYears negative ifTrue: [^self nextMonth: aMonth in: aNumberOfYears negated].
-	aNumberOfYears timesRepeat: [
+	aNumberOfYears amount timesRepeat: [
 		self upTo: (currentCircularStream upToEnd current ofYear: current year previous).
 		self initializeCurrentCircularStream].
 	self upTo: (current year monthNumbered: aMonth number).
