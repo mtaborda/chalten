@@ -1,6 +1,6 @@
 # Chalten
 
-This is a time model that allows to use dates, months, years, etc. in an easy way.
+This is a time model that allows to use dates, months, years, etc. easily.
 
 [![Unit Tests](https://github.com/ba-st/Chalten/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/ba-st/Chalten/actions/workflows/unit-tests.yml)
 [![Coverage Status](https://codecov.io/github/ba-st/Chalten/coverage.svg?branch=release-candidate)](https://codecov.io/gh/ba-st/Chalten/branch/release-candidate)
@@ -11,6 +11,7 @@ This is a time model that allows to use dates, months, years, etc. in an easy wa
 [![Pharo 8.0](https://img.shields.io/badge/Pharo-8.0-informational)](https://pharo.org)
 [![Pharo 9.0](https://img.shields.io/badge/Pharo-9.0-informational)](https://pharo.org)
 [![Pharo 10](https://img.shields.io/badge/Pharo-10-informational)](https://pharo.org)
+[![Pharo 11](https://img.shields.io/badge/Pharo-11-informational)](https://pharo.org)
 
 > *[Chaltén](https://www.elchalten.com) is a village settled inside
 > [Los Glaciares National Park](https://en.wikipedia.org/wiki/Los_Glaciares_National_Park),
@@ -31,7 +32,7 @@ This is a time model that allows to use dates, months, years, etc. in an easy wa
 ## Installation
 
 To load the project in a Pharo image, or declare it as a dependency of your own
-project follow this [instructions](docs/Installation.md).
+project follow these [instructions](docs/Installation.md).
 
 ## Contributing
 

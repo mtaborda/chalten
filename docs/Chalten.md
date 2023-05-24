@@ -1,6 +1,6 @@
 # Chaltén
 
-This is a time model that allows to use dates, months, years, etc. in an easy way.
+This is a time model that allows to use dates, months, years, etc. easily.
 
 ## Why a new model of Dates
 
@@ -11,7 +11,7 @@ not provide good solutions to all possible time related problems mainly because:
   (i.e., month, day)
 - Time objects are not immutable (i.e., Time) therefore, they do not properly
   model time entities, Time Entities Immutability and Validity.
-- The ANSI Smalltalk model adds some abstractions but it is based on the
+- The ANSI Smalltalk model adds some abstractions, but it is based on the
   Smalltalk one and have the same problems.
 - The Chronology package has some issues also.
 
@@ -29,10 +29,10 @@ scales or that timelines of different scale can represent the passing time.
 A year represents a point in time but with less resolution than a date. If the
 year is zoomed in, new points are observed; those points are the months of that
 year. If one of those points is picked and zoomed in, the points representing
-the dates of that month are obtained. If one of this dates is selected and
+the dates of that month are obtained. If one of these dates is selected and
 zoomed in, points representing the hour of that date are obtained. Let’s do it
 with concrete entities. If the year 2014 is selected and zoomed in, months from
-January of 2014 to December of 2014 appear. If January of 2014 is zoomed in,
+January 2014 to December 2014 appear. If January 2014 is zoomed in,
 dates from January 1st of 2014 to January 31st of 2014 are seen. If January 1st
 of 2014 is zoomed in, the entities January 1st of 2014 at 00: 00: 00 to January
 1st of 2014 at 23:59:59 are seen.
@@ -44,7 +44,7 @@ based on it, but it also allowed us to easily define the expected behavior of
 the model, such as:
 
 - Determine which point comes before or after another (ordering of time points
-  along the time line).
+  along the timeline).
 - Go from one point in the timeline to another.
 - Obtain the distance between two time points.
 - Represent segments of the timeline of any scale.
@@ -71,9 +71,9 @@ valid. If that is true, the object is created, otherwise an exception is
 signalled. Therefore, the code that verifies if an object is valid is located in
 one place and ensures that no invalid time objects exist.
 
-## How do I move trough the different time resolutions
+## How do I move through the different time resolutions
 
-As we said before, a year can be seen as a point in the time line at a year
+As we said before, a year can be seen as a point in the timeline at a year
 resolution. Because the resolution is a year, that point contains other points
 of higher resolution such as months of a year, dates and time in a certain date.
 The model provides protocol to easily move between points of different
@@ -106,9 +106,9 @@ year2014 lastDate lastTimeOfDay.  “Returns December 31st, 2005 23:59:59”
 ## Are time entities comparable
 
 All the time point abstractions respond to the magnitude protocol with messages
-such as #<, #<=, #>, #>=, #min:, #max:, #between: and: among others. Because
-they are points in the time line of a certain resolution, they can be compared
-to see which one is closer or farther from the beginning of the time line. A
+such as `#<`, `#<=`, `#>`, `#>=`, `#min:`, `#max:`, `#between:and:` among others.
+Because they are points in the timeline of a certain resolution, they can be compared
+to see which one is closer or farther from the beginning of the timeline. A
 total order can be defined for them.
 
 ```smalltalk
@@ -122,11 +122,11 @@ GregorianCalendar today < GregorianCalendar tomorrow.
 GregorianCalendar now < GregorianCalendar now next.
 ```
 
-Not only points on the time line can be compared. Instances of `Day`, `DayOfMonth`
+Not only points on the timeline can be compared. Instances of `Day`, `DayOfMonth`
 and `ChaltenMonth` can also be compared. When comparing days of the week the
-model assumes Sunday is the first day of the week but this can be changed to
-any other day such as Monday. January 1st is always the first gregorian
-`DayOfMonth` and January is always the first gregorian `ChaltenMonth`.
+model assumes Sunday is the first day of the week, but this can be changed to
+any other day such as Monday. January 1st is always the first Gregorian
+`DayOfMonth` and January is always the first Gregorian `ChaltenMonth`.
 
 ```smalltalk
 Monday < Tuesday.                     “Comparing days”
@@ -136,7 +136,7 @@ January first < December twentyFifth. “Comparing days of month”
 
 ## How do I get the distance between two time entities
 
-Messages #distanceTo: aPointInTime and #distanceFrom: aPointInTime are used to
+Messages `#distanceTo: aPointInTime` and `#distanceFrom: aPointInTime` are used to
 obtain the distance between two points.
 The same messages are used polymorphically for years, months of a year, dates, etc.
 The model also provides behavior to obtain the distance between time entities
@@ -201,7 +201,7 @@ Time spans are useful to represent relative time entities where the beginning of
 such an entity is known, but the end is not exactly known or can change.
 Examples of such entities are “I’ll see you in 10 working days from today” or
 “it happened 7 months before January”. Time spans are important to represent
-relative time entities such as relative dates which are explain further on.
+relative time entities such as relative dates which are explained further on.
 Time spans can also be used with time objects that are not part of the timeline
 but have an order such as days, months and day of months.
 
@@ -233,7 +233,7 @@ Those intervals behave like collections between the specified starting and
 ending point. Measures are used to specify the step of those intervals.
 The same protocol used to create intervals of numbers is used to create
 intervals of time entities. For example, an interval between two years can be
-created sending the message #to: anotherYear by: aDistance to an instance of `ChaltenYear`.
+created sending the message `#to: anotherYear by: aDistance` to an instance of `ChaltenYear`.
 
 ```smalltalk
 “Returns an Interval with eleven elements, the years between 2005 and 2015 inclusive”.
@@ -280,11 +280,11 @@ and June 30th, 2014”
 
 The model reifies the concept of timeline filter. A filter restricts the
 elements that belong to a timeline using rules to specify which objects should
-be filter or not.
+be filtered or not.
 Deciding the days that are working or not working is a common use for these
 filters. For example, a filter can be created to mark all Saturdays and Sundays
-as non working days, another filter can be created to filter the months where
-the season changes, etc..
+as non-working days, another filter can be created to filter the months when
+the season changes, etc…
 The model provides different types of rules, such as a rule for days (i.e., to
 include all Saturdays), a rule for a given day in a month (i.e., all the 25th of
 May), a rule for specific time entities and different rule decorators.
@@ -317,12 +317,12 @@ from the trade date in a given calendar. For example, a trader can buy bonds on
 a Thursday, but the settlement date is set to happen within 48 hours using the
 clearing house’s calendar. That usually means that the trader’s institution will
 receive the bonds on the next Monday, but this is true only if that Monday is a
-working day and it could have been true at the time the operation was done. But
+working day, and it could have been true at the time the operation was done. But
 sometimes non-working days are created due to non-expected events (i.e., the
 death of some important person) and a working day is declared to be non-working.
 In our example, if Monday is declared as non-working day, the new settlement
 date for the trade will be Tuesday. To model this new type of entity we created
-an abstraction called RelativeDate that is a date relative to a timeline filter
+an abstraction called `RelativeDate` that is a date relative to a timeline filter
 given a certain timespan. Note that the settle date is declared using the
 negated non-working days filter because settlements can occur only on working days.
 
@@ -348,9 +348,9 @@ settleDate absoluteDate.                        “Now it returns April 8th, 201
 
 The timeline does not have a known end or beginning, but the mere fact that we,
 as human, can think on them means that they have to be reified. Two objects are
-provided to represent these entities. They are “TheEndOfTime” and
-“TheBeginningOfTime”. The object “TheEndOfTime” is always greater than any point
-in time and “TheBeginningOfTime” is always less than any point in time.
+provided to represent these entities. They are `TheEndOfTime` and
+`TheBeginningOfTime`. The object `TheEndOfTime` is always greater than any point
+in time and `TheBeginningOfTime` is always less than any point in time.
 These objects are useful to create open intervals towards infinite and minus
 infinite. They allow programmers to create intervals and filters on the whole
 timeline and to create streams with no end. When using these objects, the
@@ -387,9 +387,9 @@ nonWorkingDays includes: (September twentyFifth, 2014). "Returns true"
 
 ## What about time zones
 
-Time zones are used to split the globe to have regions that has a uniform
+Time zones are used to split the globe to have regions that have a uniform
 standard time for legal, commercial, and social purposes.
-Chalten has the entity DateTime anchored to a certain zone for represents a
+Chalten has the entity `DateTime` anchored to a certain zone for represents a
 certain moment according to this zone.
 
 ```smalltalk
