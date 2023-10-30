@@ -35,7 +35,7 @@ HebrewMonthTest class >> classUnderTest [
 
 { #category : 'initialization' }
 HebrewMonthTest >> setUp [
-	calendar := HebrewCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #HebrewCalendar.
 	nisan := calendar nisan.
 	iyyar := calendar iyyar.
 	sivan := calendar sivan.

@@ -28,7 +28,7 @@ HebrewDayTest class >> classUnderTest [
 
 { #category : 'initialization' }
 HebrewDayTest >> setUp [
-	calendar := HebrewCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #HebrewCalendar.
 	yomRishon := calendar yomRishon.
 	yomSheni := calendar yomSheni.
 	yomShelishi := calendar yomShelishi.

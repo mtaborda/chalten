@@ -24,7 +24,7 @@ HebrewMonthOfYearTest class >> classUnderTest [
 
 { #category : 'initialization' }
 HebrewMonthOfYearTest >> setUp [
-	calendar := HebrewCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #HebrewCalendar.
 	zeroMonths := 0 monthsMeasure.
 	oneMonth := 1 monthMeasure.
 	twoMonths := 2 monthsMeasure.

@@ -28,7 +28,7 @@ HebrewDateTest >> oneDay [
 { #category : 'initialization' }
 HebrewDateTest >> setUp [
 
-	calendar := HebrewCalendar
+	calendar := ChaltenEnvironment calendarNamed: #HebrewCalendar
 ]
 
 { #category : 'test support' }

@@ -1,6 +1,9 @@
 Class {
 	#name : 'HebrewDaysOfMonthsStreamTest',
 	#superclass : 'TestCase',
+	#instVars : [
+		'hebrewCalendar'
+	],
 	#category : 'Chalten-Hebrew-Calendar-Tests',
 	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
@@ -11,12 +14,18 @@ HebrewDaysOfMonthsStreamTest class >> classUnderTest [
 	^DaysOfMonthsStream
 ]
 
+{ #category : 'running' }
+HebrewDaysOfMonthsStreamTest >> setUp [
+
+	hebrewCalendar := ChaltenEnvironment calendarNamed: #HebrewCalendar
+]
+
 { #category : 'test querying' }
 HebrewDaysOfMonthsStreamTest >> testDistanceTo [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Tishri fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream distanceTo: Tishri twentyfirst) = 6 daysMeasure.
 	self assert: (stream distanceTo: Elul fifth) = 316 daysMeasure.
 	self assert: (stream distanceTo: Nisan twentyfirst) = 184 daysMeasure
@@ -27,7 +36,7 @@ HebrewDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Tishri fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: stream next = Tishri sixteenth.
 	self assert: (stream next: 12 daysMeasure) = Tishri twentyeighth.
 	self assert: (stream next: 2 daysMeasure) = Tishri thirtieth.
@@ -38,15 +47,15 @@ HebrewDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: -1 dayMeasure) = Tishri fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream next: 28 daysMeasure) = Tishri twentyninth.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream next: 59 daysMeasure) = Marheshvan thirtieth.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream next: 60 daysMeasure) = Kislev first
 ]
 
@@ -55,7 +64,7 @@ HebrewDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Tishri fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: stream previous = Tishri fourteenth.
 	self assert: (stream previous: 12 daysMeasure) = Tishri second.
 	self assert: (stream previous: 2 daysMeasure) = Elul twentyninth.
@@ -66,14 +75,14 @@ HebrewDaysOfMonthsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 dayMeasure) = Tishri fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream previous: 28 daysMeasure) = Elul second.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream previous: 59 daysMeasure) = Av first.
 	stream := DaysOfMonthsStream
 		startingOn: Tishri first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: HebrewCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: hebrewCalendar).
 	self assert: (stream previous: 60 daysMeasure) = Tammuz twentyninth
 ]

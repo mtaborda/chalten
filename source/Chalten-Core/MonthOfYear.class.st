@@ -27,19 +27,19 @@ Class {
 { #category : 'as yet unclassified' }
 MonthOfYear class >> adarIIOf: aYear [
 
-	^self year: aYear month: HebrewCalendar adarII
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) adarII
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> adarIOf: aYear [
 
-	^self year: aYear month: HebrewCalendar adarI
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) adarI
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> adarOf: aYear [
 
-	^self year: aYear month: HebrewCalendar adar
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) adar
 ]
 
 { #category : 'as yet unclassified' }
@@ -57,7 +57,7 @@ MonthOfYear class >> augustOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> avOf: aYear [
 
-	^self year: aYear month: HebrewCalendar av
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) av
 ]
 
 { #category : 'as yet unclassified' }
@@ -81,7 +81,7 @@ MonthOfYear class >> dhuAlQadaOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> elulOf: aYear [
 
-	^self year: aYear month: HebrewCalendar elul
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) elul
 ]
 
 { #category : 'as yet unclassified' }
@@ -93,7 +93,7 @@ MonthOfYear class >> februaryOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> iyyarOf: aYear [
 
-	^self year: aYear month: HebrewCalendar iyyar
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) iyyar
 ]
 
 { #category : 'as yet unclassified' }
@@ -129,7 +129,7 @@ MonthOfYear class >> juneOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> kislevOf: aYear [
 
-	^self year: aYear month: HebrewCalendar kislev
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) kislev
 ]
 
 { #category : 'as yet unclassified' }
@@ -141,7 +141,7 @@ MonthOfYear class >> marchOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> marheshvanOf: aYear [
 
-	^self year: aYear month: HebrewCalendar marheshvan
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) marheshvan
 ]
 
 { #category : 'as yet unclassified' }
@@ -159,7 +159,7 @@ MonthOfYear class >> muharramOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> nisanOf: aYear [
 
-	^self year: aYear month: HebrewCalendar nisan
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) nisan
 ]
 
 { #category : 'as yet unclassified' }
@@ -225,31 +225,31 @@ MonthOfYear class >> shawwalOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> shevatOf: aYear [
 
-	^self year: aYear month: HebrewCalendar shevat
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) shevat
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> sivanOf: aYear [
 
-	^self year: aYear month: HebrewCalendar sivan
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) sivan
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> tammuzOf: aYear [
 
-	^self year: aYear month: HebrewCalendar tammuz
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) tammuz
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> tevetOf: aYear [
 
-	^self year: aYear month: HebrewCalendar tevet
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) tevet
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> tishriOf: aYear [
 
-	^self year: aYear month: HebrewCalendar tishri
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #HebrewCalendar) tishri
 ]
 
 { #category : 'instance creation' }
