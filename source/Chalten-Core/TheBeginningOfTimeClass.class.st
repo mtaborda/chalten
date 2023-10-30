@@ -14,20 +14,6 @@ Class {
 }
 
 { #category : 'initialization' }
-TheBeginningOfTimeClass class >> initialize [
-
-	super initialize.
-	self initializeUniqueInstance.
-	self initializeGlobalVariable
-]
-
-{ #category : 'initialization' }
-TheBeginningOfTimeClass class >> initializeGlobalVariable [
-
-	Smalltalk at: #TheBeginningOfTime put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 TheBeginningOfTimeClass class >> initializeUniqueInstance [
 
 	uniqueInstance := super new
