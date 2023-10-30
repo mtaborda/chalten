@@ -27,19 +27,6 @@ Class {
 }
 
 { #category : 'initialization' }
-TimeUnitsGlobals class >> initializeAfterLoad [
-
-	self initializeTimeUnits
-]
-
-{ #category : 'initialization' }
-TimeUnitsGlobals class >> initializeTimeUnits [
-
-	self initializeUniqueInstance.
-	Smalltalk at: #TimeUnits put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 TimeUnitsGlobals class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize

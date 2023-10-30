@@ -11,14 +11,6 @@ Class {
 }
 
 { #category : 'initialization' }
-ChaltenEnvironmentBehavior class >> initializeAfterLoad [
-
-	| environmentClass |
-	environmentClass := self initializeEnvironment.
-	Smalltalk at: #ChaltenEnvironment put: environmentClass new
-]
-
-{ #category : 'initialization' }
 ChaltenEnvironmentBehavior class >> initializeEnvironment [
 	"Delete this abstract class and instead, keep the concrete ones and load them from different platform-specific packages? Undefined Environment would not exist anymore as well."
 

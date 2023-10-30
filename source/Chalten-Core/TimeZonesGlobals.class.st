@@ -23,19 +23,6 @@ Class {
 }
 
 { #category : 'initialization' }
-TimeZonesGlobals class >> initializeAfterLoad [
-
-	self initializeTimeZones
-]
-
-{ #category : 'initialization' }
-TimeZonesGlobals class >> initializeTimeZones [
-
-	self initializeUniqueInstance.
-	Smalltalk at: #TimeZones put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 TimeZonesGlobals class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize
