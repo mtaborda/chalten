@@ -17,8 +17,8 @@ months
 
 "
 Class {
-	#name : #GregorianCalendarDefinition,
-	#superclass : #RomanCalendarDefinition,
+	#name : 'GregorianCalendarDefinition',
+	#superclass : 'RomanCalendarDefinition',
 	#instVars : [
 		'months',
 		'days'
@@ -26,40 +26,41 @@ Class {
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : #'Chalten-Gregorian-Calendar'
+	#category : 'Chalten-Gregorian-Calendar',
+	#package : 'Chalten-Gregorian-Calendar'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianCalendarDefinition class >> initializeGlobalNameCalendar [
 
 	Smalltalk at: #GregorianCalendar put: uniqueInstance
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianCalendarDefinition class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 GregorianCalendarDefinition class >> new [
 
 	^uniqueInstance
 ]
 
-{ #category : #'converting - private' }
+{ #category : 'converting - private' }
 GregorianCalendarDefinition >> convertToDate: aDate [
 
 	^self convertToGregorianDate: aDate
 ]
 
-{ #category : #'converting - private' }
+{ #category : 'converting - private' }
 GregorianCalendarDefinition >> convertToDateTime: aDateTime [
 
 	^self convertToGregorianDateTime: aDateTime
 ]
 
-{ #category : #'dates accessing' }
+{ #category : 'dates accessing' }
 GregorianCalendarDefinition >> currentDateTime [
 
 	| millisecondsFromEpoch |
@@ -68,13 +69,13 @@ GregorianCalendarDefinition >> currentDateTime [
 		next: millisecondsFromEpoch) convertTo: TimeZones local
 ]
 
-{ #category : #'days accessing' }
+{ #category : 'days accessing' }
 GregorianCalendarDefinition >> days [
 
 	^days
 ]
 
-{ #category : #'year querying' }
+{ #category : 'year querying' }
 GregorianCalendarDefinition >> distanceInYearsFrom: aFromYear to: aToYear [
 
 	| difference |
@@ -83,7 +84,7 @@ GregorianCalendarDefinition >> distanceInYearsFrom: aFromYear to: aToYear [
 	^difference yearsMeasure
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianCalendarDefinition >> epoch [
 
 	"The epoch or starting date is virtually never the date the calendar was adopted but rather a hypothetical starting point for the first day.
@@ -93,7 +94,7 @@ GregorianCalendarDefinition >> epoch [
 	^ 1
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianCalendarDefinition >> initializeDays [
 	"Days begins at midnight. The week begins on sunday The days are named:
 		Sunday
@@ -108,19 +109,7 @@ GregorianCalendarDefinition >> initializeDays [
 	super initializeDays
 ]
 
-{ #category : #initialization }
-GregorianCalendarDefinition >> initializeDaysGlobalVariables [
-
-	Smalltalk at: #Monday put: self monday.
-	Smalltalk at: #Tuesday put: self tuesday.
-	Smalltalk at: #Wednesday put: self wednesday.
-	Smalltalk at: #Thursday put: self thursday.
-	Smalltalk at: #Friday put: self friday.
-	Smalltalk at: #Saturday put: self saturday.
-	Smalltalk at: #Sunday put: self sunday
-]
-
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianCalendarDefinition >> initializeMonths [
 	"This calendar is based on a 365-day common year divided into 12 months of lengths 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30 and 31 days, and on 366 days in leap years,
 	the extra day being added to make the second month 29 days long:
@@ -143,30 +132,13 @@ GregorianCalendarDefinition >> initializeMonths [
 	super initializeMonths
 ]
 
-{ #category : #initialization }
-GregorianCalendarDefinition >> initializeMonthsGlobalVariables [
-
-	Smalltalk at: #January put: self january.
-	Smalltalk at: #February put: self february.
-	Smalltalk at: #March put: self march.
-	Smalltalk at: #April put: self april.
-	Smalltalk at: #May put: self may.
-	Smalltalk at: #June put: self june.
-	Smalltalk at: #July put: self july.
-	Smalltalk at: #August put: self august.
-	Smalltalk at: #September put: self september.
-	Smalltalk at: #October put: self october.
-	Smalltalk at: #November put: self november.
-	Smalltalk at: #December put: self december
-]
-
-{ #category : #'year testing' }
+{ #category : 'year testing' }
 GregorianCalendarDefinition >> isValidYearNumber: aNumber [
 
 	^aNumber isInteger
 ]
 
-{ #category : #'year testing' }
+{ #category : 'year testing' }
 GregorianCalendarDefinition >> isYearNumberLeap: aNumber [
 	"A gregorian year y is a leap year if (y mod 4) = 0 ^ (y mod 400) ~= {100, 200, 300}.
 	- Extracted from 'Calendrical Calculations, Third Edition'; page 49."
@@ -175,19 +147,19 @@ GregorianCalendarDefinition >> isYearNumberLeap: aNumber [
 	^aNumber \\ 4 = 0 and: [(aNumber \\ 100 ~= 0 or: [aNumber \\ 400 = 0])]
 ]
 
-{ #category : #'months accessing' }
+{ #category : 'months accessing' }
 GregorianCalendarDefinition >> months [
 
 	^months
 ]
 
-{ #category : #'year accessing' }
+{ #category : 'year accessing' }
 GregorianCalendarDefinition >> newYearNumberFrom: aYear adding: aNumberOfYears [
 
 	^aYear number + aNumberOfYears
 ]
 
-{ #category : #'dates accessing - private' }
+{ #category : 'dates accessing - private' }
 GregorianCalendarDefinition >> numberOfDaysFromDate: aDate [
 	"We add together the number of days before the epoch of the calendar (0, but we do it explicit so that the dependence on our arbitrary starting date is clear),
 	the number of nonleap days since the epoch, the number of leap days since the epoch, the number of days in prior months of the given date,
@@ -205,7 +177,7 @@ GregorianCalendarDefinition >> numberOfDaysFromDate: aDate [
 	^priorNonleapDays + priorLeapDays + priorDays - februaryCorrection + dayNumber
 ]
 
-{ #category : #'accessing - private' }
+{ #category : 'accessing - private' }
 GregorianCalendarDefinition >> pharoEpoch [
 	"Answer the Squeak/Pharo epoch.
 	That is 00:00:00 on the morning of January 1, 1901 UTC"
@@ -216,7 +188,7 @@ GregorianCalendarDefinition >> pharoEpoch [
 		zone: TimeZones universalTime
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 GregorianCalendarDefinition >> printOn: aStream [
 
 	aStream nextPutAll: 'Gregorian Calendar'
