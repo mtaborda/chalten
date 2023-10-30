@@ -13,17 +13,18 @@ Class {
 { #category : 'initialization' }
 ChaltenEnvironmentBehavior class >> initializeAfterLoad [
 
-	self initializeEnvironment
+	| environmentClass |
+	environmentClass := self initializeEnvironment.
+	Smalltalk at: #ChaltenEnvironment put: environmentClass new
 ]
 
 { #category : 'initialization' }
 ChaltenEnvironmentBehavior class >> initializeEnvironment [
+	"Delete this abstract class and instead, keep the concrete ones and load them from different platform-specific packages? Undefined Environment would not exist anymore as well."
 
-	|  environmentClass |
-	environmentClass := self subclasses
-		detect: [ :each | each isForCurrentPlatform ]
-		ifNone: [ self undefinedEnvironment ].
-	Smalltalk at:#ChaltenEnvironment put: environmentClass new
+	^ self subclasses
+		  detect: [ :each | each isForCurrentPlatform ]
+		  ifNone: [ self undefinedEnvironment ]
 ]
 
 { #category : 'testing' }

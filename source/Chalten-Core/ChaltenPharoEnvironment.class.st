@@ -13,7 +13,7 @@ Class {
 { #category : 'testing' }
 ChaltenPharoEnvironment class >> isForCurrentPlatform [
 
-	^(Smalltalk at: #SystemVersion) current type = 'Pharo'
+	^ LanguagePlatform current class name = #PharoPlatform
 ]
 
 { #category : 'accessing time' }
