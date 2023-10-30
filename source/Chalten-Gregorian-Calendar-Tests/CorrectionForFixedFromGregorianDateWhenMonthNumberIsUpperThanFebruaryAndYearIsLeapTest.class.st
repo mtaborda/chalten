@@ -1,10 +1,11 @@
 Class {
-	#name : #CorrectionForFixedFromGregorianDateWhenMonthNumberIsUpperThanFebruaryAndYearIsLeapTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#name : 'CorrectionForFixedFromGregorianDateWhenMonthNumberIsUpperThanFebruaryAndYearIsLeapTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CorrectionForFixedFromGregorianDateWhenMonthNumberIsUpperThanFebruaryAndYearIsLeapTest >> testValue [
 
 	| correction |

@@ -1,6 +1,6 @@
 Class {
-	#name : #JulianYearTest,
-	#superclass : #TestCase,
+	#name : 'JulianYearTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'zeroYears',
@@ -12,16 +12,17 @@ Class {
 		'twentyNineDays',
 		'twentyEightDays'
 	],
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JulianYearTest class >> classUnderTest [
 
 	^ChaltenYear
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JulianYearTest >> setUp [
 	calendar := JulianCalendar.
 	zeroYears := 0 yearsMeasure.
@@ -34,7 +35,7 @@ JulianYearTest >> setUp [
 	twentyNineDays := 29 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testDates [
 	self assert: 2007 asJulianYear dates first = (JulianJanuary first , 2007).
 	self assert: 2007 asJulianYear dates last = (JulianDecember thirtyfirst , 2007).
@@ -42,38 +43,38 @@ JulianYearTest >> testDates [
 	self assert: 2003 asJulianYear dates last = (JulianDecember thirtyfirst , 2003)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testDistanceTo [
 	| absoluteDistance |
 	absoluteDistance := 2007 asJulianYear absoluteDistanceTo: 2010 asJulianYear.
 	self assert: absoluteDistance = 3 yearsMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianYearTest >> testEqual [
 	self assert: 2007 asJulianYear = 2007 asJulianYear.
 	self deny: 2007 asJulianYear = 2008 asJulianYear
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testFirstDate [
 	self assert: 2008 asJulianYear firstDate = (JulianJanuary first , 2008).
 	self assert: 2007 asJulianYear firstDate = (JulianJanuary first , 2007)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testFirstDay [
 	self assert: 2008 asJulianYear firstDay = (JulianJanuary first , 2008) day.
 	self assert: 2007 asJulianYear firstDay = (JulianJanuary first , 2007) day
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testFirstMonth [
 	self assert: 2008 asJulianYear firstMonth = (JulianJanuary , 2008).
 	self assert: 2007 asJulianYear firstMonth = (JulianJanuary , 2007)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianYearTest >> testGreaterThan [
 
 	self assert: 2008 asJulianYear > 2007 asJulianYear.
@@ -98,13 +99,13 @@ JulianYearTest >> testGreaterThan [
 				with: JulianApril third) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianYearTest >> testHash [
 	self assert: 2007 asJulianYear hash = 2007 asJulianYear hash.
 	self deny: 2007 asJulianYear hash = 2008 asJulianYear hash
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 JulianYearTest >> testIncludesDate [
 	self assert: (2007 asJulianYear includes: JulianJanuary first , 2007).
 	self assert: (2007 asJulianYear includes: JulianDecember thirtyfirst , 2007).
@@ -112,7 +113,7 @@ JulianYearTest >> testIncludesDate [
 	self deny: (2007 asJulianYear includes: JulianDecember thirtyfirst , 2006)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 JulianYearTest >> testIncludesDateTime [
 	self assert: (2007 asJulianYear includes: (JulianJanuary first , 2007) atMidnight).
 	self assert: (2007 asJulianYear includes: (JulianDecember thirtyfirst , 2007) atLastTimeOfDay).
@@ -120,7 +121,7 @@ JulianYearTest >> testIncludesDateTime [
 	self deny: (2007 asJulianYear includes: (JulianDecember thirtyfirst , 2006) atLastTimeOfDay)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 JulianYearTest >> testIncludesMonthOfYear [
 	self assert: (2007 asJulianYear includes: JulianJanuary , 2007).
 	self assert: (2007 asJulianYear includes: JulianDecember , 2007).
@@ -128,12 +129,12 @@ JulianYearTest >> testIncludesMonthOfYear [
 	self deny: (2007 asJulianYear includes: JulianDecember , 2006)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 JulianYearTest >> testIncludesYear [
 	self should: [ 2007 asJulianYear includes: 2007 asJulianYear ] raise: Exception
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testInvalidNextANumberOfYears [
 	| anyUnit |
 	anyUnit := BaseUnit named: 'Any Unit'.
@@ -141,7 +142,7 @@ JulianYearTest >> testInvalidNextANumberOfYears [
 	self should: [ 2007 asJulianYear next: (anyUnit with: 1) ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testInvalidPreviousANumberOfYears [
 	| anyUnit |
 	anyUnit := BaseUnit named: 'Any Unit'.
@@ -149,7 +150,7 @@ JulianYearTest >> testInvalidPreviousANumberOfYears [
 	self should: [ 2007 asJulianYear previous: (anyUnit with: 1) ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianYearTest >> testInvalidYear [
 	self
 		should: [ 1.5 asJulianYear ]
@@ -157,7 +158,7 @@ JulianYearTest >> testInvalidYear [
 		withExceptionDo: [ :anException | self assert: anException description = '1.5 is an invalid number for a year in the Julian Calendar' ]
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testIsLeap [
 	self assert: 2004 asJulianYear isLeap.
 	self assert: 2000 asJulianYear isLeap.
@@ -167,25 +168,25 @@ JulianYearTest >> testIsLeap [
 	self deny: 2101 asJulianYear isLeap
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testLastDate [
 	self assert: 2008 asJulianYear lastDate = (JulianDecember thirtyfirst , 2008).
 	self assert: 2007 asJulianYear lastDate = (JulianDecember thirtyfirst , 2007)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testLastDay [
 	self assert: 2008 asJulianYear lastDay = (JulianDecember thirtyfirst , 2008) day.
 	self assert: 2007 asJulianYear lastDay = (JulianDecember thirtyfirst , 2007) day
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testLastMonth [
 	self assert: 2008 asJulianYear lastMonth = (JulianDecember , 2008).
 	self assert: 2007 asJulianYear lastMonth = (JulianDecember , 2007)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianYearTest >> testLessThan [
 
 	self assert: 2007 asJulianYear < 2008 asJulianYear.
@@ -210,7 +211,7 @@ JulianYearTest >> testLessThan [
 				with: JulianApril third) ]
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 JulianYearTest >> testMonth [
 
 	| year |
@@ -218,14 +219,14 @@ JulianYearTest >> testMonth [
 	self assert: JulianMay, 2014 = (year month: JulianMay)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testMonths [
 	self assert: 2008 asJulianYear months size = 12.
 	self assert: 2008 asJulianYear months first = (JulianJanuary , 2008).
 	self assert: 2008 asJulianYear months last = (JulianDecember , 2008)
 ]
 
-{ #category : #'test months of year' }
+{ #category : 'test months of year' }
 JulianYearTest >> testMonthsOfYearsAccessing [
 
 	| currentYear |
@@ -245,13 +246,13 @@ JulianYearTest >> testMonthsOfYearsAccessing [
 	self assert: currentYear december = (JulianDecember ofYear: currentYear)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testNext [
 	self assert: 2007 asJulianYear next = 2008 asJulianYear.
 	self assert: -1 asJulianYear next = 1 asJulianYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testNextANumberOfYears [
 	self assert: (2007 asJulianYear next: zeroYears) = 2007 asJulianYear.
 	self assert: (2007 asJulianYear next: oneYear) = 2008 asJulianYear.
@@ -261,26 +262,26 @@ JulianYearTest >> testNextANumberOfYears [
 	self should: [ 2007 asJulianYear next: sixMonths ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testNextLeapYear [
 	self assert: 2003 asJulianYear nextLeapYear = 2004 asJulianYear.
 	self assert: 2004 asJulianYear nextLeapYear = 2008 asJulianYear.
 	self assert: 1899 asJulianYear nextLeapYear = 1900 asJulianYear
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testNumber [
 	self assert: 2007 asJulianYear number = 2007.
 	self assert: 2008 asJulianYear number = 2008
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianYearTest >> testNumberOfDays [
 	self assert: 2008 asJulianYear numberOfDays = 366 daysMeasure.
 	self assert: 2007 asJulianYear numberOfDays = 365 daysMeasure
 ]
 
-{ #category : #'test accessing months' }
+{ #category : 'test accessing months' }
 JulianYearTest >> testNumberOfMonths [
 
 	| leapYear nonleapYear |
@@ -291,13 +292,13 @@ JulianYearTest >> testNumberOfMonths [
 	self assert: nonleapYear numberOfMonths = 12 monthsMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testPrevious [
 	self assert: 2007 asJulianYear previous = 2006 asJulianYear.
 	self assert: 1 asJulianYear previous = -1 asJulianYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testPreviousANumberOfYears [
 	self assert: (2007 asJulianYear previous: zeroYears) = 2007 asJulianYear.
 	self assert: (2007 asJulianYear previous: oneYear) = 2006 asJulianYear.
@@ -307,19 +308,19 @@ JulianYearTest >> testPreviousANumberOfYears [
 	self should: [ 2007 asJulianYear previous: sixMonths ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testPreviousLeapYear [
 	self assert: 2008 asJulianYear previousLeapYear = 2004 asJulianYear.
 	self assert: 2003 asJulianYear previousLeapYear = 2000 asJulianYear.
 	self assert: 1901 asJulianYear previousLeapYear = 1900 asJulianYear
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 JulianYearTest >> testPrintString [
 	self assert: 2007 asJulianYear printString = 'Year 2007'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testTo [
 	| interval |
 	interval := 2007 asJulianYear to: 2010 asJulianYear.
@@ -328,7 +329,7 @@ JulianYearTest >> testTo [
 	self assert: interval by = oneYear
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testToBy [
 	| interval |
 	interval := 2007 asJulianYear to: 2010 asJulianYear by: twoYears.
@@ -337,7 +338,7 @@ JulianYearTest >> testToBy [
 	self assert: interval by = twoYears
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testToByDo [
 	| number |
 	number := 2004.
@@ -348,7 +349,7 @@ JulianYearTest >> testToByDo [
 	self assert: number = 2012
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testToByReverse [
 	| coll number |
 	coll := (2004 asJulianYear to: 2011 asJulianYear by: twoYears) reverse.
@@ -360,7 +361,7 @@ JulianYearTest >> testToByReverse [
 	self assert: number = 2002
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianYearTest >> testToNegativeBy [
 	| interval number |
 	interval := 2011 asJulianYear to: 2004 asJulianYear by: twoYears negated.
@@ -372,12 +373,12 @@ JulianYearTest >> testToNegativeBy [
 	self assert: number = 2003
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianYearTest >> testValidYear [
 	self shouldnt: [ 2007 asJulianYear ] raise: InvalidYearNumberException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testYearsFrom [
 	self assert: (2007 asJulianYear distanceFrom: 2006 asJulianYear) = oneYear.
 	self assert: (2007 asJulianYear distanceFrom: 2008 asJulianYear) = oneYear negated.
@@ -386,7 +387,7 @@ JulianYearTest >> testYearsFrom [
 	self assert: (-1 asJulianYear distanceFrom: 1 asJulianYear) = oneYear negated
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianYearTest >> testYearsTo [
 	self assert: (2007 asJulianYear distanceTo: 2008 asJulianYear) = oneYear.
 	self assert: (2007 asJulianYear distanceTo: 2006 asJulianYear) = oneYear negated.

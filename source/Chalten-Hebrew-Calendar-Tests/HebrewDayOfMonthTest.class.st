@@ -1,28 +1,29 @@
 Class {
-	#name : #HebrewDayOfMonthTest,
-	#superclass : #TestCase,
+	#name : 'HebrewDayOfMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'oneDay',
 		'twoDays'
 	],
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HebrewDayOfMonthTest class >> classUnderTest [
 
 	^DayOfMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 HebrewDayOfMonthTest >> setUp [
 	calendar := HebrewCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 HebrewDayOfMonthTest >> testComma [
 	| nisan |
 	nisan := calendar nisan.
@@ -44,7 +45,7 @@ HebrewDayOfMonthTest >> testComma [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayOfMonthTest >> testComparing [
 
 	| firstDayOfFirstMonth secondDayOfFirstMonth lastDayOfFirstMonth firstDayOfSecondMonth |
@@ -76,7 +77,7 @@ HebrewDayOfMonthTest >> testComparing [
 				with: Nisan) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewDayOfMonthTest >> testCreation [
 
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) month = calendar nisan.
@@ -85,7 +86,7 @@ HebrewDayOfMonthTest >> testCreation [
 	self assert: (DayOfMonth month: calendar adarII dayNumber: 29) dayNumber = 29
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 HebrewDayOfMonthTest >> testDateOfYear [
 	self
 		assert:
@@ -98,13 +99,13 @@ HebrewDayOfMonthTest >> testDateOfYear [
 						calendar: calendar)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testDaysFrom [
 	self assert: (Adar twentyninth distanceFrom: Adar twentyninth) = 0 daysMeasure.
 	self assert: (Adar twentyninth distanceFrom: Nisan first) = 354 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testDaysTo [
 	self assert: (Adar twentyninth distanceTo: Adar twentyninth) = 0 daysMeasure.
 	self assert: (Adar twentyninth distanceTo: Nisan first) = 1 dayMeasure.
@@ -112,21 +113,21 @@ HebrewDayOfMonthTest >> testDaysTo [
 	self assert: (Nisan tenth distanceTo: Nisan first) = 346 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayOfMonthTest >> testEqual [
 
 	self assert: Nisan first = Nisan first.
 	self deny: Nisan second = Nisan first
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayOfMonthTest >> testHash [
 
 	self assert: Nisan first hash = Nisan first hash.
 	self deny: Nisan second hash = Nisan first hash
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewDayOfMonthTest >> testInvalidCreation [
 
 	self 
@@ -146,21 +147,21 @@ HebrewDayOfMonthTest >> testInvalidCreation [
 			self assert: anException description = 'Day of month 31 invalid for Nisan']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testIsFirstDayOfMonth [
 
 	self assert: Nisan first isFirstDayOfMonth.
 	self deny: Nisan second isFirstDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testIsFirstDayOfYear [
 
 	self assert: Tishri first isFirstDayOfYear.
 	self deny: Nisan second isFirstDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testIsLastDayOfMonth [
 
 	self assert: Nisan thirtieth isLastDayOfMonth.
@@ -172,7 +173,7 @@ HebrewDayOfMonthTest >> testIsLastDayOfMonth [
 	self deny: Sivan twentyninth isLastDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testIsLastDayOfYear [
 
 	self assert: Elul twentyninth isLastDayOfYear.
@@ -180,19 +181,19 @@ HebrewDayOfMonthTest >> testIsLastDayOfYear [
 	self deny: AdarI thirtieth isLastDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDayOfMonthTest >> testMaximumNumberOfDaysInOneYear [
 	self assert: Iyyar third maximumNumberOfDaysInOneYear = 385 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayOfMonthTest >> testNext [
 
 	self assert: Adar twentyninth next = Nisan first.
 	self assert: Iyyar twentyninth next = Sivan first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (Adar twentyninth next: 7 daysMeasure) = Nisan seventh.
 	self assert: (Iyyar twentyninth next: 7 daysMeasure) = Sivan seventh.
@@ -200,21 +201,21 @@ HebrewDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (Nisan first next: -32 daysMeasure) = Shevat twentyeighth
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 	self assert: Nisan first numberOfDaysFromBeginningOfMonth = 0 daysMeasure.
 	self assert: Nisan thirtieth numberOfDaysFromBeginningOfMonth = 29 daysMeasure.
 	self assert: Iyyar twentyninth numberOfDaysFromBeginningOfMonth = 28 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayOfMonthTest >> testNumberOfDaysToEndOfMonth [
 	self assert: Nisan twentyfirst numberOfDaysToEndOfMonth = 9 daysMeasure.
 	self assert: Nisan thirtieth numberOfDaysToEndOfMonth = 0 daysMeasure.
 	self assert: Iyyar twentyeighth numberOfDaysToEndOfMonth = 1 dayMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayOfMonthTest >> testNumberOfDaysToEndOfYear [
 	self assert: Nisan first numberOfDaysToEndOfYear = 176 daysMeasure.
 	self assert: Tishri first numberOfDaysToEndOfYear = 354 daysMeasure.
@@ -222,14 +223,14 @@ HebrewDayOfMonthTest >> testNumberOfDaysToEndOfYear [
 	self assert: Elul twentyninth numberOfDaysToEndOfYear = 0 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayOfMonthTest >> testPrevious [
 
 	self assert: Nisan first previous = Adar twentyninth.
 	self assert: Sivan first previous = Iyyar twentyninth
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayOfMonthTest >> testPreviousANumberOfDays [
 	self assert: (AdarI thirtieth previous: 7 daysMeasure) = AdarI twentythird.
 	self assert: (Iyyar twentyninth previous: 7 daysMeasure) = Iyyar twentysecond.
@@ -237,13 +238,13 @@ HebrewDayOfMonthTest >> testPreviousANumberOfDays [
 	self assert: (Nisan first previous: -32 daysMeasure) = Iyyar third
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 HebrewDayOfMonthTest >> testPrintString [
 
 	self assert: Adar twentyninth printString = 'Adar 29'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testTo [
 
 	| interval |
@@ -254,7 +255,7 @@ HebrewDayOfMonthTest >> testTo [
 	self assert: interval by = oneDay
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToBy [
 
 	| interval |
@@ -265,7 +266,7 @@ HebrewDayOfMonthTest >> testToBy [
 	self assert: interval by = twoDays
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToByDo [
 
 	| daysTo nisanFirst dayOfMonth |
@@ -281,7 +282,7 @@ HebrewDayOfMonthTest >> testToByDo [
 	self assert: daysTo = 355
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToEveryDayNumber [
 
 	| expectedMonths interval |
@@ -299,7 +300,7 @@ HebrewDayOfMonthTest >> testToEveryDayNumber [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToEveryDayNumbers [
 
 	| expectedDayNumbers interval |
@@ -316,7 +317,7 @@ HebrewDayOfMonthTest >> testToEveryDayNumbers [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToNegativeBy [
 
 	| interval number |
@@ -329,7 +330,7 @@ HebrewDayOfMonthTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayOfMonthTest >> testToReverse [
 
 	| interval |

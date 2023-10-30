@@ -1,6 +1,6 @@
 Class {
-	#name : #HebrewMonthOfYearTest,
-	#superclass : #TestCase,
+	#name : 'HebrewMonthOfYearTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'zeroMonths',
@@ -12,16 +12,17 @@ Class {
 		'oneYear',
 		'twoYears'
 	],
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HebrewMonthOfYearTest class >> classUnderTest [
 
 	^MonthOfYear
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 HebrewMonthOfYearTest >> setUp [
 	calendar := HebrewCalendar.
 	zeroMonths := 0 monthsMeasure.
@@ -34,7 +35,7 @@ HebrewMonthOfYearTest >> setUp [
 	twoYears := 2 yearsMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewMonthOfYearTest >> testComparing [
 
 	self assert: (Iyyar of: 5774) > (Tishri of: 5774).
@@ -60,7 +61,7 @@ HebrewMonthOfYearTest >> testComparing [
 				with: Marheshvan) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewMonthOfYearTest >> testCreation [
 	self assert: (MonthOfYear yearNumber: 5768 monthNumber: 1 calendar: calendar) year = 5768 asHebrewYear.
 	self assert: (MonthOfYear yearNumber: 5768 monthNumber: 1 calendar: calendar) monthNumber = 1.
@@ -96,7 +97,7 @@ HebrewMonthOfYearTest >> testCreation [
 	self assert: (MonthOfYear adarIIOf: 5768 asHebrewYear) monthNumber = 13
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testDates [
 	self
 		assert:
@@ -118,29 +119,29 @@ HebrewMonthOfYearTest >> testDates [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewMonthOfYearTest >> testEqual [
 	self assert: (MonthOfYear nisanOf: 5768 asHebrewYear) = (MonthOfYear nisanOf: 5768 asHebrewYear).
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) = (MonthOfYear nisanOf: 5767 asHebrewYear)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testFirstDate [
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) firstDate = (Nisan first , 5767)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testFirstDay [
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) firstDay = calendar yomShelishi
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewMonthOfYearTest >> testHash [
 	self assert: (MonthOfYear nisanOf: 5768 asHebrewYear) hash = (MonthOfYear nisanOf: 5768 asHebrewYear) hash.
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) hash = (MonthOfYear nisanOf: 5767 asHebrewYear) hash
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testIncludesDate [
 	self 
 		assert: (Nisan , 5767 includes: (FixedDate 
@@ -168,7 +169,7 @@ HebrewMonthOfYearTest >> testIncludesDate [
 						calendar: calendar))
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testIncludesDateTime [
 	self assert: (Nisan , 5767 
 				includes: (FixedDate 
@@ -196,7 +197,7 @@ HebrewMonthOfYearTest >> testIncludesDateTime [
 						calendar: calendar) atLastTimeOfDay)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testIncludesMonthOfYear [
 
 	self
@@ -204,12 +205,12 @@ HebrewMonthOfYearTest >> testIncludesMonthOfYear [
 		raise: Exception
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testIncludesYear [
 	self should: [ (MonthOfYear yearNumber: 5767 monthNumber: 1) includes: 5767 asHebrewYear ] raise: Exception
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewMonthOfYearTest >> testInvalidCreation [
 
 	self 
@@ -239,21 +240,21 @@ HebrewMonthOfYearTest >> testInvalidCreation [
 			self assert: anException description = '0 is an invalid number for a month']
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testLastDate [
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) lastDate = (Nisan thirtieth , 5767).
 	self assert: (MonthOfYear adarOf: 5767 asHebrewYear) lastDate = (Adar twentyninth , 5767).
 	self assert: (MonthOfYear adarIIOf: 5768 asHebrewYear) lastDate = (AdarII twentyninth , 5768)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testLastDay [
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) lastDay = calendar yomRevii.
 	self assert: (MonthOfYear adarOf: 5767 asHebrewYear) lastDay = calendar yomSheni.
 	self assert: (MonthOfYear adarIIOf: 5768 asHebrewYear) lastDay = calendar yomShabbat
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testLastDayNumber [
 	self assert: (MonthOfYear nisanOf: 5768 asHebrewYear) lastDayNumber = (Nisan , 5768) numberOfDays amount.
 	self assert: (MonthOfYear iyyarOf: 5768 asHebrewYear) lastDayNumber = (Iyyar , 5768) numberOfDays amount.
@@ -271,7 +272,7 @@ HebrewMonthOfYearTest >> testLastDayNumber [
 	self assert: (MonthOfYear adarOf: 5769 asHebrewYear) lastDayNumber = (Adar , 5769) numberOfDays amount
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testMonthsFrom [
 	self assert: (Nisan , 5768 distanceFrom: AdarII , 5768) = oneMonth.
 	self assert: (Nisan , 5768 distanceFrom: Adar , 5767) = 14 monthsMeasure.
@@ -279,7 +280,7 @@ HebrewMonthOfYearTest >> testMonthsFrom [
 	self assert: (Nisan , 5768 distanceFrom: Nisan , 5767) = thirteenMonths
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testMonthsTo [
 	self assert: (Tishri , 5768 distanceTo: AdarII , 5768) = 6 monthsMeasure.
 	self assert: (Nisan , 5768 distanceTo: AdarII , 5768) = oneMonth negated.
@@ -288,7 +289,7 @@ HebrewMonthOfYearTest >> testMonthsTo [
 	self assert: (Nisan , 5768 distanceTo: Nisan , 5769) = twelveMonths
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testName [
 	self assert: (MonthOfYear nisanOf: 5768 asHebrewYear) name = 'Nisan'.
 	self assert: (MonthOfYear iyyarOf: 5768 asHebrewYear) name = 'Iyyar'.
@@ -306,14 +307,14 @@ HebrewMonthOfYearTest >> testName [
 	self assert: (MonthOfYear adarIIOf: 5768 asHebrewYear) name = 'Adar II'
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testNext [
 
 	self assert: (Nisan, 5767) next = (Iyyar, 5767).
 	self assert: (Elul, 5767) next = (Tishri, 5768)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testNextANumberOfMonths [
 	self assert: (Nisan , 5768 next: oneMonth) = (Iyyar , 5768).
 	self assert: (Nisan , 5768 next: elevenMonths) = (Adar , 5769).
@@ -326,7 +327,7 @@ HebrewMonthOfYearTest >> testNextANumberOfMonths [
 	self assert: (Nisan , 5768 next: 1.5 monthsMeasure) = (Iyyar , 5768)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testNextMonth [
 
 	| monthOfYear |
@@ -346,7 +347,7 @@ HebrewMonthOfYearTest >> testNextMonth [
 	self assert: (monthOfYear nextMonth: calendar adar) = (Adar , -1)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testNumberOfDays [
 	self assert: (MonthOfYear nisanOf: 5768 asHebrewYear) numberOfDays = 30 daysMeasure.
 	self assert: (MonthOfYear iyyarOf: 5768 asHebrewYear) numberOfDays = 29 daysMeasure.
@@ -364,14 +365,14 @@ HebrewMonthOfYearTest >> testNumberOfDays [
 	self assert: (MonthOfYear adarIIOf: 5768 asHebrewYear) numberOfDays = 29 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testNumberOfDaysFromEpoch [
 	self assert: (MonthOfYear nisanOf: 1 asHebrewYear) numberOfDaysFromEpoch = -1373250 daysMeasure.
 	self assert: (MonthOfYear nisanOf: 2 asHebrewYear) numberOfDaysFromEpoch = -1372895 daysMeasure.
 	self assert: (MonthOfYear nisanOf: 5767 asHebrewYear) numberOfDaysFromEpoch = 732754 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewMonthOfYearTest >> testOrdinalDay [
 	"To obtain a certain day of the month, for example the second yom revi`i."
 
@@ -380,14 +381,14 @@ HebrewMonthOfYearTest >> testOrdinalDay [
 	self assert: (monthOfYear ordinal: 2 day: calendar yomRevii) = (Nisan ninth , 5767)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testPrevious [
 
 	self assert: (Tishri, 5768) previous = (Elul, 5767).
 	self assert: (AdarII, 5768) previous = (AdarI, 5768)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testPreviousANumberOfMonths [
 
 	self assert: ((Nisan, 5768) previous: oneMonth) = (AdarII, 5768).
@@ -403,7 +404,7 @@ HebrewMonthOfYearTest >> testPreviousANumberOfMonths [
 	self assert: ((Elul, 5768) previous: twelveMonths) = (Tishri, 5768)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthOfYearTest >> testPreviousMonth [
 
 	| monthOfYear |
@@ -425,14 +426,14 @@ HebrewMonthOfYearTest >> testPreviousMonth [
 	self assert: (monthOfYear previousMonth: Adar) = (AdarI , 0)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 HebrewMonthOfYearTest >> testPrintString [
 	| year |
 	year := 5768 asHebrewYear.
 	self assert: (MonthOfYear nisanOf: year) printString = (calendar nisan printString , ' of ' , year printString)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testTo [
 
 	| interval |
@@ -444,7 +445,7 @@ HebrewMonthOfYearTest >> testTo [
 	self assert: interval by = oneMonth
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testToBy [
 
 	| interval |
@@ -456,7 +457,7 @@ HebrewMonthOfYearTest >> testToBy [
 	self assert: interval by = twoMonths
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testToByDo [
 
 	| number |
@@ -469,7 +470,7 @@ HebrewMonthOfYearTest >> testToByDo [
 	self assert: number = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testToByYearsDo [
 
 	| yearNumber |
@@ -482,7 +483,7 @@ HebrewMonthOfYearTest >> testToByYearsDo [
 	self assert: yearNumber = 5775
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testToNegativeBy [
 	| interval number |
 	interval := Elul , 5768 to: Tishri , 5768 by: -2 monthsMeasure.
@@ -505,7 +506,7 @@ HebrewMonthOfYearTest >> testToNegativeBy [
 	self assert: number = 6
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewMonthOfYearTest >> testToReverse [
 	| coll number |
 	coll := (Tishri , 5768 to: Elul , 5768 by: 2 monthsMeasure) reverse.

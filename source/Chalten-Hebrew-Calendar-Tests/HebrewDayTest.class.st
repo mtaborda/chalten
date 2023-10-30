@@ -1,6 +1,6 @@
 Class {
-	#name : #HebrewDayTest,
-	#superclass : #TestCase,
+	#name : 'HebrewDayTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'yomRishon',
@@ -16,16 +16,17 @@ Class {
 		'sevenDays',
 		'minusOneDay'
 	],
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HebrewDayTest class >> classUnderTest [
 
 	^Day
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 HebrewDayTest >> setUp [
 	calendar := HebrewCalendar.
 	yomRishon := calendar yomRishon.
@@ -42,7 +43,7 @@ HebrewDayTest >> setUp [
 	minusOneDay := -1 dayMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayTest >> testComparing [
 
 	self assert: YomRishon < YomShabbat.
@@ -68,7 +69,7 @@ HebrewDayTest >> testComparing [
 				with: Tishri) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewDayTest >> testCreation [
 	self shouldnt: 
 			[Day 
@@ -78,7 +79,7 @@ HebrewDayTest >> testCreation [
 		raise: Exception
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 HebrewDayTest >> testDayCreation [
 
 	| otherYomRishon otherYomSheni otherYomShelishi otherYomRevii otherYomHamishi otherYomShishi otherYomShabbat |
@@ -107,7 +108,7 @@ HebrewDayTest >> testDayCreation [
 	self assert: otherYomShabbat positionInWeek = yomShabbat positionInWeek
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayTest >> testDayPositionedInWeek [
 
 	| day |
@@ -128,7 +129,7 @@ HebrewDayTest >> testDayPositionedInWeek [
 			self assert: anException description = 'The number 8 is invalid as a day of a week']
 ]
 
-{ #category : #'test queying' }
+{ #category : 'test queying' }
 HebrewDayTest >> testDaysFrom [
 	self assert: (yomSheni distanceFrom: yomSheni) = zeroDays.
 	self assert: (yomSheni distanceFrom: yomShelishi) = 6 daysMeasure.
@@ -139,7 +140,7 @@ HebrewDayTest >> testDaysFrom [
 	self assert: (yomSheni distanceFrom: yomRishon) = oneDay
 ]
 
-{ #category : #'test queying' }
+{ #category : 'test queying' }
 HebrewDayTest >> testDaysTo [
 	self assert: (yomSheni distanceTo: yomSheni) = zeroDays.
 	self assert: (yomSheni distanceTo: yomShelishi) = oneDay.
@@ -150,7 +151,7 @@ HebrewDayTest >> testDaysTo [
 	self assert: (yomSheni distanceTo: yomRishon) = 6 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayTest >> testEqual [
 
 	self assert: yomRishon = calendar yomRishon.
@@ -162,7 +163,7 @@ HebrewDayTest >> testEqual [
 	self assert: yomShabbat = calendar yomShabbat
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 HebrewDayTest >> testHash [
 
 	self assert: yomRishon hash = calendar yomRishon hash.
@@ -174,7 +175,7 @@ HebrewDayTest >> testHash [
 	self assert: yomShabbat hash = calendar yomShabbat hash
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 HebrewDayTest >> testInvalidNameCreation [
 
 	self 
@@ -184,7 +185,7 @@ HebrewDayTest >> testInvalidNameCreation [
 			self assert: exception description = 'The name Pedro Duque, otro is invalid as a day of a week']
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 HebrewDayTest >> testIs [
 
 	self assert: (yomRishon is: YomRishon).
@@ -196,7 +197,7 @@ HebrewDayTest >> testIs [
 	self assert: (yomShabbat is: YomShabbat)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayTest >> testName [
 
 	self assert: yomRishon name = 'yom rishon'.
@@ -208,7 +209,7 @@ HebrewDayTest >> testName [
 	self assert: yomShabbat name = 'yom shabbat'
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayTest >> testNext [
 
 	self assert: yomRishon next = yomSheni.
@@ -220,7 +221,7 @@ HebrewDayTest >> testNext [
 	self assert: yomShabbat next = yomRishon
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayTest >> testNextInANumberOfDays [
 	self assert: (yomSheni next: oneDay) = yomShelishi.
 	self assert: (yomSheni next: twoDays) = yomRevii.
@@ -230,7 +231,7 @@ HebrewDayTest >> testNextInANumberOfDays [
 	self assert: (yomRishon next: 21 daysMeasure) = yomRishon
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 HebrewDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 
 	| currentNumberOfDays |
@@ -241,7 +242,7 @@ HebrewDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 		currentNumberOfDays := currentNumberOfDays + oneDay]
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayTest >> testPrevious [
 
 	self assert: yomRishon previous = yomShabbat.
@@ -253,7 +254,7 @@ HebrewDayTest >> testPrevious [
 	self assert: yomShabbat previous = yomShishi
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDayTest >> testPreviousInANumberOfDays [
 	self assert: (yomSheni previous: oneDay) = yomRishon.
 	self assert: (yomSheni previous: twoDays) = yomShabbat.
@@ -267,7 +268,7 @@ HebrewDayTest >> testPreviousInANumberOfDays [
 	self assert: (yomShabbat previous: 14 daysMeasure) = yomShabbat
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 HebrewDayTest >> testPrintString [
 	self 
 		assert: (Day 
@@ -277,7 +278,7 @@ HebrewDayTest >> testPrintString [
 				= 'One Hebrew Day Name'
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 HebrewDayTest >> testSinceYomRishon [
 	| currentDay |
 	currentDay := yomRishon.
@@ -287,7 +288,7 @@ HebrewDayTest >> testSinceYomRishon [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayTest >> testTo [
 
 	| interval |
@@ -299,7 +300,7 @@ HebrewDayTest >> testTo [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayTest >> testToBy [
 
 	| interval |
@@ -312,7 +313,7 @@ HebrewDayTest >> testToBy [
 	self assert: interval size = 3
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayTest >> testToDo [
 
 	| interval currentDayNumber |
@@ -326,7 +327,7 @@ HebrewDayTest >> testToDo [
 	self assert: currentDayNumber = 8
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayTest >> testToNegativeBy [
 
 	| interval |
@@ -338,7 +339,7 @@ HebrewDayTest >> testToNegativeBy [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 HebrewDayTest >> testToNegativeByDo [
 
 	| interval currentDayNumber |
@@ -352,7 +353,7 @@ HebrewDayTest >> testToNegativeByDo [
 	self assert: currentDayNumber = 0
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 HebrewDayTest >> testValidNameCreation [
 
 	self shouldnt: [calendar dayNamed: 'yom shishi'] raise: InvalidDayNameException

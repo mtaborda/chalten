@@ -1,10 +1,11 @@
 Class {
-	#name : #JulianYearNumberFromFixedTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'JulianYearNumberFromFixedTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 JulianYearNumberFromFixedTest >> testValue [
 
 	self assert: (YearNumberFromFixed for: 1 using: JulianCalendar) value = 1.

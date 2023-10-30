@@ -1,39 +1,41 @@
 Class {
-	#name : #ChaltenPharoEnvironmentTest,
-	#superclass : #TestCase,
+	#name : 'ChaltenPharoEnvironmentTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'environment'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #'initailize-release' }
+{ #category : 'initailize-release' }
 ChaltenPharoEnvironmentTest >> setUp [
 
 	super setUp.
 	environment := ChaltenPharoEnvironment new
 ]
 
-{ #category : #'initailize-release' }
+{ #category : 'initailize-release' }
 ChaltenPharoEnvironmentTest >> tearDown [
 
 	super tearDown.
 	environment := nil
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 ChaltenPharoEnvironmentTest >> testIsForCurrentPlatform [
 
 	self assert: ChaltenPharoEnvironment isForCurrentPlatform
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenPharoEnvironmentTest >> testLocalTimeOffset [
 
 	self assert: environment localTimeOffset = (environment primOffset // 60)
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenPharoEnvironmentTest >> testMicrosecondsClock [
 
 	| first second |
@@ -43,7 +45,7 @@ ChaltenPharoEnvironmentTest >> testMicrosecondsClock [
 	self assert: first = (second - (second -first))
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenPharoEnvironmentTest >> testMillisecondsClock [
 
 	| first second |
@@ -53,7 +55,7 @@ ChaltenPharoEnvironmentTest >> testMillisecondsClock [
 	self assert: first = (second - (second -first))
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenPharoEnvironmentTest >> testSecondsClock [
 
 	| first second |

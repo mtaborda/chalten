@@ -1,10 +1,11 @@
 Class {
-	#name : #HebrewLastMonthNumberInYearTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#name : 'HebrewLastMonthNumberInYearTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 HebrewLastMonthNumberInYearTest >> testValue [
 	| leapYear nonleapYear |
 	leapYear := 5768 asHebrewYear.

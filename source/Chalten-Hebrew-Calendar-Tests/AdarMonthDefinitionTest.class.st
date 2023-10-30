@@ -1,44 +1,45 @@
 Class {
-	#name : #AdarMonthDefinitionTest,
-	#superclass : #TestCase,
+	#name : 'AdarMonthDefinitionTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'adarDefinition',
 		'adarIDefinition',
 		'adarIIDefinition'
 	],
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> distanceTo: aMonthDefinition [
 
 	^self ninetyDays
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> firstDate [
 
 	^self
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> ninetyDays [
 	^ 30 daysMeasure * 3
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> numberOfDaysFor: aMonthDefinition [
 	
 	^aMonthDefinition numberOfDaysInLeapYear max: aMonthDefinition numberOfDaysInNonleapYear
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> ofYear: aYear [
 
 	^self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AdarMonthDefinitionTest >> setUp [
 
 	adarDefinition := AdarMonthDefinition adar.
@@ -46,7 +47,7 @@ AdarMonthDefinitionTest >> setUp [
 	adarIIDefinition := AdarMonthDefinition adarII
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testIsValidDayNumber [
 
 	self assert: (adarDefinition isValidDayNumber: 29).
@@ -58,7 +59,7 @@ AdarMonthDefinitionTest >> testIsValidDayNumber [
 	self deny: (adarIIDefinition isValidDayNumber: 32)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testNumberOfDays [
 
 	self assert: adarDefinition numberOfDays = self twentynineDays.
@@ -66,7 +67,7 @@ AdarMonthDefinitionTest >> testNumberOfDays [
 	self assert: adarIIDefinition numberOfDays = self twentynineDays
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testNumberOfDaysFromBeginningOfYearIn [
 
 	self assert: (adarDefinition numberOfDaysFromBeginningOfYearIn: self for: self) = self ninetyDays.
@@ -74,7 +75,7 @@ AdarMonthDefinitionTest >> testNumberOfDaysFromBeginningOfYearIn [
 	self assert: (adarIIDefinition numberOfDaysFromBeginningOfYearIn: self for: self) = self ninetyDays
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testNumberOfDaysIn [
 
 	self assert: (adarDefinition numberOfDaysIn: self) = self twentynineDays.
@@ -82,7 +83,7 @@ AdarMonthDefinitionTest >> testNumberOfDaysIn [
 	self assert: (adarIIDefinition numberOfDaysIn: self) = self twentynineDays
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testNumberOfDaysInLeapYear [
 
 	self assert: adarDefinition numberOfDaysInLeapYear = 0 daysMeasure.
@@ -90,7 +91,7 @@ AdarMonthDefinitionTest >> testNumberOfDaysInLeapYear [
 	self assert: adarIIDefinition numberOfDaysInLeapYear = self twentynineDays
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 AdarMonthDefinitionTest >> testNumberOfDaysInNonleapYear [
 
 	self assert: adarDefinition numberOfDaysInNonleapYear = self twentynineDays.
@@ -98,12 +99,12 @@ AdarMonthDefinitionTest >> testNumberOfDaysInNonleapYear [
 	self assert: adarIIDefinition numberOfDaysInNonleapYear = 0 daysMeasure
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> thirtyDays [
 	^ 30 daysMeasure
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 AdarMonthDefinitionTest >> twentynineDays [
 	^ 29 daysMeasure
 ]

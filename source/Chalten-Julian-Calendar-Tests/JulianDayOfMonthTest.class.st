@@ -1,28 +1,29 @@
 Class {
-	#name : #JulianDayOfMonthTest,
-	#superclass : #TestCase,
+	#name : 'JulianDayOfMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'twoDays',
 		'oneDay'
 	],
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JulianDayOfMonthTest class >> classUnderTest [
 
 	^DayOfMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JulianDayOfMonthTest >> setUp [
 	calendar := JulianCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 JulianDayOfMonthTest >> testComma [
 	| january |
 	january := calendar january.
@@ -40,7 +41,7 @@ JulianDayOfMonthTest >> testComma [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayOfMonthTest >> testComparing [
 
 	| firstDayOfFirstMonth secondDayOfFirstMonth lastDayOfFirstMonth firstDayOfSecondMonth |
@@ -72,7 +73,7 @@ JulianDayOfMonthTest >> testComparing [
 				with: JulianMarch) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianDayOfMonthTest >> testCreation [
 
 	self assert:
@@ -86,7 +87,7 @@ JulianDayOfMonthTest >> testCreation [
 	self assert: (DayOfMonth month: calendar february dayNumber: 29) dayNumber = 29
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 JulianDayOfMonthTest >> testDateOfYear [
 	self
 		assert:
@@ -94,13 +95,13 @@ JulianDayOfMonthTest >> testDateOfYear [
 				= (JulianJanuary first , 2005)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testDaysFrom [
 	self assert: (JulianDecember thirtyfirst distanceFrom: JulianDecember thirtyfirst) = 0 daysMeasure.
 	self assert: (JulianDecember thirtyfirst distanceFrom: JulianJanuary first) = 364 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testDaysTo [
 	self assert: (JulianDecember thirtyfirst distanceTo: JulianDecember thirtyfirst) = 0 daysMeasure.
 	self assert: (JulianDecember thirtyfirst distanceTo: JulianJanuary first) = 1 dayMeasure.
@@ -108,7 +109,7 @@ JulianDayOfMonthTest >> testDaysTo [
 	self assert: (JulianJanuary tenth distanceTo: JulianJanuary first) = 356 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayOfMonthTest >> testEqual [
 
 	self assert:
@@ -119,7 +120,7 @@ JulianDayOfMonthTest >> testEqual [
 			(DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayOfMonthTest >> testHash [
 
 	self assert:
@@ -127,7 +128,7 @@ JulianDayOfMonthTest >> testHash [
 			(DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) hash
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianDayOfMonthTest >> testInvalidCreation [
 
 	self 
@@ -147,21 +148,21 @@ JulianDayOfMonthTest >> testInvalidCreation [
 			self assert: anException description = 'Day of month 32 invalid for January']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testIsFirstDayOfMonth [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 01 calendar: calendar) isFirstDayOfMonth.
 	self deny: (DayOfMonth monthNumber: 01 dayNumber: 02 calendar: calendar) isFirstDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testIsFirstDayOfYear [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 01 calendar: calendar) isFirstDayOfYear.
 	self deny: (DayOfMonth monthNumber: 01 dayNumber: 02 calendar: calendar) isFirstDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testIsLastDayOfMonth [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 31 calendar: calendar) isLastDayOfMonth.
@@ -173,7 +174,7 @@ JulianDayOfMonthTest >> testIsLastDayOfMonth [
 	self deny: (DayOfMonth monthNumber: 03 dayNumber: 30 calendar: calendar) isLastDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testIsLastDayOfYear [
 
 	self assert: (DayOfMonth monthNumber: 12 dayNumber: 31 calendar: calendar) isLastDayOfYear.
@@ -181,19 +182,19 @@ JulianDayOfMonthTest >> testIsLastDayOfYear [
 	self deny: (DayOfMonth monthNumber: 11 dayNumber: 30 calendar: calendar) isLastDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayOfMonthTest >> testMaximumNumberOfDaysInOneYear [
 	self assert: JulianMarch third maximumNumberOfDaysInOneYear = 366 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayOfMonthTest >> testNext [
 
 	self assert: JulianDecember thirtyfirst next = JulianJanuary first.
 	self assert: JulianFebruary twentyeighth next = JulianMarch first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (JulianDecember thirtyfirst next: 7 daysMeasure) = JulianJanuary seventh.
 	self assert: (JulianFebruary twentyeighth next: 7 daysMeasure) = JulianMarch seventh.
@@ -201,7 +202,7 @@ JulianDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (JulianJanuary first next: -32 daysMeasure) = JulianNovember thirtieth
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 	self
 		assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) numberOfDaysFromBeginningOfMonth = 0 daysMeasure.
@@ -211,27 +212,27 @@ JulianDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 		assert: (DayOfMonth monthNumber: 2 dayNumber: 29 calendar: calendar) numberOfDaysFromBeginningOfMonth = 28 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayOfMonthTest >> testNumberOfDaysToEndOfMonth [
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) numberOfDaysToEndOfMonth = 30 daysMeasure.
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 31 calendar: calendar) numberOfDaysToEndOfMonth = 0 daysMeasure.
 	self assert: (DayOfMonth monthNumber: 2 dayNumber: 28 calendar: calendar) numberOfDaysToEndOfMonth = 1 dayMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayOfMonthTest >> testNumberOfDaysToEndOfYear [
 	self assert: JulianJanuary first numberOfDaysToEndOfYear = 364 daysMeasure.
 	self assert: JulianDecember thirtyfirst numberOfDaysToEndOfYear = 0 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayOfMonthTest >> testPrevious [
 
 	self assert: JulianJanuary first previous = JulianDecember thirtyfirst.
 	self assert: JulianMarch first previous = JulianFebruary twentyeighth
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayOfMonthTest >> testPreviousANumberOfDays [
 	self
 		assert:
@@ -251,13 +252,13 @@ JulianDayOfMonthTest >> testPreviousANumberOfDays [
 				= (DayOfMonth monthNumber: 2 dayNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 JulianDayOfMonthTest >> testPrintString [
 
 	self assert: (DayOfMonth monthNumber: 12 dayNumber: 31 calendar: calendar) printString = 'December 31'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testTo [
 
 	| interval |
@@ -270,7 +271,7 @@ JulianDayOfMonthTest >> testTo [
 	self assert: interval by = oneDay
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToBy [
 
 	| interval |
@@ -284,7 +285,7 @@ JulianDayOfMonthTest >> testToBy [
 	self assert: interval by = twoDays
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToByDo [
 
 	| daysTo januaryFirst dayOfMonth |
@@ -301,7 +302,7 @@ JulianDayOfMonthTest >> testToByDo [
 	self assert: daysTo = 365
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToEveryDayNumber [
 
 	| expectedMonths interval |
@@ -322,7 +323,7 @@ JulianDayOfMonthTest >> testToEveryDayNumber [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToEveryDayNumbers [
 
 	| expectedDayNumbers interval |
@@ -343,7 +344,7 @@ JulianDayOfMonthTest >> testToEveryDayNumbers [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToNegativeBy [
 
 	| interval number |
@@ -359,7 +360,7 @@ JulianDayOfMonthTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayOfMonthTest >> testToReverse [
 
 	| interval |

@@ -1,6 +1,6 @@
-Extension { #name : #Number }
+Extension { #name : 'Number' }
 
-{ #category : #'*Chalten-Islamic-Calendar' }
+{ #category : '*Chalten-Islamic-Calendar' }
 Number >> asIslamicYear [
 
 	^ChaltenYear number: self calendar: IslamicCalendar

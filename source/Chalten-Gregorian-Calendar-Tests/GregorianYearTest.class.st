@@ -1,6 +1,6 @@
 Class {
-	#name : #GregorianYearTest,
-	#superclass : #TestCase,
+	#name : 'GregorianYearTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'zeroYears',
@@ -12,18 +12,19 @@ Class {
 		'twentyNineDays',
 		'twentyEightDays'
 	],
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianYearTest class >> classUnderTest [
 
 	^ChaltenYear
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianYearTest >> setUp [
-	calendar := GregorianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #GregorianCalendar.
 	zeroYears := 0 yearsMeasure.
 	oneYear := 1 yearMeasure.
 	twoYears := 2 yearsMeasure.
@@ -34,7 +35,7 @@ GregorianYearTest >> setUp [
 	twentyNineDays := 29 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testDates [
 	self assert: 2007 asGregorianYear dates first = (January first , 2007).
 	self assert: 2007 asGregorianYear dates last = (December thirtyfirst , 2007).
@@ -42,38 +43,38 @@ GregorianYearTest >> testDates [
 	self assert: 2003 asGregorianYear dates last = (December thirtyfirst , 2003)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testDistanceTo [
 	| absoluteDistance |
 	absoluteDistance := 2007 asGregorianYear absoluteDistanceTo: 2010 asGregorianYear.
 	self assert: absoluteDistance = 3 yearsMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianYearTest >> testEqual [
 	self assert: 2007 asGregorianYear = 2007 asGregorianYear.
 	self deny: 2007 asGregorianYear = 2008 asGregorianYear
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testFirstDate [
 	self assert: 2008 asGregorianYear firstDate = (January first , 2008).
 	self assert: 2007 asGregorianYear firstDate = (January first , 2007)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testFirstDay [
 	self assert: 2008 asGregorianYear firstDay = (January first , 2008) day.
 	self assert: 2007 asGregorianYear firstDay = (January first , 2007) day
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testFirstMonth [
 	self assert: 2008 asGregorianYear firstMonth = (January , 2008).
 	self assert: 2007 asGregorianYear firstMonth = (January , 2007)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianYearTest >> testGreaterThan [
 
 	self assert: 2008 asGregorianYear > 2007 asGregorianYear.
@@ -98,13 +99,13 @@ GregorianYearTest >> testGreaterThan [
 				with: April third) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianYearTest >> testHash [
 	self assert: 2007 asGregorianYear hash = 2007 asGregorianYear hash.
 	self deny: 2007 asGregorianYear hash = 2008 asGregorianYear hash
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 GregorianYearTest >> testIncludesDate [
 	self assert: (2007 asGregorianYear includes: January first , 2007).
 	self assert: (2007 asGregorianYear includes: December thirtyfirst , 2007).
@@ -112,7 +113,7 @@ GregorianYearTest >> testIncludesDate [
 	self deny: (2007 asGregorianYear includes: December thirtyfirst , 2006)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 GregorianYearTest >> testIncludesDateTime [
 	self assert: (2007 asGregorianYear includes: (January first , 2007) atMidnight).
 	self assert: (2007 asGregorianYear includes: (December thirtyfirst , 2007) atLastTimeOfDay).
@@ -120,7 +121,7 @@ GregorianYearTest >> testIncludesDateTime [
 	self deny: (2007 asGregorianYear includes: (December thirtyfirst , 2006) atLastTimeOfDay)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 GregorianYearTest >> testIncludesMonthOfYear [
 	self assert: (2007 asGregorianYear includes: January , 2007).
 	self assert: (2007 asGregorianYear includes: December , 2007).
@@ -128,12 +129,12 @@ GregorianYearTest >> testIncludesMonthOfYear [
 	self deny: (2007 asGregorianYear includes: December , 2006)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 GregorianYearTest >> testIncludesYear [
 	self should: [ 2007 asGregorianYear includes: 2007 asGregorianYear ] raise: Exception
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testInvalidNextANumberOfYears [
 	| anyUnit |
 	anyUnit := BaseUnit named: 'Any Unit'.
@@ -141,7 +142,7 @@ GregorianYearTest >> testInvalidNextANumberOfYears [
 	self should: [ 2007 asGregorianYear next: (anyUnit with: 1) ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testInvalidPreviousANumberOfYears [
 	| anyUnit |
 	anyUnit := BaseUnit named: 'Any Unit'.
@@ -149,7 +150,7 @@ GregorianYearTest >> testInvalidPreviousANumberOfYears [
 	self should: [ 2007 asGregorianYear previous: (anyUnit with: 1) ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianYearTest >> testInvalidYear [
 	self
 		should: [ 1.5 asGregorianYear ]
@@ -157,7 +158,7 @@ GregorianYearTest >> testInvalidYear [
 		withExceptionDo: [ :anException | self assert: anException description = '1.5 is an invalid number for a year in the Gregorian Calendar' ]
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testIsLeap [
 	self assert: 2004 asGregorianYear isLeap.
 	self assert: 2000 asGregorianYear isLeap.
@@ -167,25 +168,25 @@ GregorianYearTest >> testIsLeap [
 	self deny: 2101 asGregorianYear isLeap
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testLastDate [
 	self assert: 2008 asGregorianYear lastDate = (December thirtyfirst , 2008).
 	self assert: 2007 asGregorianYear lastDate = (December thirtyfirst , 2007)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testLastDay [
 	self assert: 2008 asGregorianYear lastDay = (December thirtyfirst , 2008) day.
 	self assert: 2007 asGregorianYear lastDay = (December thirtyfirst , 2007) day
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testLastMonth [
 	self assert: 2008 asGregorianYear lastMonth = (December , 2008).
 	self assert: 2007 asGregorianYear lastMonth = (December , 2007)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianYearTest >> testLessThan [
 
 	self assert: 2007 asGregorianYear < 2008 asGregorianYear.
@@ -210,7 +211,7 @@ GregorianYearTest >> testLessThan [
 				with: April third) ]
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 GregorianYearTest >> testMonth [
 
 	| year |
@@ -218,14 +219,14 @@ GregorianYearTest >> testMonth [
 	self assert: May, 2014 = (year month: May)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testMonths [
 	self assert: 2008 asGregorianYear months size = 12.
 	self assert: 2008 asGregorianYear months first = (January , 2008).
 	self assert: 2008 asGregorianYear months last = (December , 2008)
 ]
 
-{ #category : #'test months of year' }
+{ #category : 'test months of year' }
 GregorianYearTest >> testMonthsOfYearsAccessing [
 
 	| currentYear |
@@ -245,13 +246,13 @@ GregorianYearTest >> testMonthsOfYearsAccessing [
 	self assert: currentYear december = (December ofYear: currentYear)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testNext [
 	self assert: 2007 asGregorianYear next = 2008 asGregorianYear.
 	self assert: -1 asGregorianYear next = 0 asGregorianYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testNextANumberOfYears [
 	self assert: (2007 asGregorianYear next: zeroYears) = 2007 asGregorianYear.
 	self assert: (2007 asGregorianYear next: oneYear) = 2008 asGregorianYear.
@@ -261,26 +262,26 @@ GregorianYearTest >> testNextANumberOfYears [
 	self should: [ 2007 asGregorianYear next: sixMonths ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testNextLeapYear [
 	self assert: 2003 asGregorianYear nextLeapYear = 2004 asGregorianYear.
 	self assert: 2004 asGregorianYear nextLeapYear = 2008 asGregorianYear.
 	self assert: 1899 asGregorianYear nextLeapYear = 1904 asGregorianYear
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testNumber [
 	self assert: 2007 asGregorianYear number = 2007.
 	self assert: 2008 asGregorianYear number = 2008
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianYearTest >> testNumberOfDays [
 	self assert: 2008 asGregorianYear numberOfDays = 366 daysMeasure.
 	self assert: 2007 asGregorianYear numberOfDays = 365 daysMeasure
 ]
 
-{ #category : #'test accessing months' }
+{ #category : 'test accessing months' }
 GregorianYearTest >> testNumberOfMonths [
 
 	| leapYear nonleapYear |
@@ -291,13 +292,13 @@ GregorianYearTest >> testNumberOfMonths [
 	self assert: nonleapYear numberOfMonths = 12 monthsMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testPrevious [
 	self assert: 2007 asGregorianYear previous = 2006 asGregorianYear.
 	self assert: 1 asGregorianYear previous = 0 asGregorianYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testPreviousANumberOfYears [
 	self assert: (2007 asGregorianYear previous: zeroYears) = 2007 asGregorianYear.
 	self assert: (2007 asGregorianYear previous: oneYear) = 2006 asGregorianYear.
@@ -307,19 +308,19 @@ GregorianYearTest >> testPreviousANumberOfYears [
 	self should: [ 2007 asGregorianYear previous: sixMonths ] raise: CanNotConvertMeasureException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testPreviousLeapYear [
 	self assert: 2008 asGregorianYear previousLeapYear = 2004 asGregorianYear.
 	self assert: 2003 asGregorianYear previousLeapYear = 2000 asGregorianYear.
 	self assert: 1901 asGregorianYear previousLeapYear = 1896 asGregorianYear
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 GregorianYearTest >> testPrintString [
 	self assert: 2007 asGregorianYear printString = 'Year 2007'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testTo [
 	| interval |
 	interval := 2007 asGregorianYear to: 2010 asGregorianYear.
@@ -328,7 +329,7 @@ GregorianYearTest >> testTo [
 	self assert: interval by = oneYear
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testToBy [
 	| interval |
 	interval := 2007 asGregorianYear to: 2010 asGregorianYear by: twoYears.
@@ -337,7 +338,7 @@ GregorianYearTest >> testToBy [
 	self assert: interval by = twoYears
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testToByDo [
 	| number |
 	number := 2004.
@@ -348,7 +349,7 @@ GregorianYearTest >> testToByDo [
 	self assert: number = 2012
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testToByReverse [
 	| coll number |
 	coll := (2004 asGregorianYear to: 2011 asGregorianYear by: twoYears) reverse.
@@ -360,7 +361,7 @@ GregorianYearTest >> testToByReverse [
 	self assert: number = 2002
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianYearTest >> testToNegativeBy [
 	| interval number |
 	interval := 2011 asGregorianYear to: 2004 asGregorianYear by: twoYears negated.
@@ -372,12 +373,12 @@ GregorianYearTest >> testToNegativeBy [
 	self assert: number = 2003
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianYearTest >> testValidYear [
 	self shouldnt: [ 2007 asGregorianYear ] raise: InvalidYearNumberException
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testYearsFrom [
 	self assert: (2007 asGregorianYear distanceFrom: 2006 asGregorianYear) = oneYear.
 	self assert: (2007 asGregorianYear distanceFrom: 2008 asGregorianYear) = oneYear negated.
@@ -386,7 +387,7 @@ GregorianYearTest >> testYearsFrom [
 	self assert: (1 asGregorianYear distanceFrom: 0 asGregorianYear) = oneYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianYearTest >> testYearsTo [
 	self assert: (2007 asGregorianYear distanceTo: 2008 asGregorianYear) = oneYear.
 	self assert: (2007 asGregorianYear distanceTo: 2006 asGregorianYear) = oneYear negated.

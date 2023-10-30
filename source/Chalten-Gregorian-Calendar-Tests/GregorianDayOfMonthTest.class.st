@@ -1,28 +1,29 @@
 Class {
-	#name : #GregorianDayOfMonthTest,
-	#superclass : #TestCase,
+	#name : 'GregorianDayOfMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'twoDays',
 		'oneDay'
 	],
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianDayOfMonthTest class >> classUnderTest [
 
 	^DayOfMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianDayOfMonthTest >> setUp [
-	calendar := GregorianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #GregorianCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 GregorianDayOfMonthTest >> testComma [
 	| january |
 	january := calendar january.
@@ -40,7 +41,7 @@ GregorianDayOfMonthTest >> testComma [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayOfMonthTest >> testComparing [
 
 	| firstDayOfFirstMonth secondDayOfFirstMonth lastDayOfFirstMonth firstDayOfSecondMonth |
@@ -72,7 +73,7 @@ GregorianDayOfMonthTest >> testComparing [
 				with: March) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianDayOfMonthTest >> testCreation [
 
 	self assert:
@@ -86,20 +87,20 @@ GregorianDayOfMonthTest >> testCreation [
 	self assert: (DayOfMonth month: calendar february dayNumber: 29) dayNumber = 29
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 GregorianDayOfMonthTest >> testDateOfYear [
 	self
 		assert:
 			((DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) ofYear: 2005 asGregorianYear) = (January first , 2005)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testDaysFrom [
 	self assert: (December thirtyfirst distanceFrom: December thirtyfirst) = 0 daysMeasure.
 	self assert: (December thirtyfirst distanceFrom: January first) = 364 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testDaysTo [
 	self assert: (December thirtyfirst distanceTo: December thirtyfirst) = 0 daysMeasure.
 	self assert: (December thirtyfirst distanceTo: January first) = 1 dayMeasure.
@@ -107,7 +108,7 @@ GregorianDayOfMonthTest >> testDaysTo [
 	self assert: (January tenth distanceTo: January first) = 356 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayOfMonthTest >> testEqual [
 
 	self assert:
@@ -118,7 +119,7 @@ GregorianDayOfMonthTest >> testEqual [
 			(DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayOfMonthTest >> testHash [
 
 	self assert:
@@ -126,7 +127,7 @@ GregorianDayOfMonthTest >> testHash [
 			(DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) hash
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianDayOfMonthTest >> testInvalidCreation [
 
 	self 
@@ -146,21 +147,21 @@ GregorianDayOfMonthTest >> testInvalidCreation [
 			self assert: anException description = 'Day of month 32 invalid for January']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testIsFirstDayOfMonth [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 01 calendar: calendar) isFirstDayOfMonth.
 	self deny: (DayOfMonth monthNumber: 01 dayNumber: 02 calendar: calendar) isFirstDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testIsFirstDayOfYear [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 01 calendar: calendar) isFirstDayOfYear.
 	self deny: (DayOfMonth monthNumber: 01 dayNumber: 02 calendar: calendar) isFirstDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testIsLastDayOfMonth [
 
 	self assert: (DayOfMonth monthNumber: 01 dayNumber: 31 calendar: calendar) isLastDayOfMonth.
@@ -172,7 +173,7 @@ GregorianDayOfMonthTest >> testIsLastDayOfMonth [
 	self deny: (DayOfMonth monthNumber: 03 dayNumber: 30 calendar: calendar) isLastDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testIsLastDayOfYear [
 
 	self assert: (DayOfMonth monthNumber: 12 dayNumber: 31 calendar: calendar) isLastDayOfYear.
@@ -180,19 +181,19 @@ GregorianDayOfMonthTest >> testIsLastDayOfYear [
 	self deny: (DayOfMonth monthNumber: 11 dayNumber: 30 calendar: calendar) isLastDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayOfMonthTest >> testMaximumNumberOfDaysInOneYear [
 	self assert: March third maximumNumberOfDaysInOneYear = 366 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayOfMonthTest >> testNext [
 
 	self assert: December thirtyfirst next = January first.
 	self assert: February twentyeighth next = March first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (December thirtyfirst next: 7 daysMeasure) = January seventh.
 	self assert: (February twentyeighth next: 7 daysMeasure) = March seventh.
@@ -200,7 +201,7 @@ GregorianDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (January first next: -32 daysMeasure) = November thirtieth
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 	self
 		assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) numberOfDaysFromBeginningOfMonth = 0 daysMeasure.
@@ -210,27 +211,27 @@ GregorianDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 		assert: (DayOfMonth monthNumber: 2 dayNumber: 29 calendar: calendar) numberOfDaysFromBeginningOfMonth = 28 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayOfMonthTest >> testNumberOfDaysToEndOfMonth [
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) numberOfDaysToEndOfMonth = 30 daysMeasure.
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 31 calendar: calendar) numberOfDaysToEndOfMonth = 0 daysMeasure.
 	self assert: (DayOfMonth monthNumber: 2 dayNumber: 28 calendar: calendar) numberOfDaysToEndOfMonth = 1 dayMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayOfMonthTest >> testNumberOfDaysToEndOfYear [
 	self assert: January first numberOfDaysToEndOfYear = 364 daysMeasure.
 	self assert: December thirtyfirst numberOfDaysToEndOfYear = 0 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayOfMonthTest >> testPrevious [
 
 	self assert: January first previous = December thirtyfirst.
 	self assert: March first previous = February twentyeighth
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayOfMonthTest >> testPreviousANumberOfDays [
 	self
 		assert:
@@ -250,13 +251,13 @@ GregorianDayOfMonthTest >> testPreviousANumberOfDays [
 				= (DayOfMonth monthNumber: 2 dayNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 GregorianDayOfMonthTest >> testPrintString [
 
 	self assert: (DayOfMonth monthNumber: 12 dayNumber: 31 calendar: calendar) printString = 'December 31'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testTo [
 
 	| interval |
@@ -269,7 +270,7 @@ GregorianDayOfMonthTest >> testTo [
 	self assert: interval by = oneDay
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToBy [
 
 	| interval |
@@ -283,7 +284,7 @@ GregorianDayOfMonthTest >> testToBy [
 	self assert: interval by = twoDays
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToByDo [
 
 	| daysTo januaryFirst dayOfMonth |
@@ -300,7 +301,7 @@ GregorianDayOfMonthTest >> testToByDo [
 	self assert: daysTo = 365
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToEveryDayNumber [
 
 	| expectedMonths interval |
@@ -321,7 +322,7 @@ GregorianDayOfMonthTest >> testToEveryDayNumber [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToEveryDayNumbers [
 
 	| expectedDayNumbers interval |
@@ -344,7 +345,7 @@ GregorianDayOfMonthTest >> testToEveryDayNumbers [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToNegativeBy [
 
 	| interval number |
@@ -360,7 +361,7 @@ GregorianDayOfMonthTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayOfMonthTest >> testToReverse [
 
 	| interval |

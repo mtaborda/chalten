@@ -2,35 +2,37 @@
 A ChaltenUndefinedEnvironmentTest is a test class for testing the behavior of ChaltenUndefinedEnvironment
 "
 Class {
-	#name : #ChaltenUndefinedEnvironmentTest,
-	#superclass : #TestCase,
+	#name : 'ChaltenUndefinedEnvironmentTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'environment'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #'initailize-release' }
+{ #category : 'initailize-release' }
 ChaltenUndefinedEnvironmentTest >> setUp [
 
 	super setUp.
 	environment := ChaltenUndefinedEnvironment new
 ]
 
-{ #category : #'initailize-release' }
+{ #category : 'initailize-release' }
 ChaltenUndefinedEnvironmentTest >> tearDown [
 
 	super tearDown.
 	environment := nil
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 ChaltenUndefinedEnvironmentTest >> testIsForCurrentPlatform [
 
 	self deny: ChaltenUndefinedEnvironment isForCurrentPlatform
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenUndefinedEnvironmentTest >> testLocalTimeOffset [
 
 	self
@@ -40,7 +42,7 @@ ChaltenUndefinedEnvironmentTest >> testLocalTimeOffset [
 			self assert: exception description = 'There is no environment defined to resolve #localTimeOffset' ]
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenUndefinedEnvironmentTest >> testMicrosecondsClock [
 
 	self
@@ -50,7 +52,7 @@ ChaltenUndefinedEnvironmentTest >> testMicrosecondsClock [
 			self assert: exception description = 'There is no environment defined to resolve #microsecondsClock' ]
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenUndefinedEnvironmentTest >> testMillisecondsClock [
 
 	self
@@ -60,7 +62,7 @@ ChaltenUndefinedEnvironmentTest >> testMillisecondsClock [
 			self assert: exception description = 'There is no environment defined to resolve #millisecondsClock' ]
 ]
 
-{ #category : #'test accessing time' }
+{ #category : 'test accessing time' }
 ChaltenUndefinedEnvironmentTest >> testSecondsClock [
 
 	self

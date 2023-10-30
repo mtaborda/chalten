@@ -1,6 +1,6 @@
 Class {
-	#name : #IslamicDayTest,
-	#superclass : #TestCase,
+	#name : 'IslamicDayTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'yaumAlAhad',
 		'zeroDays',
@@ -16,16 +16,17 @@ Class {
 		'sevenDays',
 		'minusOneDay'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicDayTest class >> classUnderTest [
 
 	^Day
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicDayTest >> setUp [
 	calendar := IslamicCalendar.
 	yaumAlAhad := calendar yaumAlAhad.
@@ -42,7 +43,7 @@ IslamicDayTest >> setUp [
 	minusOneDay := -1 dayMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayTest >> testComparing [
 
 	self assert: YaumAlAhad < YaumAsSabt.
@@ -68,7 +69,7 @@ IslamicDayTest >> testComparing [
 				with: JumadaI) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDayTest >> testCreation [
 	self shouldnt: 
 			[Day 
@@ -78,7 +79,7 @@ IslamicDayTest >> testCreation [
 		raise: Exception
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 IslamicDayTest >> testDayCreation [
 
 	| otherYaumAlAhad otherYaumAlIthnayna otherYaumAthThalatha otherYaumAlArbaa otherYaumAlHamis otherYaumAlJuma otherYaumAsSabt |
@@ -107,7 +108,7 @@ IslamicDayTest >> testDayCreation [
 	self assert: otherYaumAsSabt positionInWeek = yaumAsSabt positionInWeek
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayTest >> testDayPositionedInWeek [
 
 	| day |
@@ -128,7 +129,7 @@ IslamicDayTest >> testDayPositionedInWeek [
 			self assert: anException description = 'The number 8 is invalid as a day of a week']
 ]
 
-{ #category : #'test queying' }
+{ #category : 'test queying' }
 IslamicDayTest >> testDaysFrom [
 	self assert: (yaumAlIthnayna distanceFrom: yaumAlIthnayna) = zeroDays.
 	self assert: (yaumAlIthnayna distanceFrom: yaumAthThalatha) = 6 daysMeasure.
@@ -139,7 +140,7 @@ IslamicDayTest >> testDaysFrom [
 	self assert: (yaumAlIthnayna distanceFrom: yaumAlAhad) = oneDay
 ]
 
-{ #category : #'test queying' }
+{ #category : 'test queying' }
 IslamicDayTest >> testDaysTo [
 	self assert: (yaumAlIthnayna distanceTo: yaumAlIthnayna) = zeroDays.
 	self assert: (yaumAlIthnayna distanceTo: yaumAthThalatha) = oneDay.
@@ -150,7 +151,7 @@ IslamicDayTest >> testDaysTo [
 	self assert: (yaumAlIthnayna distanceTo: yaumAlAhad) = 6 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayTest >> testEqual [
 
 	self assert: yaumAlAhad = calendar yaumAlAhad.
@@ -162,7 +163,7 @@ IslamicDayTest >> testEqual [
 	self assert: yaumAsSabt = calendar yaumAsSabt
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayTest >> testHash [
 
 	self assert: yaumAlAhad hash = calendar yaumAlAhad hash.
@@ -174,7 +175,7 @@ IslamicDayTest >> testHash [
 	self assert: yaumAsSabt hash = calendar yaumAsSabt hash 
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 IslamicDayTest >> testInvalidNameCreation [
 
 	self 
@@ -184,7 +185,7 @@ IslamicDayTest >> testInvalidNameCreation [
 			self assert: exception description = 'The name Pedro Duque, otro is invalid as a day of a week']
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDayTest >> testIs [
 	
 	self assert: (yaumAlAhad is: YaumAlAhad).
@@ -196,7 +197,7 @@ IslamicDayTest >> testIs [
 	self assert: (yaumAsSabt is: YaumAsSabt)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayTest >> testName [
 
 	self assert: yaumAlAhad name = 'yaum al-ahad'.
@@ -208,7 +209,7 @@ IslamicDayTest >> testName [
 	self assert: yaumAsSabt name = 'yaum as-sabt'
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayTest >> testNext [
 
 	self assert: yaumAlAhad next = yaumAlIthnayna.
@@ -220,7 +221,7 @@ IslamicDayTest >> testNext [
 	self assert: yaumAsSabt next = yaumAlAhad
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayTest >> testNextInANumberOfDays [
 	self assert: (yaumAlIthnayna next: oneDay) = yaumAthThalatha.
 	self assert: (yaumAlIthnayna next: twoDays) = yaumAlArbaa.
@@ -230,7 +231,7 @@ IslamicDayTest >> testNextInANumberOfDays [
 	self assert: (yaumAlAhad next: 21 daysMeasure) = yaumAlAhad
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 
 	| currentNumberOfDays |
@@ -241,7 +242,7 @@ IslamicDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 		currentNumberOfDays := currentNumberOfDays + oneDay]
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayTest >> testPrevious [
 
 	self assert: yaumAlAhad previous = yaumAsSabt.
@@ -253,7 +254,7 @@ IslamicDayTest >> testPrevious [
 	self assert: yaumAsSabt previous = yaumAlJuma
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayTest >> testPreviousInANumberOfDays [
 	self assert: (yaumAlIthnayna previous: oneDay) = yaumAlAhad.
 	self assert: (yaumAlIthnayna previous: twoDays) = yaumAsSabt.
@@ -267,7 +268,7 @@ IslamicDayTest >> testPreviousInANumberOfDays [
 	self assert: (yaumAsSabt previous: 14 daysMeasure) = yaumAsSabt
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicDayTest >> testPrintString [
 	self 
 		assert: (Day 
@@ -277,7 +278,7 @@ IslamicDayTest >> testPrintString [
 				= 'One Christian Day Name'
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDayTest >> testSinceYaumAlAhad [
 	| currentDay |
 	currentDay := yaumAlAhad.
@@ -287,7 +288,7 @@ IslamicDayTest >> testSinceYaumAlAhad [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayTest >> testTo [
 
 	| interval |
@@ -299,7 +300,7 @@ IslamicDayTest >> testTo [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayTest >> testToBy [
 
 	| interval |
@@ -312,7 +313,7 @@ IslamicDayTest >> testToBy [
 	self assert: interval size = 3
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayTest >> testToDo [
 
 	| interval currentDayNumber |
@@ -326,7 +327,7 @@ IslamicDayTest >> testToDo [
 	self assert: currentDayNumber = 8
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayTest >> testToNegativeBy [
 
 	| interval |
@@ -338,7 +339,7 @@ IslamicDayTest >> testToNegativeBy [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayTest >> testToNegativeByDo [
 
 	| interval currentDayNumber |
@@ -352,7 +353,7 @@ IslamicDayTest >> testToNegativeByDo [
 	self assert: currentDayNumber = 0
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 IslamicDayTest >> testValidNameCreation [
 
 	self shouldnt: [calendar dayNamed: 'yaum al-ithnayna'] raise: InvalidDayNameException

@@ -1,21 +1,23 @@
 Class {
-	#name : #ChaltenTimeZoneTest,
-	#superclass : #TestCase,
+	#name : 'ChaltenTimeZoneTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'buenosAiresTimeZone',
 		'universalTimeZone'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChaltenTimeZoneTest >> setUp [
 
 	buenosAiresTimeZone := ChaltenTimeZone named: 'Buenos Aires, Georgetown' offset: (Offset of: -3).
 	universalTimeZone := ChaltenTimeZone named: 'Universal Time Zone' offset: (Offset of: 0)
 ]
 
-{ #category : #'test offset aplying' }
+{ #category : 'test offset aplying' }
 ChaltenTimeZoneTest >> testApplyOffsetToFrom [
 
 	| otherZone dateTime |
@@ -45,14 +47,14 @@ ChaltenTimeZoneTest >> testApplyOffsetToFrom [
 
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 ChaltenTimeZoneTest >> testOffset [
 
 	self assert: buenosAiresTimeZone offset = (Offset of: -3).
 	self assert: universalTimeZone offset = (Offset of: 0)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 ChaltenTimeZoneTest >> testPrintString [
 
 	self assert: buenosAiresTimeZone printString = '(GMT-03:00) Buenos Aires, Georgetown'.

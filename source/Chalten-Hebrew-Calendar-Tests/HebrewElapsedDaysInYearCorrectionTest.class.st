@@ -1,10 +1,11 @@
 Class {
-	#name : #HebrewElapsedDaysInYearCorrectionTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#name : 'HebrewElapsedDaysInYearCorrectionTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 HebrewElapsedDaysInYearCorrectionTest >> testValue [
 
 	self assert: (HebrewElapsedDaysInYearCorrectionBehavior for: 209500) value = 1.

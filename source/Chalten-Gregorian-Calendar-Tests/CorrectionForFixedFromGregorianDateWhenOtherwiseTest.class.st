@@ -1,10 +1,11 @@
 Class {
-	#name : #CorrectionForFixedFromGregorianDateWhenOtherwiseTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#name : 'CorrectionForFixedFromGregorianDateWhenOtherwiseTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CorrectionForFixedFromGregorianDateWhenOtherwiseTest >> testValue [
 
 	| correction |

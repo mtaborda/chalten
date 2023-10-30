@@ -1,28 +1,29 @@
 Class {
-	#name : #IslamicDayOfMonthTest,
-	#superclass : #TestCase,
+	#name : 'IslamicDayOfMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'oneDay',
 		'twoDays'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicDayOfMonthTest class >> classUnderTest [
 
 	^DayOfMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicDayOfMonthTest >> setUp [
 	calendar := IslamicCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 IslamicDayOfMonthTest >> testComma [
 	| muharram |
 	muharram := calendar muharram.
@@ -44,7 +45,7 @@ IslamicDayOfMonthTest >> testComma [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayOfMonthTest >> testComparing [
 
 	| firstDayOfFirstMonth secondDayOfFirstMonth lastDayOfFirstMonth firstDayOfSecondMonth |
@@ -76,7 +77,7 @@ IslamicDayOfMonthTest >> testComparing [
 				with: Muharram) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDayOfMonthTest >> testCreation [
 
 	self assert: (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar) month = calendar muharram.
@@ -85,7 +86,7 @@ IslamicDayOfMonthTest >> testCreation [
 	self assert: (DayOfMonth month: calendar dhuAlHijja dayNumber: 30) dayNumber = 30
 ]
 
-{ #category : #'test date creation' }
+{ #category : 'test date creation' }
 IslamicDayOfMonthTest >> testDateOfYear [
 	self
 		assert:
@@ -98,13 +99,13 @@ IslamicDayOfMonthTest >> testDateOfYear [
 						calendar: calendar)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testDaysFrom [
 	self assert: (DhuAlHijja twentyninth distanceFrom: DhuAlHijja twentyninth) = 0 daysMeasure.
 	self assert: (DhuAlHijja twentyninth distanceFrom: Muharram first) = 353 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testDaysTo [
 	self assert: (DhuAlHijja twentyninth distanceTo: DhuAlHijja twentyninth) = 0 daysMeasure.
 	self assert: (DhuAlHijja twentyninth distanceTo: Muharram first) = 1 dayMeasure.
@@ -112,21 +113,21 @@ IslamicDayOfMonthTest >> testDaysTo [
 	self assert: (Muharram tenth distanceTo: Muharram first) = 345 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayOfMonthTest >> testEqual [
 
 	self assert: Muharram first = Muharram first.
 	self deny: Muharram second = Muharram first
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDayOfMonthTest >> testHash [
 
 	self assert: Muharram first hash = Muharram first hash.
 	self deny: Muharram second hash = Muharram first hash
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDayOfMonthTest >> testInvalidCreation [
 
 	self 
@@ -146,21 +147,21 @@ IslamicDayOfMonthTest >> testInvalidCreation [
 			self assert: anException description = 'Day of month 31 invalid for Muharram']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsFirstDayOfMonth [
 
 	self assert: Muharram first isFirstDayOfMonth.
 	self deny: Muharram second isFirstDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsFirstDayOfYear [
 
 	self assert: Muharram first isFirstDayOfYear.
 	self deny: Muharram second isFirstDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsLastDayOfMonth [
 
 	self assert: Muharram thirtieth isLastDayOfMonth.
@@ -171,7 +172,7 @@ IslamicDayOfMonthTest >> testIsLastDayOfMonth [
 	self deny: RabiI twentyninth isLastDayOfMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsLastDayOfMonthIn [
 	| leapYear nonleapYear |
 	leapYear := 1428 asIslamicYear.
@@ -189,7 +190,7 @@ IslamicDayOfMonthTest >> testIsLastDayOfMonthIn [
 	self deny: (DhuAlHijja twentyninth isLastDayOfMonthIn: leapYear)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsLastDayOfYear [
 
 	self assert: DhuAlHijja thirtieth isLastDayOfYear.
@@ -197,7 +198,7 @@ IslamicDayOfMonthTest >> testIsLastDayOfYear [
 	self deny: DhuAlQada thirtieth isLastDayOfYear
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testIsLastDayOfYearIn [
 	| leapYear nonleapYear |
 	leapYear := 1428 asIslamicYear.
@@ -210,19 +211,19 @@ IslamicDayOfMonthTest >> testIsLastDayOfYearIn [
 	self deny: (DhuAlQada thirtieth isLastDayOfYearIn: nonleapYear)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDayOfMonthTest >> testMaximumNumberOfDaysInOneYear [
 	self assert: Safar third maximumNumberOfDaysInOneYear = 355 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayOfMonthTest >> testNext [
 
 	self assert: DhuAlHijja twentyninth next = Muharram first.
 	self assert: Safar twentyninth next = RabiI first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (DhuAlHijja twentyninth next: 7 daysMeasure) = Muharram seventh.
 	self assert: (Safar twentyninth next: 7 daysMeasure) = RabiI seventh.
@@ -230,34 +231,34 @@ IslamicDayOfMonthTest >> testNextANumberOfDays [
 	self assert: (Muharram first next: -32 daysMeasure) = DhuAlQada twentyeighth
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayOfMonthTest >> testNumberOfDaysFromBeginningOfMonth [
 	self assert: Muharram first numberOfDaysFromBeginningOfMonth = 0 daysMeasure.
 	self assert: Muharram thirtieth numberOfDaysFromBeginningOfMonth = 29 daysMeasure.
 	self assert: Safar twentyninth numberOfDaysFromBeginningOfMonth = 28 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayOfMonthTest >> testNumberOfDaysToEndOfMonth [
 	self assert: Muharram twentyfirst numberOfDaysToEndOfMonth = 9 daysMeasure.
 	self assert: Muharram thirtieth numberOfDaysToEndOfMonth = 0 daysMeasure.
 	self assert: Safar twentyeighth numberOfDaysToEndOfMonth = 1 dayMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDayOfMonthTest >> testNumberOfDaysToEndOfYear [
 	self assert: Muharram first numberOfDaysToEndOfYear = 354 daysMeasure.
 	self assert: DhuAlHijja thirtieth numberOfDaysToEndOfYear = 0 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayOfMonthTest >> testPrevious [
 
 	self assert: Muharram first previous = DhuAlHijja twentyninth.
 	self assert: RabiI first previous = Safar twentyninth
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDayOfMonthTest >> testPreviousANumberOfDays [
 	self assert: (DhuAlQada thirtieth previous: 7 daysMeasure) = DhuAlQada twentythird.
 	self assert: (Safar twentyninth previous: 7 daysMeasure) = Safar twentysecond.
@@ -265,13 +266,13 @@ IslamicDayOfMonthTest >> testPreviousANumberOfDays [
 	self assert: (Muharram first previous: -32 daysMeasure) = Safar third
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicDayOfMonthTest >> testPrintString [
 
 	self assert: DhuAlHijja thirtieth printString = 'Dhu al-Hijja 30'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testTo [
 
 	| interval |
@@ -282,7 +283,7 @@ IslamicDayOfMonthTest >> testTo [
 	self assert: interval by = oneDay
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToBy [
 
 	| interval |
@@ -293,7 +294,7 @@ IslamicDayOfMonthTest >> testToBy [
 	self assert: interval by = twoDays
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToByDo [
 
 	| daysTo muharramFirst dayOfMonth |
@@ -309,7 +310,7 @@ IslamicDayOfMonthTest >> testToByDo [
 	self assert: daysTo = 354
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToEveryDayNumber [
 
 	| expectedMonths interval |
@@ -327,7 +328,7 @@ IslamicDayOfMonthTest >> testToEveryDayNumber [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToEveryDayNumbers [
 
 	| expectedDayNumbers interval |
@@ -344,7 +345,7 @@ IslamicDayOfMonthTest >> testToEveryDayNumbers [
 			index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToNegativeBy [
 
 	| interval number |
@@ -357,7 +358,7 @@ IslamicDayOfMonthTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDayOfMonthTest >> testToReverse [
 
 	| interval |

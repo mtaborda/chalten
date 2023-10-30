@@ -1,10 +1,11 @@
 Class {
-	#name : #CorrectionForFixedFromGregorianDateWhenMonthNumberIsLowerOrEqualThanFebruaryTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#name : 'CorrectionForFixedFromGregorianDateWhenMonthNumberIsLowerOrEqualThanFebruaryTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CorrectionForFixedFromGregorianDateWhenMonthNumberIsLowerOrEqualThanFebruaryTest >> testValue [
 
 	| correction |

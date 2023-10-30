@@ -1,10 +1,11 @@
 Class {
-	#name : #CorrectionForJulianDateFromFixedWhenNumberIsUpperOrEqualThanMarchFirstAndYearIsLeapTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'CorrectionForJulianDateFromFixedWhenNumberIsUpperOrEqualThanMarchFirstAndYearIsLeapTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CorrectionForJulianDateFromFixedWhenNumberIsUpperOrEqualThanMarchFirstAndYearIsLeapTest >> testValue [
 
 	| correction |

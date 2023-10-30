@@ -1,33 +1,42 @@
 Class {
-	#name : #GregorianDaysOfMonthsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#name : 'GregorianDaysOfMonthsStreamTest',
+	#superclass : 'TestCase',
+	#instVars : [
+		'gregorianCalendar'
+	],
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianDaysOfMonthsStreamTest class >> classUnderTest [
 
 	^DaysOfMonthsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'running' }
+GregorianDaysOfMonthsStreamTest >> setUp [
+	gregorianCalendar := ChaltenEnvironment calendarNamed: #GregorianCalendar
+]
+
+{ #category : 'test querying' }
 GregorianDaysOfMonthsStreamTest >> testDistanceTo [
 
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: February fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream distanceTo: February twentyfirst) = 6 daysMeasure.
 	self assert: (stream distanceTo: December fifth) = 293 daysMeasure.
 	self assert: (stream distanceTo: April twentyfirst) = 65 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: February fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: stream next = February sixteenth.
 	self assert: (stream next: 12 daysMeasure) = February twentyeighth.
 	self assert: (stream next: 2 daysMeasure) = March second.
@@ -38,24 +47,24 @@ GregorianDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: -1 dayMeasure) = February fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream next: 28 daysMeasure) = March first.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream next: 59 daysMeasure) = April first.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream next: 60 daysMeasure) = April first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: February fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: stream previous = February fourteenth.
 	self assert: (stream previous: 12 daysMeasure) = February second.
 	self assert: (stream previous: 2 daysMeasure) = January thirtyfirst.
@@ -66,14 +75,14 @@ GregorianDaysOfMonthsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 dayMeasure) = February fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream previous: 28 daysMeasure) = January fourth.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream previous: 59 daysMeasure) = December fourth.
 	stream := DaysOfMonthsStream
 		startingOn: February first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: GregorianCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: gregorianCalendar).
 	self assert: (stream previous: 60 daysMeasure) = December third
 ]

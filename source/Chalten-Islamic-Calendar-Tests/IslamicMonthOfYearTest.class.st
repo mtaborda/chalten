@@ -1,6 +1,6 @@
 Class {
-	#name : #IslamicMonthOfYearTest,
-	#superclass : #TestCase,
+	#name : 'IslamicMonthOfYearTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'zeroMonths',
@@ -12,16 +12,17 @@ Class {
 		'oneYear',
 		'twoYears'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicMonthOfYearTest class >> classUnderTest [
 
 	^MonthOfYear
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicMonthOfYearTest >> setUp [
 	calendar := IslamicCalendar.
 	zeroMonths := 0 monthsMeasure.
@@ -34,7 +35,7 @@ IslamicMonthOfYearTest >> setUp [
 	twoYears := 2 yearsMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthOfYearTest >> testComparing [
 
 	self assert: (Rajab of: 5774) > (Muharram of: 5774).
@@ -60,7 +61,7 @@ IslamicMonthOfYearTest >> testComparing [
 				with: DhuAlHijja) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicMonthOfYearTest >> testCreation [
 	self assert: (MonthOfYear yearNumber: 2004 monthNumber: 1 calendar: calendar) year = 2004 asIslamicYear.
 	self assert: (MonthOfYear yearNumber: 2004 monthNumber: 1 calendar: calendar) monthNumber = 1.
@@ -94,7 +95,7 @@ IslamicMonthOfYearTest >> testCreation [
 	self assert: (MonthOfYear dhuAlHijjaOf: 2004 asIslamicYear) monthNumber = 12
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testDates [
 	self
 		assert:
@@ -116,29 +117,29 @@ IslamicMonthOfYearTest >> testDates [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthOfYearTest >> testEqual [
 	self assert: (MonthOfYear muharramOf: 2004 asIslamicYear) = (MonthOfYear muharramOf: 2004 asIslamicYear).
 	self assert: (MonthOfYear muharramOf: 2003 asIslamicYear) = (MonthOfYear muharramOf: 2003 asIslamicYear)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testFirstDate [
 	self assert: (MonthOfYear muharramOf: 1428 asIslamicYear) firstDate = (Muharram first , 1428)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testFirstDay [
 	self assert: (MonthOfYear muharramOf: 1428 asIslamicYear) firstDay = calendar yaumAsSabt
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthOfYearTest >> testHash [
 	self assert: (MonthOfYear muharramOf: 2004 asIslamicYear) hash = (MonthOfYear muharramOf: 2004 asIslamicYear) hash.
 	self assert: (MonthOfYear muharramOf: 2003 asIslamicYear) hash = (MonthOfYear muharramOf: 2003 asIslamicYear) hash
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testIncludesDate [
 	self 
 		assert: (Muharram , 2005 includes: (FixedDate 
@@ -166,7 +167,7 @@ IslamicMonthOfYearTest >> testIncludesDate [
 						calendar: calendar))
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testIncludesDateTime [
 	self assert: (Muharram , 2005 
 				includes: (FixedDate 
@@ -194,7 +195,7 @@ IslamicMonthOfYearTest >> testIncludesDateTime [
 						calendar: calendar) atLastTimeOfDay)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testIncludesMonthOfYear [
 
 	self
@@ -202,12 +203,12 @@ IslamicMonthOfYearTest >> testIncludesMonthOfYear [
 		raise: Exception
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testIncludesYear [
 	self should: [ (MonthOfYear yearNumber: 2005 monthNumber: 1) includes: 2005 asIslamicYear ] raise: Exception
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicMonthOfYearTest >> testInvalidCreation [
 
 	self 
@@ -222,21 +223,21 @@ IslamicMonthOfYearTest >> testInvalidCreation [
 			self assert: anException description = '0 is an invalid number for a month']
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testLastDate [
 	self assert: (MonthOfYear muharramOf: 1428 asIslamicYear) lastDate = (Muharram thirtieth , 1428).
 	self assert: (MonthOfYear dhuAlHijjaOf: 1428 asIslamicYear) lastDate = (DhuAlHijja thirtieth , 1428).
 	self assert: (MonthOfYear dhuAlHijjaOf: 1427 asIslamicYear) lastDate = (DhuAlHijja twentyninth , 1427)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testLastDay [
 	self assert: (MonthOfYear muharramOf: 1428 asIslamicYear) lastDay = calendar yaumAlAhad.
 	self assert: (MonthOfYear dhuAlHijjaOf: 1428 asIslamicYear) lastDay = calendar yaumAlArbaa.
 	self assert: (MonthOfYear dhuAlHijjaOf: 1427 asIslamicYear) lastDay = calendar yaumAlJuma
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testLastDayNumber [
 	self
 		assert:
@@ -292,7 +293,7 @@ IslamicMonthOfYearTest >> testLastDayNumber [
 				= (MonthOfYear dhuAlHijjaOf: 2003 asIslamicYear) numberOfDays amount
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testMonthsFrom [
 
 	self assert: (Muharram, 2004 distanceFrom: DhuAlHijja, 2003) = oneMonth.
@@ -301,7 +302,7 @@ IslamicMonthOfYearTest >> testMonthsFrom [
 	self assert: (Muharram, 2004 distanceFrom: Muharram, 2003) = twelveMonths
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testMonthsTo [
 
 	self assert: (Muharram, 2004 distanceTo: DhuAlHijja, 2003) = oneMonth negated.
@@ -310,7 +311,7 @@ IslamicMonthOfYearTest >> testMonthsTo [
 	self assert: (Muharram, 2004 distanceTo: Muharram, 2005) = twelveMonths
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testName [
 	self assert: (MonthOfYear muharramOf: 2004 asIslamicYear) name = 'Muharram'.
 	self assert: (MonthOfYear safarOf: 2004 asIslamicYear) name = 'Safar'.
@@ -326,14 +327,14 @@ IslamicMonthOfYearTest >> testName [
 	self assert: (MonthOfYear dhuAlHijjaOf: 2004 asIslamicYear) name = 'Dhu al-Hijja'
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testNext [
 
 	self assert: (Muharram, 2004) next = (Safar, 2004).
 	self assert: (DhuAlHijja, 2004) next = (Muharram, 2005)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testNextANumberOfMonths [
 	self assert: (Muharram , 2004 next: oneMonth) = (Safar , 2004).
 	self assert: (Muharram , 2004 next: elevenMonths) = (DhuAlHijja , 2004).
@@ -346,7 +347,7 @@ IslamicMonthOfYearTest >> testNextANumberOfMonths [
 	self assert: (Muharram , 2004 next: 1.5 monthsMeasure) = (Safar , 2004)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testNextMonth [
 
 	| monthOfYear |
@@ -366,7 +367,7 @@ IslamicMonthOfYearTest >> testNextMonth [
 	self assert: (monthOfYear nextMonth: calendar dhuAlHijja) = (DhuAlHijja , -1)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testNumberOfDays [
 	self assert: (MonthOfYear muharramOf: 2004 asIslamicYear) numberOfDays = 30 daysMeasure.
 	self assert: (MonthOfYear safarOf: 2004 asIslamicYear) numberOfDays = 29 daysMeasure.
@@ -382,14 +383,14 @@ IslamicMonthOfYearTest >> testNumberOfDays [
 	self assert: (MonthOfYear dhuAlHijjaOf: 2004 asIslamicYear) numberOfDays = 30 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testNumberOfDaysFromEpoch [
 	self assert: (MonthOfYear muharramOf: 1 asIslamicYear) numberOfDaysFromEpoch = 227014 daysMeasure.
 	self assert: (MonthOfYear muharramOf: 2 asIslamicYear) numberOfDaysFromEpoch = 227368 daysMeasure.
 	self assert: (MonthOfYear muharramOf: 1428 asIslamicYear) numberOfDaysFromEpoch = 732695 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthOfYearTest >> testOrdinalDay [
 	"To obtain a certain day of the month, for example the second yaum al-arba`a`."
 
@@ -398,14 +399,14 @@ IslamicMonthOfYearTest >> testOrdinalDay [
 	self assert: (monthOfYear ordinal: 2 day: calendar yaumAlArbaa) = (Muharram twelfth , 1428)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testPrevious [
 
 	self assert: (Muharram, 2004) previous = (DhuAlHijja, 2003).
 	self assert: (DhuAlHijja, 2004) previous = (DhuAlQada, 2004)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testPreviousANumberOfMonths [
 
 	self assert: ((Muharram, 2004) previous: oneMonth) = (DhuAlHijja, 2003).
@@ -421,7 +422,7 @@ IslamicMonthOfYearTest >> testPreviousANumberOfMonths [
 	self assert: ((Rajab, 2004) previous: twelveMonths) = (Rajab, 2003)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthOfYearTest >> testPreviousMonth [
 
 	| monthOfYear |
@@ -443,14 +444,14 @@ IslamicMonthOfYearTest >> testPreviousMonth [
 	self assert: (monthOfYear previousMonth: DhuAlHijja) = (DhuAlHijja , 0)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicMonthOfYearTest >> testPrintString [
 	| year |
 	year := 2004 asIslamicYear.
 	self assert: (MonthOfYear muharramOf: year) printString = (calendar muharram printString , ' of ' , year printString)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testTo [
 	| interval |
 	interval := (MonthOfYear muharramOf: 2004 asIslamicYear) to: (MonthOfYear safarOf: 2004 asIslamicYear).
@@ -459,7 +460,7 @@ IslamicMonthOfYearTest >> testTo [
 	self assert: interval by = oneMonth
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testToBy [
 	| interval |
 	interval := (MonthOfYear muharramOf: 2004 asIslamicYear) to: (MonthOfYear rabiIOf: 2004 asIslamicYear) by:
@@ -469,7 +470,7 @@ IslamicMonthOfYearTest >> testToBy [
 	self assert: interval by = twoMonths
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testToByDo [
 	| number |
 	number := 1.
@@ -480,7 +481,7 @@ IslamicMonthOfYearTest >> testToByDo [
 	self assert: number = 13
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testToByYearsDo [
 
 	| yearNumber |
@@ -492,7 +493,7 @@ IslamicMonthOfYearTest >> testToByYearsDo [
 	self assert: yearNumber = 2011
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testToNegativeBy [
 	| interval number |
 	interval := DhuAlHijja , 2004 to: Muharram , 2004 by: -2 monthsMeasure.
@@ -504,7 +505,7 @@ IslamicMonthOfYearTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthOfYearTest >> testToReverse [
 	| coll number |
 	coll := (Muharram , 2004 to: DhuAlHijja , 2004 by: 2 monthsMeasure) reverse.

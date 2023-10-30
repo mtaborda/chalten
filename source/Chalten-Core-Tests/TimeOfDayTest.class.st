@@ -1,10 +1,12 @@
 Class {
-	#name : #TimeOfDayTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Time'
+	#name : 'TimeOfDayTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 TimeOfDayTest >> testAbsoluteDistanceTo [
 
 	self assert:
@@ -12,7 +14,7 @@ TimeOfDayTest >> testAbsoluteDistanceTo [
 			convertTo: TimeUnits minute) = 30 minutesMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 TimeOfDayTest >> testAdd [
 	| time |
 	time := TimeOfDay firstTimeOfDay.
@@ -22,13 +24,13 @@ TimeOfDayTest >> testAdd [
 	self assert: (time next: 1 millisecondMeasure) timeFromMidnight = 1 millisecondMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 TimeOfDayTest >> testComparing [
 
 	self assert: (TimeOfDay hours: 0) = (TimeOfDay hours: 0)
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testCreation [
 
 	| time |
@@ -42,7 +44,7 @@ TimeOfDayTest >> testCreation [
 
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testCreationHour [
 
 	| time |
@@ -55,7 +57,7 @@ TimeOfDayTest >> testCreationHour [
 	self assert: time milliseconds = 0 millisecondsMeasure
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testCreationMilliseconds [
 
 	| time |
@@ -69,7 +71,7 @@ TimeOfDayTest >> testCreationMilliseconds [
 
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testCreationMinute [
 
 	| time |
@@ -83,7 +85,7 @@ TimeOfDayTest >> testCreationMinute [
 
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testCreationSecond [
 
 	| time |
@@ -97,13 +99,13 @@ TimeOfDayTest >> testCreationSecond [
 
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeOfDayTest >> testFirstTimeOfDay [
 
 	self assert: TimeOfDay firstTimeOfDay = (TimeOfDay hours: 0)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 TimeOfDayTest >> testGreaterThan [
 
 	| firstTime lastTime |
@@ -132,13 +134,13 @@ TimeOfDayTest >> testGreaterThan [
 				with: March) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 TimeOfDayTest >> testHash [
 
 	self assert: (TimeOfDay hours: 0) hash = 0 hoursMeasure hash
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 TimeOfDayTest >> testInvalidCreation [
 
 	self 
@@ -154,7 +156,7 @@ TimeOfDayTest >> testInvalidCreation [
 			self assert: anException description = 'The time -1 millisecond is invalid for one day' ]
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeOfDayTest >> testLastTimeOfDay [
 	self
 		assert:
@@ -162,37 +164,37 @@ TimeOfDayTest >> testLastTimeOfDay [
 				= (TimeOfDay timeFromMidnight: 23 hoursMeasure + 59 minutesMeasure + 59 secondsMeasure + 999 millisecondsMeasure)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 TimeOfDayTest >> testLessThan [
 	self assert: (TimeOfDay hours: 0) < (TimeOfDay timeFromMidnight: 1 millisecondMeasure).
 	self deny: (TimeOfDay timeFromMidnight: 1 millisecondMeasure) < (TimeOfDay hours: 0)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeOfDayTest >> testMidnight [
 
 	self assert: TimeOfDay midnight = (TimeOfDay hours: 0 minutes: 0 seconds: 0)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 TimeOfDayTest >> testNext [
 
 	self assert: TimeOfDay midnight next = (TimeOfDay hours: 0 minutes: 0 seconds: 1)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeOfDayTest >> testNoon [
 
 	self assert: TimeOfDay noon = (TimeOfDay hours: 12 minutes: 0 seconds: 0)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 TimeOfDayTest >> testPrevious [
 
 	self assert: (TimeOfDay hours: 0 minutes: 0 seconds: 1) previous = TimeOfDay midnight
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 TimeOfDayTest >> testPrintString [
 
 	| time |
@@ -204,7 +206,7 @@ TimeOfDayTest >> testPrintString [
 	self assert: time printString = '07:09:05'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 TimeOfDayTest >> testReverse [
 	| collection hour |
 	collection := (TimeOfDay firstTimeOfDay to: TimeOfDay lastTimeOfDay by: 2 hoursMeasure) reverse.
@@ -216,7 +218,7 @@ TimeOfDayTest >> testReverse [
 	self assert: hour = -2
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 TimeOfDayTest >> testSubtract [
 	| time |
 	time := TimeOfDay hours: 1.
@@ -226,35 +228,35 @@ TimeOfDayTest >> testSubtract [
 	self assert: (time previous: 1 millisecondMeasure) timeFromMidnight = (59 * 60000 + 59999) millisecondsMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 TimeOfDayTest >> testTimeFrom [
 
 	self assert: (TimeOfDay firstTimeOfDay distanceFrom: TimeOfDay lastTimeOfDay) = 1 millisecondMeasure.
 	self assert: (TimeOfDay lastTimeOfDay distanceFrom: TimeOfDay firstTimeOfDay) = (24 hoursMeasure - 1 millisecondMeasure)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 TimeOfDayTest >> testTimeFromMidnight [
 
 	self assert: TimeOfDay firstTimeOfDay timeFromMidnight = 0 hoursMeasure.
 	self assert: TimeOfDay lastTimeOfDay timeFromMidnight = (24 hoursMeasure - 1 millisecondMeasure)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 TimeOfDayTest >> testTimeTo [
 
 	self assert: (TimeOfDay firstTimeOfDay distanceTo: TimeOfDay lastTimeOfDay) = (24 hoursMeasure - 1 millisecondMeasure).
 	self assert: (TimeOfDay lastTimeOfDay distanceTo: TimeOfDay firstTimeOfDay) = 1 millisecondMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 TimeOfDayTest >> testTimeToEndOfDay [
 
 	self assert: TimeOfDay firstTimeOfDay timeToEndOfDay = 24 hoursMeasure.
 	self assert: TimeOfDay lastTimeOfDay timeToEndOfDay = 1 millisecondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 TimeOfDayTest >> testTo [
 	| interval |
 	interval := TimeOfDay firstTimeOfDay to: TimeOfDay lastTimeOfDay.
@@ -263,7 +265,7 @@ TimeOfDayTest >> testTo [
 	self assert: interval by = 1 secondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 TimeOfDayTest >> testToBy [
 	| interval |
 	interval := TimeOfDay firstTimeOfDay to: TimeOfDay lastTimeOfDay by: 1 hourMeasure.
@@ -272,7 +274,7 @@ TimeOfDayTest >> testToBy [
 	self assert: interval by = 1 hourMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 TimeOfDayTest >> testToByDo [
 	| interval hour |
 	interval := TimeOfDay firstTimeOfDay to: TimeOfDay lastTimeOfDay by: 1 hourMeasure.
@@ -284,7 +286,7 @@ TimeOfDayTest >> testToByDo [
 	self assert: hour = 24
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 TimeOfDayTest >> testToNegativeByDo [
 	| interval time |
 	interval := (TimeOfDay hours: 23 minutes: 30) to: TimeOfDay firstTimeOfDay by: -30 minutesMeasure.

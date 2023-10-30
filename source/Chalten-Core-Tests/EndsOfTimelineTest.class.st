@@ -1,17 +1,19 @@
 Class {
-	#name : #EndsOfTimelineTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Time'
+	#name : 'EndsOfTimelineTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 EndsOfTimelineTest >> testDistanceTo [
 
 	self assert: (TheBeginningOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = Infinity daysMeasure.
 	self assert: (TheEndOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = Infinity daysMeasure
 ]
 
-{ #category : #'test magnitude protocol' }
+{ #category : 'test magnitude protocol' }
 EndsOfTimelineTest >> testGreaterThan [
 
 	self assert: TheEndOfTime > TheBeginningOfTime.
@@ -21,7 +23,7 @@ EndsOfTimelineTest >> testGreaterThan [
 	self deny: TheBeginningOfTime > (May fourth, 2014)
 ]
 
-{ #category : #'test magnitude protocol' }
+{ #category : 'test magnitude protocol' }
 EndsOfTimelineTest >> testLessThan [
 
 	self assert: TheBeginningOfTime < TheEndOfTime.
@@ -31,28 +33,28 @@ EndsOfTimelineTest >> testLessThan [
 	self deny: TheEndOfTime < (May fourth, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 EndsOfTimelineTest >> testNext [
 
 	self assert: TheBeginningOfTime next = TheBeginningOfTime.
 	self assert: TheEndOfTime next = TheEndOfTime
 ]
 
-{ #category : #'test accessing days' }
+{ #category : 'test accessing days' }
 EndsOfTimelineTest >> testNumberOfDaysFromEpoch [
 
 	self assert: TheBeginningOfTime numberOfDaysFromEpoch = MinusInfinity daysMeasure.
 	self assert: TheEndOfTime numberOfDaysFromEpoch = Infinity daysMeasure
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 EndsOfTimelineTest >> testPrintString [
 
 	self assert: TheBeginningOfTime printString = 'The beginning of time'.
 	self assert: TheEndOfTime printString = 'The end of time'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToByInfinity [
 	| interval |
 	interval := TheBeginningOfTime to: TheEndOfTime.
@@ -61,7 +63,7 @@ EndsOfTimelineTest >> testToByInfinity [
 	self assert: interval by = 1 dayMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToByToFixedDate [
 	| interval |
 	interval := TheBeginningOfTime to: TimeOfDay midnight by: 1 dayMeasure.
@@ -70,7 +72,7 @@ EndsOfTimelineTest >> testToByToFixedDate [
 	self assert: interval by = 1 dayMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToTheBeginningOfTime [
 	| interval |
 	interval := TimeOfDay midnight toTheBeginningOfTime.
@@ -79,7 +81,7 @@ EndsOfTimelineTest >> testToTheBeginningOfTime [
 	self assert: interval by = 1 secondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToTheBeginningOfTimeBy [
 	| interval |
 	interval := TimeOfDay midnight toTheBeginningOfTimeBy: 1 dayMeasure.
@@ -88,7 +90,7 @@ EndsOfTimelineTest >> testToTheBeginningOfTimeBy [
 	self assert: interval by = 1 dayMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToTheEndOfTime [
 	| interval |
 	interval := TimeOfDay midnight toTheEndOfTime.
@@ -97,7 +99,7 @@ EndsOfTimelineTest >> testToTheEndOfTime [
 	self assert: interval by = 1 secondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 EndsOfTimelineTest >> testToTheEndOfTimeBy [
 	| interval |
 	interval := TimeOfDay midnight toTheEndOfTimeBy: 1 dayMeasure.

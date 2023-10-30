@@ -1,10 +1,11 @@
 Class {
-	#name : #IslamicMonthsOfNonleapYearsForCircularStreamStrategyTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#name : 'IslamicMonthsOfNonleapYearsForCircularStreamStrategyTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthsOfNonleapYearsForCircularStreamStrategyTest >> testDistanceFromTo [
 	| strategy |
 	strategy := MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar.
@@ -15,7 +16,7 @@ IslamicMonthsOfNonleapYearsForCircularStreamStrategyTest >> testDistanceFromTo [
 	self assert: (strategy distanceFrom: Shawwal to: DhuAlHijja) = 2 monthsMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfNonleapYearsForCircularStreamStrategyTest >> testNextFrom [
 	| strategy |
 	strategy := MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar.

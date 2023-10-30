@@ -1,10 +1,12 @@
 Class {
-	#name : #PointInTimeIntervalStrategyTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Time'
+	#name : 'PointInTimeIntervalStrategyTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 PointInTimeIntervalStrategyTest >> testStepsFromToBy [
 	self
 		assert:

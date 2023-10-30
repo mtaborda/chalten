@@ -1,6 +1,6 @@
 Class {
-	#name : #GregorianMonthTest,
-	#superclass : #TestCase,
+	#name : 'GregorianMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'january',
@@ -21,18 +21,19 @@ Class {
 		'elevenMonths',
 		'twelveMonths'
 	],
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianMonthTest class >> classUnderTest [
 
 	^ChaltenMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianMonthTest >> setUp [
-	calendar := GregorianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #GregorianCalendar.
 	january := calendar january.
 	february := calendar february.
 	march := calendar march.
@@ -52,7 +53,7 @@ GregorianMonthTest >> setUp [
 	twelveMonths := 12 monthsMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testApril [
 
 	self
@@ -60,7 +61,7 @@ GregorianMonthTest >> testApril [
 		assert: (calendar monthNamed: april name) = april
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testAugust [
 
 	self
@@ -68,19 +69,19 @@ GregorianMonthTest >> testAugust [
 		assert: (calendar monthNamed: august name) = august
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 GregorianMonthTest >> testComma [
 
 	self assert: (february , 2003) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testCurrent [
 
 	self assert: calendar currentMonth = calendar today month
 ]
 
-{ #category : #'test day of month creation' }
+{ #category : 'test day of month creation' }
 GregorianMonthTest >> testDayOfMonthCreation [
 
 	self assert: january first = (DayOfMonth monthNumber: 1 dayNumber: 1 calendar: calendar).
@@ -114,7 +115,7 @@ GregorianMonthTest >> testDayOfMonthCreation [
 	self assert: january twentyninth = (DayOfMonth monthNumber: 1 dayNumber: 29 calendar: calendar)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testDecember [
 
 	self
@@ -122,7 +123,7 @@ GregorianMonthTest >> testDecember [
 		assert: (calendar monthNamed: december name) = december
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianMonthTest >> testEqual [
 
 	self assert: january = january.
@@ -139,7 +140,7 @@ GregorianMonthTest >> testEqual [
 	self assert: december = december
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testFebruary [
 
 	self
@@ -147,7 +148,7 @@ GregorianMonthTest >> testFebruary [
 		assert: (calendar monthNamed: february name) = february
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testFirstDayOfMonth [
 
 	self assert: january firstDayOfMonth = January first.
@@ -164,7 +165,7 @@ GregorianMonthTest >> testFirstDayOfMonth [
 	self assert: december firstDayOfMonth = December first
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianMonthTest >> testGreaterThan [
 
 	self assert: february > january.
@@ -192,7 +193,7 @@ GregorianMonthTest >> testGreaterThan [
 				with: March first) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianMonthTest >> testHash [
 
 	self assert: january hash = january hash.
@@ -209,7 +210,7 @@ GregorianMonthTest >> testHash [
 	self assert: december hash = december hash
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianMonthTest >> testIdentity [
 
 	self assert: january == january.
@@ -226,7 +227,7 @@ GregorianMonthTest >> testIdentity [
 	self assert: december == december
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 GregorianMonthTest >> testIs [
 
 	self assert: (January is: january).
@@ -243,7 +244,7 @@ GregorianMonthTest >> testIs [
 	self assert: (December is: december)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testJanuary [
 
 	self
@@ -251,7 +252,7 @@ GregorianMonthTest >> testJanuary [
 		assert: (calendar monthNamed: january name) = january
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testJuly [
 
 	self
@@ -259,7 +260,7 @@ GregorianMonthTest >> testJuly [
 		assert: (calendar monthNamed: july name) = july
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testJune [
 
 	self
@@ -267,7 +268,7 @@ GregorianMonthTest >> testJune [
 		assert: (calendar monthNamed: june name) = june
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testLastDayOfMonth [
 
 	self assert: january lastDayOfMonth = January thirtyfirst.
@@ -284,7 +285,7 @@ GregorianMonthTest >> testLastDayOfMonth [
 	self assert: december lastDayOfMonth = December thirtyfirst
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianMonthTest >> testLessThan [
 
 	self assert: january < february.
@@ -312,7 +313,7 @@ GregorianMonthTest >> testLessThan [
 				with: March first) ]
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testMarch [
 
 	self
@@ -320,7 +321,7 @@ GregorianMonthTest >> testMarch [
 		assert: (calendar monthNamed: march name) = march
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testMay [
 
 	self
@@ -328,7 +329,7 @@ GregorianMonthTest >> testMay [
 		assert: (calendar monthNamed: may name) = may
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 GregorianMonthTest >> testMonthCreation [
 
 	| otherJanuary otherFebruary otheMarch otherApril otherMay otherJune otherJuly otherAugust
@@ -373,7 +374,7 @@ GregorianMonthTest >> testMonthCreation [
 	self assert: december number = otherDecember number
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianMonthTest >> testMonthsFrom [
 
 	self assert: (january distanceFrom: january) = zeroMonths.
@@ -384,7 +385,7 @@ GregorianMonthTest >> testMonthsFrom [
 	self assert: (december distanceFrom: november) = oneMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianMonthTest >> testMonthsTo [
 
 	self assert: (january distanceTo: january) = zeroMonths.
@@ -395,7 +396,7 @@ GregorianMonthTest >> testMonthsTo [
 	self assert: (december distanceTo: november) = elevenMonths
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthTest >> testNext [
 
 	self assert: december next = january.
@@ -403,14 +404,14 @@ GregorianMonthTest >> testNext [
 	self assert: february next = march
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthTest >> testNextInANumberOfMonths [
 
 	self assert: (december next: oneMonth) = january.
 	self assert: (december next: twelveMonths) = december
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNovember [
 
 	self
@@ -418,7 +419,7 @@ GregorianMonthTest >> testNovember [
 		assert: (calendar monthNamed: november name) = november
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNumberOfDays [
 	self assert: january numberOfDays = 31 daysMeasure.
 	self assert: february numberOfDays = 29 daysMeasure.
@@ -434,7 +435,7 @@ GregorianMonthTest >> testNumberOfDays [
 	self assert: december numberOfDays = 31 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNumberOfDaysFromBeginningOfYearIn [
 	| leapYear nonleapYear |
 	leapYear := 2008 asGregorianYear.
@@ -465,7 +466,7 @@ GregorianMonthTest >> testNumberOfDaysFromBeginningOfYearIn [
 	self assert: (december numberOfDaysFromBeginningOfYearIn: nonleapYear) = 334 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNumberOfDaysIn [
 	| leapYear nonleapYear |
 	leapYear := 2008 asGregorianYear.
@@ -496,7 +497,7 @@ GregorianMonthTest >> testNumberOfDaysIn [
 	self assert: (december numberOfDaysIn: nonleapYear) = 31 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNumberOfDaysInLeapYear [
 
 	self assert: january numberOfDaysInLeapYear = 31 daysMeasure.
@@ -513,7 +514,7 @@ GregorianMonthTest >> testNumberOfDaysInLeapYear [
 	self assert: december numberOfDaysInLeapYear = 31 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testNumberOfDaysInNonleapYear [
 
 	self assert: january numberOfDaysInNonleapYear = 31 daysMeasure.
@@ -530,7 +531,7 @@ GregorianMonthTest >> testNumberOfDaysInNonleapYear [
 	self assert: december numberOfDaysInNonleapYear = 31 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testOctober [
 
 	self
@@ -538,18 +539,18 @@ GregorianMonthTest >> testOctober [
 		assert: (calendar monthNamed: october name) = october
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 GregorianMonthTest >> testOf [
 
 	self assert: (february of: 2003) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 GregorianMonthTest >> testOfYear [
 	self assert: (february ofYear: 2003 asGregorianYear) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthTest >> testPrevious [
 
 	self assert: january previous = december.
@@ -557,7 +558,7 @@ GregorianMonthTest >> testPrevious [
 	self assert: december previous = november
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthTest >> testPreviousInANumberOfMonths [
 
 	self assert: (january previous: oneMonth) = december.
@@ -565,7 +566,7 @@ GregorianMonthTest >> testPreviousInANumberOfMonths [
 	self assert: (february previous: twoMonths) = december
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 GregorianMonthTest >> testPrintString [
 
 	self assert: january printString = 'January'.
@@ -582,7 +583,7 @@ GregorianMonthTest >> testPrintString [
 	self assert: december printString = 'December'
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianMonthTest >> testSeptember [
 
 	self
@@ -590,7 +591,7 @@ GregorianMonthTest >> testSeptember [
 		assert: (calendar monthNamed: september name) = september
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianMonthTest >> testTo [
 
 	| interval |
@@ -602,7 +603,7 @@ GregorianMonthTest >> testTo [
 	self assert: interval by = oneMonth
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianMonthTest >> testToBy [
 
 	| interval |
@@ -614,7 +615,7 @@ GregorianMonthTest >> testToBy [
 	self assert: interval by = twoMonths
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianMonthTest >> testToByDo [
 
 	| number |
@@ -635,7 +636,7 @@ GregorianMonthTest >> testToByDo [
 	self assert: number = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianMonthTest >> testToNegativeByDo [
 
 	| number |
@@ -648,7 +649,7 @@ GregorianMonthTest >> testToNegativeByDo [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianMonthTest >> testToReverse [
 
 	| coll number |

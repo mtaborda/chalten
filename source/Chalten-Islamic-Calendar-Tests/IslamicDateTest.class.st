@@ -1,41 +1,42 @@
 Class {
-	#name : #IslamicDateTest,
-	#superclass : #TestCase,
+	#name : 'IslamicDateTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicDateTest class >> classUnderTest [
 
 	^FixedDate
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> muharram [
 
 	^calendar muharram
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> oneDay [
 	^ 1 dayMeasure
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicDateTest >> setUp [
 
 	calendar := IslamicCalendar
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> tenDays [
 	^ 10 daysMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> test30OfDhuAlHijjaToEveryDayOfMonth [
 
 	| dates |
@@ -48,7 +49,7 @@ IslamicDateTest >> test30OfDhuAlHijjaToEveryDayOfMonth [
 	self assert: (dates includes: DhuAlHijja thirtieth, 1434)
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 IslamicDateTest >> testAsGregorianDate [
 
 	self assert: (Muharram first, 1429) asGregorian = (January tenth, 2008).
@@ -58,7 +59,7 @@ IslamicDateTest >> testAsGregorianDate [
 	self assert: (DhuAlHijja second, 1440) asGregorian = (August fourth, 2019)
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 IslamicDateTest >> testAsIslamicDate [
 
 	self assert: (Muharram first, 1429) = (January tenth, 2008) asIslamic.
@@ -68,7 +69,7 @@ IslamicDateTest >> testAsIslamicDate [
 	self assert: (DhuAlHijja second, 1440) = (August fourth, 2019) asIslamic
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 IslamicDateTest >> testAsSmalltalkDate [
 
 	| islamicDate gregorianDate date |
@@ -82,25 +83,25 @@ IslamicDateTest >> testAsSmalltalkDate [
 	self assert: gregorianDate dayNumber = date dayOfMonth
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testAtMidnight [
 
 	self assert: (Shawwal first, 1428) atMidnight = (DateTime date: (Shawwal first, 1428) timeOfDay: (TimeOfDay hours: 00))
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testAtNoon [
 
 	self assert: (Shawwal first, 1428) atNoon = (DateTime date: (Shawwal first, 1428) timeOfDay: (TimeOfDay hours: 12))
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testAtTimeOfDay [
 
 	self assert: ((Shawwal first, 1428) atTimeOfDay: (TimeOfDay hours: 10)) = (DateTime date: (Shawwal first, 1428) timeOfDay: (TimeOfDay hours: 10))
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDateTest >> testCreation [
 	| year1428 muharramOf1428 |
 	year1428 := 1428 asIslamicYear.
@@ -127,7 +128,7 @@ IslamicDateTest >> testCreation [
 	self assert: (FixedDate yearNumber: 1428 month: self muharram dayNumber: 1) dayNumber = 1
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testDay [
 
 	self assert: (Rajab first, 1428) day = YaumAlIthnayna.
@@ -140,19 +141,19 @@ IslamicDateTest >> testDay [
 	self assert: (Rajab eighth, 1428) day = YaumAlIthnayna
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testDayNumber [
 
 	self assert: (Rajab first, 1428) dayNumber = 1
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testDayOfMonth [
 
 	self assert: (Shawwal first, 1) dayOfMonth = (DayOfMonth monthNumber: 10 dayNumber: 1 calendar: calendar)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDateTest >> testDaysFrom [
 	self assert: (Muharram first , 1428 distanceFrom: Muharram first , 1428) = self zeroDays.
 	self assert: (Safar first , 1428 distanceFrom: Muharram first , 1428) = self thirtyDays.
@@ -165,7 +166,7 @@ IslamicDateTest >> testDaysFrom [
 	self assert: (TheEndOfTime distanceFrom: Muharram first , 1429) = Infinity daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDateTest >> testDaysTo [
 	self assert: (Muharram first , 1428 distanceTo: Muharram first , 1428) = self zeroDays.
 	self assert: (Muharram first , 1428 distanceTo: Safar first , 1428) = self thirtyDays.
@@ -178,7 +179,7 @@ IslamicDateTest >> testDaysTo [
 	self assert: (Muharram first , 1429 distanceTo: TheEndOfTime) = Infinity daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDateTest >> testEqual [
 	self 
 		assert: (Muharram first , 1428) = (FixedDate 
@@ -194,7 +195,7 @@ IslamicDateTest >> testEqual [
 						calendar: calendar)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDateTest >> testGreaterThan [
 
 	self assert: (Safar first, 1428) > (Muharram thirtieth, 1428).
@@ -220,7 +221,7 @@ IslamicDateTest >> testGreaterThan [
 				with: Safar) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDateTest >> testHash [
 	self assert: (Muharram first , 1428) hash 
 				= (FixedDate 
@@ -236,7 +237,7 @@ IslamicDateTest >> testHash [
 						calendar: calendar) hash
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 IslamicDateTest >> testIncludesDate [
 
 	self
@@ -244,7 +245,7 @@ IslamicDateTest >> testIncludesDate [
 		raise: Exception
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 IslamicDateTest >> testIncludesDateTime [
 
 	self assert: (Muharram first, 1428 includes: (Muharram first, 1428) atMidnight).
@@ -254,7 +255,7 @@ IslamicDateTest >> testIncludesDateTime [
 	self deny: (Muharram first, 1428 includes: (DhuAlHijja thirtieth, 1428) atLastTimeOfDay)
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 IslamicDateTest >> testIncludesMonthOfYear [
 
 	self
@@ -262,12 +263,12 @@ IslamicDateTest >> testIncludesMonthOfYear [
 		raise: Exception
 ]
 
-{ #category : #'test includes' }
+{ #category : 'test includes' }
 IslamicDateTest >> testIncludesYear [
 	self should: [ Muharram first , 1428 includes: 1428 asIslamicYear ] raise: Exception
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 IslamicDateTest >> testInvalidCreation [
 	self 
 		should: 
@@ -484,7 +485,7 @@ IslamicDateTest >> testInvalidCreation [
 						= 'The day -1 is invalid for the month Muharram of Year 1428']
 ]
 
-{ #category : #'test testing days' }
+{ #category : 'test testing days' }
 IslamicDateTest >> testIs [
 
 	self assert: (Ramadan ninth, 1428 is: YaumAlJuma).
@@ -496,21 +497,21 @@ IslamicDateTest >> testIs [
 	self assert: (Ramadan fifteenth, 1428 is: YaumAlHamis)
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDateTest >> testIsFirstDayOfMonth [
 
 	self assert: (Muharram first, 1428) isFirstDayOfMonth.
 	self deny: (Muharram second, 1428) isFirstDayOfMonth
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDateTest >> testIsFirstDayOfYear [
 
 	self assert: (Muharram first, 1428) isFirstDayOfYear.
 	self deny: (Muharram second, 1428) isFirstDayOfYear
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDateTest >> testIsFirstMonthOfYear [
 
 	self assert: (Muharram first, 1428) isFirstMonthOfYear.
@@ -520,7 +521,7 @@ IslamicDateTest >> testIsFirstMonthOfYear [
 	self deny: (DhuAlHijja fifteenth, 1428) isFirstMonthOfYear
 ]
 
-{ #category : #'test testing months' }
+{ #category : 'test testing months' }
 IslamicDateTest >> testIsIn [
 
 	self assert: (Muharram first, 1428 isIn: Muharram).
@@ -537,7 +538,7 @@ IslamicDateTest >> testIsIn [
 	self assert: (DhuAlHijja first, 1428 isIn: DhuAlHijja)
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDateTest >> testIsLastDayOfMonth [
 
 	self assert: (Muharram thirtieth, 1428) isLastDayOfMonth.
@@ -557,7 +558,7 @@ IslamicDateTest >> testIsLastDayOfMonth [
 
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicDateTest >> testIsLastDayOfYear [
 
 	self assert: (DhuAlHijja thirtieth, 1428) isLastDayOfYear.
@@ -568,7 +569,7 @@ IslamicDateTest >> testIsLastDayOfYear [
 	self deny: (Ramadan twentyninth, 1428) isLastDayOfYear
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicDateTest >> testLessThan [
 
 	self assert: (Muharram first, 2004) < (Muharram second, 2004).
@@ -594,25 +595,25 @@ IslamicDateTest >> testLessThan [
 				with: Safar) ]
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testMonth [
 
 	self assert: (Rajab first, 1428) month = Rajab
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testMonthNumber [
 
 	self assert: (Rajab first, 1428) monthNumber = 7
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testMonthOfYear [
 
 	self assert: (Shawwal first, 1428) monthOfYear = (Shawwal, 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNext [
 
 	| date |
@@ -628,7 +629,7 @@ IslamicDateTest >> testNext [
 	self assert: date next = (Muharram first, 1429)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNextDay [
 
 	| yaumAlAhad |
@@ -643,7 +644,7 @@ IslamicDateTest >> testNextDay [
 	self assert: (yaumAlAhad nextDay: calendar yaumAsSabt) = (Muharram eighth, 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNextDayOfMonth [
 
 	| date |
@@ -659,7 +660,7 @@ IslamicDateTest >> testNextDayOfMonth [
 	self assert: ((date nextDayOfMonth: Muharram third) nextDayOfMonth: RabiI fourth) = (RabiI fourth, 1429)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNextInNumberOfDays [
 	self assert: (Muharram first , 1 next: self tenDays) = (Muharram eleventh , 1).
 	self assert: (Muharram first , 1428 next: self twentyNineDays) = (Muharram thirtieth , 1428).
@@ -669,13 +670,13 @@ IslamicDateTest >> testNextInNumberOfDays [
 	self assert: (Muharram first , 1428 next: 0 daysMeasure) = (Muharram first , 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNextInWeeks [
 	self assert: (Muharram first , 1428 next: 1 weekMeasure) = (Muharram first , 1428 next: 7 daysMeasure).
 	self assert: (Muharram first , 1428 next: 2 weeksMeasure) = (Muharram first , 1428 next: 14 daysMeasure)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testNextMonth [
 	| day |
 	day := Muharram first , 1428.
@@ -693,7 +694,7 @@ IslamicDateTest >> testNextMonth [
 	self assert: (day nextMonth: 12 monthsMeasure) = (Muharram first , 1429)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testNumberOfDaysFromBeginnigOfYear [
 	self assert: (Muharram first , 1428) numberOfDaysFromBeginningOfYear = 0 daysMeasure.
 	self assert: (Muharram thirtieth , 1428) numberOfDaysFromBeginningOfYear = 29 daysMeasure.
@@ -701,34 +702,34 @@ IslamicDateTest >> testNumberOfDaysFromBeginnigOfYear [
 	self assert: (DhuAlHijja thirtieth , 1428) numberOfDaysFromBeginningOfYear = 354 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testNumberOfDaysFromBeginningOfMonth [
 	self assert: (Muharram first , 1) numberOfDaysFromBeginningOfMonth = 0 daysMeasure.
 	self assert: (Muharram thirtieth , 1428) numberOfDaysFromBeginningOfMonth = 29 daysMeasure.
 	self assert: (Safar twentyninth , 1428) numberOfDaysFromBeginningOfMonth = 28 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testNumberOfDaysFromEpoch [
 	self assert: (Muharram first , 1) numberOfDaysFromEpoch = 227014 daysMeasure.
 	self assert: (DhuAlHijja thirtieth , 1300) numberOfDaysFromEpoch = 687690 daysMeasure.
 	self assert: (Muharram first , 1428) numberOfDaysFromEpoch = 732695 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testNumberOfDaysToEndOfMonth [
 	self assert: (Muharram first , 1428) numberOfDaysToEndOfMonth = 29 daysMeasure.
 	self assert: (Muharram thirtieth , 1428) numberOfDaysToEndOfMonth = 0 daysMeasure.
 	self assert: Safar twentyeighth numberOfDaysToEndOfMonth = 1 dayMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testNumberOfDaysToEndOfYear [
 	self assert: (Muharram first , 1428) numberOfDaysToEndOfYear = 354 daysMeasure.
 	self assert: (DhuAlHijja thirtieth , 1428) numberOfDaysToEndOfYear = 0 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testPrevious [
 
 	| day |
@@ -740,7 +741,7 @@ IslamicDateTest >> testPrevious [
 	self assert: day previous = (Safar twentyninth, 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testPreviousDay [
 
 	| yaumAlAhad |
@@ -755,7 +756,7 @@ IslamicDateTest >> testPreviousDay [
 	self assert: (yaumAlAhad previousDay: calendar yaumAsSabt) = (Muharram first, 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testPreviousDayOfMonth [
 
 	| day |
@@ -766,7 +767,7 @@ IslamicDateTest >> testPreviousDayOfMonth [
 	self assert: ((day previousDayOfMonth: RabiI third) previousDayOfMonth: RabiII fourth) = (RabiII fourth, 1426)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testPreviousInNumberOfDays [
 	self assert: (Muharram first , 1 previous: self tenDays) = (DhuAlHijja twentieth , 0).
 	self assert: (Muharram first , 1428 previous: self twentyNineDays) = (DhuAlHijja first , 1427).
@@ -776,13 +777,13 @@ IslamicDateTest >> testPreviousInNumberOfDays [
 	self assert: (Muharram first , 1428 previous: 0 daysMeasure) = (Muharram first , 1428)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDateTest >> testPreviousInWeeks [
 	self assert: (Muharram first , 1428 previous: 1 weekMeasure) = (Muharram first , 1428 previous: 7 daysMeasure).
 	self assert: (Muharram first , 1428 previous: 2 weeksMeasure) = (Muharram first , 1428 previous: 14 daysMeasure)
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicDateTest >> testPrintString [
 
 	| date |
@@ -791,7 +792,7 @@ IslamicDateTest >> testPrintString [
 	self assert: date printString = 'Shawwal 1, 1428'
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testTo [
 
 	| interval |
@@ -803,7 +804,7 @@ IslamicDateTest >> testTo [
 	self assert: interval by = self oneDay
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToBy [
 
 	| interval |
@@ -815,7 +816,7 @@ IslamicDateTest >> testToBy [
 	self assert: interval by = self twoDays
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToByDo [
 
 	| daysTo muharramFirst1428 |
@@ -828,7 +829,7 @@ IslamicDateTest >> testToByDo [
 	self assert: daysTo = 356
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToByReverse [
 
 	| coll number |
@@ -841,7 +842,7 @@ IslamicDateTest >> testToByReverse [
 	self assert: number = -1
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryBeginningDifferentDay [
 
 	| yaumAlIthnayna expectedDayNumbers interval |
@@ -860,7 +861,7 @@ IslamicDateTest >> testToEveryBeginningDifferentDay [
 		index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryBeginningSameDay [
 
 	| yaumAlIthnayna expectedDayNumbers interval |
@@ -879,7 +880,7 @@ IslamicDateTest >> testToEveryBeginningSameDay [
 		index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryDayBeginningDifferentDay [
 
 	| yaumAlIthnayna expectedDayNumbers interval |
@@ -896,7 +897,7 @@ IslamicDateTest >> testToEveryDayBeginningDifferentDay [
 		index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryDayBeginningSameDay [
 
 	| yaumAlIthnayna expectedDayNumbers interval |
@@ -913,7 +914,7 @@ IslamicDateTest >> testToEveryDayBeginningSameDay [
 		index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryDayNumber [
 	| expectedMonths interval |
 	interval := Muharram first , 1428 to: DhuAlHijja thirtieth , 1428 everyDayNumber: 30.
@@ -929,7 +930,7 @@ IslamicDateTest >> testToEveryDayNumber [
 			index + 1 ]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryDayNumbers [
 
 	| expectedDayNumbers interval |
@@ -945,7 +946,7 @@ IslamicDateTest >> testToEveryDayNumbers [
 		index + 1]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToEveryDayOfMonth [
 
 	| dates |
@@ -964,7 +965,7 @@ IslamicDateTest >> testToEveryDayOfMonth [
 	self assert: (dates includes: Muharram tenth, 1430)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicDateTest >> testToNegativeBy [
 
 	| interval number |
@@ -977,7 +978,7 @@ IslamicDateTest >> testToNegativeBy [
 	self assert: number = 0
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicDateTest >> testToday [
 
 	| tomorrow yesterday |
@@ -989,7 +990,7 @@ IslamicDateTest >> testToday [
 	self assert: calendar today = tomorrow previous
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicDateTest >> testTomorrow [
 
 	| today |
@@ -998,13 +999,13 @@ IslamicDateTest >> testTomorrow [
 	self assert: calendar tomorrow = today next
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicDateTest >> testYearNumber [
 
 	self assert: (Rajab first, 1428) yearNumber = 1428
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicDateTest >> testYesterday [
 
 	| today |
@@ -1013,22 +1014,22 @@ IslamicDateTest >> testYesterday [
 	self assert: calendar yesterday = today previous
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> thirtyDays [
 	^ 30 daysMeasure
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> twentyNineDays [
 	^ 29 daysMeasure
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> twoDays [
 	^ 2 daysMeasure
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IslamicDateTest >> zeroDays [
 	^ 0 daysMeasure
 ]

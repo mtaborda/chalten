@@ -1,16 +1,17 @@
 Class {
-	#name : #IslamicDaysOfMonthsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#name : 'IslamicDaysOfMonthsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicDaysOfMonthsStreamTest class >> classUnderTest [
 
 	^DaysOfMonthsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicDaysOfMonthsStreamTest >> testDistanceTo [
 	| stream |
 	stream := DaysOfMonthsStream
@@ -21,7 +22,7 @@ IslamicDaysOfMonthsStreamTest >> testDistanceTo [
 	self assert: (stream distanceTo: Muharram twentyfirst) = 330 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
@@ -49,7 +50,7 @@ IslamicDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: 60 daysMeasure) = Muharram first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream

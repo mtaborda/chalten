@@ -1,10 +1,11 @@
 Class {
-	#name : #CorrectionForJulianDateFromFixedWhenOtherwiseTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'CorrectionForJulianDateFromFixedWhenOtherwiseTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CorrectionForJulianDateFromFixedWhenOtherwiseTest >> testValue [
 
 	| correction |

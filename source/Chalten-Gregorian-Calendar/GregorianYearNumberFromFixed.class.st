@@ -29,7 +29,7 @@ Class {
 { #category : 'testing' }
 GregorianYearNumberFromFixed class >> canHandle: aCalendar [
 
-	^aCalendar = GregorianCalendar
+	^aCalendar = (ChaltenEnvironment calendarNamed: #GregorianCalendar)
 ]
 
 { #category : 'initialization - private' }

@@ -1,16 +1,17 @@
 Class {
-	#name : #JulianMonthsOfYearsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'JulianMonthsOfYearsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JulianMonthsOfYearsStreamTest class >> classUnderTest [
 
 	^MonthsOfYearsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianMonthsOfYearsStreamTest >> testDistanceFromTo [
 
 	| stream |
@@ -19,7 +20,7 @@ JulianMonthsOfYearsStreamTest >> testDistanceFromTo [
 	self assert: (stream distanceFrom: JulianDecember, 2013 to: JulianSeptember, 2014) = 0 monthsMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testNext [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: JulianJanuary, 2014.
@@ -31,7 +32,7 @@ JulianMonthsOfYearsStreamTest >> testNext [
 	self assert: (stream next: -1 monthMeasure) = (JulianJanuary, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 
 	| stream |
@@ -40,7 +41,7 @@ JulianMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 	self assert: (stream nextInNumberOfYears: -3 yearsMeasure) = (JulianJanuary, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testNextMonthIn [
 
 	| stream |
@@ -49,7 +50,7 @@ JulianMonthsOfYearsStreamTest >> testNextMonthIn [
 	self assert: (stream nextMonth: May in: -3 yearsMeasure) = (JulianMay, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testPrevious [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: JulianJanuary, 2014.
@@ -61,7 +62,7 @@ JulianMonthsOfYearsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 monthMeasure) = (JulianJanuary, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 
 	| stream |
@@ -70,7 +71,7 @@ JulianMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 	self assert: (stream previousInNumberOfYears: -3 yearsMeasure) = (JulianJanuary, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianMonthsOfYearsStreamTest >> testPreviousMonthIn [
 
 	| stream |

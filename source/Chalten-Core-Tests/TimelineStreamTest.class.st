@@ -3,18 +3,29 @@ A TimelineStreamTest is xxxxxxxxx.
 
 "
 Class {
-	#name : #TimelineStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Filter'
+	#name : 'TimelineStreamTest',
+	#superclass : 'TestCase',
+	#instVars : [
+		'gregorianCalendar'
+	],
+	#category : 'Chalten-Core-Tests-Filter',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Filter'
 }
 
-{ #category : #testing }
+{ #category : 'running' }
+TimelineStreamTest >> setUp [
+
+	gregorianCalendar := ChaltenEnvironment calendarNamed: #GregorianCalendar
+]
+
+{ #category : 'testing' }
 TimelineStreamTest >> testAtEnd [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004
@@ -23,7 +34,7 @@ TimelineStreamTest >> testAtEnd [
 	10 timesRepeat: [self deny: stream atEnd]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testCurrent [
 
 	| timeLineFilter stream januaryThirdOf2004 januaryTenOf2004 |
@@ -31,7 +42,7 @@ TimelineStreamTest >> testCurrent [
 	januaryThirdOf2004 := January third, 2004.
 	januaryTenOf2004 := January tenth, 2004.
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream := TimelineStream from: januaryThirdOf2004 using: timeLineFilter.
 
 	self assert: stream current = januaryThirdOf2004.
@@ -39,32 +50,32 @@ TimelineStreamTest >> testCurrent [
 	self assert: stream current = januaryTenOf2004
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testDo [
 
 	| timeLineFilter stream date |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January first, 2004
 			using: timeLineFilter.
-	date := January first, 2004 previousDay: GregorianCalendar saturday.
+	date := January first, 2004 previousDay: gregorianCalendar saturday.
 	stream do: [:aDate |
-		date := date nextDay: GregorianCalendar saturday.
+		date := date nextDay: gregorianCalendar saturday.
 		self assert: aDate = date.
 		"This is ugly... but I have to doit this way because the stream has no end"
-		date month = GregorianCalendar february ifTrue: [^self]]
+		date month = gregorianCalendar february ifTrue: [^self]]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testNext [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004
@@ -73,13 +84,13 @@ TimelineStreamTest >> testNext [
 	self assert: stream next = (March thirteenth, 2004)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testPeek [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004
@@ -88,13 +99,13 @@ TimelineStreamTest >> testPeek [
 	self assert: stream peek = (March thirteenth, 2004)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testPeekPrevious [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004
@@ -103,13 +114,13 @@ TimelineStreamTest >> testPeekPrevious [
 	self assert: stream peekPrevious = (February twentyeighth, 2004)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testPrevious [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004
@@ -118,7 +129,7 @@ TimelineStreamTest >> testPrevious [
 	self assert: stream previous = (February twentyeighth, 2004)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testReset [
 
 	| timeLineFilter stream januaryFirstOf2004 januaryThirdOf2004 januaryTenOf2004 |
@@ -127,7 +138,7 @@ TimelineStreamTest >> testReset [
 	januaryThirdOf2004 := January third, 2004.
 	januaryTenOf2004 := January tenth, 2004.
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream := TimelineStream from: januaryFirstOf2004 using: timeLineFilter.
 	self assert: stream next = januaryThirdOf2004.
 	self assert: stream next = januaryTenOf2004.
@@ -136,13 +147,13 @@ TimelineStreamTest >> testReset [
 	self assert: stream next = januaryTenOf2004
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimelineStreamTest >> testSkip [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addRule: (timeLineFilter dayRule: GregorianCalendar saturday).
+	timeLineFilter addRule: (timeLineFilter dayRule: gregorianCalendar saturday).
 	stream :=
 		TimelineStream
 			from: January thirtyfirst, 2004

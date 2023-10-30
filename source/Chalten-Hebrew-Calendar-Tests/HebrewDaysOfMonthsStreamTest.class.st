@@ -1,16 +1,17 @@
 Class {
-	#name : #HebrewDaysOfMonthsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#name : 'HebrewDaysOfMonthsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HebrewDaysOfMonthsStreamTest class >> classUnderTest [
 
 	^DaysOfMonthsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewDaysOfMonthsStreamTest >> testDistanceTo [
 	| stream |
 	stream := DaysOfMonthsStream
@@ -21,7 +22,7 @@ HebrewDaysOfMonthsStreamTest >> testDistanceTo [
 	self assert: (stream distanceTo: Nisan twentyfirst) = 184 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
@@ -49,7 +50,7 @@ HebrewDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: 60 daysMeasure) = Kislev first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream

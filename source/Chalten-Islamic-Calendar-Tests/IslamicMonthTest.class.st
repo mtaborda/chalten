@@ -1,6 +1,6 @@
 Class {
-	#name : #IslamicMonthTest,
-	#superclass : #TestCase,
+	#name : 'IslamicMonthTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'muharram',
@@ -21,16 +21,17 @@ Class {
 		'elevenMonths',
 		'twelveMonths'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicMonthTest class >> classUnderTest [
 
 	^ChaltenMonth
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicMonthTest >> setUp [
 	calendar := IslamicCalendar.
 	muharram := calendar muharram.
@@ -52,13 +53,13 @@ IslamicMonthTest >> setUp [
 	twelveMonths := 12 monthsMeasure
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 IslamicMonthTest >> testComma [
 
 	self assert: (safar, 2003) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test day of month creation' }
+{ #category : 'test day of month creation' }
 IslamicMonthTest >> testDayOfMonthCreation [
 
 	self assert: ramadan first = (DayOfMonth monthNumber: 9 dayNumber: 1 calendar: calendar).
@@ -93,21 +94,21 @@ IslamicMonthTest >> testDayOfMonthCreation [
 	self assert: ramadan thirtieth = (DayOfMonth monthNumber: 9 dayNumber: 30 calendar: calendar)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testDhuAlHijja [
 
 	self assert: dhuAlHijja name = 'Dhu al-Hijja'.
 	self assert: dhuAlHijja number = 12
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testDhuAlQada [
 
 	self assert: dhuAlQada name = 'Dhu al-Qa`da'.
 	self assert: dhuAlQada number = 11
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthTest >> testEqual [
 
 	self assert: muharram = muharram.
@@ -124,7 +125,7 @@ IslamicMonthTest >> testEqual [
 	self assert: dhuAlHijja = dhuAlHijja
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testFirstDayOfMonth [
 
 	self assert: muharram firstDayOfMonth = Muharram first.
@@ -141,7 +142,7 @@ IslamicMonthTest >> testFirstDayOfMonth [
 	self assert: dhuAlHijja firstDayOfMonth = DhuAlHijja first
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthTest >> testGreatherThan [
 
 	self assert: safar > muharram.
@@ -169,7 +170,7 @@ IslamicMonthTest >> testGreatherThan [
 				with: dhuAlHijja first) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthTest >> testHash [
 
 	self assert: muharram hash = muharram hash.
@@ -186,7 +187,7 @@ IslamicMonthTest >> testHash [
 	self assert: dhuAlHijja hash = dhuAlHijja hash
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthTest >> testIdentity [
 
 	self assert: muharram == muharram.
@@ -216,7 +217,7 @@ IslamicMonthTest >> testIdentity [
 	self deny: dhuAlHijja == dhuAlQada
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 IslamicMonthTest >> testIs [
 
 	self assert: (Muharram is: muharram).
@@ -233,21 +234,21 @@ IslamicMonthTest >> testIs [
 	self assert: (DhuAlHijja is: dhuAlHijja)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testJumadaI [
 
 	self assert: jumadaI name = 'Jumada I (Jumada al-Ula)'.
 	self assert: jumadaI number = 5
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testJumadaII [
 
 	self assert: jumadaII name = 'Jumada II (Jumada al-Ahira)'.
 	self assert: jumadaII number = 6
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testLastDayNumber [
 
 	self assert: muharram lastDayNumber = 30.
@@ -264,7 +265,7 @@ IslamicMonthTest >> testLastDayNumber [
 	self assert: dhuAlHijja lastDayNumber = 30
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testLastDayNumberIn [
 	| leapYear nonleapYear |
 	leapYear := 1428 asIslamicYear.
@@ -295,7 +296,7 @@ IslamicMonthTest >> testLastDayNumberIn [
 	self assert: (dhuAlHijja lastDayNumberIn: nonleapYear) = 29
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testLastDayOfMonth [
 
 	self assert: muharram lastDayOfMonth = Muharram thirtieth.
@@ -312,7 +313,7 @@ IslamicMonthTest >> testLastDayOfMonth [
 	self assert: dhuAlHijja lastDayOfMonth = DhuAlHijja thirtieth
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 IslamicMonthTest >> testLessThan [
 
 	self assert: muharram < safar.
@@ -340,7 +341,7 @@ IslamicMonthTest >> testLessThan [
 				with: dhuAlHijja first) ]
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 IslamicMonthTest >> testMonthCreation [
 
 	| otherMuharram otherSafar otheRabiI otherRabiII otherJumadaI otherJumadaII otherRajab otherShaban
@@ -385,7 +386,7 @@ IslamicMonthTest >> testMonthCreation [
 	self assert: dhuAlHijja number = otherDhuAlHijja number
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthTest >> testMonthsFrom [
 
 	| stream |
@@ -400,7 +401,7 @@ IslamicMonthTest >> testMonthsFrom [
 	self assert: (stream distanceFrom: dhuAlQada to: dhuAlHijja) = oneMonth
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthTest >> testMonthsTo [
 
 	| stream |
@@ -415,14 +416,14 @@ IslamicMonthTest >> testMonthsTo [
 	self assert: (stream distanceTo: dhuAlQada from: dhuAlHijja) = elevenMonths
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testMuharram [
 
 	self assert: muharram name = 'Muharram'.
 	self assert: muharram number = 1
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testNextInLeapYears [
 
 	| stream |
@@ -443,7 +444,7 @@ IslamicMonthTest >> testNextInLeapYears [
 	self assert: stream next = muharram
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testNextInLeapYearsInANumberOfMonths [
 
 	| stream |
@@ -460,7 +461,7 @@ IslamicMonthTest >> testNextInLeapYearsInANumberOfMonths [
 	self assert: (stream next: twelveMonths + oneMonth) = muharram
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testNextInNonleapYears [
 
 	| stream |
@@ -481,7 +482,7 @@ IslamicMonthTest >> testNextInNonleapYears [
 	self assert: stream next = muharram
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testNextInNonleapYearsInANumberOfMonths [
 
 	| stream |
@@ -498,7 +499,7 @@ IslamicMonthTest >> testNextInNonleapYearsInANumberOfMonths [
 	self assert: (stream next: twelveMonths + oneMonth) = muharram
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testNumberOfDays [
 	self assert: muharram numberOfDays = 30 daysMeasure.
 	self assert: safar numberOfDays = 29 daysMeasure.
@@ -514,7 +515,7 @@ IslamicMonthTest >> testNumberOfDays [
 	self assert: dhuAlHijja numberOfDays = 30 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testNumberOfDaysFromBeginningOfYearIn [
 	| leapYear nonleapYear |
 	leapYear := 1428 asIslamicYear.
@@ -545,7 +546,7 @@ IslamicMonthTest >> testNumberOfDaysFromBeginningOfYearIn [
 	self assert: (dhuAlHijja numberOfDaysFromBeginningOfYearIn: nonleapYear) = 325 daysMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testNumberOfDaysIn [
 	| leapYear nonleapYear |
 	leapYear := 1428 asIslamicYear.
@@ -576,18 +577,18 @@ IslamicMonthTest >> testNumberOfDaysIn [
 	self assert: (dhuAlHijja numberOfDaysIn: nonleapYear) = 29 daysMeasure
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 IslamicMonthTest >> testOf [
 
 	self assert: (safar of: 2003) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test month of year creation' }
+{ #category : 'test month of year creation' }
 IslamicMonthTest >> testOfYear [
 	self assert: (safar ofYear: 2003 asIslamicYear) = (MonthOfYear yearNumber: 2003 monthNumber: 2 calendar: calendar)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testPreviousInLeapYears [
 
 	| stream |
@@ -608,7 +609,7 @@ IslamicMonthTest >> testPreviousInLeapYears [
 	self assert: stream previous = muharram
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testPreviousInLeapYearsInANumberOfMonths [
 
 	| stream |
@@ -625,7 +626,7 @@ IslamicMonthTest >> testPreviousInLeapYearsInANumberOfMonths [
 	self assert: (stream previous: twelveMonths + oneMonth) = dhuAlQada
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testPreviousInNonleapYears [
 
 	| stream |
@@ -646,7 +647,7 @@ IslamicMonthTest >> testPreviousInNonleapYears [
 	self assert: stream previous = muharram
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthTest >> testPreviousInNonleapYearsInANumberOfMonths [
 
 	| stream |
@@ -663,7 +664,7 @@ IslamicMonthTest >> testPreviousInNonleapYearsInANumberOfMonths [
 	self assert: (stream previous: twelveMonths + oneMonth) = dhuAlQada
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicMonthTest >> testPrintString [
 
 	self assert: muharram printString = 'Muharram'.
@@ -680,56 +681,56 @@ IslamicMonthTest >> testPrintString [
 	self assert: dhuAlHijja printString = 'Dhu al-Hijja'
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testRabiI [
 
 	self assert: rabiI name = 'Rabi` I (Rabi` al-Awwal)'.
 	self assert: rabiI number = 3
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testRabiII [
 
 	self assert: rabiII name = 'Rabi` II (Rabi` al-Ahir)'.
 	self assert: rabiII number = 4
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testRajab [
 
 	self assert: rajab name = 'Rajab'.
 	self assert: rajab number = 7
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testRamadan [
 
 	self assert: ramadan name = 'Ramadan'.
 	self assert: ramadan number = 9
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testSafar [
 
 	self assert: safar name = 'Safar'.
 	self assert: safar number = 2
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testShaban [
 
 	self assert: shaban name = 'Sha`ban'.
 	self assert: shaban number = 8
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicMonthTest >> testShawwal [
 
 	self assert: shawwal name = 'Shawwal'.
 	self assert: shawwal number = 10
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthTest >> testTo [
 
 	| interval |
@@ -741,7 +742,7 @@ IslamicMonthTest >> testTo [
 	self assert: interval by = oneMonth
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthTest >> testToBy [
 
 	| interval |
@@ -753,7 +754,7 @@ IslamicMonthTest >> testToBy [
 	self assert: interval by = twoMonths
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthTest >> testToByDo [
 
 	| number |
@@ -774,7 +775,7 @@ IslamicMonthTest >> testToByDo [
 	self assert: number = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthTest >> testToNegativeByDo [
 
 	| number |
@@ -787,7 +788,7 @@ IslamicMonthTest >> testToNegativeByDo [
 	self assert: number = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 IslamicMonthTest >> testToReverse [
 
 	| coll number |

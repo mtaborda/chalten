@@ -1,13 +1,15 @@
 Class {
-	#name : #TimeUnitsTest,
-	#superclass : #TestCase,
+	#name : 'TimeUnitsTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'timeUnits'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 TimeUnitsTest >> testAllUnits [
 
 	self assert: (TimeUnits allUnits includes: TimeUnits day).
@@ -20,7 +22,7 @@ TimeUnitsTest >> testAllUnits [
 	self assert: (TimeUnits allUnits includes: TimeUnits year)
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testCentury [
 
 	self assert: TimeUnits century = TimeUnits century.
@@ -29,7 +31,7 @@ TimeUnitsTest >> testCentury [
 
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testDay [
 
 	self assert: TimeUnits day = TimeUnits day.
@@ -38,7 +40,7 @@ TimeUnitsTest >> testDay [
 
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testDecade [
 
 	self assert: TimeUnits decade = TimeUnits decade.
@@ -47,7 +49,7 @@ TimeUnitsTest >> testDecade [
 
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testHour [
 
 	self assert: TimeUnits hour=TimeUnits hour.
@@ -55,7 +57,7 @@ TimeUnitsTest >> testHour [
 	
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testMillennium [
 
 	self assert: TimeUnits millennium = TimeUnits millennium.
@@ -64,42 +66,42 @@ TimeUnitsTest >> testMillennium [
 
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testMillisecond [
 
 	self assert: TimeUnits millisecond = TimeUnits millisecond.
 	self assert: TimeUnits millisecond name = 'millisecond'	
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testMinute [
 
 	self assert: TimeUnits minute = TimeUnits minute.
 	self assert: TimeUnits minute name = 'minute'	
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testMonth [
 
 	self assert: TimeUnits month = TimeUnits month.
 	self assert: TimeUnits month name = 'month'
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testSecond [
 
 	self assert: TimeUnits second = TimeUnits second.
 	self assert: TimeUnits second name = 'second'
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testWeek [
 
 	self assert: TimeUnits week = TimeUnits week.
 	self assert: TimeUnits week name = 'week'
 ]
 
-{ #category : #'test units' }
+{ #category : 'test units' }
 TimeUnitsTest >> testYear [
 
 	self assert: TimeUnits year = TimeUnits year.

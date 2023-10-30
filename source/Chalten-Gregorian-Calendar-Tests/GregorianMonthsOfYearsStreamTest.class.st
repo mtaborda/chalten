@@ -1,16 +1,17 @@
 Class {
-	#name : #GregorianMonthsOfYearsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#name : 'GregorianMonthsOfYearsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianMonthsOfYearsStreamTest class >> classUnderTest [
 
 	^MonthsOfYearsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianMonthsOfYearsStreamTest >> testDistanceFromTo [
 
 	| stream |
@@ -19,7 +20,7 @@ GregorianMonthsOfYearsStreamTest >> testDistanceFromTo [
 	self assert: (stream distanceFrom: December, 2013 to: September, 2014) = 0 monthsMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testNext [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: January, 2014.
@@ -31,7 +32,7 @@ GregorianMonthsOfYearsStreamTest >> testNext [
 	self assert: (stream next: -1 monthMeasure) = (January, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 
 	| stream |
@@ -40,7 +41,7 @@ GregorianMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 	self assert: (stream nextInNumberOfYears: -3 yearsMeasure) = (January, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testNextMonthIn [
 
 	| stream |
@@ -49,7 +50,7 @@ GregorianMonthsOfYearsStreamTest >> testNextMonthIn [
 	self assert: (stream nextMonth: May in: -3 yearsMeasure) = (May, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testPrevious [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: January, 2014.
@@ -61,7 +62,7 @@ GregorianMonthsOfYearsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 monthMeasure) = (January, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 
 	| stream |
@@ -70,7 +71,7 @@ GregorianMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 	self assert: (stream previousInNumberOfYears: -3 yearsMeasure) = (January, 2014)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianMonthsOfYearsStreamTest >> testPreviousMonthIn [
 
 	| stream |

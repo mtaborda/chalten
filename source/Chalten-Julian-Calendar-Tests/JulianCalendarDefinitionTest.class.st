@@ -1,70 +1,71 @@
 Class {
-	#name : #JulianCalendarDefinitionTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'JulianCalendarDefinitionTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testAmountOfDaysPerWeek [
 
 	self assert: JulianCalendar amountOfDaysPerWeek = 7
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testAmountOfMonthsInLeapYears [
 
 	self assert: JulianCalendar amountOfMonthsInLeapYears = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testAmountOfMonthsInNonleapYears [
 
 	self assert: JulianCalendar amountOfMonthsInNonleapYears = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testAmountOfMonthsPerYear [
 
 	self assert: JulianCalendar amountOfMonthsPerYear = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testApril [
 
 	self assert: JulianCalendar april = JulianApril
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testAprilName [
 
 	self assert: JulianCalendar aprilName = 'April'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testAprilNumber [
 
 	self assert: JulianCalendar aprilNumber = 4
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testAugust [
 
 	self assert: JulianCalendar august = JulianAugust
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testAugustName [
 
 	self assert: JulianCalendar augustName = 'August'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testAugustNumber [
 
 	self assert: JulianCalendar augustNumber = 8
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 JulianCalendarDefinitionTest >> testConvert [
 
 	self assert: (JulianCalendar convert: January fourteenth , 2005) = (JulianJanuary first , 2005).
@@ -90,7 +91,7 @@ JulianCalendarDefinitionTest >> testConvert [
 		withExceptionDo: [ :ex | self assert: ex description = 'Error: 1 can`t be converted to Date nor DateTime' ]
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 JulianCalendarDefinitionTest >> testConvertToSmalltalkDate [
 
 	| julianDate smalltalkDate |
@@ -100,7 +101,7 @@ JulianCalendarDefinitionTest >> testConvertToSmalltalkDate [
 	self assert: (JulianCalendar convertToSmalltalkDate: julianDate) = smalltalkDate
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testCurrentDayOfMonth [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -108,12 +109,12 @@ JulianCalendarDefinitionTest >> testCurrentDayOfMonth [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar currentDayOfMonth 
 				= (JulianCalendar convertToJulianDate: gregorianToday) dayOfMonth
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testCurrentMonth [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -121,12 +122,12 @@ JulianCalendarDefinitionTest >> testCurrentMonth [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar currentMonth 
 				= (JulianCalendar convertToJulianDate: gregorianToday) month
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testCurrentMonthOfYear [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -134,12 +135,12 @@ JulianCalendarDefinitionTest >> testCurrentMonthOfYear [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar currentMonthOfYear 
 				= (JulianCalendar convertToJulianDate: gregorianToday) monthOfYear
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testCurrentYear [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -147,12 +148,12 @@ JulianCalendarDefinitionTest >> testCurrentYear [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar currentYear 
 				= (JulianCalendar convertToJulianDate: gregorianToday) year
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testDateFromFixed [
 	| januaryThirdOf1 januarySeventhOf1 januaryThirdOf2 marchSecondOf4 janauryThirdOf5 |
 	januaryThirdOf1 := JulianJanuary third , 1.
@@ -167,7 +168,7 @@ JulianCalendarDefinitionTest >> testDateFromFixed [
 	self assert: (JulianCalendar dateFromNumberOfDays: 1462) = janauryThirdOf5
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testDayNamed [
 
 	self
@@ -180,13 +181,13 @@ JulianCalendarDefinitionTest >> testDayNamed [
 		assert: (JulianCalendar dayNamed: 'Saturday') = JulianSaturday
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testDayOf [
 
 	self assert: (JulianCalendar dayOf: May fourth, 2014) = JulianSunday
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testDayPositionedInWeek [
 
 	self
@@ -199,7 +200,7 @@ JulianCalendarDefinitionTest >> testDayPositionedInWeek [
 		assert: (JulianCalendar dayPositionedInWeek: 7) = JulianSaturday
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testDaysFromEpochTo [
 	| januaryFirstOf1 januarySecondOf1 januaryFifteenthOf1 januaryFirstOf2 januaryFirstOf5 |
 	januaryFirstOf1 := JulianJanuary first , 1.
@@ -214,7 +215,7 @@ JulianCalendarDefinitionTest >> testDaysFromEpochTo [
 	self assert: (JulianCalendar numberOfDaysFromEpochTo: januaryFirstOf5) = 1459 daysMeasure
 ]
 
-{ #category : #'test global variables' }
+{ #category : 'test global variables' }
 JulianCalendarDefinitionTest >> testDaysGlobalVariables [
 
 	self
@@ -227,25 +228,25 @@ JulianCalendarDefinitionTest >> testDaysGlobalVariables [
 		assert: JulianSaturday = JulianCalendar saturday
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testDecember [
 
 	self assert: JulianCalendar december = JulianDecember
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testDecemberName [
 
 	self assert: JulianCalendar decemberName = 'December'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testDecemberNumber [
 
 	self assert: JulianCalendar decemberNumber = 12
 ]
 
-{ #category : #'test year querying' }
+{ #category : 'test year querying' }
 JulianCalendarDefinitionTest >> testDistanceInYearsFromTo [
 
 	self assert: (JulianCalendar
@@ -253,44 +254,44 @@ JulianCalendarDefinitionTest >> testDistanceInYearsFromTo [
 		to: 2015 asJulianYear) = 3 yearsMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianCalendarDefinitionTest >> testEpoch [
 
 	self assert: JulianCalendar epoch = -1
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testFebruary [
 
 	self assert: JulianCalendar february = JulianFebruary
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testFebruaryName [
 
 	self assert: JulianCalendar februaryName = 'February'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testFebruaryNumber [
 
 	self assert: JulianCalendar februaryNumber = 2
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testFirstMonth [
 
 	self assert: JulianCalendar firstMonth = JulianJanuary
 ]
 
-{ #category : #'test month of year accessing' }
+{ #category : 'test month of year accessing' }
 JulianCalendarDefinitionTest >> testFirstMonthOf [
 	| year |
 	year := 2007 asJulianYear.
 	self assert: (JulianCalendar firstMonthOf: year) = (JulianJanuary , 2007)
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testFixedFromDate [
 	| januaryFirstOf1 novemberTwelveOf1945 |
 	januaryFirstOf1 := JulianJanuary first , 1.
@@ -302,49 +303,49 @@ JulianCalendarDefinitionTest >> testFixedFromDate [
 					= 710056
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testFriday [
 
 	self assert: JulianCalendar friday = JulianFriday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testFridayName [
 
 	self assert: JulianCalendar fridayName = 'Friday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testFridayPositionInWeek [
 
 	self assert: JulianCalendar fridayPositionInWeek = 6
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsApril [
 
 	self assert: (JulianCalendar isApril: JulianApril)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsAugust [
 
 	self assert: (JulianCalendar isAugust: JulianAugust)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsDecember [
 
 	self assert: (JulianCalendar isDecember: JulianDecember)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsFebruary [
 
 	self assert: (JulianCalendar isFebruary: JulianFebruary)
 ]
 
-{ #category : #'test year testing' }
+{ #category : 'test year testing' }
 JulianCalendarDefinitionTest >> testIsFirstMonthOfYear [
 
 	self assert: (JulianCalendar isFirstMonthOfYear: JulianJanuary).
@@ -352,97 +353,97 @@ JulianCalendarDefinitionTest >> testIsFirstMonthOfYear [
 	self deny: (JulianCalendar isFirstMonthOfYear: JulianDecember)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsFriday [
 
 	self assert: (JulianCalendar isFriday: JulianFriday)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsJanuary [
 
 	self assert: (JulianCalendar isJanuary: JulianJanuary)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsJuly [
 
 	self assert: (JulianCalendar isJuly: JulianJuly)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsJune [
 
 	self assert: (JulianCalendar isJune: JulianJune)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsMarch [
 
 	self assert: (JulianCalendar isMarch: JulianMarch)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsMay [
 
 	self assert: (JulianCalendar isMay: JulianMay)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsMonday [
 
 	self assert: (JulianCalendar isMonday: JulianMonday)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsNovember [
 
 	self assert: (JulianCalendar isNovember: JulianNovember)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsOctober [
 
 	self assert: (JulianCalendar isOctober: JulianOctober)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsSaturday [
 
 	self assert: (JulianCalendar isSaturday: JulianSaturday)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 JulianCalendarDefinitionTest >> testIsSeptember [
 
 	self assert: (JulianCalendar isSeptember: JulianSeptember)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsSunday [
 
 	self assert: (JulianCalendar isSunday: JulianSunday)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsThursday [
 
 	self assert: (JulianCalendar isThursday: JulianThursday)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsTuesday [
 
 	self assert: (JulianCalendar isTuesday: JulianTuesday)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 JulianCalendarDefinitionTest >> testIsWednesday [
 
 	self assert: (JulianCalendar isWednesday: JulianWednesday)
 ]
 
-{ #category : #'test year testing' }
+{ #category : 'test year testing' }
 JulianCalendarDefinitionTest >> testIsYearNumberLeap [
 
 	self
@@ -462,134 +463,134 @@ JulianCalendarDefinitionTest >> testIsYearNumberLeap [
 		deny: (JulianCalendar isYearNumberLeap: 2007)
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testJanuary [
 
 	self assert: JulianCalendar january = JulianJanuary
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testJanuaryName [
 
 	self assert: JulianCalendar januaryName = 'January'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testJanuaryNumber [
 
 	self assert: JulianCalendar januaryNumber = 1
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testJuly [
 
 	self assert: JulianCalendar july = JulianJuly
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testJulyName [
 
 	self assert: JulianCalendar julyName = 'July'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testJulyNumber [
 
 	self assert: JulianCalendar julyNumber = 7
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testJune [
 
 	self assert: JulianCalendar june = JulianJune
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testJuneName [
 
 	self assert: JulianCalendar juneName = 'June'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testJuneNumber [
 
 	self assert: JulianCalendar juneNumber = 6
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testLastMonth [
 
 	self assert: JulianCalendar lastMonth = JulianDecember
 ]
 
-{ #category : #'test month of year accessing' }
+{ #category : 'test month of year accessing' }
 JulianCalendarDefinitionTest >> testLastMonthOf [
 	| year |
 	year := 2007 asJulianYear.
 	self assert: (JulianCalendar lastMonthOf: year) = (JulianDecember , 2007)
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMarch [
 
 	self assert: JulianCalendar march = JulianMarch
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testMarchName [
 
 	self assert: JulianCalendar marchName = 'March'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testMarchNumber [
 
 	self assert: JulianCalendar marchNumber = 3
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testMaximumNumberOfDaysInOneYear [
 
 	self assert: JulianCalendar maximumNumberOfDaysInOneYear = 366 daysMeasure
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMay [
 
 	self assert: JulianCalendar may = JulianMay
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testMayName [
 
 	self assert: JulianCalendar mayName = 'May'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testMayNumber [
 
 	self assert: JulianCalendar mayNumber = 5
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testMonday [
 
 	self assert: JulianCalendar monday = JulianMonday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testMondayName [
 
 	self assert: JulianCalendar mondayName = 'Monday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testMondayPositionInWeek [
 
 	self assert: JulianCalendar mondayPositionInWeek = 2
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMonthNamed [
 
 	self
@@ -607,12 +608,12 @@ JulianCalendarDefinitionTest >> testMonthNamed [
 		assert: (JulianCalendar monthNamed: 'December') = JulianDecember.
 		
 	self
-		should: [ GregorianCalendar monthNamed: 'invalid name' ]
+		should: [ (ChaltenEnvironment calendarNamed: #GregorianCalendar) monthNamed: 'invalid name' ]
 		raise: InvalidMonthNameException
 		withExceptionDo: [ :ex | self assert: ex description = 'invalid name is an invalid name for a month' ]
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMonthNumbered [
 
 	self
@@ -630,7 +631,7 @@ JulianCalendarDefinitionTest >> testMonthNumbered [
 		assert: (JulianCalendar monthNumbered: 12) = JulianDecember
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMonthsForLeapYears [
 
 	| months |
@@ -651,7 +652,7 @@ JulianCalendarDefinitionTest >> testMonthsForLeapYears [
 	self assert: JulianCalendar monthsForLeapYears = months
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testMonthsForNonleapYears [
 
 	| months |
@@ -672,7 +673,7 @@ JulianCalendarDefinitionTest >> testMonthsForNonleapYears [
 	self assert: JulianCalendar monthsForNonleapYears = months
 ]
 
-{ #category : #'test global variables' }
+{ #category : 'test global variables' }
 JulianCalendarDefinitionTest >> testMonthsGlobalVariables [
 
 	self
@@ -690,25 +691,25 @@ JulianCalendarDefinitionTest >> testMonthsGlobalVariables [
 		assert: JulianDecember = JulianCalendar december
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testNovember [
 
 	self assert: JulianCalendar november = JulianNovember
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testNovemberName [
 
 	self assert: JulianCalendar novemberName = 'November'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testNovemberNumber [
 
 	self assert: JulianCalendar novemberNumber = 11
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testNow [
 	| now nowInTwoSeconds |
 	now := JulianCalendar now.
@@ -718,83 +719,83 @@ JulianCalendarDefinitionTest >> testNow [
 	self assert: ((now distanceTo: nowInTwoSeconds) convertTo: TimeUnits second) truncated = 1 secondMeasure
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testNumberOfDaysIn [
 
 	self assert: (JulianCalendar numberOfDaysIn: 2014 asJulianYear) = 365 daysMeasure
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testNumberOfDaysPerWeek [
 	self assert: JulianCalendar numberOfDaysPerWeek = 7 daysMeasure
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testNumberOfMonthsPerYear [
 	self assert: JulianCalendar numberOfMonthsPerYear = 12 monthsMeasure
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testOctober [
 
 	self assert: JulianCalendar october = JulianOctober
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testOctoberName [
 
 	self assert: JulianCalendar octoberName = 'October'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testOctoberNumber [
 
 	self assert: JulianCalendar octoberNumber = 10
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 JulianCalendarDefinitionTest >> testPrintString [
 
 	self assert: JulianCalendar printString  = 'Julian Calendar'
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testSaturday [
 
 	self assert: JulianCalendar saturday = JulianSaturday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testSaturdayName [
 
 	self assert: JulianCalendar saturdayName = 'Saturday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testSaturdayPositionInWeek [
 
 	self assert: JulianCalendar saturdayPositionInWeek = 7
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 JulianCalendarDefinitionTest >> testSeptember [
 
 	self assert: JulianCalendar september = JulianSeptember
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 JulianCalendarDefinitionTest >> testSeptemberName [
 
 	self assert: JulianCalendar septemberName = 'September'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 JulianCalendarDefinitionTest >> testSeptemberNumber [
 
 	self assert: JulianCalendar septemberNumber = 9
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testSinceFirstDayOfWeek [
 	| currentDay zeroDays |
 	zeroDays := 0 daysMeasure.
@@ -805,7 +806,7 @@ JulianCalendarDefinitionTest >> testSinceFirstDayOfWeek [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testSinceSunday [
 	| currentDay zeroDays |
 	zeroDays := 0 daysMeasure.
@@ -816,43 +817,43 @@ JulianCalendarDefinitionTest >> testSinceSunday [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testSunday [
 
 	self assert: JulianCalendar sunday = JulianSunday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testSundayName [
 
 	self assert: JulianCalendar sundayName = 'Sunday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testSundayPositionInWeek [
 
 	self assert: JulianCalendar sundayPositionInWeek = 1
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testThursday [
 
 	self assert: JulianCalendar thursday = JulianThursday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testThursdayName [
 
 	self assert: JulianCalendar thursdayName = 'Thursday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testThursdayPositionInWeek [
 
 	self assert: JulianCalendar thursdayPositionInWeek = 5
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testToday [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -860,12 +861,12 @@ JulianCalendarDefinitionTest >> testToday [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar today 
 				= (JulianCalendar convertToJulianDate: gregorianToday)
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testTomorrow [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -873,48 +874,48 @@ JulianCalendarDefinitionTest >> testTomorrow [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar tomorrow 
 				= (JulianCalendar convertToJulianDate: gregorianToday) next
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testTuesday [
 
 	self assert: JulianCalendar tuesday = JulianTuesday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testTuesdayName [
 
 	self assert: JulianCalendar tuesdayName = 'Tuesday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testTuesdayPositionInWeek [
 
 	self assert: JulianCalendar tuesdayPositionInWeek = 3
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 JulianCalendarDefinitionTest >> testWednesday [
 
 	self assert: JulianCalendar wednesday = JulianWednesday
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 JulianCalendarDefinitionTest >> testWednesdayName [
 
 	self assert: JulianCalendar wednesdayName = 'Wednesday'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 JulianCalendarDefinitionTest >> testWednesdayPositionInWeek [
 
 	self assert: JulianCalendar wednesdayPositionInWeek = 4
 ]
 
-{ #category : #'test year accessing' }
+{ #category : 'test year accessing' }
 JulianCalendarDefinitionTest >> testYearNumberFromFixed [
 
 	self assert: (JulianCalendar yearNumberFromFixed: 1) = 1.
@@ -930,7 +931,7 @@ JulianCalendarDefinitionTest >> testYearNumberFromFixed [
 	self assert: (JulianCalendar yearNumberFromFixed: 1461) = 5
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 JulianCalendarDefinitionTest >> testYesterday [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -938,7 +939,7 @@ JulianCalendarDefinitionTest >> testYesterday [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: JulianCalendar yesterday 
 				= (JulianCalendar convertToJulianDate: gregorianToday) previous
 ]

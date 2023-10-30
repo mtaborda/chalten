@@ -1,16 +1,17 @@
 Class {
-	#name : #IslamicMonthsOfYearsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#name : 'IslamicMonthsOfYearsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IslamicMonthsOfYearsStreamTest class >> classUnderTest [
 
 	^MonthsOfYearsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 IslamicMonthsOfYearsStreamTest >> testDistanceFromTo [
 
 	| stream |
@@ -19,7 +20,7 @@ IslamicMonthsOfYearsStreamTest >> testDistanceFromTo [
 	self assert: (stream distanceFrom: DhuAlQada, 1444 to: Ramadan, 1445) = 0 monthsMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testNext [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: Safar, 1445.
@@ -31,7 +32,7 @@ IslamicMonthsOfYearsStreamTest >> testNext [
 	self assert: (stream next: -1 monthMeasure) = (Safar, 1445)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 
 	| stream |
@@ -40,7 +41,7 @@ IslamicMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 	self assert: (stream nextInNumberOfYears: -3 yearsMeasure) = (Safar, 1445)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testNextMonthIn [
 
 	| stream |
@@ -49,7 +50,7 @@ IslamicMonthsOfYearsStreamTest >> testNextMonthIn [
 	self assert: (stream nextMonth: Ramadan in: -3 yearsMeasure) = (Ramadan, 1445)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testPrevious [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: Safar, 1445.
@@ -61,7 +62,7 @@ IslamicMonthsOfYearsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 monthMeasure) = (Safar, 1445)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 
 	| stream |
@@ -70,7 +71,7 @@ IslamicMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 	self assert: (stream previousInNumberOfYears: -3 yearsMeasure) = (Safar, 1445)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 IslamicMonthsOfYearsStreamTest >> testPreviousMonthIn [
 
 	| stream |

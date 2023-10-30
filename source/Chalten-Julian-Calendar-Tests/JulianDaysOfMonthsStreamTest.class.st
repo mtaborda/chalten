@@ -1,16 +1,17 @@
 Class {
-	#name : #JulianDaysOfMonthsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#name : 'JulianDaysOfMonthsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JulianDaysOfMonthsStreamTest class >> classUnderTest [
 
 	^DaysOfMonthsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDaysOfMonthsStreamTest >> testDistanceTo [
 
 	| stream |
@@ -22,7 +23,7 @@ JulianDaysOfMonthsStreamTest >> testDistanceTo [
 	self assert: (stream distanceTo: JulianApril twentyfirst) = 65 daysMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
@@ -50,7 +51,7 @@ JulianDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: 60 daysMeasure) = JulianApril first
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream

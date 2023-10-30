@@ -1,22 +1,24 @@
 Class {
-	#name : #IntervalConstrainedInclusionRuleTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Filter'
+	#name : 'IntervalConstrainedInclusionRuleTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Filter',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Filter'
 }
 
-{ #category : #querying }
+{ #category : 'querying' }
 IntervalConstrainedInclusionRuleTest >> includes: aMagnitude [
 
 	^aMagnitude even
 ]
 
-{ #category : #'test support' }
+{ #category : 'test support' }
 IntervalConstrainedInclusionRuleTest >> object [
 
 	^self
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testFrom [
 
 	| rule |
@@ -28,7 +30,7 @@ IntervalConstrainedInclusionRuleTest >> testFrom [
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testIncludes [
 
 	| rule |
@@ -44,7 +46,7 @@ IntervalConstrainedInclusionRuleTest >> testIncludes [
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testInstanceCreation [
 
 	self assert: (IntervalConstrainedInclusionRule on: (1 to: 10) apply: self) interval = (1 to: 10).
@@ -54,7 +56,7 @@ IntervalConstrainedInclusionRuleTest >> testInstanceCreation [
 	self assert: (IntervalConstrainedInclusionRule from: 1 to: 10 apply: self) decoratedRule = self
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testObject [
 
 	| rule |
@@ -66,13 +68,13 @@ IntervalConstrainedInclusionRuleTest >> testObject [
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testPrintString [
 
 	self assert: (IntervalConstrainedInclusionRule on: (1 to: 10) apply: self) printString = 'From: 1 to: 10 -> IntervalConstrainedInclusionRuleTest>>#testPrintString'
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 IntervalConstrainedInclusionRuleTest >> testTo [
 
 	| rule |

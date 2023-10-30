@@ -1,10 +1,21 @@
 Class {
-	#name : #TimelineFilterTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Filter'
+	#name : 'TimelineFilterTest',
+	#superclass : 'TestCase',
+	#instVars : [
+		'gregorianCalendar'
+	],
+	#category : 'Chalten-Core-Tests-Filter',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Filter'
 }
 
-{ #category : #test }
+{ #category : 'running' }
+TimelineFilterTest >> setUp [
+
+	gregorianCalendar := ChaltenEnvironment calendarNamed: #GregorianCalendar
+]
+
+{ #category : 'test' }
 TimelineFilterTest >> testAddArgentineLaw23555Rule [
 
 	| timeLineFilter |
@@ -16,7 +27,7 @@ TimelineFilterTest >> testAddArgentineLaw23555Rule [
 	self deny: (timeLineFilter includes: September fifteenth, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddDateRule [
 
 	| timeLineFilter |
@@ -28,7 +39,7 @@ TimelineFilterTest >> testAddDateRule [
 	self deny: (timeLineFilter includes: January fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddDayOfMonthRule [
 
 	| timeLineFilter |
@@ -41,19 +52,19 @@ TimelineFilterTest >> testAddDayOfMonthRule [
 	self deny: (timeLineFilter includes: January fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddDayRule [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 
 	self assert: (timeLineFilter includes: January third, 2004).
 	self deny: (timeLineFilter includes: January fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddMonthOfYearRule [
 
 	| timeLineFilter |
@@ -65,7 +76,7 @@ TimelineFilterTest >> testAddMonthOfYearRule [
 	self deny: (timeLineFilter includes: January third, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddMonthRule [
 
 	| timeLineFilter |
@@ -78,7 +89,7 @@ TimelineFilterTest >> testAddMonthRule [
 	self deny: (timeLineFilter includes: February third, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddOrdinalDayMonthRuleRule [
 
 	| timeLineFilter |
@@ -86,21 +97,21 @@ TimelineFilterTest >> testAddOrdinalDayMonthRuleRule [
 	timeLineFilter := TimelineFilter new.
 	timeLineFilter
 		addOrdinal: 3
-		day: GregorianCalendar monday
-		monthRule: GregorianCalendar september.
+		day: gregorianCalendar monday
+		monthRule: gregorianCalendar september.
 
 	self assert: (timeLineFilter includes: September nineteenth, 2005).
 	self deny: (timeLineFilter includes: September fifteenth, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddRuleFrom [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
 	timeLineFilter
-		addRule: (timeLineFilter dayRule: GregorianCalendar saturday)
+		addRule: (timeLineFilter dayRule: gregorianCalendar saturday)
 		from: January first, 2004.
 
 	self assert: (timeLineFilter includes: January third, 2004).
@@ -108,14 +119,14 @@ TimelineFilterTest >> testAddRuleFrom [
 	self deny: (timeLineFilter includes: December twentyseventh, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddRuleFromTo [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
 	timeLineFilter
-		addRule: (timeLineFilter dayRule: GregorianCalendar saturday)
+		addRule: (timeLineFilter dayRule: gregorianCalendar saturday)
 		from: January first, 2004
 		to: January ninth, 2004.
 
@@ -124,7 +135,7 @@ TimelineFilterTest >> testAddRuleFromTo [
 	self deny: (timeLineFilter includes: January tenth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddRules [
 
 	| timeLineFilter rule1 rule2 rule3 september14Of2005 september15Of2005 september16Of2005 |
@@ -143,7 +154,7 @@ TimelineFilterTest >> testAddRules [
 	self assert: (timeLineFilter includes: september16Of2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddRulesFrom [
 
 	| timeLineFilter |
@@ -152,8 +163,8 @@ TimelineFilterTest >> testAddRulesFrom [
 	timeLineFilter
 		addRules: (
 			Array
-				with: (timeLineFilter dayRule: GregorianCalendar saturday)
-				with: (timeLineFilter dayRule: GregorianCalendar sunday))
+				with: (timeLineFilter dayRule: gregorianCalendar saturday)
+				with: (timeLineFilter dayRule: gregorianCalendar sunday))
 		from: January first, 2004.
 
 	self assert: (timeLineFilter includes: January third, 2004).
@@ -162,7 +173,7 @@ TimelineFilterTest >> testAddRulesFrom [
 	self deny: (timeLineFilter includes: December twentyeighth, 2003)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddRulesFromTo [
 
 	| timeLineFilter |
@@ -171,8 +182,8 @@ TimelineFilterTest >> testAddRulesFromTo [
 	timeLineFilter
 		addRules: (
 			Array
-				with: (timeLineFilter dayRule: GregorianCalendar saturday)
-				with: (timeLineFilter dayRule: GregorianCalendar sunday))
+				with: (timeLineFilter dayRule: gregorianCalendar saturday)
+				with: (timeLineFilter dayRule: gregorianCalendar sunday))
 		from: January first, 2004
 		to: January ninth, 2004.
 
@@ -184,7 +195,7 @@ TimelineFilterTest >> testAddRulesFromTo [
 	self deny: (timeLineFilter includes: January eleventh, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testAddYearRule [
 
 	| timeLineFilter |
@@ -197,7 +208,7 @@ TimelineFilterTest >> testAddYearRule [
 	self deny: (timeLineFilter includes: February third, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testDateRule [
 
 	| rule |
@@ -207,7 +218,7 @@ TimelineFilterTest >> testDateRule [
 	self deny: (rule includes: January first, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testDayOfMonthRule [
 
 	| rule |
@@ -218,17 +229,17 @@ TimelineFilterTest >> testDayOfMonthRule [
 	self deny: (rule includes: January second, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testDayRule [
 
 	| rule |
 
-	rule := TimelineFilter dayRule: GregorianCalendar saturday.
+	rule := TimelineFilter dayRule: gregorianCalendar saturday.
 	self assert: (rule includes: January third, 2004).
 	self deny: (rule includes: January fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testDaysBetween [
 
 	| timeLineFilter days |
@@ -237,8 +248,8 @@ TimelineFilterTest >> testDaysBetween [
 	timeLineFilter
 		addRules: (
 			Array
-				with: (timeLineFilter dayRule: GregorianCalendar saturday)
-				with: (timeLineFilter dayRule: GregorianCalendar sunday))
+				with: (timeLineFilter dayRule: gregorianCalendar saturday)
+				with: (timeLineFilter dayRule: gregorianCalendar sunday))
 		from: January first, 2004.
 	days :=
 		timeLineFilter
@@ -250,13 +261,13 @@ TimelineFilterTest >> testDaysBetween [
 	self assert: (days includes: January fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testEqual [
 
 	self assert: (TimelineFilter named: 'Pedro Duque') = (TimelineFilter named: 'Pedro Duque')
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testExcludedFromTo [
 
 	| timeLineFilter excluded january4Of2004 january11Of2004 |
@@ -264,7 +275,7 @@ TimelineFilterTest >> testExcludedFromTo [
 	january4Of2004 := January fourth, 2004.
 	january11Of2004 := January eleventh, 2004.
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	excluded := timeLineFilter excludedFrom: january4Of2004 to: january11Of2004.
 
 	self assert: excluded size = 7.
@@ -277,7 +288,7 @@ TimelineFilterTest >> testExcludedFromTo [
 	self assert: (excluded includes: january11Of2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testExcludedIn [
 
 	| timeLineFilter excluded january4Of2004 january11Of2004 |
@@ -285,7 +296,7 @@ TimelineFilterTest >> testExcludedIn [
 	january4Of2004 := January fourth, 2004.
 	january11Of2004 := January eleventh, 2004.
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	excluded := timeLineFilter excludedIn: (january4Of2004 to: january11Of2004).
 
 	self assert: excluded size = 7.
@@ -298,13 +309,13 @@ TimelineFilterTest >> testExcludedIn [
 	self assert: (excluded includes: january11Of2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testExcludes [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 
 	self assert: (timeLineFilter excludes: January fourth, 2004).
 	self assert: (timeLineFilter excludes: January fifth, 2004).
@@ -316,30 +327,30 @@ TimelineFilterTest >> testExcludes [
 	self assert: (timeLineFilter excludes: January eleventh, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testExcludesAll [
 
 	| timeLineFilter excluded |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	excluded := timeLineFilter excludedIn: (January fourth, 2004 to: January eleventh, 2004).
 	self assert: (timeLineFilter excludesAll: excluded)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testHash [
 
 	self assert: (TimelineFilter named: 'Pedro Duque') hash = (TimelineFilter named: 'Pedro Duque') hash
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testIncludedFromTo [
 
 	| timeLineFilter included |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	included :=
 		timeLineFilter
 			includedFrom: January first, 2004
@@ -350,13 +361,13 @@ TimelineFilterTest >> testIncludedFromTo [
 	self assert: (included includes: January tenth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testIncludedIn [
 
 	| timeLineFilter included |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	included := timeLineFilter includedIn: (January first, 2004 to: January eleventh, 2004).
 
 	self assert: included size = 2.
@@ -364,30 +375,30 @@ TimelineFilterTest >> testIncludedIn [
 	self assert: (included includes: January tenth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testIncludes [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 
 	self assert: (timeLineFilter includes: January third, 2004).
 	self assert: (timeLineFilter includes: January tenth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testIncludesAll [
 
 	| timeLineFilter included |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	included := timeLineFilter includedIn: (January first, 2004 to: January eleventh, 2004).
 	self assert: (timeLineFilter includesAll: included)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testMonthOfYearRule [
 
 	| rule |
@@ -397,7 +408,7 @@ TimelineFilterTest >> testMonthOfYearRule [
 	self deny: (rule includes: January third, 2005)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testMonthRule [
 
 	| rule |
@@ -408,13 +419,13 @@ TimelineFilterTest >> testMonthRule [
 	self deny: (rule includes: February fourth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testNegatedIncludes [
 
 	| timeLineFilter |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 
 	self assert: (timeLineFilter negated excludes: January third, 2004).
 	self assert: (timeLineFilter negated includes: January fourth, 2004).
@@ -426,48 +437,48 @@ TimelineFilterTest >> testNegatedIncludes [
 	self assert: (timeLineFilter negated excludes: January tenth, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testNegatedNext [
 	| timeLineFilter timespan nextDate |
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	timespan := TimeSpan from: January first , 2004 duration: 2 daysMeasure.
 	nextDate := timeLineFilter negated next: timespan.
 	self assert: nextDate = (January fourth , 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testNextNegativeDuration [
 	| timeLineFilter date |
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	date := January thirtyfirst , 2004.
 	self
 		assert:
-			(timeLineFilter next: (TimeSpan from: date duration: -1 dayMeasure)) = (date previousDay: GregorianCalendar saturday).
+			(timeLineFilter next: (TimeSpan from: date duration: -1 dayMeasure)) = (date previousDay: gregorianCalendar saturday).
 	self
 		assert:
 			(timeLineFilter next: (TimeSpan from: date duration: -2 daysMeasure))
-				= ((date previousDay: GregorianCalendar saturday) previousDay: GregorianCalendar saturday)
+				= ((date previousDay: gregorianCalendar saturday) previousDay: gregorianCalendar saturday)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testNextPositiveDuration [
 	| timeLineFilter date |
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	date := January first , 2004.
 	self
 		assert:
-			(timeLineFilter next: (TimeSpan from: date duration: 1 dayMeasure)) = (date nextDay: GregorianCalendar saturday).
+			(timeLineFilter next: (TimeSpan from: date duration: 1 dayMeasure)) = (date nextDay: gregorianCalendar saturday).
 	self
 		assert:
 			(timeLineFilter next: (TimeSpan from: date duration: 2 daysMeasure))
-				= ((date nextDay: GregorianCalendar saturday) nextDay: GregorianCalendar saturday).
+				= ((date nextDay: gregorianCalendar saturday) nextDay: gregorianCalendar saturday).
 	self assert: (timeLineFilter next: (TimeSpan from: date duration: 0 daysMeasure)) = date
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testNumberOfDaysBetweenTwoDates [
 	| timeLineFilter rule1 rule2 rule3 |
 	timeLineFilter := TimelineFilter new.
@@ -480,7 +491,7 @@ TimelineFilterTest >> testNumberOfDaysBetweenTwoDates [
 			(timeLineFilter negated numberOfDaysBetween: September first , 2005 and: September twentieth , 2005) = 17 daysMeasure
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testPrintOn [
 
 	| timeLineFilterUnnamed timeLineFilterNamed |
@@ -492,7 +503,7 @@ TimelineFilterTest >> testPrintOn [
 	self assert: timeLineFilterNamed printString = 'Argentino'
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testRemoveAllRules [
 
 	| timeLineFilter date anotherDate |
@@ -510,13 +521,13 @@ TimelineFilterTest >> testRemoveAllRules [
 	self assert: timeLineFilter rules isEmpty
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testRemoveRule [
 
 	| timeLineFilter rule |
 
 	timeLineFilter := TimelineFilter new.
-	rule := timeLineFilter dayRule: GregorianCalendar saturday.
+	rule := timeLineFilter dayRule: gregorianCalendar saturday.
 	timeLineFilter addRule: rule.
 
 	self assert: (timeLineFilter includes: January third, 2004).
@@ -525,7 +536,7 @@ TimelineFilterTest >> testRemoveRule [
 	self deny: (timeLineFilter includes: January third, 2004)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testRuleFromTo [
 
 	| rule |
@@ -544,7 +555,7 @@ TimelineFilterTest >> testRuleFromTo [
 	self deny: (rule includes: January first, 2003)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testRules [
 
 	| timeLineFilter rule1 rule2 rule3 rulesCollection |
@@ -558,7 +569,7 @@ TimelineFilterTest >> testRules [
 	self assert: (timeLineFilter includesAll: (rulesCollection collect: [ :rule | rule date ]))
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testRulesThatIncludeADate [
 
 	| timeLineFilter rule1 rule2 rule3 september14Of2005 september15Of2005 september16Of2005 |
@@ -583,18 +594,18 @@ TimelineFilterTest >> testRulesThatIncludeADate [
 	self assert: (timeLineFilter rulesThatInclude: september16Of2005) asOrderedCollection = (OrderedCollection with: rule3)
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testStream [
 
 	| timeLineFilter stream |
 
 	timeLineFilter := TimelineFilter new.
-	timeLineFilter addDayRule: GregorianCalendar saturday.
+	timeLineFilter addDayRule: gregorianCalendar saturday.
 	stream := timeLineFilter streamFrom: January first, 2004.
-	3 timesRepeat: [self assert: stream next day = GregorianCalendar saturday]
+	3 timesRepeat: [self assert: stream next day = gregorianCalendar saturday]
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TimelineFilterTest >> testYearRule [
 
 	| rule |

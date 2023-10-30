@@ -1,10 +1,12 @@
 Class {
-	#name : #DayOfMonthRuleTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Filter'
+	#name : 'DayOfMonthRuleTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Filter',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Filter'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 DayOfMonthRuleTest >> testAccessing [
 
 	| rule decoratedRule |
@@ -16,7 +18,7 @@ DayOfMonthRuleTest >> testAccessing [
 	self assert: rule printString = decoratedRule printString
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 DayOfMonthRuleTest >> testIncludes [
 
 	| rule includedDate |

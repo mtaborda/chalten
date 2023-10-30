@@ -1,6 +1,6 @@
 Class {
-	#name : #GregorianDayTest,
-	#superclass : #TestCase,
+	#name : 'GregorianDayTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'sunday',
@@ -16,19 +16,20 @@ Class {
 		'oneDay',
 		'sevenDays'
 	],
-	#category : #'Chalten-Gregorian-Calendar-Tests'
+	#category : 'Chalten-Gregorian-Calendar-Tests',
+	#package : 'Chalten-Gregorian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GregorianDayTest class >> classUnderTest [
 
 	^Day
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 GregorianDayTest >> setUp [
 
-	calendar := GregorianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #GregorianCalendar.
 	sunday := calendar sunday.
 	monday := calendar monday.
 	tuesday := calendar tuesday.
@@ -43,7 +44,7 @@ GregorianDayTest >> setUp [
 	minusOneDay := -1 dayMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayTest >> testComparing [
 
 	self assert: Monday < Saturday.
@@ -69,7 +70,7 @@ GregorianDayTest >> testComparing [
 				with: March) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianDayTest >> testCreation [
 	self shouldnt: 
 			[Day 
@@ -79,7 +80,7 @@ GregorianDayTest >> testCreation [
 		raise: Exception
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 GregorianDayTest >> testDayCreation [
 
 	| otherSunday otherMonday otherTuesday otherWednesday otherThursday otherFriday otherSaturday |
@@ -108,7 +109,7 @@ GregorianDayTest >> testDayCreation [
 	self assert: otherSaturday positionInWeek = saturday positionInWeek
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayTest >> testDayPositionedInWeek [
 
 	| day |
@@ -129,7 +130,7 @@ GregorianDayTest >> testDayPositionedInWeek [
 			self assert: anException description = 'The number 8 is invalid as a day of a week']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayTest >> testDaysFrom [
 
 	self assert: (monday distanceFrom: monday) = zeroDays.
@@ -141,7 +142,7 @@ GregorianDayTest >> testDaysFrom [
 	self assert: (monday distanceFrom: sunday) = oneDay
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 GregorianDayTest >> testDaysTo [
 
 	self assert: (monday distanceTo: monday) = zeroDays.
@@ -153,7 +154,7 @@ GregorianDayTest >> testDaysTo [
 	self assert: (monday distanceTo: sunday) = 6 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayTest >> testEqual [
 
 	self assert: monday = Monday.
@@ -165,7 +166,7 @@ GregorianDayTest >> testEqual [
 	self assert: sunday = Sunday
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 GregorianDayTest >> testHash [
 
 	self assert: monday hash = Monday hash.
@@ -177,7 +178,7 @@ GregorianDayTest >> testHash [
 	self assert: sunday hash = Sunday hash
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 GregorianDayTest >> testInvalidNameCreation [
 
 	self 
@@ -187,7 +188,7 @@ GregorianDayTest >> testInvalidNameCreation [
 			self assert: exception description = 'The name Pedro Duque, otro is invalid as a day of a week']
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 GregorianDayTest >> testIs [
 
 	self assert: (sunday is: Sunday).
@@ -207,7 +208,7 @@ GregorianDayTest >> testIs [
 	self deny: (saturday is: Sunday)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayTest >> testName [
 
 	self assert: sunday name = 'Sunday'.
@@ -219,7 +220,7 @@ GregorianDayTest >> testName [
 	self assert: saturday name = 'Saturday'
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayTest >> testNext [
 
 	self assert: monday next = tuesday.
@@ -227,7 +228,7 @@ GregorianDayTest >> testNext [
 	self assert: saturday next = sunday
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayTest >> testNextInANumberOfDays [
 
 	self assert: (monday next: oneDay) = tuesday.
@@ -238,7 +239,7 @@ GregorianDayTest >> testNextInANumberOfDays [
 	self assert: (sunday next: 21 daysMeasure) = sunday
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 GregorianDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 
 	| currentNumberOfDays |
@@ -249,14 +250,14 @@ GregorianDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 		currentNumberOfDays := currentNumberOfDays + oneDay]
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayTest >> testPrevious [
 
 	self assert: monday previous = sunday.
 	self assert: tuesday previous = monday
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 GregorianDayTest >> testPreviousInANumberOfDays [
 
 	self assert: (monday previous: oneDay) = sunday.
@@ -271,7 +272,7 @@ GregorianDayTest >> testPreviousInANumberOfDays [
 	self assert: (saturday previous: 14 daysMeasure) = saturday
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 GregorianDayTest >> testPrintString [
 	self 
 		assert: (Day 
@@ -281,7 +282,7 @@ GregorianDayTest >> testPrintString [
 				= 'One Christian Day Name'
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 GregorianDayTest >> testSinceSunday [
 
 	| currentDay |
@@ -292,7 +293,7 @@ GregorianDayTest >> testSinceSunday [
 		currentDay := currentDay next]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayTest >> testTo [
 
 	| interval |
@@ -304,7 +305,7 @@ GregorianDayTest >> testTo [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayTest >> testToBy [
 
 	| interval |
@@ -317,7 +318,7 @@ GregorianDayTest >> testToBy [
 	self assert: interval size = 3
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayTest >> testToDo [
 
 	| interval currentDayNumber |
@@ -331,7 +332,7 @@ GregorianDayTest >> testToDo [
 	self assert: currentDayNumber = 8
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayTest >> testToNegativeBy [
 
 	| interval |
@@ -343,7 +344,7 @@ GregorianDayTest >> testToNegativeBy [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 GregorianDayTest >> testToNegativeByDo [
 
 	| interval currentDayNumber |
@@ -357,7 +358,7 @@ GregorianDayTest >> testToNegativeByDo [
 	self assert: currentDayNumber = 0
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 GregorianDayTest >> testValidNameCreation [
 
 	self shouldnt: [calendar dayNamed: 'Monday'] raise: InvalidDayNameException

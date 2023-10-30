@@ -1,16 +1,17 @@
 Class {
-	#name : #HebrewMonthsOfYearsStreamTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Hebrew-Calendar-Tests'
+	#name : 'HebrewMonthsOfYearsStreamTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Hebrew-Calendar-Tests',
+	#package : 'Chalten-Hebrew-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HebrewMonthsOfYearsStreamTest class >> classUnderTest [
 
 	^MonthsOfYearsStream
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 HebrewMonthsOfYearsStreamTest >> testDistanceFromTo [
 
 	| stream |
@@ -19,7 +20,7 @@ HebrewMonthsOfYearsStreamTest >> testDistanceFromTo [
 	self assert: (stream distanceFrom: Adar, 5773 to: Kislev, 5774) = 0 monthsMeasure
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testNext [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: Tishri, 5774.
@@ -31,7 +32,7 @@ HebrewMonthsOfYearsStreamTest >> testNext [
 	self assert: (stream next: -1 monthMeasure) = (Tishri, 5774)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 
 	| stream |
@@ -40,7 +41,7 @@ HebrewMonthsOfYearsStreamTest >> testNextInNumberOfYears [
 	self assert: (stream nextInNumberOfYears: -3 yearsMeasure) = (Tishri, 5774)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testNextMonthIn [
 
 	| stream |
@@ -49,7 +50,7 @@ HebrewMonthsOfYearsStreamTest >> testNextMonthIn [
 	self assert: (stream nextMonth: Kislev in: -3 yearsMeasure) = (Kislev, 5774)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testPrevious [
 	| stream |
 	stream := MonthsOfYearsStream startingOn: Tishri, 5775.
@@ -61,7 +62,7 @@ HebrewMonthsOfYearsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 monthMeasure) = (Tishri, 5775)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 
 	| stream |
@@ -70,7 +71,7 @@ HebrewMonthsOfYearsStreamTest >> testPreviousInNumberOfYears [
 	self assert: (stream previousInNumberOfYears: -3 yearsMeasure) = (Tishri, 5774)
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 HebrewMonthsOfYearsStreamTest >> testPreviousMonthIn [
 
 	| stream |

@@ -1,14 +1,16 @@
 Class {
-	#name : #TimeZonesClassTest,
-	#superclass : #TestCase,
+	#name : 'TimeZonesClassTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'hourInBsAs',
 		'hourInGreenwich'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeZonesClassTest >> testAccessingTimeZones [
 
 	self assert: TimeZones local = (TimeZones timeZoneNamed: TimeZones localTimeZoneName).
@@ -21,7 +23,7 @@ TimeZonesClassTest >> testAccessingTimeZones [
 	self assert: TimeZones pacificDaylightTime = (TimeZones timeZoneNamed: TimeZones pacificDaylightTimeZoneName)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeZonesClassTest >> testAccessingTimeZonesNames [
 
 	self assert: TimeZones localTimeZoneName = 'Local Time'.
@@ -34,7 +36,7 @@ TimeZonesClassTest >> testAccessingTimeZonesNames [
 	self assert: TimeZones pacificDaylightTimeZoneName = 'PDT Pacific Daylight Time'
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 TimeZonesClassTest >> testAccessingTimeZonesOffsets [
 
 	self assert: TimeZones localTimeZoneOffset = (Offset of: ChaltenEnvironment localTimeOffset).
@@ -47,7 +49,7 @@ TimeZonesClassTest >> testAccessingTimeZonesOffsets [
 	self assert: TimeZones pacificDaylightTimeZoneOffset = (Offset of: -7)
 ]
 
-{ #category : #'test timezones creation' }
+{ #category : 'test timezones creation' }
 TimeZonesClassTest >> testCreateTimeZoneNamedOfsset [
 	| zone |
 	zone := TimeZones createTimeZoneNamed: 'Test Time Zone' offset: (Offset of: -3).

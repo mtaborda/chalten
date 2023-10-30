@@ -1,13 +1,14 @@
 Class {
-	#name : #IslamicCalendarDefinitionTest,
-	#superclass : #TestCase,
+	#name : 'IslamicCalendarDefinitionTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'months'
 	],
-	#category : #'Chalten-Islamic-Calendar-Tests'
+	#category : 'Chalten-Islamic-Calendar-Tests',
+	#package : 'Chalten-Islamic-Calendar-Tests'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 IslamicCalendarDefinitionTest >> setUp [ 
 
 	months := (Array new: 12)
@@ -26,31 +27,31 @@ IslamicCalendarDefinitionTest >> setUp [
 		yourself
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testAmountOfDaysPerWeek [
 
 	self assert: IslamicCalendar amountOfDaysPerWeek = 7
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testAmountOfMonthsInLeapYears [
 
 	self assert: IslamicCalendar amountOfMonthsInLeapYears = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testAmountOfMonthsInNonleapYears [
 
 	self assert: IslamicCalendar amountOfMonthsInNonleapYears = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testAmountOfMonthsPerYear [
 
 	self assert: IslamicCalendar amountOfMonthsPerYear = 12
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 IslamicCalendarDefinitionTest >> testConvert [
 
 	self assert: (IslamicCalendar convert: January fourteenth, 2005) = (DhuAlHijja third, 1425).
@@ -76,7 +77,7 @@ IslamicCalendarDefinitionTest >> testConvert [
 		withExceptionDo: [ :ex | self assert: ex description = 'Error: 1 can`t be converted to Date nor DateTime' ]
 ]
 
-{ #category : #'test converting' }
+{ #category : 'test converting' }
 IslamicCalendarDefinitionTest >> testConvertToSmalltalkDate [
 
 	| islamicDate smalltalkDate |
@@ -86,7 +87,7 @@ IslamicCalendarDefinitionTest >> testConvertToSmalltalkDate [
 	self assert: (IslamicCalendar convertToSmalltalkDate: islamicDate) = smalltalkDate
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testCurrentDayOfMonth [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -94,12 +95,12 @@ IslamicCalendarDefinitionTest >> testCurrentDayOfMonth [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar currentDayOfMonth 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) dayOfMonth
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testCurrentMonth [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -107,12 +108,12 @@ IslamicCalendarDefinitionTest >> testCurrentMonth [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar currentMonth 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) month
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testCurrentMonthOfYear [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -120,12 +121,12 @@ IslamicCalendarDefinitionTest >> testCurrentMonthOfYear [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar currentMonthOfYear 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) monthOfYear
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testCurrentYear [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -133,12 +134,12 @@ IslamicCalendarDefinitionTest >> testCurrentYear [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar currentYear 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) year
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testDateFromFixed [
 	| muharramThirdOf1 muharramSeventhOf1 muharramThirdOf2 rabiISecondOf4 muharramThirdOf5 |
 	muharramThirdOf1 := Muharram third , 1.
@@ -158,7 +159,7 @@ IslamicCalendarDefinitionTest >> testDateFromFixed [
 		assert: (IslamicCalendar dateFromNumberOfDays: 228434) = muharramThirdOf5
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testDayNamed [
 
 	self
@@ -171,13 +172,13 @@ IslamicCalendarDefinitionTest >> testDayNamed [
 		assert: (IslamicCalendar dayNamed: 'yaum as-sabt') = YaumAsSabt
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testDayOf [
 
 	self assert: (IslamicCalendar dayOf: Muharram twentysecond, 1435) = YaumAthThalatha
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testDayPositionedInWeek [
 
 	self
@@ -190,7 +191,7 @@ IslamicCalendarDefinitionTest >> testDayPositionedInWeek [
 		assert: (IslamicCalendar dayPositionedInWeek: 7) = YaumAsSabt
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testDaysFromEpochTo [
 	| muharramFirstOf0 muharramFirstOf1 muharramSecondOf1 muharramFifteenthOf1 muharramFirstOf2 muharramFirstOf5 |
 	muharramFirstOf0 := Muharram first , 0.
@@ -207,7 +208,7 @@ IslamicCalendarDefinitionTest >> testDaysFromEpochTo [
 	self assert: (IslamicCalendar numberOfDaysFromEpochTo: muharramFirstOf5) = 228431 daysMeasure
 ]
 
-{ #category : #'test global variables' }
+{ #category : 'test global variables' }
 IslamicCalendarDefinitionTest >> testDaysGlobalVariables [
 
 	self
@@ -220,43 +221,43 @@ IslamicCalendarDefinitionTest >> testDaysGlobalVariables [
 		assert: YaumAsSabt = IslamicCalendar yaumAsSabt
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testDhuAlHijja [
 
 	self assert: IslamicCalendar dhuAlHijja = DhuAlHijja
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testDhuAlHijjaName [
 
 	self assert: IslamicCalendar dhuAlHijjaName = 'Dhu al-Hijja'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testDhuAlHijjaNumber [
 
 	self assert: IslamicCalendar dhuAlHijjaNumber = 12
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testDhuAlQada [
 
 	self assert: IslamicCalendar dhuAlQada = DhuAlQada
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testDhuAlQadaName [
 
 	self assert: IslamicCalendar dhuAlQadaName = 'Dhu al-Qa`da'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testDhuAlQadaNumber [
 
 	self assert: IslamicCalendar dhuAlQadaNumber = 11
 ]
 
-{ #category : #'test year querying' }
+{ #category : 'test year querying' }
 IslamicCalendarDefinitionTest >> testDistanceInYearsFromTo [
 
 	self assert: (IslamicCalendar
@@ -264,26 +265,26 @@ IslamicCalendarDefinitionTest >> testDistanceInYearsFromTo [
 		to: 1437 asIslamicYear) = 2 yearsMeasure
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 IslamicCalendarDefinitionTest >> testEpoch [
 
 	self assert: IslamicCalendar epoch = 227015
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testFirstMonth [
 
 	self assert: IslamicCalendar firstMonth = Muharram
 ]
 
-{ #category : #'test month of year accessing' }
+{ #category : 'test month of year accessing' }
 IslamicCalendarDefinitionTest >> testFirstMonthOf [
 	| year |
 	year := 1428 asIslamicYear.
 	self assert: (IslamicCalendar firstMonthOf: year) = (Muharram , 1428)
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testFixedFromDate [
 	| muharramFirstOf1 dhuAlQadaTwelveOf1945 |
 	muharramFirstOf1 := Muharram first , 1.
@@ -294,19 +295,19 @@ IslamicCalendarDefinitionTest >> testFixedFromDate [
 					= 916210
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsDhuAlHijja [
 
 	self assert: (IslamicCalendar isDhuAlHijja: DhuAlHijja)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsDhuAlQada [
 
 	self assert: (IslamicCalendar isDhuAlQada: DhuAlQada)
 ]
 
-{ #category : #'test year testing' }
+{ #category : 'test year testing' }
 IslamicCalendarDefinitionTest >> testIsFirstMonthOfYear [
 
 	self assert: (IslamicCalendar isFirstMonthOfYear: Muharram).
@@ -314,109 +315,109 @@ IslamicCalendarDefinitionTest >> testIsFirstMonthOfYear [
 	self deny: (IslamicCalendar isFirstMonthOfYear: DhuAlHijja)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsJumadaI [
 
 	self assert: (IslamicCalendar isJumadaI: JumadaI)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsJumadaII [
 
 	self assert: (IslamicCalendar isJumadaII: JumadaII)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsMuharram [
 
 	self assert: (IslamicCalendar isMuharram: Muharram)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsRabiI [
 
 	self assert: (IslamicCalendar isRabiI: RabiI)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsRabiII [
 
 	self assert: (IslamicCalendar isRabiII: RabiII)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsRajab [
 
 	self assert: (IslamicCalendar isRajab: Rajab)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsRamadan [
 
 	self assert: (IslamicCalendar isRamadan: Ramadan)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsSafar [
 
 	self assert: (IslamicCalendar isSafar: Safar)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsShaban [
 
 	self assert: (IslamicCalendar isShaban: Shaban)
 ]
 
-{ #category : #'test month testing' }
+{ #category : 'test month testing' }
 IslamicCalendarDefinitionTest >> testIsShawwal [
 
 	self assert: (IslamicCalendar isShawwal: Shawwal)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAlAhad [
 
 	self assert: (IslamicCalendar isYaumAlAhad: YaumAlAhad)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAlArbaa [
 
 	self assert: (IslamicCalendar isYaumAlArbaa: YaumAlArbaa)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAlHamis [
 
 	self assert: (IslamicCalendar isYaumAlHamis: YaumAlHamis)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAlIthnayna [
 
 	self assert: (IslamicCalendar isYaumAlIthnayna: YaumAlIthnayna)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAlJuma [
 
 	self assert: (IslamicCalendar isYaumAlJuma: YaumAlJuma)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAsSabt [
 
 	self assert: (IslamicCalendar isYaumAsSabt: YaumAsSabt)
 ]
 
-{ #category : #'test day testing' }
+{ #category : 'test day testing' }
 IslamicCalendarDefinitionTest >> testIsYaumAthThalatha [
 
 	self assert: (IslamicCalendar isYaumAthThalatha: YaumAthThalatha)
 ]
 
-{ #category : #'test year testing' }
+{ #category : 'test year testing' }
 IslamicCalendarDefinitionTest >> testIsYearNumberLeap [
 
 	self
@@ -441,62 +442,62 @@ IslamicCalendarDefinitionTest >> testIsYearNumberLeap [
 		deny: (IslamicCalendar isYearNumberLeap: 1429)
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testJumadaI [
 
 	self assert: IslamicCalendar jumadaI = JumadaI
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testJumadaII [
 
 	self assert: IslamicCalendar jumadaII = JumadaII
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testJumadaIIName [
 
 	self assert: IslamicCalendar jumadaIIName = 'Jumada II (Jumada al-Ahira)'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testJumadaIINumber [
 
 	self assert: IslamicCalendar jumadaIINumber = 6
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testJumadaIName [
 
 	self assert: IslamicCalendar jumadaIName = 'Jumada I (Jumada al-Ula)'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testJumadaINumber [
 
 	self assert: IslamicCalendar jumadaINumber = 5
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testLastMonth [
 
 	self assert: IslamicCalendar lastMonth = DhuAlHijja
 ]
 
-{ #category : #'test month of year accessing' }
+{ #category : 'test month of year accessing' }
 IslamicCalendarDefinitionTest >> testLastMonthOf [
 	| year |
 	year := 1428 asIslamicYear.
 	self assert: (IslamicCalendar lastMonthOf: year) = (DhuAlHijja , 1428)
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testMaximumNumberOfDaysInOneYear [
 
 	self assert: IslamicCalendar maximumNumberOfDaysInOneYear = 355 daysMeasure
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testMonthNamed [
 
 	self
@@ -514,12 +515,12 @@ IslamicCalendarDefinitionTest >> testMonthNamed [
 		assert: (IslamicCalendar monthNamed: 'Dhu al-Hijja') = DhuAlHijja.
 		
 	self
-		should: [ GregorianCalendar monthNamed: 'invalid name' ]
+		should: [ (ChaltenEnvironment calendarNamed: #GregorianCalendar) monthNamed: 'invalid name' ]
 		raise: InvalidMonthNameException
 		withExceptionDo: [ :ex | self assert: ex description = 'invalid name is an invalid name for a month' ]
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testMonthNumbered [
 
 	self
@@ -537,19 +538,19 @@ IslamicCalendarDefinitionTest >> testMonthNumbered [
 		assert: (IslamicCalendar monthNumbered: 12) = DhuAlHijja
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testMonthsForLeapYears [
 
 	self assert: IslamicCalendar monthsForLeapYears = months
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testMonthsForNonleapYears [
 
 	self assert: IslamicCalendar monthsForNonleapYears = months
 ]
 
-{ #category : #'test global variables' }
+{ #category : 'test global variables' }
 IslamicCalendarDefinitionTest >> testMonthsGlobalVariables [
 
 	self
@@ -567,25 +568,25 @@ IslamicCalendarDefinitionTest >> testMonthsGlobalVariables [
 		assert: DhuAlHijja = IslamicCalendar dhuAlHijja
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testMuharram [
 
 	self assert: IslamicCalendar muharram = Muharram
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testMuharramName [
 
 	self assert: IslamicCalendar muharramName = 'Muharram'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testMuharramNumber [
 
 	self assert: IslamicCalendar muharramNumber = 1
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testNow [
 	| now nowInOneSecond |
 	now := IslamicCalendar now.
@@ -595,155 +596,155 @@ IslamicCalendarDefinitionTest >> testNow [
 	self assert: ((now distanceTo: nowInOneSecond) convertTo: TimeUnits second) truncated = 1 secondMeasure
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testNumberOfDaysIN [
 
 	self assert: (IslamicCalendar numberOfDaysIn: 1435 asIslamicYear) = 354 daysMeasure
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testNumberOfDaysPerWeek [
 	self assert: IslamicCalendar numberOfDaysPerWeek = 7 daysMeasure
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testNumberOfMonthsPerYear [
 	self assert: IslamicCalendar numberOfMonthsPerYear = 12 monthsMeasure
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 IslamicCalendarDefinitionTest >> testPrintString [
 
 	self assert: IslamicCalendar printString  = 'Islamic Calendar'
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testRabiI [
 
 	self assert: IslamicCalendar rabiI = RabiI
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testRabiII [
 
 	self assert: IslamicCalendar rabiII = RabiII
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testRabiIIName [
 
 	self assert: IslamicCalendar rabiIIName = 'Rabi` II (Rabi` al-Ahir)'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testRabiIINumber [
 
 	self assert: IslamicCalendar rabiIINumber = 4
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testRabiIName [
 
 	self assert: IslamicCalendar rabiIName = 'Rabi` I (Rabi` al-Awwal)'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testRabiINumber [
 
 	self assert: IslamicCalendar rabiINumber = 3
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testRajab [
 
 	self assert: IslamicCalendar rajab = Rajab
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testRajabName [
 
 	self assert: IslamicCalendar rajabName = 'Rajab'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testRajabNumber [
 
 	self assert: IslamicCalendar rajabNumber = 7
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testRamadan [
 
 	self assert: IslamicCalendar ramadan = Ramadan
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testRamadanName [
 
 	self assert: IslamicCalendar ramadanName = 'Ramadan'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testRamadanNumber [
 
 	self assert: IslamicCalendar ramadanNumber = 9
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testSafar [
 
 	self assert: IslamicCalendar safar = Safar
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testSafarName [
 
 	self assert: IslamicCalendar safarName = 'Safar'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testSafarNumber [
 
 	self assert: IslamicCalendar safarNumber = 2
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testShaban [
 
 	self assert: IslamicCalendar shaban = Shaban
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testShabanName [
 
 	self assert: IslamicCalendar shabanName = 'Sha`ban'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testShabanNumber [
 
 	self assert: IslamicCalendar shabanNumber = 8
 ]
 
-{ #category : #'test months accessing' }
+{ #category : 'test months accessing' }
 IslamicCalendarDefinitionTest >> testShawwal [
 
 	self assert: IslamicCalendar shawwal = Shawwal
 ]
 
-{ #category : #'test month names' }
+{ #category : 'test month names' }
 IslamicCalendarDefinitionTest >> testShawwalName [
 
 	self assert: IslamicCalendar shawwalName = 'Shawwal'
 ]
 
-{ #category : #'test month numbers' }
+{ #category : 'test month numbers' }
 IslamicCalendarDefinitionTest >> testShawwalNumber [
 
 	self assert: IslamicCalendar shawwalNumber = 10
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testSinceFirstDayOfWeek [
 	| currentDay zeroDays |
 	zeroDays := 0 daysMeasure.
@@ -754,7 +755,7 @@ IslamicCalendarDefinitionTest >> testSinceFirstDayOfWeek [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testSinceYaumAlAhad [
 	| currentDay zeroDays |
 	zeroDays := 0 daysMeasure.
@@ -765,7 +766,7 @@ IslamicCalendarDefinitionTest >> testSinceYaumAlAhad [
 			currentDay := currentDay next ]
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testToday [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -773,12 +774,12 @@ IslamicCalendarDefinitionTest >> testToday [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar today 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday)
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testTomorrow [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -786,138 +787,138 @@ IslamicCalendarDefinitionTest >> testTomorrow [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar tomorrow 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) next
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAlAhad [
 
 	self assert: IslamicCalendar yaumAlAhad = YaumAlAhad
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAlAhadName [
 
 	self assert: IslamicCalendar yaumAlAhadName = 'yaum al-ahad'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAlAhadPositionInWeek [
 
 	self assert: IslamicCalendar yaumAlAhadPositionInWeek = 1
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAlArbaa [
 
 	self assert: IslamicCalendar yaumAlArbaa = YaumAlArbaa
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAlArbaaName [
 
 	self assert: IslamicCalendar yaumAlArbaaName = 'yaum al-arba`a`'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAlArbaaPositionInWeek [
 
 	self assert: IslamicCalendar yaumAlArbaaPositionInWeek = 4
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAlHamis [
 
 	self assert: IslamicCalendar yaumAlHamis = YaumAlHamis
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAlHamisName [
 
 	self assert: IslamicCalendar yaumAlHamisName = 'yaum al-hamis'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAlHamisPositionInWeek [
 
 	self assert: IslamicCalendar yaumAlHamisPositionInWeek = 5
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAlIthnayna [
 
 	self assert: IslamicCalendar yaumAlIthnayna = YaumAlIthnayna
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAlIthnaynaName [
 
 	self assert: IslamicCalendar yaumAlIthnaynaName = 'yaum al-ithnayna'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAlIthnaynaPositionInWeek [
 
 	self assert: IslamicCalendar yaumAlIthnaynaPositionInWeek = 2
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAlJuma [
 
 	self assert: IslamicCalendar yaumAlJuma = YaumAlJuma
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAlJumaName [
 
 	self assert: IslamicCalendar yaumAlJumaName = 'yaum al-jum`a'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAlJumaPositionInWeek [
 
 	self assert: IslamicCalendar yaumAlJumaPositionInWeek = 6
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAsSabt [
 
 	self assert: IslamicCalendar yaumAsSabt = YaumAsSabt
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAsSabtName [
 
 	self assert: IslamicCalendar yaumAsSabtName = 'yaum as-sabt'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAsSabtPositionInWeek [
 
 	self assert: IslamicCalendar yaumAsSabtPositionInWeek = 7
 ]
 
-{ #category : #'test days accessing' }
+{ #category : 'test days accessing' }
 IslamicCalendarDefinitionTest >> testYaumAtThalatha [
 
 	self assert: IslamicCalendar yaumAthThalatha = YaumAthThalatha
 ]
 
-{ #category : #'test day names' }
+{ #category : 'test day names' }
 IslamicCalendarDefinitionTest >> testYaumAthThalathaName [
 
 	self assert: IslamicCalendar yaumAthThalathaName = 'yaum ath-thalatha'
 ]
 
-{ #category : #'test day positions in week' }
+{ #category : 'test day positions in week' }
 IslamicCalendarDefinitionTest >> testYaumAthThalathaPositionInWeek [
 
 	self assert: IslamicCalendar yaumAthThalathaPositionInWeek = 3
 ]
 
-{ #category : #'test dates accessing' }
+{ #category : 'test dates accessing' }
 IslamicCalendarDefinitionTest >> testYesterday [
 	| smalltalkToday gregorianToday |
 	smalltalkToday := Date today.
@@ -925,7 +926,7 @@ IslamicCalendarDefinitionTest >> testYesterday [
 				yearNumber: smalltalkToday year
 				monthNumber: smalltalkToday monthIndex
 				dayNumber: smalltalkToday dayOfMonth
-				calendar: GregorianCalendar.
+				calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar).
 	self assert: IslamicCalendar yesterday 
 				= (IslamicCalendar convertToIslamicDate: gregorianToday) previous
 ]

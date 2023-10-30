@@ -1,6 +1,6 @@
 Class {
-	#name : #DateTimeTest,
-	#superclass : #TestCase,
+	#name : 'DateTimeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'december31Of2003',
 		'december31Of2003On23Hours59Minutes59Seconds',
@@ -19,10 +19,12 @@ Class {
 		'hourInBsAs',
 		'hourInGreenwich'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DateTimeTest >> setUp [
 	oneDay := 1 dayMeasure.
 	december31Of2003 := DateTime date: December thirtyfirst , 2003 timeOfDay: (TimeOfDay hours: 00).
@@ -59,7 +61,7 @@ DateTimeTest >> setUp [
 		zone: TimeZones buenosAires
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 DateTimeTest >> testAccessing [
 
 	| januaryFirst2004 |
@@ -75,7 +77,7 @@ DateTimeTest >> testAccessing [
 	self assert: (DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) zone = TimeZones local
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 DateTimeTest >> testAdd [
 
 	| oneHour |
@@ -91,7 +93,7 @@ DateTimeTest >> testAdd [
 	self assert: (hourInGreenwich next: 24 hoursMeasure) = (hourInBsAs next: 24 hoursMeasure)
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 DateTimeTest >> testComparing [
 
 	| januaryFirstOf2004Other |
@@ -104,7 +106,7 @@ DateTimeTest >> testComparing [
 	self deny: januarySecondOf2004 = januarySecondOf2004On00Hours00Minutes01Seconds
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 DateTimeTest >> testEqual [
 
 	| dateTime |
@@ -118,7 +120,7 @@ DateTimeTest >> testEqual [
 	self deny: hourInGreenwich = dateTime
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 DateTimeTest >> testFirstTimeOfDay [
 
 	self assert: januaryFirstOf2004On23Hours59Minutes59Seconds firstTimeOfDay = januaryFirstOf2004.
@@ -128,7 +130,7 @@ DateTimeTest >> testFirstTimeOfDay [
 	self assert: (hourInGreenwich firstTimeOfDay next: 3 hoursMeasure) = hourInBsAs firstTimeOfDay
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 DateTimeTest >> testGreaterThan [
 
 	| dateTime |
@@ -166,7 +168,7 @@ DateTimeTest >> testGreaterThan [
 				with: March) ]
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 DateTimeTest >> testHash [
 
 	| dateTime |
@@ -182,7 +184,7 @@ DateTimeTest >> testHash [
 	self deny: hourInGreenwich hash = dateTime hash
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 DateTimeTest >> testLastTimeOfDay [
 
 	self assert: januaryFirstOf2004On23Hours59Minutes59Seconds lastTimeOfDay date = (January first, 2004).
@@ -192,7 +194,7 @@ DateTimeTest >> testLastTimeOfDay [
 	self assert: (hourInGreenwich lastTimeOfDay next: 3 hoursMeasure) = hourInBsAs lastTimeOfDay
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 DateTimeTest >> testLessThan [
 
 	| dateTime |
@@ -230,7 +232,7 @@ DateTimeTest >> testLessThan [
 				with: March) ]
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 DateTimeTest >> testPrintString [
 
 	self
@@ -240,7 +242,7 @@ DateTimeTest >> testPrintString [
 	self assert: hourInGreenwich printString equals: ('March 8, 2008 20:05:00 {<1p>}' expandMacrosWith: TimeZones greenwich)
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testReverse [
 
 	| collection date hours |
@@ -260,7 +262,7 @@ DateTimeTest >> testReverse [
 	self assert: hours = 22
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 DateTimeTest >> testSubtract [
 
 	| oneHour |
@@ -278,7 +280,7 @@ DateTimeTest >> testSubtract [
 	self assert: (hourInGreenwich previous: 24 hoursMeasure) = (hourInBsAs previous: 24 hoursMeasure)
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 DateTimeTest >> testTimeFrom [
 
 	self assert:
@@ -293,7 +295,7 @@ DateTimeTest >> testTimeFrom [
 	self assert: (januaryFirstOf2004 distanceFrom: januaryThirdOf2004) = -2 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 DateTimeTest >> testTimeFromMidnight [
 
 	self
@@ -304,7 +306,7 @@ DateTimeTest >> testTimeFromMidnight [
 			(TimeOfDay hours: 23 minutes: 59 seconds: 59) timeFromMidnight
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 DateTimeTest >> testTimeTo [
 
 	self assert:
@@ -319,7 +321,7 @@ DateTimeTest >> testTimeTo [
 	self assert: (januaryThirdOf2004 distanceTo: januaryFirstOf2004) = -2 daysMeasure
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 DateTimeTest >> testTimeToEndOfDay [
 
 	self assert: januaryFirstOf2004On03Hours timeToEndOfDay = 21 hoursMeasure.
@@ -327,7 +329,7 @@ DateTimeTest >> testTimeToEndOfDay [
 	self assert: januaryFirstOf2004On23Hours59Minutes59Seconds timeToEndOfDay = 1 secondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testTo [
 	| interval |
 	interval := januaryFirstOf2004 to: januarySecondOf2004.
@@ -336,7 +338,7 @@ DateTimeTest >> testTo [
 	self assert: interval by = 1 secondMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testToBy [
 
 	| interval |
@@ -347,7 +349,7 @@ DateTimeTest >> testToBy [
 	self assert: interval by = 1 hourMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testToByDo [
 
 	| interval date hours |
@@ -369,7 +371,7 @@ DateTimeTest >> testToByDo [
 	self assert: hours = 0
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testToByMinutesDo [
 
 	| interval minutes |
@@ -380,7 +382,7 @@ DateTimeTest >> testToByMinutesDo [
 	self assert: (minutes - 1) minutesMeasure = 48 hoursMeasure
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 DateTimeTest >> testToNegativeByDo [
 
 	| interval date hours |

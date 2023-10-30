@@ -1,6 +1,6 @@
 Class {
-	#name : #JulianDayTest,
-	#superclass : #TestCase,
+	#name : 'JulianDayTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'calendar',
 		'sunday',
@@ -16,16 +16,17 @@ Class {
 		'oneDay',
 		'sevenDays'
 	],
-	#category : #'Chalten-Julian-Calendar-Tests'
+	#category : 'Chalten-Julian-Calendar-Tests',
+	#package : 'Chalten-Julian-Calendar-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 JulianDayTest class >> classUnderTest [
 
 	^Day
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 JulianDayTest >> setUp [
 
 	calendar := JulianCalendar.
@@ -43,7 +44,7 @@ JulianDayTest >> setUp [
 	minusOneDay := -1 dayMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayTest >> testComparing [
 
 	self assert: JulianMonday < JulianSaturday.
@@ -69,7 +70,7 @@ JulianDayTest >> testComparing [
 				with: JulianMarch) ]
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianDayTest >> testCreation [
 	self shouldnt: 
 			[Day 
@@ -79,7 +80,7 @@ JulianDayTest >> testCreation [
 		raise: Exception
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 JulianDayTest >> testDayCreation [
 
 	| otherSunday otherMonday otherTuesday otherWednesday otherThursday otherFriday otherSaturday |
@@ -108,7 +109,7 @@ JulianDayTest >> testDayCreation [
 	self assert: otherSaturday positionInWeek = saturday positionInWeek
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayTest >> testDayPositionedInWeek [
 
 	| day |
@@ -129,7 +130,7 @@ JulianDayTest >> testDayPositionedInWeek [
 			self assert: anException description = 'The number 8 is invalid as a day of a week']
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayTest >> testDaysFrom [
 
 	self assert: (monday distanceFrom: monday) = zeroDays.
@@ -141,7 +142,7 @@ JulianDayTest >> testDaysFrom [
 	self assert: (monday distanceFrom: sunday) = oneDay
 ]
 
-{ #category : #'test querying' }
+{ #category : 'test querying' }
 JulianDayTest >> testDaysTo [
 
 	self assert: (monday distanceTo: monday) = zeroDays.
@@ -153,7 +154,7 @@ JulianDayTest >> testDaysTo [
 	self assert: (monday distanceTo: sunday) = 6 daysMeasure
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayTest >> testEqual [
 
 	self assert: monday = JulianMonday.
@@ -165,7 +166,7 @@ JulianDayTest >> testEqual [
 	self assert: sunday = JulianSunday
 ]
 
-{ #category : #'test comparing' }
+{ #category : 'test comparing' }
 JulianDayTest >> testHash [
 
 	self assert: monday hash = JulianMonday hash.
@@ -177,7 +178,7 @@ JulianDayTest >> testHash [
 	self assert: sunday hash = JulianSunday hash
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 JulianDayTest >> testInvalidNameCreation [
 
 	self 
@@ -187,7 +188,7 @@ JulianDayTest >> testInvalidNameCreation [
 			self assert: exception description = 'The name Pedro Duque, otro is invalid as a day of a week']
 ]
 
-{ #category : #'test testing' }
+{ #category : 'test testing' }
 JulianDayTest >> testIs [
 
 	self assert: (sunday is: JulianSunday).
@@ -207,7 +208,7 @@ JulianDayTest >> testIs [
 	self deny: (saturday is: JulianSunday)
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayTest >> testName [
 
 	self assert: sunday name = 'Sunday'.
@@ -219,7 +220,7 @@ JulianDayTest >> testName [
 	self assert: saturday name = 'Saturday'
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayTest >> testNext [
 
 	self assert: monday next = tuesday.
@@ -227,7 +228,7 @@ JulianDayTest >> testNext [
 	self assert: saturday next = sunday
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayTest >> testNextInANumberOfDays [
 
 	self assert: (monday next: oneDay) = tuesday.
@@ -238,7 +239,7 @@ JulianDayTest >> testNextInANumberOfDays [
 	self assert: (sunday next: 21 daysMeasure) = sunday
 ]
 
-{ #category : #'test accessing' }
+{ #category : 'test accessing' }
 JulianDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 
 	| currentNumberOfDays |
@@ -249,14 +250,14 @@ JulianDayTest >> testNumberOfDaysSinceFirstDayOfWeek [
 		currentNumberOfDays := currentNumberOfDays + oneDay]
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayTest >> testPrevious [
 
 	self assert: monday previous = sunday.
 	self assert: tuesday previous = monday
 ]
 
-{ #category : #'test enumerating' }
+{ #category : 'test enumerating' }
 JulianDayTest >> testPreviousInANumberOfDays [
 
 	self assert: (monday previous: oneDay) = sunday.
@@ -271,7 +272,7 @@ JulianDayTest >> testPreviousInANumberOfDays [
 	self assert: (saturday previous: 14 daysMeasure) = saturday
 ]
 
-{ #category : #'test printing' }
+{ #category : 'test printing' }
 JulianDayTest >> testPrintString [
 	self 
 		assert: (Day 
@@ -281,7 +282,7 @@ JulianDayTest >> testPrintString [
 				= 'One Christian Day Name'
 ]
 
-{ #category : #'test instance creation' }
+{ #category : 'test instance creation' }
 JulianDayTest >> testSinceSunday [
 
 	| currentDay |
@@ -292,7 +293,7 @@ JulianDayTest >> testSinceSunday [
 		currentDay := currentDay next]
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayTest >> testTo [
 
 	| interval |
@@ -304,7 +305,7 @@ JulianDayTest >> testTo [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayTest >> testToBy [
 
 	| interval |
@@ -317,7 +318,7 @@ JulianDayTest >> testToBy [
 	self assert: interval size = 3
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayTest >> testToDo [
 
 	| interval currentDayNumber |
@@ -331,7 +332,7 @@ JulianDayTest >> testToDo [
 	self assert: currentDayNumber = 8
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayTest >> testToNegativeBy [
 
 	| interval |
@@ -343,7 +344,7 @@ JulianDayTest >> testToNegativeBy [
 	self assert: interval size = 7
 ]
 
-{ #category : #'test interval protocol' }
+{ #category : 'test interval protocol' }
 JulianDayTest >> testToNegativeByDo [
 
 	| interval currentDayNumber |
@@ -357,7 +358,7 @@ JulianDayTest >> testToNegativeByDo [
 	self assert: currentDayNumber = 0
 ]
 
-{ #category : #'test creation' }
+{ #category : 'test creation' }
 JulianDayTest >> testValidNameCreation [
 
 	self shouldnt: [calendar dayNamed: 'Monday'] raise: InvalidDayNameException

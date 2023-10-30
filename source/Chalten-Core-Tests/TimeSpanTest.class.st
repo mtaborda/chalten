@@ -1,6 +1,6 @@
 Class {
-	#name : #TimeSpanTest,
-	#superclass : #TestCase,
+	#name : 'TimeSpanTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'midnight',
 		'noon',
@@ -8,10 +8,12 @@ Class {
 		'twelveHours',
 		'twoSeconds'
 	],
-	#category : #'Chalten-Core-Tests-Time'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeSpanTest >> setUp [
 	midnight := TimeOfDay midnight.
 	noon := TimeOfDay noon.
@@ -20,14 +22,14 @@ TimeSpanTest >> setUp [
 	twoSeconds := 2 secondsMeasure
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testAccessing [
 
 	self assert: (TimeSpan from: midnight duration: oneHour) from = midnight.
 	self assert: (TimeSpan from: midnight duration: oneHour) duration = oneHour
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testAsInterval [
 
 	| timespan interval |
@@ -42,14 +44,14 @@ TimeSpanTest >> testAsInterval [
 	self assert: timespan asInterval = interval
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testEqual [
 	self assert: (TimeSpan from: midnight duration: oneHour) = (TimeSpan from: midnight duration: oneHour).
 	self deny: (TimeSpan from: midnight duration: oneHour) = (TimeSpan from: noon duration: 13 hoursMeasure).
 	self deny: (TimeSpan from: midnight duration: oneHour) = (TimeSpan from: midnight duration: twoSeconds)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testFromInterval [
 
 	| interval timespan |
@@ -64,7 +66,7 @@ TimeSpanTest >> testFromInterval [
 	self assert: (TimeSpan fromInterval: interval) = timespan
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testHash [
 
 	self assert:
@@ -72,20 +74,20 @@ TimeSpanTest >> testHash [
 			(TimeSpan from: midnight duration: oneHour) hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testPrintString [
 
 	self assert: (TimeSpan from: midnight duration: oneHour) printString = '1 hour from 00:00:00'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testTo [
 	self assert: (TimeSpan from: midnight duration: oneHour) to = (TimeOfDay hours: 1).
 	self assert: (TimeSpan from: TimeOfDay noon duration: oneHour) to = (TimeOfDay hours: 13).
 	self assert: (TimeSpan from: (TimeOfDay hours: 1) duration: 10 hoursMeasure) to = (TimeOfDay hours: 11)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TimeSpanTest >> testValue [
 
 	self assert: (TimeSpan from: midnight duration: oneHour) value = (TimeSpan from: midnight duration: oneHour).

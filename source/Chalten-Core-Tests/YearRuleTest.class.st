@@ -3,12 +3,14 @@ A YearRuleTest is xxxxxxxxx.
 
 "
 Class {
-	#name : #YearRuleTest,
-	#superclass : #TestCase,
-	#category : #'Chalten-Core-Tests-Filter'
+	#name : 'YearRuleTest',
+	#superclass : 'TestCase',
+	#category : 'Chalten-Core-Tests-Filter',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Filter'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 YearRuleTest >> testAccessing [
 
 	| rule decoratedRule |
@@ -20,7 +22,7 @@ YearRuleTest >> testAccessing [
 	self assert: rule printString = decoratedRule printString
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 YearRuleTest >> testIncludes [
 
 	| rule includedDate |
