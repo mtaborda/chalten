@@ -1,0 +1,20 @@
+RwSimpleProjectLoadComponentV2 {
+  #name : 'Deployment',
+  #postloadDoitName : 'scripts/defineGlobals',
+  #projectNames : [ 'Aconcagua' ],
+  #componentNames : [	],
+  #packageNames : [
+    'Chalten-Core',
+    'Chalten-Core-GS64-Extensions'
+  ],
+  #conditionalPackageMapSpecs : {
+    'gemstone' : {
+      'allusers' : {
+        #packageNameToPlatformPropertiesMap : {
+          'Chalten-Core' : { 'symbolDictName' : 'Chalten' },
+          'Chalten-Core-GS64-Extensions' : { 'symbolDictName' : 'Chalten' }
+        }
+      }
+    }
+  }
+}

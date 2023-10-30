@@ -1,0 +1,19 @@
+RwSimpleProjectLoadComponentV2 {
+  #name : 'Tests',
+  #condition : 'tests',
+  #componentNames : [
+    'Deployment'
+  ],
+  #packageNames : [
+    'Chalten-Core-Tests'
+  ],
+  #conditionalPackageMapSpecs : {
+    'gemstone' : {
+      'allusers' : {
+        #packageNameToPlatformPropertiesMap : {
+          'Chalten-Core-Tests' : { 'symbolDictName' : 'Chalten' }
+        }
+      }
+    }
+  }
+}
