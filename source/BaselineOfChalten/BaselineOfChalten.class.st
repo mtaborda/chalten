@@ -2,12 +2,13 @@
 This class is used to load Chalten from github repository
 "
 Class {
-	#name : #BaselineOfChalten,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfChalten
+	#name : 'BaselineOfChalten',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfChalten',
+	#package : 'BaselineOfChalten'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfChalten >> baseline: spec [
 
 	<baseline>
@@ -47,7 +48,7 @@ BaselineOfChalten >> baseline: spec [
 			]
 ]
 
-{ #category : #'post load' }
+{ #category : 'post load' }
 BaselineOfChalten >> postLoadInitialization [
 
 	ChaltenEnvironmentBehavior initializeAfterLoad.
@@ -57,14 +58,20 @@ BaselineOfChalten >> postLoadInitialization [
 	TimeZonesGlobals initializeAfterLoad
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfChalten >> projectClass [
 
 	^ MetacelloCypressBaselineProject
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfChalten >> setUpDependencies: spec [
+
+	spec
+		baseline: 'Buoy' with: [ spec repository: 'github://ba-st/Buoy:v7' ];
+		project: 'Buoy-Deployment' copyFrom: 'Buoy' with: [ spec loads: 'Deployment' ];
+		project: 'Buoy-SUnit' copyFrom: 'Buoy' with: [ spec loads: 'Dependent-SUnit-Extensions' ];
+		project: 'Buoy-Tools' copyFrom: 'Buoy' with: [ spec loads: 'Tools' ].
 
 	spec
 		baseline: 'Aconcagua' with: [ spec repository: 'github://ba-st/Aconcagua:v8' ];
