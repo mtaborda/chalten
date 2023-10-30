@@ -106,7 +106,8 @@ CalendarDefinition >> convertToGregorianDateTime: aDateTime [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToHebrewDate: aDate [
 
-	^HebrewCalendar dateFromDays: aDate dayNumberFromEpoch
+	^ (ChaltenEnvironment calendarNamed: #HebrewCalendar) dateFromDays:
+		  aDate dayNumberFromEpoch
 ]
 
 { #category : 'as yet unclassified' }
@@ -120,7 +121,8 @@ CalendarDefinition >> convertToHebrewDateTime: aDateTime [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToIslamicDate: aDate [
 
-	^IslamicCalendar dateFromDays: aDate dayNumberFromEpoch
+	^ (ChaltenEnvironment calendarNamed: #IslamicCalendar) dateFromDays:
+		  aDate dayNumberFromEpoch
 ]
 
 { #category : 'as yet unclassified' }
@@ -134,7 +136,8 @@ CalendarDefinition >> convertToIslamicDateTime: aDateTime [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToJulianDate: aDate [
 
-	^JulianCalendar dateFromDays: aDate dayNumberFromEpoch
+	^ (ChaltenEnvironment calendarNamed: #JulianCalendar) dateFromDays:
+		  aDate dayNumberFromEpoch
 ]
 
 { #category : 'as yet unclassified' }
