@@ -9,7 +9,10 @@ Class {
 CorrectionForJulianDateFromFixedWhenOtherwiseTest >> testValue [
 
 	| correction |
-
-	correction := CorrectionForDateFromFixedBehavior for: 2007 fixed: 733110 using: JulianCalendar.
+	correction := CorrectionForDateFromFixedBehavior
+		              for: 2007
+		              fixed: 733110
+		              using:
+		              (ChaltenEnvironment calendarNamed: #JulianCalendar).
 	self assert: correction value = 2
 ]

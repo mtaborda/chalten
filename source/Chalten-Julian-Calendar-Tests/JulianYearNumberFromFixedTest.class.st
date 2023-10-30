@@ -8,11 +8,14 @@ Class {
 { #category : 'test' }
 JulianYearNumberFromFixedTest >> testValue [
 
-	self assert: (YearNumberFromFixed for: 1 using: JulianCalendar) value = 1.
-	self assert: (YearNumberFromFixed for: 360 using: JulianCalendar) value = 1.
-	self assert: (YearNumberFromFixed for: 366 using: JulianCalendar) value = 2.
-	self assert: (YearNumberFromFixed for: 730 using: JulianCalendar) value = 3.
-	self assert: (YearNumberFromFixed for: 800 using: JulianCalendar) value = 3.
-	self assert: (YearNumberFromFixed for: 76500 using: JulianCalendar) value = 210.
-	self assert: (YearNumberFromFixed for: 777000 using: JulianCalendar) value = 2128
+	| julianCalendar |
+	julianCalendar := ChaltenEnvironment calendarNamed: #JulianCalendar.
+	
+	self assert: (YearNumberFromFixed for: 1 using: julianCalendar) value = 1.
+	self assert: (YearNumberFromFixed for: 360 using: julianCalendar) value = 1.
+	self assert: (YearNumberFromFixed for: 366 using: julianCalendar) value = 2.
+	self assert: (YearNumberFromFixed for: 730 using: julianCalendar) value = 3.
+	self assert: (YearNumberFromFixed for: 800 using: julianCalendar) value = 3.
+	self assert: (YearNumberFromFixed for: 76500 using: julianCalendar) value = 210.
+	self assert: (YearNumberFromFixed for: 777000 using: julianCalendar) value = 2128
 ]

@@ -1,6 +1,9 @@
 Class {
 	#name : 'IslamicDaysOfMonthsStreamTest',
 	#superclass : 'TestCase',
+	#instVars : [
+		'islamicCalendar'
+	],
 	#category : 'Chalten-Islamic-Calendar-Tests',
 	#package : 'Chalten-Islamic-Calendar-Tests'
 }
@@ -11,12 +14,18 @@ IslamicDaysOfMonthsStreamTest class >> classUnderTest [
 	^DaysOfMonthsStream
 ]
 
+{ #category : 'running' }
+IslamicDaysOfMonthsStreamTest >> setUp [
+
+	islamicCalendar := ChaltenEnvironment calendarNamed: #IslamicCalendar
+]
+
 { #category : 'test querying' }
 IslamicDaysOfMonthsStreamTest >> testDistanceTo [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Safar fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream distanceTo: Safar twentyfirst) = 6 daysMeasure.
 	self assert: (stream distanceTo: Ramadan fifth) = 196 daysMeasure.
 	self assert: (stream distanceTo: Muharram twentyfirst) = 330 daysMeasure
@@ -27,7 +36,7 @@ IslamicDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Safar fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: stream next = Safar sixteenth.
 	self assert: (stream next: 12 daysMeasure) = Safar twentyeighth.
 	self assert: (stream next: 2 daysMeasure) = RabiI first.
@@ -38,15 +47,15 @@ IslamicDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: -1 dayMeasure) = Safar fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: Safar first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream next: 28 daysMeasure) = Safar twentyninth.
 	stream := DaysOfMonthsStream
 		startingOn: DhuAlQada first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream next: 59 daysMeasure) = Muharram first.
 	stream := DaysOfMonthsStream
 		startingOn: DhuAlQada first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream next: 60 daysMeasure) = Muharram first
 ]
 
@@ -55,7 +64,7 @@ IslamicDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: Safar fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: stream previous = Safar fourteenth.
 	self assert: (stream previous: 12 daysMeasure) = Safar second.
 	self assert: (stream previous: 2 daysMeasure) = Muharram thirtieth.
@@ -66,14 +75,14 @@ IslamicDaysOfMonthsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 dayMeasure) = Safar fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: Safar first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream previous: 28 daysMeasure) = Muharram third.
 	stream := DaysOfMonthsStream
 		startingOn: Muharram first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream previous: 59 daysMeasure) = DhuAlQada first.
 	stream := DaysOfMonthsStream
 		startingOn: Muharram first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: IslamicCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: islamicCalendar).
 	self assert: (stream previous: 60 daysMeasure) = DhuAlQada first
 ]

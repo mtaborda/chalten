@@ -10,6 +10,6 @@ CorrectionForJulianDateFromFixedWhenNumberIsUpperOrEqualThanMarchFirstAndYearIsL
 
 	| correction |
 
-	correction := CorrectionForDateFromFixedBehavior for: 2008 fixed: 733120 using: JulianCalendar.
+	correction := CorrectionForDateFromFixedBehavior for: 2008 fixed: 733120 using: (ChaltenEnvironment calendarNamed: #JulianCalendar).
 	self assert: correction value = 1
 ]

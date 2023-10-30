@@ -1,6 +1,9 @@
 Class {
 	#name : 'JulianDaysOfMonthsStreamTest',
 	#superclass : 'TestCase',
+	#instVars : [
+		'julianCalendar'
+	],
 	#category : 'Chalten-Julian-Calendar-Tests',
 	#package : 'Chalten-Julian-Calendar-Tests'
 }
@@ -11,13 +14,18 @@ JulianDaysOfMonthsStreamTest class >> classUnderTest [
 	^DaysOfMonthsStream
 ]
 
+{ #category : 'running' }
+JulianDaysOfMonthsStreamTest >> setUp [ 
+	julianCalendar := ChaltenEnvironment calendarNamed: #JulianCalendar
+]
+
 { #category : 'test querying' }
 JulianDaysOfMonthsStreamTest >> testDistanceTo [
 
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream distanceTo: JulianFebruary twentyfirst) = 6 daysMeasure.
 	self assert: (stream distanceTo: JulianDecember fifth) = 293 daysMeasure.
 	self assert: (stream distanceTo: JulianApril twentyfirst) = 65 daysMeasure
@@ -28,7 +36,7 @@ JulianDaysOfMonthsStreamTest >> testNext [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: stream next = JulianFebruary sixteenth.
 	self assert: (stream next: 12 daysMeasure) = JulianFebruary twentyeighth.
 	self assert: (stream next: 2 daysMeasure) = JulianMarch second.
@@ -39,15 +47,15 @@ JulianDaysOfMonthsStreamTest >> testNext [
 	self assert: (stream next: -1 dayMeasure) = JulianFebruary fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream next: 28 daysMeasure) = JulianMarch first.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream next: 59 daysMeasure) = JulianApril first.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream next: 60 daysMeasure) = JulianApril first
 ]
 
@@ -56,7 +64,7 @@ JulianDaysOfMonthsStreamTest >> testPrevious [
 	| stream |
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary fifteenth
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: stream previous = JulianFebruary fourteenth.
 	self assert: (stream previous: 12 daysMeasure) = JulianFebruary second.
 	self assert: (stream previous: 2 daysMeasure) = JulianJanuary thirtyfirst.
@@ -67,14 +75,14 @@ JulianDaysOfMonthsStreamTest >> testPrevious [
 	self assert: (stream previous: -1 dayMeasure) = JulianFebruary fifteenth.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream previous: 28 daysMeasure) = JulianJanuary fourth.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfNonleapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream previous: 59 daysMeasure) = JulianDecember fourth.
 	stream := DaysOfMonthsStream
 		startingOn: JulianFebruary first
-		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: JulianCalendar).
+		monthsStrategy: (MonthsOfLeapYearsForCircularStreamStrategy of: julianCalendar).
 	self assert: (stream previous: 60 daysMeasure) = JulianDecember third
 ]

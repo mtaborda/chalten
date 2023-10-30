@@ -27,7 +27,7 @@ JulianDateTest >> oneDay [
 
 { #category : 'initialization' }
 JulianDateTest >> setUp [
-	calendar := JulianCalendar
+	calendar := ChaltenEnvironment calendarNamed: #JulianCalendar
 ]
 
 { #category : 'test support' }

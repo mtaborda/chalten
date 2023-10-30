@@ -16,7 +16,7 @@ Class {
 { #category : 'testing' }
 JulianYearNumberFromFixed class >> canHandle: aCalendar [
 
-	^aCalendar = JulianCalendar
+	^ aCalendar = (ChaltenEnvironment calendarNamed: #JulianCalendar)
 ]
 
 { #category : 'initialization' }

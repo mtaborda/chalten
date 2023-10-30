@@ -24,7 +24,7 @@ IslamicYearTest class >> classUnderTest [
 
 { #category : 'initialization' }
 IslamicYearTest >> setUp [
-	calendar := IslamicCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #IslamicCalendar.
 	zeroYears := 0 yearsMeasure.
 	oneYear := 1 yearMeasure.
 	twoYears := 2 yearsMeasure.

@@ -24,7 +24,7 @@ JulianYearTest class >> classUnderTest [
 
 { #category : 'initialization' }
 JulianYearTest >> setUp [
-	calendar := JulianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #JulianCalendar.
 	zeroYears := 0 yearsMeasure.
 	oneYear := 1 yearMeasure.
 	twoYears := 2 yearsMeasure.

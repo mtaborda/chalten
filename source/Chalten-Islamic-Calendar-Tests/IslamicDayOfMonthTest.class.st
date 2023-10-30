@@ -18,7 +18,7 @@ IslamicDayOfMonthTest class >> classUnderTest [
 
 { #category : 'initialization' }
 IslamicDayOfMonthTest >> setUp [
-	calendar := IslamicCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #IslamicCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]

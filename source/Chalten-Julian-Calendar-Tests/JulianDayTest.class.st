@@ -29,7 +29,7 @@ JulianDayTest class >> classUnderTest [
 { #category : 'initialization' }
 JulianDayTest >> setUp [
 
-	calendar := JulianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #JulianCalendar.
 	sunday := calendar sunday.
 	monday := calendar monday.
 	tuesday := calendar tuesday.

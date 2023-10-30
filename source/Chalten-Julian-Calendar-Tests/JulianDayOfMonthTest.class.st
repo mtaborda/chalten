@@ -18,7 +18,7 @@ JulianDayOfMonthTest class >> classUnderTest [
 
 { #category : 'initialization' }
 JulianDayOfMonthTest >> setUp [
-	calendar := JulianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #JulianCalendar.
 	oneDay := 1 dayMeasure.
 	twoDays := 2 daysMeasure
 ]

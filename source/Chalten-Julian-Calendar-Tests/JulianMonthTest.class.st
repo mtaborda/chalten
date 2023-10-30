@@ -33,7 +33,7 @@ JulianMonthTest class >> classUnderTest [
 
 { #category : 'initialization' }
 JulianMonthTest >> setUp [
-	calendar := JulianCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #JulianCalendar.
 	january := calendar january.
 	february := calendar february.
 	march := calendar march.

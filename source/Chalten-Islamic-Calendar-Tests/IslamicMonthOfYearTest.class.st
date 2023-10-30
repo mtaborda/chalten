@@ -24,7 +24,7 @@ IslamicMonthOfYearTest class >> classUnderTest [
 
 { #category : 'initialization' }
 IslamicMonthOfYearTest >> setUp [
-	calendar := IslamicCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #IslamicCalendar.
 	zeroMonths := 0 monthsMeasure.
 	oneMonth := 1 monthMeasure.
 	twoMonths := 2 monthsMeasure.

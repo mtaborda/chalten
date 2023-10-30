@@ -69,13 +69,13 @@ MonthOfYear class >> decemberOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> dhuAlHijjaOf: aYear [
 
-	^self year: aYear month: IslamicCalendar dhuAlHijja
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) dhuAlHijja
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> dhuAlQadaOf: aYear [
 
-	^self year: aYear month: IslamicCalendar dhuAlQada
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) dhuAlQada
 ]
 
 { #category : 'as yet unclassified' }
@@ -111,13 +111,13 @@ MonthOfYear class >> julyOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> jumadaIIOf: aYear [
 
-	^self year: aYear month: IslamicCalendar jumadaII
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) jumadaII
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> jumadaIOf: aYear [
 
-	^self year: aYear month: IslamicCalendar jumadaI
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) jumadaI
 ]
 
 { #category : 'as yet unclassified' }
@@ -153,7 +153,7 @@ MonthOfYear class >> mayOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> muharramOf: aYear [
 
-	^self year: aYear month: IslamicCalendar muharram
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) muharram
 ]
 
 { #category : 'as yet unclassified' }
@@ -177,31 +177,31 @@ MonthOfYear class >> octoberOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> rabiIIOf: aYear [
 
-	^self year: aYear month: IslamicCalendar rabiII
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) rabiII
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> rabiIOf: aYear [
 
-	^self year: aYear month: IslamicCalendar rabiI
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) rabiI
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> rajabOf: aYear [
 
-	^self year: aYear month: IslamicCalendar rajab
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) rajab
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> ramadanOf: aYear [
 
-	^self year: aYear month: IslamicCalendar ramadan
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) ramadan
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> safarOf: aYear [
 
-	^self year: aYear month: IslamicCalendar safar
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) safar
 ]
 
 { #category : 'as yet unclassified' }
@@ -213,13 +213,13 @@ MonthOfYear class >> septemberOf: aYear [
 { #category : 'as yet unclassified' }
 MonthOfYear class >> shabanOf: aYear [
 
-	^self year: aYear month: IslamicCalendar shaban
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) shaban
 ]
 
 { #category : 'as yet unclassified' }
 MonthOfYear class >> shawwalOf: aYear [
 
-	^self year: aYear month: IslamicCalendar shawwal
+	^self year: aYear month: (ChaltenEnvironment calendarNamed: #IslamicCalendar) shawwal
 ]
 
 { #category : 'as yet unclassified' }

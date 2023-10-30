@@ -28,7 +28,7 @@ IslamicDayTest class >> classUnderTest [
 
 { #category : 'initialization' }
 IslamicDayTest >> setUp [
-	calendar := IslamicCalendar.
+	calendar := ChaltenEnvironment calendarNamed: #IslamicCalendar.
 	yaumAlAhad := calendar yaumAlAhad.
 	yaumAlIthnayna := calendar yaumAlIthnayna.
 	yaumAthThalatha := calendar yaumAthThalatha.
@@ -82,15 +82,17 @@ IslamicDayTest >> testCreation [
 { #category : 'test creation' }
 IslamicDayTest >> testDayCreation [
 
-	| otherYaumAlAhad otherYaumAlIthnayna otherYaumAthThalatha otherYaumAlArbaa otherYaumAlHamis otherYaumAlJuma otherYaumAsSabt |
+	| islamicCalendar otherYaumAlAhad otherYaumAlIthnayna otherYaumAthThalatha otherYaumAlArbaa otherYaumAlHamis otherYaumAlJuma otherYaumAsSabt |
 
-	otherYaumAlAhad := IslamicCalendar createYaumAlAhad.
-	otherYaumAlIthnayna := IslamicCalendar createYaumAlIthnayna.
-	otherYaumAthThalatha:= IslamicCalendar createYaumAthThalatha.
-	otherYaumAlArbaa := IslamicCalendar createYaumAlArbaa.
-	otherYaumAlHamis := IslamicCalendar createYaumAlHamis.
-	otherYaumAlJuma := IslamicCalendar createYaumAlJuma.
-	otherYaumAsSabt := IslamicCalendar createYaumAsSabt.
+	islamicCalendar := ChaltenEnvironment calendarNamed: #IslamicCalendar.
+
+	otherYaumAlAhad := islamicCalendar createYaumAlAhad.
+	otherYaumAlIthnayna := islamicCalendar createYaumAlIthnayna.
+	otherYaumAthThalatha:= islamicCalendar createYaumAthThalatha.
+	otherYaumAlArbaa := islamicCalendar createYaumAlArbaa.
+	otherYaumAlHamis := islamicCalendar createYaumAlHamis.
+	otherYaumAlJuma := islamicCalendar createYaumAlJuma.
+	otherYaumAsSabt := islamicCalendar createYaumAsSabt.
 
 	self assert: otherYaumAlAhad name = yaumAlAhad name.
 	self assert: otherYaumAlAhad positionInWeek = yaumAlAhad positionInWeek.

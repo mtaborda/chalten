@@ -28,7 +28,7 @@ IslamicDateTest >> oneDay [
 { #category : 'initialization' }
 IslamicDateTest >> setUp [
 
-	calendar := IslamicCalendar
+	calendar := ChaltenEnvironment calendarNamed: #IslamicCalendar
 ]
 
 { #category : 'test support' }
