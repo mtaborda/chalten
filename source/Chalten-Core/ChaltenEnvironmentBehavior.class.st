@@ -3,18 +3,20 @@ A ChaltenEnvironment is an abstract class for defining behavior related to the e
 
 "
 Class {
-	#name : #ChaltenEnvironmentBehavior,
-	#superclass : #Object,
-	#category : #'Chalten-Core-Time'
+	#name : 'ChaltenEnvironmentBehavior',
+	#superclass : 'Object',
+	#category : 'Chalten-Core-Time',
+	#package : 'Chalten-Core',
+	#tag : 'Time'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChaltenEnvironmentBehavior class >> initializeAfterLoad [
 
 	self initializeEnvironment
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChaltenEnvironmentBehavior class >> initializeEnvironment [
 
 	|  environmentClass |
@@ -24,31 +26,41 @@ ChaltenEnvironmentBehavior class >> initializeEnvironment [
 	Smalltalk at:#ChaltenEnvironment put: environmentClass new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChaltenEnvironmentBehavior class >> isForCurrentPlatform [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
+ChaltenEnvironmentBehavior >> calendarNamed: aCalendarName [
+
+	^ LanguagePlatform current
+		  globalNamed: aCalendarName asSymbol
+		  ifAbsent: [
+			  self error: ('Calendar "<1s>" was not found.' expandMacrosWith:
+					   aCalendarName asString) ]
+]
+
+{ #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> localTimeOffset [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> microsecondsClock [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> millisecondsClock [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> secondsClock [
 
 	self subclassResponsibility

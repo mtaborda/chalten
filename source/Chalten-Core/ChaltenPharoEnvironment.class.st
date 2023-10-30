@@ -3,36 +3,38 @@ A ChaltenPharoEnvironment is a class for defining behavior related to the pharo 
 
 "
 Class {
-	#name : #ChaltenPharoEnvironment,
-	#superclass : #ChaltenEnvironmentBehavior,
-	#category : #'Chalten-Core-Time'
+	#name : 'ChaltenPharoEnvironment',
+	#superclass : 'ChaltenEnvironmentBehavior',
+	#category : 'Chalten-Core-Time',
+	#package : 'Chalten-Core',
+	#tag : 'Time'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChaltenPharoEnvironment class >> isForCurrentPlatform [
 
 	^(Smalltalk at: #SystemVersion) current type = 'Pharo'
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenPharoEnvironment >> localTimeOffset [
 
 	^self primOffset // 60
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenPharoEnvironment >> microsecondsClock [
 
 	^self primUTCMicrosecondsClock
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenPharoEnvironment >> millisecondsClock [
 
 	^self primUTCMillisecondsClock
 ]
 
-{ #category : #'primitives - private' }
+{ #category : 'primitives - private' }
 ChaltenPharoEnvironment >> primOffset [
 	"The offset from UTC in minutes, with positive offsets being towards the east.
 	(San Francisco is in UTC -07*60 and Paris is in UTC +02*60 (daylight savings is not in effect)."
@@ -40,7 +42,7 @@ ChaltenPharoEnvironment >> primOffset [
 	^ 0
 ]
 
-{ #category : #'primitives - private' }
+{ #category : 'primitives - private' }
 ChaltenPharoEnvironment >> primUTCMicrosecondsClock [
 	"Answer the number of micro-seconds ellapsed since Squeak epoch.
 	That is since 00:00 on the morning of January 1, 1901 UTC.
@@ -51,7 +53,7 @@ ChaltenPharoEnvironment >> primUTCMicrosecondsClock [
 	self primitiveFailed
 ]
 
-{ #category : #'primitives - private' }
+{ #category : 'primitives - private' }
 ChaltenPharoEnvironment >> primUTCMillisecondsClock [
 	"Answer the number of whole milliseconds ellapsed since Squeak epoch.
 	That is since 00:00 on the morning of January 1, 1901 UTC"
@@ -59,7 +61,7 @@ ChaltenPharoEnvironment >> primUTCMillisecondsClock [
 	^self primUTCMicrosecondsClock // 1e3
 ]
 
-{ #category : #'primitives - private' }
+{ #category : 'primitives - private' }
 ChaltenPharoEnvironment >> primUTCSecondsClock [
 	"Answer the number of whole seconds ellapsed since Squeak epoch.
 	That is since 00:00 on the morning of January 1, 1901 UTC"
@@ -67,7 +69,7 @@ ChaltenPharoEnvironment >> primUTCSecondsClock [
 	^self primUTCMicrosecondsClock // 1e6
 ]
 
-{ #category : #'accessing time' }
+{ #category : 'accessing time' }
 ChaltenPharoEnvironment >> secondsClock [
 
 	^self primUTCSecondsClock

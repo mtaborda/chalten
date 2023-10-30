@@ -1,6 +1,6 @@
-Extension { #name : #InfinityClass }
+Extension { #name : 'InfinityClass' }
 
-{ #category : #'*Chalten-Core-Time' }
+{ #category : '*Chalten-Core-Time' }
 InfinityClass >> daysMeasure [
 
 	^TimeUnits day with: self

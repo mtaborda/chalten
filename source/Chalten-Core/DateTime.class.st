@@ -17,23 +17,25 @@ zone
 
 "
 Class {
-	#name : #DateTime,
-	#superclass : #PointInTime,
+	#name : 'DateTime',
+	#superclass : 'PointInTime',
 	#instVars : [
 		'date',
 		'timeOfDay',
 		'zone'
 	],
-	#category : #'Chalten-Core-Time'
+	#category : 'Chalten-Core-Time',
+	#package : 'Chalten-Core',
+	#tag : 'Time'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DateTime class >> date: aDate timeOfDay: aTimeOfDay [
 
 	^self date: aDate timeOfDay: aTimeOfDay zone: TimeZones local
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DateTime class >> date: aDate timeOfDay: aTimeOfDay zone: aZone [
 
 	^self new
@@ -42,7 +44,7 @@ DateTime class >> date: aDate timeOfDay: aTimeOfDay zone: aZone [
 		zone: aZone
 ]
 
-{ #category : #'magnitude protocol' }
+{ #category : 'magnitude protocol' }
 DateTime >> < aDateTime [
 
 	| dateTimeInSameZone |
@@ -53,37 +55,37 @@ DateTime >> < aDateTime [
 		or: [ date = dateTimeInSameZone date and: [ timeOfDay < dateTimeInSameZone timeOfDay ]]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 DateTime >> = anObject [
 
 	^(anObject isKindOf: DateTime) and: [
 		self isTheSameInstantThan: anObject ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 DateTime >> convertTo: aTimeZone [
 
 	^zone applyOffsetTo: self from: aTimeZone
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> date [
 
 	^date
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> dayNumber [
 
 	^date dayNumber
 ]
 
-{ #category : #'interval protocol - private' }
+{ #category : 'interval protocol - private' }
 DateTime >> defaultIntervalIncrement [
 	^ 1 secondMeasure
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 DateTime >> distanceTo: aDateTime [
 	
 	^ (self = aDateTime)
@@ -92,7 +94,7 @@ DateTime >> distanceTo: aDateTime [
 			1 dayMeasure + self timeToEndOfDay + aDateTime timeFromMidnight ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 DateTime >> firstTimeOfDay [
 
 	^self class
@@ -101,7 +103,7 @@ DateTime >> firstTimeOfDay [
 		zone: zone
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 DateTime >> hash [
 
 	| utcDateTime |
@@ -110,7 +112,7 @@ DateTime >> hash [
 	^utcDateTime date hash bitXor: utcDateTime timeOfDay hash
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DateTime >> initializeDate: aDate timeOfDay: aTimeOfDay zone: aZone [
 
 	date := aDate.
@@ -118,13 +120,13 @@ DateTime >> initializeDate: aDate timeOfDay: aTimeOfDay zone: aZone [
 	zone := aZone
 ]
 
-{ #category : #'interval protocol - private' }
+{ #category : 'interval protocol - private' }
 DateTime >> intervalStrategy [
 
 	^PointInTimeIntervalStrategy new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DateTime >> isTheSameInstantThan: aDateTime [
 
 	| dateTimeInSameZone |
@@ -133,7 +135,7 @@ DateTime >> isTheSameInstantThan: aDateTime [
 		timeOfDay = dateTimeInSameZone timeOfDay ]
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 DateTime >> lastTimeOfDay [
 
 	^self class
@@ -142,19 +144,19 @@ DateTime >> lastTimeOfDay [
 		zone: zone
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> month [
 
 	^date month
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> monthOfYear [
 
 	^date monthOfYear
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 DateTime >> next: aTimeMeasure [
 
 	^self
@@ -162,7 +164,7 @@ DateTime >> next: aTimeMeasure [
 		in: zone
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 DateTime >> next: aTimeMeasure in: aTimeZone [
 
 	| timeToAdd daysToAdd newTime |
@@ -176,7 +178,7 @@ DateTime >> next: aTimeMeasure in: aTimeZone [
 		zone: aTimeZone
 ]
 
-{ #category : #enumerating }
+{ #category : 'enumerating' }
 DateTime >> nextIn: aTimeZone [
 
 	^self
@@ -184,7 +186,7 @@ DateTime >> nextIn: aTimeZone [
 		in: aTimeZone
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 DateTime >> printOn: aStream [
 
 	date printOn: aStream.
@@ -196,31 +198,31 @@ DateTime >> printOn: aStream [
 	aStream nextPut: $}
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 DateTime >> timeFromMidnight [
 
 	^timeOfDay timeFromMidnight
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> timeOfDay [
 
 	^timeOfDay
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 DateTime >> timeToEndOfDay [
 
 	^timeOfDay timeToEndOfDay
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> year [
 
 	^date year
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DateTime >> zone [
 
 	^zone

@@ -9,97 +9,99 @@ timeZones
 
 "
 Class {
-	#name : #TimeZonesGlobals,
-	#superclass : #Object,
+	#name : 'TimeZonesGlobals',
+	#superclass : 'Object',
 	#instVars : [
 		'timeZones'
 	],
 	#classInstVars : [
 		'uniqueInstance'
 	],
-	#category : #'Chalten-Core-Time'
+	#category : 'Chalten-Core-Time',
+	#package : 'Chalten-Core',
+	#tag : 'Time'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeZonesGlobals class >> initializeAfterLoad [
 
 	self initializeTimeZones
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeZonesGlobals class >> initializeTimeZones [
 
 	self initializeUniqueInstance.
 	Smalltalk at: #TimeZones put: uniqueInstance
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeZonesGlobals class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 TimeZonesGlobals class >> new [
 
 	^uniqueInstance
 ]
 
-{ #category : #'accessing timezones dst' }
+{ #category : 'accessing timezones dst' }
 TimeZonesGlobals >> britishSummerTime [
 
 	^self timeZoneNamed: self britishSummerTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> britishSummerTimeZoneName [
 
 	^'BST British Summer Time'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> britishSummerTimeZoneOffset [
 
 	^Offset of: 1
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> buenosAires [
 
 	^self timeZoneNamed: self buenosAiresTimeZoneName
 ]
 
-{ #category : #'accessing timezones dst' }
+{ #category : 'accessing timezones dst' }
 TimeZonesGlobals >> buenosAiresSummerTime [
 
 	^self timeZoneNamed: self buenosAiresSummerTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> buenosAiresSummerTimeZoneName [
 
 	^'DST Buenos Aires, Georgetown'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> buenosAiresSummerTimeZoneOffset [
 
 	^Offset of: -2
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> buenosAiresTimeZoneName [
 
 	^'Buenos Aires, Georgetown'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> buenosAiresTimeZoneOffset [
 
 	^Offset of: -3
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createBritishSummerTimeZone [
 
 	^ self 
@@ -107,7 +109,7 @@ TimeZonesGlobals >> createBritishSummerTimeZone [
 		offset: self britishSummerTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createBuenosAiresSummerTimeZone [
 
 	^ self 
@@ -115,7 +117,7 @@ TimeZonesGlobals >> createBuenosAiresSummerTimeZone [
 		offset: self buenosAiresSummerTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createBuenosAiresTimeZone [
 
 	^ self 
@@ -123,7 +125,7 @@ TimeZonesGlobals >> createBuenosAiresTimeZone [
 		offset: self buenosAiresTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createGreenwichTimeZone [
 
 	^ self 
@@ -131,7 +133,7 @@ TimeZonesGlobals >> createGreenwichTimeZone [
 		offset: self greenwichTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createLocalTimeZone [
 
 	^ self 
@@ -139,7 +141,7 @@ TimeZonesGlobals >> createLocalTimeZone [
 		offset: self localTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createPacificDaylightTimeZone [
 
 	^ self 
@@ -147,7 +149,7 @@ TimeZonesGlobals >> createPacificDaylightTimeZone [
 		offset: self pacificDaylightTimeZoneOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createPacificStandardTimeZone [
 
 	^ self 
@@ -155,7 +157,7 @@ TimeZonesGlobals >> createPacificStandardTimeZone [
 		offset: self pacificStandardTimeZoneOffset
 ]
 
-{ #category : #'timezones creation' }
+{ #category : 'timezones creation' }
 TimeZonesGlobals >> createTimeZoneNamed: aName offset: anOffset [
 
 	^ChaltenTimeZone
@@ -163,7 +165,7 @@ TimeZonesGlobals >> createTimeZoneNamed: aName offset: anOffset [
 		offset: anOffset
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> createUniversalTimeZone [
 
 	^ self 
@@ -171,30 +173,30 @@ TimeZonesGlobals >> createUniversalTimeZone [
 		offset: self universalTimeZoneOffset
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> greenwich [
 
 	^self timeZoneNamed: self greenwichTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> greenwichTimeZoneName [
 	^ 'Greenwich'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> greenwichTimeZoneOffset [
 
 	^Offset of: 0
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TimeZonesGlobals >> initialize [
 
 	self initializeTimeZones
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 TimeZonesGlobals >> initializeTimeZones [
 
 	timeZones := Dictionary new.
@@ -209,76 +211,76 @@ TimeZonesGlobals >> initializeTimeZones [
 		at: self pacificDaylightTimeZoneName put: self createPacificDaylightTimeZone
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> local [
 
 	^self timeZoneNamed: self localTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> localTimeZoneName [
 
 	^'Local Time'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> localTimeZoneOffset [
 
 	^Offset of: ChaltenEnvironment localTimeOffset
 ]
 
-{ #category : #'accessing timezones dst' }
+{ #category : 'accessing timezones dst' }
 TimeZonesGlobals >> pacificDaylightTime [
 
 	^self timeZoneNamed: self pacificDaylightTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> pacificDaylightTimeZoneName [
 	^ 'PDT Pacific Daylight Time'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> pacificDaylightTimeZoneOffset [
 
 	^Offset of: -7
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> pacificStandardTime [
 
 	^self timeZoneNamed: self pacificStandardTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> pacificStandardTimeZoneName [
 	^ 'PST Pacific Standard Time'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> pacificStandardTimeZoneOffset [
 
 	^Offset of: -8
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> timeZoneNamed: aName [
 
 	^timeZones at: aName
 ]
 
-{ #category : #'accessing timezones' }
+{ #category : 'accessing timezones' }
 TimeZonesGlobals >> universalTime [
 
 	^self timeZoneNamed: self universalTimeZoneName
 ]
 
-{ #category : #'accessing timezones names' }
+{ #category : 'accessing timezones names' }
 TimeZonesGlobals >> universalTimeZoneName [
 	^ 'Universal Time'
 ]
 
-{ #category : #'accessing timezones offsets' }
+{ #category : 'accessing timezones offsets' }
 TimeZonesGlobals >> universalTimeZoneOffset [
 
 	^Offset of: 0
