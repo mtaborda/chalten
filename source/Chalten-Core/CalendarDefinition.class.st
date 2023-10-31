@@ -10,6 +10,12 @@ Class {
 	#tag : 'Time'
 }
 
+{ #category : 'as yet unclassified' }
+CalendarDefinition class >> calendarName [
+
+	self subclassResponsibility
+]
+
 { #category : 'initialization' }
 CalendarDefinition class >> initializeAfterLoad [
 
@@ -19,7 +25,7 @@ CalendarDefinition class >> initializeAfterLoad [
 { #category : 'initialization' }
 CalendarDefinition class >> initializeCalendar [
 
-	self initializeUniqueInstance
+	ChaltenEnvironment defineCalendarNamed: self calendarName with: self new
 ]
 
 { #category : 'day creation - private' }

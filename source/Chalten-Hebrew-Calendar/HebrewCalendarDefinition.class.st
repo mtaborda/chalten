@@ -28,23 +28,20 @@ Class {
 		'nonleapYearsMonths',
 		'leapYearsMonths'
 	],
-	#classInstVars : [
-		'uniqueInstance'
-	],
 	#category : 'Chalten-Hebrew-Calendar',
 	#package : 'Chalten-Hebrew-Calendar'
 }
 
-{ #category : 'initialization' }
-HebrewCalendarDefinition class >> initializeUniqueInstance [
+{ #category : 'as yet unclassified' }
+HebrewCalendarDefinition class >> calendarName [
 
-	uniqueInstance := self basicNew initialize
+	^ #HebrewCalendar
 ]
 
 { #category : 'instance creation' }
 HebrewCalendarDefinition class >> new [
 
-	^uniqueInstance
+	^super new initialize
 ]
 
 { #category : 'months accessing' }

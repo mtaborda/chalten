@@ -23,23 +23,20 @@ Class {
 		'months',
 		'days'
 	],
-	#classInstVars : [
-		'uniqueInstance'
-	],
 	#category : 'Chalten-Gregorian-Calendar',
 	#package : 'Chalten-Gregorian-Calendar'
 }
 
-{ #category : 'initialization' }
-GregorianCalendarDefinition class >> initializeUniqueInstance [
+{ #category : 'as yet unclassified' }
+GregorianCalendarDefinition class >> calendarName [
 
-	uniqueInstance := self basicNew initialize
+	^ #GregorianCalendar
 ]
 
 { #category : 'instance creation' }
 GregorianCalendarDefinition class >> new [
 
-	^uniqueInstance
+	^super new initialize
 ]
 
 { #category : 'converting - private' }

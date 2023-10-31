@@ -5,6 +5,9 @@ A ChaltenEnvironment is an abstract class for defining behavior related to the e
 Class {
 	#name : 'ChaltenEnvironmentBehavior',
 	#superclass : 'Object',
+	#instVars : [
+		'calendars'
+	],
 	#category : 'Chalten-Core-Time',
 	#package : 'Chalten-Core',
 	#tag : 'Time'
@@ -25,14 +28,31 @@ ChaltenEnvironmentBehavior class >> isForCurrentPlatform [
 	self subclassResponsibility
 ]
 
+{ #category : 'instance creation' }
+ChaltenEnvironmentBehavior class >> new [
+
+	^ super new initialize
+]
+
 { #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> calendarNamed: aCalendarName [
 
-	^ LanguagePlatform current
-		  globalNamed: aCalendarName asSymbol
-		  ifAbsent: [
-			  self error: ('Calendar "<1s>" was not found.' expandMacrosWith:
-					   aCalendarName asString) ]
+	^ calendars at: aCalendarName ifAbsent: [
+		  self error: ('Calendar "<1s>" is not defined.' expandMacrosWith:
+				   aCalendarName asString) ]
+]
+
+{ #category : 'accessing time' }
+ChaltenEnvironmentBehavior >> defineCalendarNamed: aCalendarName with: aCalendar [
+
+	calendars at: aCalendarName put: aCalendar 
+]
+
+{ #category : 'accessing time' }
+ChaltenEnvironmentBehavior >> initialize [
+
+	super initialize.
+	calendars := Dictionary new
 ]
 
 { #category : 'accessing time' }

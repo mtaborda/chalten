@@ -23,24 +23,20 @@ Class {
 		'days',
 		'months'
 	],
-	#classInstVars : [
-		'uniqueInstance'
-	],
 	#category : 'Chalten-Islamic-Calendar',
 	#package : 'Chalten-Islamic-Calendar'
 }
 
-{ #category : 'initialization' }
-IslamicCalendarDefinition class >> initializeUniqueInstance [
+{ #category : 'as yet unclassified' }
+IslamicCalendarDefinition class >> calendarName [
 
-	uniqueInstance := self basicNew initialize
-
+	^ #IslamicCalendar
 ]
 
 { #category : 'instance creation' }
 IslamicCalendarDefinition class >> new [
 
-	^uniqueInstance
+	^super new initialize
 ]
 
 { #category : 'month creation - private' }

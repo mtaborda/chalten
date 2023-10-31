@@ -23,23 +23,20 @@ Class {
 		'months',
 		'days'
 	],
-	#classInstVars : [
-		'uniqueInstance'
-	],
 	#category : 'Chalten-Julian-Calendar',
 	#package : 'Chalten-Julian-Calendar'
 }
 
-{ #category : 'initialization' }
-JulianCalendarDefinition class >> initializeUniqueInstance [
+{ #category : 'as yet unclassified' }
+JulianCalendarDefinition class >> calendarName [
 
-	uniqueInstance := self basicNew initialize
+	^ #JulianCalendar
 ]
 
 { #category : 'instance creation' }
 JulianCalendarDefinition class >> new [
 
-	^uniqueInstance
+	^super new initialize
 ]
 
 { #category : 'converting - private' }
