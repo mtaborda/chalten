@@ -19,8 +19,7 @@ CalendarDefinition class >> initializeAfterLoad [
 { #category : 'initialization' }
 CalendarDefinition class >> initializeCalendar [
 
-	self initializeUniqueInstance.
-	self initializeGlobalNameCalendar
+	self initializeUniqueInstance
 ]
 
 { #category : 'day creation - private' }

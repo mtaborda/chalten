@@ -31,12 +31,6 @@ Class {
 }
 
 { #category : 'initialization' }
-IslamicCalendarDefinition class >> initializeGlobalNameCalendar [
-
-	Smalltalk at: #IslamicCalendar put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 IslamicCalendarDefinition class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize

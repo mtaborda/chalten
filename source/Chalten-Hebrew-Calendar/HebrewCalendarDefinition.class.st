@@ -36,12 +36,6 @@ Class {
 }
 
 { #category : 'initialization' }
-HebrewCalendarDefinition class >> initializeGlobalNameCalendar [
-
-	Smalltalk at: #HebrewCalendar put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 HebrewCalendarDefinition class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize

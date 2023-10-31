@@ -31,12 +31,6 @@ Class {
 }
 
 { #category : 'initialization' }
-JulianCalendarDefinition class >> initializeGlobalNameCalendar [
-
-	Smalltalk at: #JulianCalendar put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 JulianCalendarDefinition class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize

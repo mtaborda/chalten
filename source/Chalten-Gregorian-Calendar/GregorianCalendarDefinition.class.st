@@ -31,12 +31,6 @@ Class {
 }
 
 { #category : 'initialization' }
-GregorianCalendarDefinition class >> initializeGlobalNameCalendar [
-
-	Smalltalk at: #GregorianCalendar put: uniqueInstance
-]
-
-{ #category : 'initialization' }
 GregorianCalendarDefinition class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize
