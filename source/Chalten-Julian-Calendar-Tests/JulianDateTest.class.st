@@ -159,8 +159,8 @@ JulianDateTest >> testDaysFrom [
 	self assert: (JulianJanuary first , 2009 distanceFrom: JulianJanuary first , 2008) = 366 daysMeasure.
 	self assert: (JulianJanuary first , 2003 distanceFrom: JulianJanuary first , 2004) = -365 daysMeasure.
 	self assert: (JulianJanuary first , 2004 distanceFrom: JulianJanuary first , 2005) = -366 daysMeasure.
-	self assert: (TheBeginningOfTime distanceFrom: JulianJanuary first , 2005) = MinusInfinity daysMeasure.
-	self assert: (TheEndOfTime distanceFrom: JulianJanuary first , 2005) = Infinity daysMeasure
+	self assert: (TheBeginningOfTime distanceFrom: JulianJanuary first , 2005) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (TheEndOfTime distanceFrom: JulianJanuary first , 2005) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test querying' }
@@ -172,8 +172,8 @@ JulianDateTest >> testDaysTo [
 	self assert: (JulianJanuary first , 2008 distanceTo: JulianJanuary first , 2009) = 366 daysMeasure.
 	self assert: (JulianJanuary first , 2004 distanceTo: JulianJanuary first , 2003) = -365 daysMeasure.
 	self assert: (JulianJanuary first , 2005 distanceTo: JulianJanuary first , 2004) = -366 daysMeasure.
-	self assert: (JulianJanuary first , 2005 distanceTo: TheBeginningOfTime) = MinusInfinity daysMeasure.
-	self assert: (JulianJanuary first , 2005 distanceTo: TheEndOfTime) = Infinity daysMeasure
+	self assert: (JulianJanuary first , 2005 distanceTo: TheBeginningOfTime) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (JulianJanuary first , 2005 distanceTo: TheEndOfTime) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test comparing' }

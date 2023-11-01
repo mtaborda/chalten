@@ -162,8 +162,8 @@ HebrewDateTest >> testDaysFrom [
 	self assert: (Nisan first , 5767 distanceFrom: Nisan first , 5766) = 355 daysMeasure.
 	self assert: (Nisan first , 5766 distanceFrom: Nisan first , 5767) = -355 daysMeasure.
 	self assert: (Nisan first , 5767 distanceFrom: Nisan first , 5768) = -383 daysMeasure.
-	self assert: (TheBeginningOfTime distanceFrom: Nisan first , 5768) = MinusInfinity daysMeasure.
-	self assert: (TheEndOfTime distanceFrom: Nisan first , 5768) = Infinity daysMeasure
+	self assert: (TheBeginningOfTime distanceFrom: Nisan first , 5768) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (TheEndOfTime distanceFrom: Nisan first , 5768) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test querying' }
@@ -175,8 +175,8 @@ HebrewDateTest >> testDaysTo [
 	self assert: (Nisan first , 5766 distanceTo: Nisan first , 5767) = 355 daysMeasure.
 	self assert: (Nisan first , 5767 distanceTo: Nisan first , 5766) = -355 daysMeasure.
 	self assert: (Nisan first , 5768 distanceTo: Nisan first , 5767) = -383 daysMeasure.
-	self assert: (Nisan first , 5768 distanceTo: TheBeginningOfTime) = MinusInfinity daysMeasure.
-	self assert: (Nisan first , 5768 distanceTo: TheEndOfTime) = Infinity daysMeasure
+	self assert: (Nisan first , 5768 distanceTo: TheBeginningOfTime) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (Nisan first , 5768 distanceTo: TheEndOfTime) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test comparing' }

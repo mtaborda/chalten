@@ -162,8 +162,8 @@ IslamicDateTest >> testDaysFrom [
 	self assert: (Muharram first , 1428 distanceFrom: Muharram first , 1427) = 354 daysMeasure.
 	self assert: (Muharram first , 1427 distanceFrom: Muharram first , 1428) = -354 daysMeasure.
 	self assert: (Muharram first , 1428 distanceFrom: Muharram first , 1429) = -355 daysMeasure.
-	self assert: (TheBeginningOfTime distanceFrom: Muharram first , 1429) = MinusInfinity daysMeasure.
-	self assert: (TheEndOfTime distanceFrom: Muharram first , 1429) = Infinity daysMeasure
+	self assert: (TheBeginningOfTime distanceFrom: Muharram first , 1429) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (TheEndOfTime distanceFrom: Muharram first , 1429) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test querying' }
@@ -175,8 +175,8 @@ IslamicDateTest >> testDaysTo [
 	self assert: (Muharram first , 1427 distanceTo: Muharram first , 1428) = 354 daysMeasure.
 	self assert: (Muharram first , 1428 distanceTo: Muharram first , 1427) = -354 daysMeasure.
 	self assert: (Muharram first , 1429 distanceTo: Muharram first , 1428) = -355 daysMeasure.
-	self assert: (Muharram first , 1429 distanceTo: TheBeginningOfTime) = MinusInfinity daysMeasure.
-	self assert: (Muharram first , 1429 distanceTo: TheEndOfTime) = Infinity daysMeasure
+	self assert: (Muharram first , 1429 distanceTo: TheBeginningOfTime) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (Muharram first , 1429 distanceTo: TheEndOfTime) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test comparing' }

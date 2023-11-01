@@ -80,9 +80,10 @@ ChaltenExtensionsTest >> testHoursMeasure [
 { #category : 'test infinity' }
 ChaltenExtensionsTest >> testInfinityDaysMeasure [
 
-	self assert: Infinity daysMeasure = (TimeUnits day with: Infinity).
-	self assert: Infinity daysMeasure > 365 daysMeasure.
-	self assert: 1500 daysMeasure < Infinity daysMeasure
+	self assert: ArithmeticObject infinity daysMeasure
+		= (TimeUnits day with: ArithmeticObject infinity).
+	self assert: ArithmeticObject infinity daysMeasure > 365 daysMeasure.
+	self assert: 1500 daysMeasure < ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test number' }
@@ -112,9 +113,12 @@ ChaltenExtensionsTest >> testMillisecondsMeasure [
 { #category : 'test minus infinity' }
 ChaltenExtensionsTest >> testMinusInfinityDaysMeasure [
 
-	self assert: MinusInfinity daysMeasure = (TimeUnits day with: MinusInfinity).
-	self assert: MinusInfinity daysMeasure < 365 daysMeasure.
-	self assert: -1500 daysMeasure > MinusInfinity daysMeasure
+	self assert: ArithmeticObject minusInfinity daysMeasure
+		= (TimeUnits day with: ArithmeticObject minusInfinity).
+	self assert:
+		ArithmeticObject minusInfinity daysMeasure < 365 daysMeasure.
+	self assert:
+		-1500 daysMeasure > ArithmeticObject minusInfinity daysMeasure
 ]
 
 { #category : 'test number' }

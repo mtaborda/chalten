@@ -27,7 +27,7 @@ EndsOfTimeline >> defaultIntervalIncrement [
 { #category : 'querying' }
 EndsOfTimeline >> distanceTo: aTimelinePoint [
 
-	^Infinity daysMeasure
+	^ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'interval protocol - private' }

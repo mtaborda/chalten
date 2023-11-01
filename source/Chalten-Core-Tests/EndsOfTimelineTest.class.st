@@ -9,8 +9,8 @@ Class {
 { #category : 'test querying' }
 EndsOfTimelineTest >> testDistanceTo [
 
-	self assert: (TheBeginningOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = Infinity daysMeasure.
-	self assert: (TheEndOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = Infinity daysMeasure
+	self assert: (TheBeginningOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = ArithmeticObject infinity daysMeasure.
+	self assert: (TheEndOfTime distanceTo: (TimeOfDay hours: 1 minutes: 0 seconds: 0)) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test magnitude protocol' }
@@ -43,8 +43,8 @@ EndsOfTimelineTest >> testNext [
 { #category : 'test accessing days' }
 EndsOfTimelineTest >> testNumberOfDaysFromEpoch [
 
-	self assert: TheBeginningOfTime numberOfDaysFromEpoch = MinusInfinity daysMeasure.
-	self assert: TheEndOfTime numberOfDaysFromEpoch = Infinity daysMeasure
+	self assert: TheBeginningOfTime numberOfDaysFromEpoch = ArithmeticObject minusInfinity daysMeasure.
+	self assert: TheEndOfTime numberOfDaysFromEpoch = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test printing' }

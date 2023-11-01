@@ -155,8 +155,8 @@ GregorianDateTest >> testDaysFrom [
 	self assert: (January first , 2009 distanceFrom: January first , 2008) = 366 daysMeasure.
 	self assert: (January first , 2003 distanceFrom: January first , 2004) = -365 daysMeasure.
 	self assert: (January first , 2004 distanceFrom: January first , 2005) = -366 daysMeasure.
-	self assert: (TheBeginningOfTime distanceFrom: January first , 2005) = MinusInfinity daysMeasure.
-	self assert: (TheEndOfTime distanceFrom: January first , 2005) = Infinity daysMeasure
+	self assert: (TheBeginningOfTime distanceFrom: January first , 2005) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (TheEndOfTime distanceFrom: January first , 2005) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test querying' }
@@ -168,8 +168,8 @@ GregorianDateTest >> testDaysTo [
 	self assert: (January first , 2008 distanceTo: January first , 2009) = 366 daysMeasure.
 	self assert: (January first , 2004 distanceTo: January first , 2003) = -365 daysMeasure.
 	self assert: (January first , 2005 distanceTo: January first , 2004) = -366 daysMeasure.
-	self assert: (January first , 2005 distanceTo: TheBeginningOfTime) = MinusInfinity daysMeasure.
-	self assert: (January first , 2005 distanceTo: TheEndOfTime) = Infinity daysMeasure
+	self assert: (January first , 2005 distanceTo: TheBeginningOfTime) = ArithmeticObject minusInfinity daysMeasure.
+	self assert: (January first , 2005 distanceTo: TheEndOfTime) = ArithmeticObject infinity daysMeasure
 ]
 
 { #category : 'test comparing' }
