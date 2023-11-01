@@ -107,7 +107,7 @@ IslamicDateTest >> testAtMidnight [
 	self
 		assert: (Shawwal first , 1428) atMidnight
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: Shawwal first , 1428
 			 timeOfDay: (TimeOfDay hours: 00))
 ]
@@ -118,7 +118,7 @@ IslamicDateTest >> testAtNoon [
 	self
 		assert: (Shawwal first , 1428) atNoon
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: Shawwal first , 1428
 			 timeOfDay: (TimeOfDay hours: 12))
 ]
@@ -129,7 +129,7 @@ IslamicDateTest >> testAtTimeOfDay [
 	self
 		assert: (Shawwal first , 1428 atTimeOfDay: (TimeOfDay hours: 10))
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: Shawwal first , 1428
 			 timeOfDay: (TimeOfDay hours: 10))
 ]

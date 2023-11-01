@@ -17,7 +17,7 @@ zone
 
 "
 Class {
-	#name : 'DateTime',
+	#name : 'ChaltenDateTime',
 	#superclass : 'PointInTime',
 	#instVars : [
 		'date',
@@ -30,13 +30,13 @@ Class {
 }
 
 { #category : 'instance creation' }
-DateTime class >> date: aDate timeOfDay: aTimeOfDay [
+ChaltenDateTime class >> date: aDate timeOfDay: aTimeOfDay [
 
 	^self date: aDate timeOfDay: aTimeOfDay zone: TimeZones local
 ]
 
 { #category : 'instance creation' }
-DateTime class >> date: aDate timeOfDay: aTimeOfDay zone: aZone [
+ChaltenDateTime class >> date: aDate timeOfDay: aTimeOfDay zone: aZone [
 
 	^self new
 		initializeDate: aDate
@@ -45,7 +45,7 @@ DateTime class >> date: aDate timeOfDay: aTimeOfDay zone: aZone [
 ]
 
 { #category : 'magnitude protocol' }
-DateTime >> < aDateTime [
+ChaltenDateTime >> < aDateTime [
 
 	| dateTimeInSameZone |
 	
@@ -56,37 +56,37 @@ DateTime >> < aDateTime [
 ]
 
 { #category : 'comparing' }
-DateTime >> = anObject [
+ChaltenDateTime >> = anObject [
 
-	^(anObject isKindOf: DateTime) and: [
+	^(anObject isKindOf: ChaltenDateTime) and: [
 		self isTheSameInstantThan: anObject ]
 ]
 
 { #category : 'converting' }
-DateTime >> convertTo: aTimeZone [
+ChaltenDateTime >> convertTo: aTimeZone [
 
 	^zone applyOffsetTo: self from: aTimeZone
 ]
 
 { #category : 'accessing' }
-DateTime >> date [
+ChaltenDateTime >> date [
 
 	^date
 ]
 
 { #category : 'accessing' }
-DateTime >> dayNumber [
+ChaltenDateTime >> dayNumber [
 
 	^date dayNumber
 ]
 
 { #category : 'interval protocol - private' }
-DateTime >> defaultIntervalIncrement [
+ChaltenDateTime >> defaultIntervalIncrement [
 	^ 1 secondMeasure
 ]
 
 { #category : 'querying' }
-DateTime >> distanceTo: aDateTime [
+ChaltenDateTime >> distanceTo: aDateTime [
 	
 	^ (self = aDateTime)
 		ifTrue: [ aDateTime timeFromMidnight - self timeFromMidnight ]
@@ -95,7 +95,7 @@ DateTime >> distanceTo: aDateTime [
 ]
 
 { #category : 'enumerating' }
-DateTime >> firstTimeOfDay [
+ChaltenDateTime >> firstTimeOfDay [
 
 	^self class
 		date: date
@@ -104,7 +104,7 @@ DateTime >> firstTimeOfDay [
 ]
 
 { #category : 'comparing' }
-DateTime >> hash [
+ChaltenDateTime >> hash [
 
 	| utcDateTime |
 	
@@ -113,7 +113,7 @@ DateTime >> hash [
 ]
 
 { #category : 'initialization' }
-DateTime >> initializeDate: aDate timeOfDay: aTimeOfDay zone: aZone [
+ChaltenDateTime >> initializeDate: aDate timeOfDay: aTimeOfDay zone: aZone [
 
 	date := aDate.
 	timeOfDay := aTimeOfDay.
@@ -121,13 +121,13 @@ DateTime >> initializeDate: aDate timeOfDay: aTimeOfDay zone: aZone [
 ]
 
 { #category : 'interval protocol - private' }
-DateTime >> intervalStrategy [
+ChaltenDateTime >> intervalStrategy [
 
 	^PointInTimeIntervalStrategy new
 ]
 
 { #category : 'testing' }
-DateTime >> isTheSameInstantThan: aDateTime [
+ChaltenDateTime >> isTheSameInstantThan: aDateTime [
 
 	| dateTimeInSameZone |
 	dateTimeInSameZone := aDateTime convertTo: zone.
@@ -136,7 +136,7 @@ DateTime >> isTheSameInstantThan: aDateTime [
 ]
 
 { #category : 'enumerating' }
-DateTime >> lastTimeOfDay [
+ChaltenDateTime >> lastTimeOfDay [
 
 	^self class
 		date: date
@@ -145,19 +145,19 @@ DateTime >> lastTimeOfDay [
 ]
 
 { #category : 'accessing' }
-DateTime >> month [
+ChaltenDateTime >> month [
 
 	^date month
 ]
 
 { #category : 'accessing' }
-DateTime >> monthOfYear [
+ChaltenDateTime >> monthOfYear [
 
 	^date monthOfYear
 ]
 
 { #category : 'enumerating' }
-DateTime >> next: aTimeMeasure [
+ChaltenDateTime >> next: aTimeMeasure [
 
 	^self
 		next: aTimeMeasure
@@ -165,7 +165,7 @@ DateTime >> next: aTimeMeasure [
 ]
 
 { #category : 'enumerating' }
-DateTime >> next: aTimeMeasure in: aTimeZone [
+ChaltenDateTime >> next: aTimeMeasure in: aTimeZone [
 
 	| timeToAdd daysToAdd newTime |
 
@@ -179,7 +179,7 @@ DateTime >> next: aTimeMeasure in: aTimeZone [
 ]
 
 { #category : 'enumerating' }
-DateTime >> nextIn: aTimeZone [
+ChaltenDateTime >> nextIn: aTimeZone [
 
 	^self
 		next: aTimeZone offset - zone offset
@@ -187,7 +187,7 @@ DateTime >> nextIn: aTimeZone [
 ]
 
 { #category : 'printing' }
-DateTime >> printOn: aStream [
+ChaltenDateTime >> printOn: aStream [
 
 	date printOn: aStream.
 	aStream space.
@@ -199,31 +199,31 @@ DateTime >> printOn: aStream [
 ]
 
 { #category : 'querying' }
-DateTime >> timeFromMidnight [
+ChaltenDateTime >> timeFromMidnight [
 
 	^timeOfDay timeFromMidnight
 ]
 
 { #category : 'accessing' }
-DateTime >> timeOfDay [
+ChaltenDateTime >> timeOfDay [
 
 	^timeOfDay
 ]
 
 { #category : 'querying' }
-DateTime >> timeToEndOfDay [
+ChaltenDateTime >> timeToEndOfDay [
 
 	^timeOfDay timeToEndOfDay
 ]
 
 { #category : 'accessing' }
-DateTime >> year [
+ChaltenDateTime >> year [
 
 	^date year
 ]
 
 { #category : 'accessing' }
-DateTime >> zone [
+ChaltenDateTime >> zone [
 
 	^zone
 ]

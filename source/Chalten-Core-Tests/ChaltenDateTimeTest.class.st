@@ -1,5 +1,5 @@
 Class {
-	#name : 'DateTimeTest',
+	#name : 'ChaltenDateTimeTest',
 	#superclass : 'TestCase',
 	#instVars : [
 		'december31Of2003',
@@ -25,86 +25,86 @@ Class {
 }
 
 { #category : 'initialization' }
-DateTimeTest >> setUp [
+ChaltenDateTimeTest >> setUp [
 	oneDay := 1 dayMeasure.
-	december31Of2003 := DateTime date: December thirtyfirst , 2003 timeOfDay: (TimeOfDay hours: 00).
-	december31Of2003On23Hours59Minutes59Seconds := DateTime
+	december31Of2003 := ChaltenDateTime date: December thirtyfirst , 2003 timeOfDay: (TimeOfDay hours: 00).
+	december31Of2003On23Hours59Minutes59Seconds := ChaltenDateTime
 		date: December thirtyfirst , 2003
 		timeOfDay: (TimeOfDay hours: 23 minutes: 59 seconds: 59).
-	januaryFirstOf2004 := DateTime date: January first , 2004 timeOfDay: (TimeOfDay hours: 00).
-	januaryFirstOf2004On00Hours00Minutes01Seconds := DateTime
+	januaryFirstOf2004 := ChaltenDateTime date: January first , 2004 timeOfDay: (TimeOfDay hours: 00).
+	januaryFirstOf2004On00Hours00Minutes01Seconds := ChaltenDateTime
 		date: January first , 2004
 		timeOfDay: (TimeOfDay hours: 00 minutes: 00 seconds: 01).
-	januaryFirstOf2004On03Hours := DateTime date: January first , 2004 timeOfDay: (TimeOfDay hours: 03).
-	januaryFirstOf2004On23Hours59Minutes58Seconds := DateTime
+	januaryFirstOf2004On03Hours := ChaltenDateTime date: January first , 2004 timeOfDay: (TimeOfDay hours: 03).
+	januaryFirstOf2004On23Hours59Minutes58Seconds := ChaltenDateTime
 		date: January first , 2004
 		timeOfDay: (TimeOfDay hours: 23 minutes: 59 seconds: 58).
-	januaryFirstOf2004On23Hours59Minutes59Seconds := DateTime
+	januaryFirstOf2004On23Hours59Minutes59Seconds := ChaltenDateTime
 		date: January first , 2004
 		timeOfDay: (TimeOfDay hours: 23 minutes: 59 seconds: 59).
-	januarySecondOf2004 := DateTime date: January second , 2004 timeOfDay: (TimeOfDay hours: 00).
-	januarySecondOf2004On00Hours00Minutes01Seconds := DateTime
+	januarySecondOf2004 := ChaltenDateTime date: January second , 2004 timeOfDay: (TimeOfDay hours: 00).
+	januarySecondOf2004On00Hours00Minutes01Seconds := ChaltenDateTime
 		date: January second , 2004
 		timeOfDay: (TimeOfDay hours: 00 minutes: 00 seconds: 01).
-	januarySecondOf2004On23Hours := DateTime date: January second , 2004 timeOfDay: (TimeOfDay hours: 23).
-	januarySecondOf2004On23Hours59Minutes59Seconds := DateTime
+	januarySecondOf2004On23Hours := ChaltenDateTime date: January second , 2004 timeOfDay: (TimeOfDay hours: 23).
+	januarySecondOf2004On23Hours59Minutes59Seconds := ChaltenDateTime
 		date: January second , 2004
 		timeOfDay: (TimeOfDay hours: 23 minutes: 59 seconds: 59).
-	januaryThirdOf2004 := DateTime date: January third , 2004 timeOfDay: (TimeOfDay hours: 00).
-	hourInGreenwich := DateTime
+	januaryThirdOf2004 := ChaltenDateTime date: January third , 2004 timeOfDay: (TimeOfDay hours: 00).
+	hourInGreenwich := ChaltenDateTime
 		date: March eighth , 2008
 		timeOfDay: (TimeOfDay hours: 20 minutes: 5)
 		zone: TimeZones greenwich.
-	hourInBsAs := DateTime
+	hourInBsAs := ChaltenDateTime
 		date: March eighth , 2008
 		timeOfDay: (TimeOfDay hours: 17 minutes: 5)
 		zone: TimeZones buenosAires
 ]
 
 { #category : 'test accessing' }
-DateTimeTest >> testAccessing [
+ChaltenDateTimeTest >> testAccessing [
 
 	| januaryFirst2004 |
 	januaryFirst2004 := January first , 2004.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) date
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) date
 		equals: januaryFirst2004.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
 			dayNumber
 		equals: 1.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) month
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) month
 		equals: January.
 	self
-		assert: (DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
+		assert: (ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
 				monthOfYear
 		equals: January , 2004.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) year
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) year
 		equals: 2004 asGregorianYear.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
 			dayNumber
 		equals: 1.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure)
 			timeOfDay
 		equals: 0 hoursMeasure.
 	self
 		assert:
-		(DateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) zone
+		(ChaltenDateTime date: januaryFirst2004 timeOfDay: 0 hoursMeasure) zone
 		equals: TimeZones local
 ]
 
 { #category : 'test enumerating' }
-DateTimeTest >> testAdd [
+ChaltenDateTimeTest >> testAdd [
 
 	| oneHour |
 	oneHour := 1 hourMeasure.
@@ -136,10 +136,10 @@ DateTimeTest >> testAdd [
 ]
 
 { #category : 'test comparing' }
-DateTimeTest >> testComparing [
+ChaltenDateTimeTest >> testComparing [
 
 	| januaryFirstOf2004Other |
-	januaryFirstOf2004Other := DateTime
+	januaryFirstOf2004Other := ChaltenDateTime
 		                           date: January first , 2004
 		                           timeOfDay: (TimeOfDay hours: 00).
 	self assert: januaryFirstOf2004 equals: januaryFirstOf2004Other.
@@ -149,10 +149,10 @@ DateTimeTest >> testComparing [
 ]
 
 { #category : 'test comparing' }
-DateTimeTest >> testEqual [
+ChaltenDateTimeTest >> testEqual [
 
 	| dateTime |
-	dateTime := DateTime
+	dateTime := ChaltenDateTime
 		            date: March eighth , 2008
 		            timeOfDay: (TimeOfDay hours: 22 minutes: 5)
 		            zone: TimeZones greenwich.
@@ -162,7 +162,7 @@ DateTimeTest >> testEqual [
 ]
 
 { #category : 'test enumerating' }
-DateTimeTest >> testFirstTimeOfDay [
+ChaltenDateTimeTest >> testFirstTimeOfDay [
 
 	self
 		assert: januaryFirstOf2004On23Hours59Minutes59Seconds firstTimeOfDay
@@ -179,10 +179,10 @@ DateTimeTest >> testFirstTimeOfDay [
 ]
 
 { #category : 'test comparing' }
-DateTimeTest >> testGreaterThan [
+ChaltenDateTimeTest >> testGreaterThan [
 
 	| dateTime |
-	dateTime := DateTime
+	dateTime := ChaltenDateTime
 		            date: March eighth , 2008
 		            timeOfDay: (TimeOfDay hours: 18 minutes: 5)
 		            zone: TimeZones greenwich.
@@ -229,10 +229,10 @@ DateTimeTest >> testGreaterThan [
 ]
 
 { #category : 'test comparing' }
-DateTimeTest >> testHash [
+ChaltenDateTimeTest >> testHash [
 
 	| dateTime |
-	dateTime := DateTime
+	dateTime := ChaltenDateTime
 		            date: March eighth , 2008
 		            timeOfDay: (TimeOfDay hours: 22 minutes: 5)
 		            zone: TimeZones greenwich.
@@ -245,7 +245,7 @@ DateTimeTest >> testHash [
 ]
 
 { #category : 'test enumerating' }
-DateTimeTest >> testLastTimeOfDay [
+ChaltenDateTimeTest >> testLastTimeOfDay [
 
 	self
 		assert:
@@ -265,10 +265,10 @@ DateTimeTest >> testLastTimeOfDay [
 ]
 
 { #category : 'test comparing' }
-DateTimeTest >> testLessThan [
+ChaltenDateTimeTest >> testLessThan [
 
 	| dateTime |
-	dateTime := DateTime
+	dateTime := ChaltenDateTime
 		            date: August third , 2008
 		            timeOfDay: (TimeOfDay hours: 23 minutes: 5)
 		            zone: TimeZones greenwich.
@@ -315,7 +315,7 @@ DateTimeTest >> testLessThan [
 ]
 
 { #category : 'test printing' }
-DateTimeTest >> testPrintString [
+ChaltenDateTimeTest >> testPrintString [
 
 	self
 		assert: januaryFirstOf2004On23Hours59Minutes59Seconds printString
@@ -325,7 +325,7 @@ DateTimeTest >> testPrintString [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testReverse [
+ChaltenDateTimeTest >> testReverse [
 
 	| collection date hours |
 	collection := (januaryFirstOf2004 to: januarySecondOf2004On23Hours
@@ -344,7 +344,7 @@ DateTimeTest >> testReverse [
 ]
 
 { #category : 'test enumerating' }
-DateTimeTest >> testSubtract [
+ChaltenDateTimeTest >> testSubtract [
 
 	| oneHour |
 	oneHour := 1 hourMeasure.
@@ -378,7 +378,7 @@ DateTimeTest >> testSubtract [
 ]
 
 { #category : 'test querying' }
-DateTimeTest >> testTimeFrom [
+ChaltenDateTimeTest >> testTimeFrom [
 
 	self
 		assert:
@@ -408,7 +408,7 @@ DateTimeTest >> testTimeFrom [
 ]
 
 { #category : 'test querying' }
-DateTimeTest >> testTimeFromMidnight [
+ChaltenDateTimeTest >> testTimeFromMidnight [
 
 	self
 		assert: januaryFirstOf2004On03Hours timeFromMidnight
@@ -424,7 +424,7 @@ DateTimeTest >> testTimeFromMidnight [
 ]
 
 { #category : 'test querying' }
-DateTimeTest >> testTimeTo [
+ChaltenDateTimeTest >> testTimeTo [
 
 	self
 		assert: (januaryFirstOf2004 distanceTo:
@@ -453,7 +453,7 @@ DateTimeTest >> testTimeTo [
 ]
 
 { #category : 'test querying' }
-DateTimeTest >> testTimeToEndOfDay [
+ChaltenDateTimeTest >> testTimeToEndOfDay [
 
 	self
 		assert: januaryFirstOf2004On03Hours timeToEndOfDay
@@ -467,7 +467,7 @@ DateTimeTest >> testTimeToEndOfDay [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testTo [
+ChaltenDateTimeTest >> testTo [
 
 	| interval |
 	interval := januaryFirstOf2004 to: januarySecondOf2004.
@@ -477,7 +477,7 @@ DateTimeTest >> testTo [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testToBy [
+ChaltenDateTimeTest >> testToBy [
 
 	| interval |
 	interval := januaryFirstOf2004 to: januarySecondOf2004 by:
@@ -488,7 +488,7 @@ DateTimeTest >> testToBy [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testToByDo [
+ChaltenDateTimeTest >> testToByDo [
 
 	| interval date hours |
 	interval := januaryFirstOf2004 to:
@@ -508,7 +508,7 @@ DateTimeTest >> testToByDo [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testToByMinutesDo [
+ChaltenDateTimeTest >> testToByMinutesDo [
 
 	| interval minutes |
 	interval := januaryFirstOf2004 to: januaryThirdOf2004 by:
@@ -521,7 +521,7 @@ DateTimeTest >> testToByMinutesDo [
 ]
 
 { #category : 'test interval protocol' }
-DateTimeTest >> testToNegativeByDo [
+ChaltenDateTimeTest >> testToNegativeByDo [
 
 	| interval date hours |
 	interval := januarySecondOf2004On23Hours to:

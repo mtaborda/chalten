@@ -105,7 +105,7 @@ HebrewDateTest >> testAtMidnight [
 	self
 		assert: (Tevet first , 5767) atMidnight
 		equals:
-		(DateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 00))
+		(ChaltenDateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 00))
 ]
 
 { #category : 'test accessing' }
@@ -114,7 +114,7 @@ HebrewDateTest >> testAtNoon [
 	self
 		assert: (Tevet first , 5767) atNoon
 		equals:
-		(DateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 12))
+		(ChaltenDateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 12))
 ]
 
 { #category : 'test accessing' }
@@ -123,7 +123,7 @@ HebrewDateTest >> testAtTimeOfDay [
 	self
 		assert: (Tevet first , 5767 atTimeOfDay: (TimeOfDay hours: 10))
 		equals:
-		(DateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 10))
+		(ChaltenDateTime date: Tevet first , 5767 timeOfDay: (TimeOfDay hours: 10))
 ]
 
 { #category : 'test instance creation' }

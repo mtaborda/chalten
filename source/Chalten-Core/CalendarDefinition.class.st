@@ -70,7 +70,7 @@ CalendarDefinition >> convert: aDateOrDateTime [
 
 	(aDateOrDateTime isKindOf: FixedDate)
 		ifTrue: [ ^self convertToDate: aDateOrDateTime ].
-	(aDateOrDateTime isKindOf: DateTime)
+	(aDateOrDateTime isKindOf: ChaltenDateTime)
 		ifTrue: [ ^self convertToDateTime: aDateOrDateTime ].
 	self error: ('<1p> can`t be converted to Date nor DateTime' expandMacrosWith: aDateOrDateTime)
 ]
@@ -97,7 +97,7 @@ CalendarDefinition >> convertToGregorianDate: aDate [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToGregorianDateTime: aDateTime [
 
-	^DateTime
+	^ChaltenDateTime
 		date: (self convertToGregorianDate: aDateTime date)
 		timeOfDay: aDateTime timeOfDay
 ]
@@ -112,7 +112,7 @@ CalendarDefinition >> convertToHebrewDate: aDate [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToHebrewDateTime: aDateTime [
 
-	^DateTime
+	^ChaltenDateTime
 		date: (self convertToHebrewDate: aDateTime date)
 		timeOfDay: aDateTime timeOfDay
 ]
@@ -127,7 +127,7 @@ CalendarDefinition >> convertToIslamicDate: aDate [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToIslamicDateTime: aDateTime [
 
-	^DateTime
+	^ChaltenDateTime
 		date: (self convertToIslamicDate: aDateTime date)
 		timeOfDay: aDateTime timeOfDay
 ]
@@ -142,7 +142,7 @@ CalendarDefinition >> convertToJulianDate: aDate [
 { #category : 'as yet unclassified' }
 CalendarDefinition >> convertToJulianDateTime: aDateTime [
 
-	^DateTime
+	^ChaltenDateTime
 		date: (self convertToJulianDate: aDateTime date)
 		timeOfDay: aDateTime timeOfDay
 ]

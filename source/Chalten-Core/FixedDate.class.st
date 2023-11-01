@@ -135,7 +135,7 @@ FixedDate >> at: aTimeOfDay [
 { #category : 'accessing datetime' }
 FixedDate >> atTimeOfDay: aTimeOfDay [
 
-	^DateTime date: self timeOfDay: aTimeOfDay
+	^ChaltenDateTime date: self timeOfDay: aTimeOfDay
 ]
 
 { #category : 'accessing' }
@@ -171,7 +171,7 @@ FixedDate >> dayOfMonth [
 { #category : 'accessing datetime' }
 FixedDate >> firstTimeOfDay [
 
-	^DateTime
+	^ChaltenDateTime
 		date: self
 		timeOfDay: TimeOfDay firstTimeOfDay
 ]
@@ -223,7 +223,7 @@ FixedDate >> isLastDayOfYear [
 { #category : 'accessing datetime' }
 FixedDate >> lastTimeOfDay [
 
-	^DateTime
+	^ChaltenDateTime
 		date: self
 		timeOfDay: TimeOfDay lastTimeOfDay
 ]

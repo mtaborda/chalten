@@ -106,7 +106,7 @@ JulianDateTest >> testAtMidnight [
 
 	self
 		assert: (JulianOctober first , 2007) atMidnight
-		equals: (DateTime
+		equals: (ChaltenDateTime
 				 date: JulianOctober first , 2007
 				 timeOfDay: (TimeOfDay hours: 00))
 ]
@@ -114,7 +114,7 @@ JulianDateTest >> testAtMidnight [
 { #category : 'test accessing' }
 JulianDateTest >> testAtNoon [
 
-	self assert: (JulianOctober first , 2007) atNoon equals: (DateTime
+	self assert: (JulianOctober first , 2007) atNoon equals: (ChaltenDateTime
 			 date: JulianOctober first , 2007
 			 timeOfDay: (TimeOfDay hours: 12))
 ]
@@ -125,7 +125,7 @@ JulianDateTest >> testAtTimeOfDay [
 	self
 		assert:
 		(JulianOctober first , 2007 atTimeOfDay: (TimeOfDay hours: 10))
-		equals: (DateTime
+		equals: (ChaltenDateTime
 				 date: JulianOctober first , 2007
 				 timeOfDay: (TimeOfDay hours: 10))
 ]

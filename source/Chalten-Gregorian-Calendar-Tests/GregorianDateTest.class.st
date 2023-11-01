@@ -86,7 +86,7 @@ GregorianDateTest >> testAt [
 	self
 		assert: (October first , 2007 at: (TimeOfDay hours: 10))
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: October first , 2007
 			 timeOfDay: (TimeOfDay hours: 10))
 ]
@@ -97,7 +97,7 @@ GregorianDateTest >> testAtMidnight [
 	self
 		assert: (October first , 2007) atMidnight
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: October first , 2007
 			 timeOfDay: (TimeOfDay hours: 00))
 ]
@@ -108,7 +108,7 @@ GregorianDateTest >> testAtNoon [
 	self
 		assert: (October first , 2007) atNoon
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: October first , 2007
 			 timeOfDay: (TimeOfDay hours: 12))
 ]
@@ -119,7 +119,7 @@ GregorianDateTest >> testAtTimeOfDay [
 	self
 		assert: (October first , 2007 atTimeOfDay: (TimeOfDay hours: 10))
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: October first , 2007
 			 timeOfDay: (TimeOfDay hours: 10))
 ]
@@ -287,7 +287,7 @@ GregorianDateTest >> testFirstTimeOfDay [
 	self
 		assert: (May fourth , 2014) firstTimeOfDay
 		equals:
-		(DateTime
+		(ChaltenDateTime
 			 date: May fourth , 2014
 			 timeOfDay: TimeOfDay firstTimeOfDay)
 ]
@@ -676,7 +676,7 @@ GregorianDateTest >> testLastTimeOfDay [
 	self
 		assert: (May fourth , 2014) lastTimeOfDay
 		equals:
-		(DateTime date: May fourth , 2014 timeOfDay: TimeOfDay lastTimeOfDay)
+		(ChaltenDateTime date: May fourth , 2014 timeOfDay: TimeOfDay lastTimeOfDay)
 ]
 
 { #category : 'test comparing' }
