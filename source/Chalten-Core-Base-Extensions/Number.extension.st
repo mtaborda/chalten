@@ -1,6 +1,38 @@
 Extension { #name : 'Number' }
 
 { #category : '*Chalten-Core-Base-Extensions' }
+Number >> asGregorianYear [
+
+	^ ChaltenYear
+		  number: self
+		  calendar: (ChaltenEnvironment calendarNamed: #GregorianCalendar)
+]
+
+{ #category : '*Chalten-Core-Base-Extensions' }
+Number >> asHebrewYear [
+
+	^ ChaltenYear
+		  number: self
+		  calendar: (ChaltenEnvironment calendarNamed: #HebrewCalendar)
+]
+
+{ #category : '*Chalten-Core-Base-Extensions' }
+Number >> asIslamicYear [
+
+	^ ChaltenYear
+		  number: self
+		  calendar: (ChaltenEnvironment calendarNamed: #IslamicCalendar)
+]
+
+{ #category : '*Chalten-Core-Base-Extensions' }
+Number >> asJulianYear [
+
+	^ ChaltenYear
+		  number: self
+		  calendar: (ChaltenEnvironment calendarNamed: #JulianCalendar)
+]
+
+{ #category : '*Chalten-Core-Base-Extensions' }
 Number >> centuriesMeasure [
 
 	^TimeUnits century with: self

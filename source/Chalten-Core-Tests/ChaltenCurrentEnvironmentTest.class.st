@@ -1,8 +1,9 @@
 Class {
 	#name : 'ChaltenCurrentEnvironmentTest',
 	#superclass : 'TestCase',
-	#category : 'Chalten-Core-Tests',
-	#package : 'Chalten-Core-Tests'
+	#category : 'Chalten-Core-Tests-Time',
+	#package : 'Chalten-Core-Tests',
+	#tag : 'Time'
 }
 
 { #category : 'test testing' }
