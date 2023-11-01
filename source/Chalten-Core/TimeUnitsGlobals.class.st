@@ -36,7 +36,7 @@ TimeUnitsGlobals class >> initialize [
 { #category : 'initialization' }
 TimeUnitsGlobals class >> initializeUniqueInstance [
 
-	uniqueInstance := self basicNew initialize
+	uniqueInstance := super new initialize
 ]
 
 { #category : 'instance creation' }
