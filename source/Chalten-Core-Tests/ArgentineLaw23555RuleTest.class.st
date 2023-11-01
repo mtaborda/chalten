@@ -83,8 +83,8 @@ ArgentineLaw23555RuleTest >> testIncludesDayWhenDayIsSaturday [
 ArgentineLaw23555RuleTest >> testPrintOn [
 
 	| rule |
-
 	rule := ArgentineLaw23555Rule monthNumber: 9 dayNumber: 16.
-	
-	self assert: rule printString = 'September 16 transferable holiday by Argentine Law 23555'
+	self
+		assert: rule printString
+		equals: 'September 16 transferable holiday by Argentine Law 23555'
 ]

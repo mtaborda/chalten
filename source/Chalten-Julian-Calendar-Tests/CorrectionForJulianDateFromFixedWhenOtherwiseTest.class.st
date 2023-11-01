@@ -14,5 +14,5 @@ CorrectionForJulianDateFromFixedWhenOtherwiseTest >> testValue [
 		              fixed: 733110
 		              using:
 		              (ChaltenEnvironment calendarNamed: #JulianCalendar).
-	self assert: correction value = 2
+	self assert: correction value equals: 2
 ]

@@ -67,13 +67,11 @@ OrdinalDayMonthRuleTest >> testOrdinal [
 	Monday 16 of August of Year 2004 is including."
 
 	| rule |
-
-	rule :=
-		OrdinalDayMonthRule
-			ordinal: 3
-			day: gregorianCalendar monday
-			month: gregorianCalendar august.
-	self assert: rule ordinal = 3
+	rule := OrdinalDayMonthRule
+		        ordinal: 3
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule ordinal equals: 3
 ]
 
 { #category : 'test' }
@@ -81,35 +79,35 @@ OrdinalDayMonthRuleTest >> testPrintOn [
 
 	| rule |
 	rule := OrdinalDayMonthRule
-		ordinal: 1
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '1st Monday of August'.
+		        ordinal: 1
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '1st Monday of August'.
 	rule := OrdinalDayMonthRule
-		ordinal: 2
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '2nd Monday of August'.
+		        ordinal: 2
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '2nd Monday of August'.
 	rule := OrdinalDayMonthRule
-		ordinal: 3
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '3rd Monday of August'.
+		        ordinal: 3
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '3rd Monday of August'.
 	rule := OrdinalDayMonthRule
-		ordinal: 4
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '4th Monday of August'.
-	
+		        ordinal: 4
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '4th Monday of August'.
+
 	"The next two assertions has no sense, its just to test the print format."
 	rule := OrdinalDayMonthRule
-		ordinal: 12
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '12th Monday of August'.
+		        ordinal: 12
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '12th Monday of August'.
 	rule := OrdinalDayMonthRule
-		ordinal: 24
-		day: gregorianCalendar monday
-		month: gregorianCalendar august.
-	self assert: rule printString = '24th Monday of August'
+		        ordinal: 24
+		        day: gregorianCalendar monday
+		        month: gregorianCalendar august.
+	self assert: rule printString equals: '24th Monday of August'
 ]

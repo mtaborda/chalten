@@ -14,5 +14,5 @@ CorrectionForGregorianDateFromFixedWhenNumberIsLowerThanMarchFirstTest >> testVa
 		              fixed: 31
 		              using:
 		              (ChaltenEnvironment calendarNamed: #GregorianCalendar).
-	self assert: correction value = 0
+	self assert: correction value equals: 0
 ]

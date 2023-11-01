@@ -10,12 +10,11 @@ Class {
 DateRuleTest >> testAccessing [
 
 	| rule decoratedRule |
-
-	decoratedRule := ObjectInclusionRule for: May fourth, 2014.
+	decoratedRule := ObjectInclusionRule for: May fourth , 2014.
 	rule := DateRule rule: decoratedRule.
-	self assert: rule date = (May fourth, 2014).
-	self assert: rule decoratedRule = decoratedRule.
-	self assert: rule printString = decoratedRule printString
+	self assert: rule date equals: May fourth , 2014.
+	self assert: rule decoratedRule equals: decoratedRule.
+	self assert: rule printString equals: decoratedRule printString
 ]
 
 { #category : 'test' }

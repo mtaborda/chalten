@@ -38,8 +38,11 @@ ChaltenUndefinedEnvironmentTest >> testLocalTimeOffset [
 	self
 		should: [ environment localTimeOffset ]
 		raise: UndefinedEnvironmentException
-		withExceptionDo:  [ :exception |
-			self assert: exception description = 'There is no environment defined to resolve #localTimeOffset' ]
+		withExceptionDo: [ :exception |
+			self
+				assert: exception description
+				equals:
+				'There is no environment defined to resolve #localTimeOffset' ]
 ]
 
 { #category : 'test accessing time' }
@@ -48,8 +51,11 @@ ChaltenUndefinedEnvironmentTest >> testMicrosecondsClock [
 	self
 		should: [ environment microsecondsClock ]
 		raise: UndefinedEnvironmentException
-		withExceptionDo:  [ :exception |
-			self assert: exception description = 'There is no environment defined to resolve #microsecondsClock' ]
+		withExceptionDo: [ :exception |
+			self
+				assert: exception description
+				equals:
+				'There is no environment defined to resolve #microsecondsClock' ]
 ]
 
 { #category : 'test accessing time' }
@@ -58,8 +64,11 @@ ChaltenUndefinedEnvironmentTest >> testMillisecondsClock [
 	self
 		should: [ environment millisecondsClock ]
 		raise: UndefinedEnvironmentException
-		withExceptionDo:  [ :exception |
-			self assert: exception description = 'There is no environment defined to resolve #millisecondsClock' ]
+		withExceptionDo: [ :exception |
+			self
+				assert: exception description
+				equals:
+				'There is no environment defined to resolve #millisecondsClock' ]
 ]
 
 { #category : 'test accessing time' }
@@ -68,6 +77,8 @@ ChaltenUndefinedEnvironmentTest >> testSecondsClock [
 	self
 		should: [ environment secondsClock ]
 		raise: UndefinedEnvironmentException
-		withExceptionDo:  [ :exception |
-			self assert: exception description = 'There is no environment defined to resolve #secondsClock' ]
+		withExceptionDo: [ :exception |
+			self
+				assert: exception description
+				equals: 'There is no environment defined to resolve #secondsClock' ]
 ]

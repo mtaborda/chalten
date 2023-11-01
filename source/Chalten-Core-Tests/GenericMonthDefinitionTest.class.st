@@ -66,35 +66,50 @@ GenericMonthDefinitionTest >> testIsValidDayNumber [
 { #category : 'test' }
 GenericMonthDefinitionTest >> testNumberOfDays [
 
-	self assert: monthDefinition numberOfDays = self thirtyDays.
-	self assert: otherDefinition numberOfDays = self thirtyDays
+	self assert: monthDefinition numberOfDays equals: self thirtyDays.
+	self assert: otherDefinition numberOfDays equals: self thirtyDays
 ]
 
 { #category : 'test' }
 GenericMonthDefinitionTest >> testNumberOfDaysFromBeginningOfYearIn [
 
-	self assert: (monthDefinition numberOfDaysFromBeginningOfYearIn: self for: self) = self ninetyDays
+	self
+		assert:
+		(monthDefinition numberOfDaysFromBeginningOfYearIn: self for: self)
+		equals: self ninetyDays
 ]
 
 { #category : 'test' }
 GenericMonthDefinitionTest >> testNumberOfDaysIn [
 
-	self assert: (monthDefinition numberOfDaysIn: self) = self thirtyDays.
-	self assert: (otherDefinition numberOfDaysIn: self) = self thirtyDays
+	self
+		assert: (monthDefinition numberOfDaysIn: self)
+		equals: self thirtyDays.
+	self
+		assert: (otherDefinition numberOfDaysIn: self)
+		equals: self thirtyDays
 ]
 
 { #category : 'test' }
 GenericMonthDefinitionTest >> testNumberOfDaysInLeapYear [
 
-	self assert: monthDefinition numberOfDaysInLeapYear = self thirtyDays.
-	self assert: otherDefinition numberOfDaysInLeapYear = self thirtyDays
+	self
+		assert: monthDefinition numberOfDaysInLeapYear
+		equals: self thirtyDays.
+	self
+		assert: otherDefinition numberOfDaysInLeapYear
+		equals: self thirtyDays
 ]
 
 { #category : 'test' }
 GenericMonthDefinitionTest >> testNumberOfDaysInNonleapYear [
 
-	self assert: monthDefinition numberOfDaysInNonleapYear = self twentynineDays.
-	self assert: otherDefinition numberOfDaysInNonleapYear = self thirtyDays
+	self
+		assert: monthDefinition numberOfDaysInNonleapYear
+		equals: self twentynineDays.
+	self
+		assert: otherDefinition numberOfDaysInNonleapYear
+		equals: self thirtyDays
 ]
 
 { #category : 'test support' }

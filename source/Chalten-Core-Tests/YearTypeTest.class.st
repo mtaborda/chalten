@@ -80,8 +80,8 @@ YearTypeTest >> setUp [
 { #category : 'test' }
 YearTypeTest >> testAmountOfMonthsIn [
 
-	self assert: (leapYearType amountOfMonthsIn: self) = 12.
-	self assert: (nonleapYearType amountOfMonthsIn: self) = 12
+	self assert: (leapYearType amountOfMonthsIn: self) equals: 12.
+	self assert: (nonleapYearType amountOfMonthsIn: self) equals: 12
 ]
 
 { #category : 'test' }
@@ -93,8 +93,8 @@ YearTypeTest >> testArrayOfMonthsOf [
 		at: 1 put: January;
 		at: 2 put: February;
 		at: 3 put: March.
-	self assert: (leapYearType arrayOfMonthsOf: self) = array.
-	self assert: (nonleapYearType arrayOfMonthsOf: self) = array
+	self assert: (leapYearType arrayOfMonthsOf: self) equals: array.
+	self assert: (nonleapYearType arrayOfMonthsOf: self) equals: array
 ]
 
 { #category : 'test' }
@@ -107,22 +107,26 @@ YearTypeTest >> testIsLeap [
 { #category : 'test' }
 YearTypeTest >> testIsPrintString [
 
-	self assert: leapYearType printString = 'Leap Year'.
-	self assert: nonleapYearType printString = 'Nonleap Year'
+	self assert: leapYearType printString equals: 'Leap Year'.
+	self assert: nonleapYearType printString equals: 'Nonleap Year'
 ]
 
 { #category : 'test' }
 YearTypeTest >> testMonthNumberedIn [
 
-	self assert: (leapYearType monthNumbered: 5 in: self) = May.
-	self assert: (nonleapYearType monthNumbered: 5 in: self) = May
+	self assert: (leapYearType monthNumbered: 5 in: self) equals: May.
+	self assert: (nonleapYearType monthNumbered: 5 in: self) equals: May
 ]
 
 { #category : 'test' }
 YearTypeTest >> testNumberOfDaysFor [
 
-	self assert: (leapYearType numberOfDaysFor: self) = self threeHundredSixtySixDays.
-	self assert: (nonleapYearType numberOfDaysFor: self) = self threeHundredSixtyFiveDays
+	self
+		assert: (leapYearType numberOfDaysFor: self)
+		equals: self threeHundredSixtySixDays.
+	self
+		assert: (nonleapYearType numberOfDaysFor: self)
+		equals: self threeHundredSixtyFiveDays
 ]
 
 { #category : 'test support' }

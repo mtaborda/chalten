@@ -62,39 +62,57 @@ KislevMonthDefinitionTest >> testIsValidDayNumber [
 { #category : 'test' }
 KislevMonthDefinitionTest >> testNumberOfDays [
 
-	self assert: shortDefinition numberOfDays = self twentynineDays.
-	self assert: longDefinition numberOfDays = self thirtyDays
+	self assert: shortDefinition numberOfDays equals: self twentynineDays.
+	self assert: longDefinition numberOfDays equals: self thirtyDays
 ]
 
 { #category : 'test' }
 KislevMonthDefinitionTest >> testNumberOfDaysFromBeginningOfYearIn [
 
-	self assert: (shortDefinition numberOfDaysFromBeginningOfYearIn: self for: self) = self ninetyDays.
-	self assert: (longDefinition numberOfDaysFromBeginningOfYearIn: self for: self) = self ninetyDays
+	self
+		assert:
+		(shortDefinition numberOfDaysFromBeginningOfYearIn: self for: self)
+		equals: self ninetyDays.
+	self
+		assert:
+		(longDefinition numberOfDaysFromBeginningOfYearIn: self for: self)
+		equals: self ninetyDays
 ]
 
 { #category : 'test' }
 KislevMonthDefinitionTest >> testNumberOfDaysIn [
 
 	current := shortDefinition.
-	self assert: (shortDefinition numberOfDaysIn: self) = self twentynineDays.
-	
+	self
+		assert: (shortDefinition numberOfDaysIn: self)
+		equals: self twentynineDays.
+
 	current := longDefinition.
-	self assert: (longDefinition numberOfDaysIn: self) = self thirtyDays
+	self
+		assert: (longDefinition numberOfDaysIn: self)
+		equals: self thirtyDays
 ]
 
 { #category : 'test' }
 KislevMonthDefinitionTest >> testNumberOfDaysInLeapYear [
 
-	self assert: longDefinition numberOfDaysInLeapYear = self thirtyDays.
-	self assert: shortDefinition numberOfDaysInLeapYear = self twentynineDays
+	self
+		assert: longDefinition numberOfDaysInLeapYear
+		equals: self thirtyDays.
+	self
+		assert: shortDefinition numberOfDaysInLeapYear
+		equals: self twentynineDays
 ]
 
 { #category : 'test' }
 KislevMonthDefinitionTest >> testNumberOfDaysInNonleapYear [
 
-	self assert: longDefinition numberOfDaysInNonleapYear = self thirtyDays.
-	self assert: shortDefinition numberOfDaysInNonleapYear = self twentynineDays
+	self
+		assert: longDefinition numberOfDaysInNonleapYear
+		equals: self thirtyDays.
+	self
+		assert: shortDefinition numberOfDaysInNonleapYear
+		equals: self twentynineDays
 ]
 
 { #category : 'test support' }

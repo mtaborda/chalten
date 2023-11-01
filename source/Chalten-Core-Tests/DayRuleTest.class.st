@@ -14,9 +14,9 @@ DayRuleTest >> testAccessing [
 		                 (ChaltenEnvironment calendarNamed:
 			                  #GregorianCalendar) friday.
 	rule := DayRule rule: decoratedRule.
-	self assert: rule day = Friday.
-	self assert: rule decoratedRule = decoratedRule.
-	self assert: rule printString = decoratedRule printString
+	self assert: rule day equals: Friday.
+	self assert: rule decoratedRule equals: decoratedRule.
+	self assert: rule printString equals: decoratedRule printString
 ]
 
 { #category : 'test' }

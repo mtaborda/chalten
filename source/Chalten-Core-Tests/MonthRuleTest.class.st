@@ -14,9 +14,9 @@ MonthRuleTest >> testAccessing [
 		                 (ChaltenEnvironment calendarNamed:
 			                  #GregorianCalendar) january.
 	rule := MonthRule rule: decoratedRule.
-	self assert: rule decoratedRule = decoratedRule.
-	self assert: rule month = January.
-	self assert: rule printString = decoratedRule printString
+	self assert: rule decoratedRule equals: decoratedRule.
+	self assert: rule month equals: January.
+	self assert: rule printString equals: decoratedRule printString
 ]
 
 { #category : 'test' }

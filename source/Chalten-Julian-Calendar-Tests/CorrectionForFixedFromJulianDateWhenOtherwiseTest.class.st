@@ -9,7 +9,7 @@ Class {
 CorrectionForFixedFromJulianDateWhenOtherwiseTest >> testValue [
 
 	| correction |
-
-	correction := CorrectionForFixedFromDateBehavior for: JulianMay fifteenth, 2005.
-	self assert: correction value = 2
+	correction := CorrectionForFixedFromDateBehavior for:
+		              JulianMay fifteenth , 2005.
+	self assert: correction value equals: 2
 ]

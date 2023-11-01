@@ -14,7 +14,9 @@ ChaltenCurrentEnvironmentTest >> testIsForCurrentPlatform [
 { #category : 'test accessing time' }
 ChaltenCurrentEnvironmentTest >> testLocalTimeOffset [
 
-	self assert: ChaltenEnvironment localTimeOffset = (ChaltenEnvironment primOffset // 60)
+	self
+		assert: ChaltenEnvironment localTimeOffset
+		equals: ChaltenEnvironment primOffset // 60
 ]
 
 { #category : 'test accessing time' }
@@ -24,7 +26,7 @@ ChaltenCurrentEnvironmentTest >> testMicrosecondsClock [
 	first := ChaltenEnvironment microsecondsClock.
 	(Delay forMilliseconds: 1) wait.
 	second := ChaltenEnvironment microsecondsClock.
-	self assert: first = (second - (second -first))
+	self assert: first equals: second - (second - first)
 ]
 
 { #category : 'test accessing time' }
@@ -34,7 +36,7 @@ ChaltenCurrentEnvironmentTest >> testMillisecondsClock [
 	first := ChaltenEnvironment millisecondsClock.
 	(Delay forMilliseconds: 1) wait.
 	second := ChaltenEnvironment millisecondsClock.
-	self assert: first = (second - (second -first))
+	self assert: first equals: second - (second - first)
 ]
 
 { #category : 'test accessing time' }
@@ -44,5 +46,5 @@ ChaltenCurrentEnvironmentTest >> testSecondsClock [
 	first := ChaltenEnvironment secondsClock.
 	(Delay forMilliseconds: 1) wait.
 	second := ChaltenEnvironment secondsClock.
-	self assert: first = (second - (second -first))
+	self assert: first equals: second - (second - first)
 ]

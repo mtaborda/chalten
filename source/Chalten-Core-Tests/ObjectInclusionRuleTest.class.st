@@ -10,11 +10,8 @@ Class {
 ObjectInclusionRuleTest >> testAccessing [
 
 	| rule |
-	
 	rule := ObjectInclusionRule for: 1.
-	
-	self assert: rule object=1.
-
+	self assert: rule object equals: 1
 ]
 
 { #category : 'testing' }

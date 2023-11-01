@@ -14,5 +14,5 @@ CorrectionForGregorianDateFromFixedWhenOtherwiseTest >> testValue [
 		              fixed: 733110
 		              using:
 		              (ChaltenEnvironment calendarNamed: #GregorianCalendar).
-	self assert: correction value = 2
+	self assert: correction value equals: 2
 ]

@@ -9,7 +9,7 @@ Class {
 CorrectionForFixedFromGregorianDateWhenMonthNumberIsUpperThanFebruaryAndYearIsLeapTest >> testValue [
 
 	| correction |
-
-	correction := CorrectionForFixedFromDateBehavior for: March fifteenth, 2008.
-	self assert: correction value = 1
+	correction := CorrectionForFixedFromDateBehavior for:
+		              March fifteenth , 2008.
+	self assert: correction value equals: 1
 ]

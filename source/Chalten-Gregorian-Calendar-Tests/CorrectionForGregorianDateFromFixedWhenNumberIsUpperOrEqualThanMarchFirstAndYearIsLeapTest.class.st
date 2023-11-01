@@ -14,5 +14,5 @@ CorrectionForGregorianDateFromFixedWhenNumberIsUpperOrEqualThanMarchFirstAndYear
 		              fixed: 733110
 		              using:
 		              (ChaltenEnvironment calendarNamed: #GregorianCalendar).
-	self assert: correction value = 1
+	self assert: correction value equals: 1
 ]

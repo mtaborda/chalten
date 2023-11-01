@@ -10,12 +10,11 @@ Class {
 DayOfMonthRuleTest >> testAccessing [
 
 	| rule decoratedRule |
-
 	decoratedRule := ObjectInclusionRule for: January first.
 	rule := DayOfMonthRule rule: decoratedRule.
-	self assert: rule dayOfMonth = January first.
-	self assert: rule decoratedRule = decoratedRule.
-	self assert: rule printString = decoratedRule printString
+	self assert: rule dayOfMonth equals: January first.
+	self assert: rule decoratedRule equals: decoratedRule.
+	self assert: rule printString equals: decoratedRule printString
 ]
 
 { #category : 'test' }

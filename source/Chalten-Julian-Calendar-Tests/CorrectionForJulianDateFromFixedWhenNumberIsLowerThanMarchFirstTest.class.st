@@ -9,7 +9,10 @@ Class {
 CorrectionForJulianDateFromFixedWhenNumberIsLowerThanMarchFirstTest >> testValue [
 
 	| correction |
-
-	correction := CorrectionForDateFromFixedBehavior for: 2007 fixed: 31 using: (ChaltenEnvironment calendarNamed: #JulianCalendar).
-	self assert: correction value = 0
+	correction := CorrectionForDateFromFixedBehavior
+		              for: 2007
+		              fixed: 31
+		              using:
+		              (ChaltenEnvironment calendarNamed: #JulianCalendar).
+	self assert: correction value equals: 0
 ]
