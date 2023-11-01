@@ -5,12 +5,13 @@ symbolDictionary := Rowan image
 
 "Global variables definition"
 
-symbolDictionary at: #ChaltenEnvironment put: ChaltenEnvironmentBehavior initializeEnvironment new
+symbolDictionary at: #ChaltenEnvironment put: ChaltenEnvironmentBehavior initializeEnvironment new.
 symbolDictionary at: #TimeUnits put: TimeUnitsGlobals new.
+TimeOfDay initializeTimesOfDay. "Cannot be invoked from TimeOfDay class>>initialize because depends on TimeUnits global"
 CalendarDefinition allSubclassesDo: [ :each | each subclasses ifEmpty: [ each initializeCalendar ] ].
 symbolDictionary at: #TheBeginningOfTime put: TheBeginningOfTimeClass new.
 symbolDictionary at: #TheEndOfTime put: TheEndOfTimeClass new.
-symbolDictionary at: #TimeZones put: TimeZonesGlobals new.
+symbolDictionary at: #TimeZones put: (TimeZonesGlobals initializeUniqueInstance; new).
 
 "Gregorian calendar specific globals"
 
