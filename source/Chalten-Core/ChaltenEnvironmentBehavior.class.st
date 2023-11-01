@@ -37,22 +37,22 @@ ChaltenEnvironmentBehavior class >> new [
 { #category : 'accessing time' }
 ChaltenEnvironmentBehavior >> calendarNamed: aCalendarName [
 
-	^ calendars at: aCalendarName ifAbsent: [
+	^ self calendars at: aCalendarName ifAbsent: [
 		  self error: ('Calendar "<1s>" is not defined.' expandMacrosWith:
 				   aCalendarName asString) ]
 ]
 
 { #category : 'accessing time' }
-ChaltenEnvironmentBehavior >> defineCalendarNamed: aCalendarName with: aCalendar [
+ChaltenEnvironmentBehavior >> calendars [
 
-	calendars at: aCalendarName put: aCalendar 
+	calendars ifNil: [calendars := Dictionary new].
+	^calendars
 ]
 
 { #category : 'accessing time' }
-ChaltenEnvironmentBehavior >> initialize [
+ChaltenEnvironmentBehavior >> defineCalendarNamed: aCalendarName with: aCalendar [
 
-	super initialize.
-	calendars := Dictionary new
+	self calendars at: aCalendarName put: aCalendar 
 ]
 
 { #category : 'accessing time' }
