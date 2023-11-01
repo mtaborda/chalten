@@ -4,9 +4,8 @@ Class {
 	#instVars : [
 		'environment'
 	],
-	#category : 'Chalten-Core-Tests-Time',
-	#package : 'Chalten-Core-Tests',
-	#tag : 'Time'
+	#category : 'Chalten-Core-Pharo-Extensions-Tests',
+	#package : 'Chalten-Core-Pharo-Extensions-Tests'
 }
 
 { #category : 'initailize-release' }
