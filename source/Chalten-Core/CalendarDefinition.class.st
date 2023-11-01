@@ -270,18 +270,11 @@ CalendarDefinition >> firstMonthOf: aYear [
 CalendarDefinition >> initialize [
 
 	self initializeDays.
-	self initializeMonths.
-	self initializeGlobalVariables
+	self initializeMonths
 ]
 
 { #category : 'initialization' }
 CalendarDefinition >> initializeDays [
-
-	self subclassResponsibility
-]
-
-{ #category : 'initialization' }
-CalendarDefinition >> initializeGlobalVariables [
 
 	self subclassResponsibility
 ]
