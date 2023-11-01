@@ -46,11 +46,8 @@ TheBeginningOfTimeClass >> > aMagnitude [
 
 { #category : 'accessing days - private' }
 TheBeginningOfTimeClass >> amountOfDaysFromEpoch [
-	"To-do: avoid creating new instance.
-	In Pharo: ^MinusInfinity
-	In GS64: 	^ArithmeticObject minusInfinity"
 
-	^ MinusInfinityClass new
+	^ ArithmeticObject minusInfinity
 ]
 
 { #category : 'printing' }

@@ -46,11 +46,8 @@ TheEndOfTimeClass >> > aMagnitude [
 
 { #category : 'accessing days - private' }
 TheEndOfTimeClass >> amountOfDaysFromEpoch [
-	"To-do: avoid creating new instance.
-	In Pharo: ^Infinity
-	In GS64: 	^ArithmeticObject infinity"
 
-	^ InfinityClass new
+	^ ArithmeticObject infinity
 ]
 
 { #category : 'printing' }
