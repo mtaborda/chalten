@@ -57,7 +57,6 @@ BaselineOfChalten >> postLoadInitialization [
 	TimeUnitsGlobals initializeAfterLoad.
 	CalendarDefinition allSubclassesDo: [ :each |
 		each subclasses ifEmpty: [ each initializeCalendar ] ].
-	TimeOfDay initialize.
 	TheBeginningOfTimeClass initializeAfterLoad.
 	TheEndOfTimeClass initializeAfterLoad.
 	TimeZonesGlobals initializeAfterLoad
