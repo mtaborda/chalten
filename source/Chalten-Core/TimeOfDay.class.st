@@ -54,12 +54,6 @@ TimeOfDay class >> hours: anHours minutes: aMinutes seconds: aSeconds millisecon
 ]
 
 { #category : 'initialization' }
-TimeOfDay class >> initialize [
-
-	self initializeTimesOfDay
-]
-
-{ #category : 'initialization' }
 TimeOfDay class >> initializeFirstTimeOfDay [
 
 	firstTimeOfDay := self timeFromMidnight: 0 hoursMeasure
