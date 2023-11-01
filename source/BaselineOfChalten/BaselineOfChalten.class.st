@@ -17,6 +17,7 @@ BaselineOfChalten >> baseline: spec [
 		do: [ self setUpDependencies: spec.
 			spec
 				package: 'Chalten-Core' with: [ spec requires: 'Aconcagua-Deployment' ];
+				package: 'Chalten-Core-Pharo-Extensions' with: [ spec requires: 'Chalten-Core' ];
 				package: 'Chalten-Gregorian-Calendar' with: [ spec requires: 'Chalten-Roman-Calendar' ];
 				package: 'Chalten-Hebrew-Calendar' with: [ spec requires: 'Chalten-Core' ];
 				package: 'Chalten-Islamic-Calendar' with: [ spec requires: 'Chalten-Core' ];
@@ -25,6 +26,7 @@ BaselineOfChalten >> baseline: spec [
 
 			spec
 				package: 'Chalten-Core-Tests' with: [ spec requires: 'Chalten-Core' ];
+				package: 'Chalten-Core-Pharo-Extensions-Tests' with: [ spec requires: 'Chalten-Core-Pharo-Extensions' ];
 				package: 'Chalten-Hebrew-Calendar-Tests' with: [ spec requires: 'Chalten-Hebrew-Calendar' ];
 				package: 'Chalten-Islamic-Calendar-Tests' with: [ spec requires: 'Chalten-Islamic-Calendar' ];
 				package: 'Chalten-Roman-Calendar-Tests' with: [ spec requires: 'Chalten-Roman-Calendar' ];
@@ -41,7 +43,7 @@ BaselineOfChalten >> baseline: spec [
 					#('Chalten-Gregorian-Calendar-Tests' 'Chalten-Hebrew-Calendar-Tests' 'Chalten-Islamic-Calendar-Tests' 'Chalten-Julian-Calendar-Tests' 'Chalten-Roman-Calendar-Tests').
 
 			spec
-				group: 'Tests' with: #('Chalten-Core-Tests' 'Chalten-Calendars-Tests');
+				group: 'Tests' with: #('Chalten-Core-Tests' 'Chalten-Core-Pharo-Extensions-Tests' 'Chalten-Calendars-Tests');
 				group: 'CI' with: 'Tests';
 				group: 'Development' with: 'Tests'.
 			spec postLoadDoIt: #postLoadInitialization
