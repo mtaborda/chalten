@@ -1,6 +1,6 @@
 Extension { #name : 'ArithmeticObjectInterval' }
 
-{ #category : '*Chalten-Core-Time' }
+{ #category : '*Chalten-Core-Aconcagua-Extensions' }
 ArithmeticObjectInterval >> asTimeSpan [
 
 	^TimeSpan fromInterval: self
