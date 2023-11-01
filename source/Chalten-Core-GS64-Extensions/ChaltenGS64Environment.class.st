@@ -15,7 +15,7 @@ ChaltenGS64Environment class >> isForCurrentPlatform [
 { #category : 'accessing time' }
 ChaltenGS64Environment >> localTimeOffset [
 
-	self halt: 'no yet defined'
+	^TimeZone current secondsFromGmt / 3600
 ]
 
 { #category : 'accessing time' }
