@@ -17,12 +17,6 @@ CalendarDefinition class >> calendarName [
 ]
 
 { #category : 'initialization' }
-CalendarDefinition class >> initializeAfterLoad [
-
-	self initializeCalendar
-]
-
-{ #category : 'initialization' }
 CalendarDefinition class >> initializeCalendar [
 
 	ChaltenEnvironment defineCalendarNamed: self calendarName with: self new

@@ -1,15 +1,7 @@
 Extension { #name : 'TheBeginningOfTimeClass' }
 
 { #category : '*Chalten-Core-Pharo-Extensions' }
-TheBeginningOfTimeClass class >> initialize [
+TheBeginningOfTimeClass class >> initializeAfterLoad [
 
-	super initialize.
-	self initializeUniqueInstance.
-	self initializeGlobalVariable
-]
-
-{ #category : '*Chalten-Core-Pharo-Extensions' }
-TheBeginningOfTimeClass class >> initializeGlobalVariable [
-
-	Smalltalk at: #TheBeginningOfTime put: uniqueInstance
+	Smalltalk at: #TheBeginningOfTime put: self new
 ]

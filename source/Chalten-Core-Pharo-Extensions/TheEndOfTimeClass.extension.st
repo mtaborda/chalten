@@ -1,15 +1,7 @@
 Extension { #name : 'TheEndOfTimeClass' }
 
 { #category : '*Chalten-Core-Pharo-Extensions' }
-TheEndOfTimeClass class >> initialize [
+TheEndOfTimeClass class >> initializeAfterLoad [
 
-	super initialize.
-	self initializeUniqueInstance.
-	self initializeGlobalVariable
-]
-
-{ #category : '*Chalten-Core-Pharo-Extensions' }
-TheEndOfTimeClass class >> initializeGlobalVariable [
-
-	Smalltalk at: #TheEndOfTime put: uniqueInstance
+	Smalltalk at: #TheEndOfTime put: self new
 ]

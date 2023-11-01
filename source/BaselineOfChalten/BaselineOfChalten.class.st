@@ -53,8 +53,11 @@ BaselineOfChalten >> postLoadInitialization [
 
 	ChaltenEnvironmentBehavior initializeAfterLoad.
 	TimeUnitsGlobals initializeAfterLoad.
-	CalendarDefinition allSubclassesDo: [ :each | each subclasses ifEmpty: [ each initializeAfterLoad ] ].
-	TimeOfDay initializeAfterLoad.
+	CalendarDefinition allSubclassesDo: [ :each |
+		each subclasses ifEmpty: [ each initializeCalendar ] ].
+	TimeOfDay initialize.
+	TheBeginningOfTimeClass initializeAfterLoad.
+	TheEndOfTimeClass initializeAfterLoad.
 	TimeZonesGlobals initializeAfterLoad
 ]
 

@@ -54,7 +54,7 @@ TimeOfDay class >> hours: anHours minutes: aMinutes seconds: aSeconds millisecon
 ]
 
 { #category : 'initialization' }
-TimeOfDay class >> initializeAfterLoad [
+TimeOfDay class >> initialize [
 
 	self initializeTimesOfDay
 ]

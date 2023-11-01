@@ -23,6 +23,13 @@ Class {
 }
 
 { #category : 'initialization' }
+TimeZonesGlobals class >> initialize [
+
+	<ignoreForCoverage>
+	self initializeUniqueInstance
+]
+
+{ #category : 'initialization' }
 TimeZonesGlobals class >> initializeUniqueInstance [
 
 	uniqueInstance := self basicNew initialize
